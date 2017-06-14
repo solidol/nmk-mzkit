@@ -1,0 +1,95 @@
+\chapter{Матеріали до Л/Р \No 7}
+\section{Синтаксис команди CREATE TABLE}
+\index{MySQL!SQL!CREATE}
+\label{crtab:text}
+\begin{verbatim}
+ CREATE [TEMPORARY] TABLE [IF NOT EXISTS] 
+ tbl_name [(create_definition, ...)]
+ [Table_options] [select_statement]
+
+ create_definition:
+   col_name type [NOT NULL | NULL] [DEFAULT default_value] 
+   [AUTO_INCREMENT] [PRIMARY KEY] [reference_definition]
+   або PRIMARY KEY (index_col_name, ...)
+   або KEY [index_name] (index_col_name, ...)
+   або INDEX [index_name] (index_col_name, ...)
+   або UNIQUE [INDEX] [index_name] (index_col_name, ...)
+   або FULLTEXT [INDEX] [index_name] (index_col_name, ...)
+   або [CONSTRAINT symbol] FOREIGN KEY [index_name] 
+       (index_col_name, ...) [Reference_definition]
+   або CHECK (expr)
+
+ type:
+         TINYINT [(length)] [UNSIGNED] [ZEROFILL]
+   або SMALLINT [(length)] [UNSIGNED] [ZEROFILL]
+   або MEDIUMINT [(length)] [UNSIGNED] [ZEROFILL]
+   або INT [(length)] [UNSIGNED] [ZEROFILL]
+   або INTEGER [(length)] [UNSIGNED] [ZEROFILL]
+   або BIGINT [(length)] [UNSIGNED] [ZEROFILL]
+   або REAL [(length, decimals)] [UNSIGNED] [ZEROFILL]
+   або DOUBLE [(length, decimals)] [UNSIGNED] [ZEROFILL]
+   або FLOAT [(length, decimals)] [UNSIGNED] [ZEROFILL]
+   або DECIMAL (length, decimals) [UNSIGNED] [ZEROFILL]
+   або NUMERIC (length, decimals) [UNSIGNED] [ZEROFILL]
+   або CHAR (length) [BINARY]
+   або VARCHAR (length) [BINARY]
+   або DATE
+   або TIME
+   або TIMESTAMP
+   або DATETIME
+   або TINYBLOB
+   або BLOB
+   або MEDIUMBLOB
+   або LONGBLOB
+   або TINYTEXT
+   або TEXT
+   або MEDIUMTEXT
+   або LONGTEXT
+   або ENUM (value1, value2, value3, ...)
+   або SET (value1, value2, value3, ...)
+
+ index_col_name:
+         col_name [(length)]
+
+ reference_definition:
+         REFERENCES tbl_name [(index_col_name, ...)]
+                    [MATCH FULL | MATCH PARTIAL]
+                    [ON DELETE reference_option]
+                    [ON UPDATE reference_option]
+
+ reference_option:
+         RESTRICT | CASCADE | SET NULL | 
+         NO ACTION | SET DEFAULT
+
+ table_options:
+         TYPE = {BDB | HEAP | ISAM | InnoDB | 
+         MERGE | MRG_MYISAM | MYISAM}
+ або AUTO_INCREMENT = #
+ або AVG_ROW_LENGTH = #
+ або CHECKSUM = {0 | 1}
+ або COMMENT = "string"
+ або MAX_ROWS = #
+ або MIN_ROWS = #
+ або PACK_KEYS = {0 | 1 | DEFAULT}
+ або PASSWORD = "string"
+ або DELAY_KEY_WRITE = {0 | 1}
+ або ROW_FORMAT = {default | dynamic | 
+     fixed | compressed}
+ або RAID_TYPE = {1 | STRIPED | RAID0} 
+     RAID_CHUNKS = # RAID_CHUNKSIZE = #
+ або UNION = (table_name, [table_name ...])
+ або INSERT_METHOD = {NO | FIRST | LAST}
+ або DATA DIRECTORY = "абсолютний шлях до каталогу"
+ або INDEX DIRECTORY = "абсолютний шлях до каталогу"
+
+ select_statement:
+         [IGNORE | REPLACE] SELECT ...  
+         (Будь-який коректний вираз SELECT)
+
+\end{verbatim}
+\section{Синтаксис команди ALTER TABLE}
+\index{MySQL!SQL!ALTER}
+\label{alttab:text}
+\begin{verbatim}
+
+\end{verbatim}

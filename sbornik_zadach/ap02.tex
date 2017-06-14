@@ -1,0 +1,162 @@
+\chapter{Матеріали до Л/Р \No 2}
+\section{Елементи форм HTML}
+\index{HTML!форми}
+\subsection{INPUT і його методи}
+\index{HTML!форми!input}
+\label{inp-tag:app}
+\subsection*{Однорядкові поля введення даних}
+
+\begin{verbatim}
+<input type=text name=им'я_параметра [value=значення] 
+[size=розмір_поля] [maxlen=довжина_поля]>
+\end{verbatim}
+
+Даний тег створює поле вводу з максимально допустимою довжиною тексту <<maxlen>> і розміром в size <<знакомест>>. Якщо вказаний атрибут <<value>>, то в поле буде спочатку відображатися значення даного атрибуту. У квадратних дужках \verb'[]' позначені необов'язкові атрибути.
+
+\subsection*{Поля вводу паролів}
+
+\begin{verbatim}
+<input type=password name=им'я_параметра [value=значення] 
+[size=розмір_поля] [maxlen=довжина_поля]>
+\end{verbatim}
+
+Структура даного тегу така сама як і у <input type=text>. Різниця лише у відображенні даних, що вводить користувач.
+
+
+\subsection*{Приховане текстове поле}
+
+\begin{verbatim}
+<input type=hidden name=им'я_параметра [value=значення]>
+\end{verbatim}
+
+Такі поля передають дані серверу, але не відображаються на сторінці. Значення атрибуту <<value>> встановлюється при формуванні сторінки, або JavaScript-сценарієм.
+
+\subsection*{Незалежні перемикачі}
+
+\begin{verbatim}
+<input type=checkbox name=им'я_параметра [value=значення]
+[checked]>
+\end{verbatim} 
+
+Перемикач виду <<прапорець>>. У разі встановлення прапорця при відправлені форми серверу будуть передані параметри <<им'я\_параметра=значення>>. Якщо прапорець не встановлено серверу взагалі нічого не буде відправлено. 
+
+Перемикач за замовчуванням вимкнутий, щоб зробити його увімкнутим за замовчуванням треба встановити атрибут  <<checked>>.
+
+Стан перемикача не залежить від стану інших перемикачів цього типу.
+
+\subsection*{Залежні перемикачі}
+
+Залежний перемикач, так само як і незалежний перемикач, може заходитись у двох станах, в залежності від атрибуту  <<checked>>. При цьому на формі може бути увімкнений лише один перемикач серед групи перемикачів з однаковим атрибутом <<name>>.
+\begin{verbatim}
+<form action="http://localhost/script.php" method="GET">
+<input type=radio name=answer value=yes checked>Да
+<input type=radio name=answer value=no>Нет
+<input type=submit value=Отправить>
+</form>
+\end{verbatim}
+
+\subsection*{Кнопки відправлення та очищення параметрів форми}
+
+Кнопка відправки служить для передачі серверу змісту форми на сторінці. Атрибут <<value>> визначає текст, ща відображається на кнопці. Під час відправлення форми серверу будуть передані дані кнопки у вигляді <<им'я\_параметра=значення>>.
+\begin{verbatim}
+<input type=submit [name=им'я_параметра] value=значення>
+\end{verbatim}
+У разі використання кнопки із зображенням сереру передадуться координати кліку відносно зображення.
+\begin{verbatim}
+<input type=submit [name=им'я_параметра] src=зображення>
+\end{verbatim}
+Кнопка очищення форми знищує всі зміни внесені користувачем сайту у дану форму.
+\begin{verbatim}
+<input type=reset [name=им'я_параметра] value=значення>
+\end{verbatim}
+
+\subsection*{Поле вибору файлу}
+
+Тег <input> також дозволяє активувати діалогове вікно вибору файлу та завантажувати його на сервер при відправленні форми.
+\begin{verbatim}
+<input type=file name=имя [value=имя_файла]>
+\end{verbatim}
+
+
+\subsection{Багаторядкове текстове поле}
+\index{HTML!форми!textarea}
+\label{tar-tag:app}
+Синтаксис багаторядкового поля виглядає наступним чином:
+\begin{verbatim}
+<textarea name=имя [cols=ширина_в_символах] 
+[rows=высота_в_символах] wrap=тип_переноса>
+текст за замовчуванням
+</textarea>
+\end{verbatim}
+Хоча висота і ширина поля необов'язкові параметри їх бажано вказувати. Атрибут <<wrap>> відповідає за перенос і може приймати наступні значення:
+\begin{enumerate}
+\item Virtual --- справа від тексту з'являється полоса прокрутки, а текст розбивається на рядки.
+\item Physical --- залежить від браузера і виглядає по-різному
+\item None --- текст залишається у тому вигляді, в якому користувач його ввів, з'являються горизонтальна і вертикальна полоси прокрутки.
+\end{enumerate}
+
+\subsection{Списки з вибором} \label{sel-tag:app}
+\index{HTML!форми!select}
+\subsection*{Списки з одиночним вибором}
+\label{sel-tag:app}
+Списки з одиночним вибором реалізуються за допомогою наступної конструкції:
+\begin{verbatim}
+
+<select name=day size=1>
+<option value=1>Понедельник</option>
+<option value=2>Вторник</option>
+<option value=3 selected>Среда</option>
+<option value=4>Четверг</option>
+<option value=5>Пятница</option>
+<option value=6>Суббота</option>
+<option value=7>Воскресенье</option>
+</select>
+
+\end{verbatim}
+При відправленні форми сервер отримає дані виду <<им'я\_параметра=значення>>. За замовчуванням може бути обраний пункт списку серед атрибутів якого є \verb'selected'.
+
+\subsection*{Списки з множинним вибором}
+Список з множинним вибором відрізняється лише атрибутом \verb'multiple' в середині тега \verb'<select>'.
+\begin{verbatim}
+
+<select name=day size=7 multiple>
+<option value=1>Понедельник</option>
+<option value=1>Вторник</option>
+<option value=1>Среда</option>
+<option value=1>Четверг</option>
+<option value=1>Пятница</option>
+<option value=1>Суббота</option>
+<option value=1>Воскресенье</option>
+</select>
+
+
+\end{verbatim}
+
+
+\section{Змінні-функції}
+\index{PHP!функції!змінні-функції}
+\label{var-func:app}
+Приклад використання змінної-функції:
+\begin{verbatim}
+<?php
+?php
+function foo() {
+    echo "In foo()<br />\n";
+}
+function bar($arg = '')
+{
+    echo "In bar(); argument was '$arg'.<br />\n";
+}
+// Функция-обертка для echo
+function echoit($string)
+{
+    echo $string;
+}
+
+$func = 'foo';
+$func();        // Вызывает функцию foo()
+$func = 'bar';
+$func('test');  // Вызывает функцию bar()
+$func = 'echoit';
+$func('test');  // Вызывает функцию echoit()
+\end{verbatim}
