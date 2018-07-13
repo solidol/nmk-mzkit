@@ -1,0 +1,157 @@
+\chapter{Матеріали до Л/Р \No 6}
+
+
+\section{Налаштування сесії у РНР}
+\index{Сесії!налаштування}
+\begin{longtable}[t]{|l|p{20em}|}
+\kill
+\caption{\space Перелік параметрів у файлі php.ini} \label{ses-opt:table}\\
+\hline
+
+Опція & Опис \\
+\hline \endfirsthead
+\caption*{\space Продовження} \\
+\hline
+Опція & Опис \\
+\hline \endhead
+\hline \endfoot
+
+\verb'session.save_path' & визначає, де на сервері зберігатимуться дані сесії. \\
+\verb'session.use_cookies' & визначає, чи використовувати cookies при роботі з сесіями.\\
+\verb'session.cookie_lifetime' & задає тривалість життя cookies в секундах.\\
+\verb'session.name' & визначає ім'я сесії\\
+\verb'session.auto_start' & дозволяє автоматично запускати сесії\\
+\verb'session.serialize_handler' & задає спосіб кодування даних сесії\\
+\verb'session.cache_expire' & визначає, через скільки хвилин застаріває документ в кеші\\
+
+\hline
+\end{longtable}
+
+Ім'я сесії \verb'session.name' за умовчанням встановлюється як \verb'PHPSESSID' і використовується в \verb'cookies' як ім'я змінної, в якій зберігається ідентифікатор сесії. Автоматичний запуск сесій за замовчуванням відключений, але його можна задати, зробивши значення \verb'session.auto_start' рівним <<1>>. Для кодування даних сесії по замовчуванню використовується php. Старіння даних, збережених в кеші, відбувається через 180 хвилин.
+
+\section{Повний перелік змінних у <<php.ini>>}
+\begin{longtable}[t]{|l|p{15em}|}
+\kill
+
+\caption{\space Повний параметрів у файлі <<php.ini>> та значень за замовчуванням} \label{ses-opt-full:table}\\
+\hline
+
+Опція & Значення \\
+\hline \endfirsthead
+\caption*{\space Продовження} \\
+\hline
+Опція & Значення \\
+\hline \endhead
+\hline \endfoot
+
+\verb'session.save_path' & \verb'""'\\
+\verb'session.name' & "PHPSESSID"\\
+\verb'session.save_handler' & "files"\\
+\verb'session.auto_start' & "0"\\
+\verb'session.gc_probability' & "1"\\
+\verb'session.gc_divisor' & "100"\\
+\verb'session.gc_maxlifetime' & "1440"\\
+\verb'session.serialize_handler' & "php"\\
+\verb'session.cookie_lifetime' & "0"\\
+\verb'session.cookie_path' & "/"\\
+\verb'session.cookie_domain' & \verb'""'\\
+\verb'session.cookie_secure' & \verb'""'\\
+\verb'session.cookie_httponly' & \verb'""'\\
+\verb'session.use_cookies' & "1"\\
+\verb'session.use_only_cookies' & "1"\\
+\verb'session.referer_check' & \verb'""'\\
+\verb'session.entropy_file' & \verb'""'\\
+\verb'session.entropy_length' & "0"\\
+\verb'session.cache_limiter' & "nocache"\\
+\verb'session.cache_expire' & "180"\\
+\verb'session.use_trans_sid' & "0"\\
+\verb'session.bug_compat_42' & "1"\\
+\verb'session.bug_compat_warn' & "1"\\
+\verb'session.hash_function' & "0"\\
+\verb'session.hash_bits_per_character' & "4"\\
+\verb'url_rewriter.tags' & "a=href, area=href, frame=src, form=, fieldset="\\
+\verb'session.upload_progress.enabled' & "1"\\
+\verb'session.upload_progress.cleanup' & "1"\\
+\verb'session.upload_progress.prefix' & "upload\_progress\_"\\
+\verb'session.upload_progress.name' & "PHP\_SESSION\_ UPLOAD\_PROGRESS"\\
+\verb'session.upload_progress.freq' & "1\%"\\
+\verb'session.upload_progress.min_freq' & "1"\\
+
+
+\hline
+\end{longtable}
+
+
+\section{Опис функцій для роботи з сесіями}
+\index{PHP!функції!сесії}
+\label{ses-func:text}
+Нижче дано перелік функцій, що необхідні для роботи із сесіями. Деякі функції налаштування дублюють функціонал опцій у файлі <<php.ini>>, на такі функції буде звернено увагу.
+
+\textbf{session\_destroy()}
+
+Функція скасовує дію \verb'session_start()'. Викликати потрібно після виклику \verb'session_start()'. Можна застосовувати, щоб знищувати сессіію користувача, а потім відразу викликати в програмі вдруге \verb'session_start()', вийти зовсім новий відвідувач з новим ідентифікатором і чистої сесією.
+
+\textbf{session\_name()} або \verb'session.name'
+
+РНР для зберігання ідентифікатора використовує якусь змінну. В cookies записують змінну: значення змінної~--- ідентифікатор, назва змінної~--- PHPSESSID. PHPSESSID~--- це назва, яку використовують за замовчуванням. Її можна перейменувати у щось більш коротке, наприклад SID. А для цього треба замінити параметр \verb'session.name' на значення SID: 
+
+можна замінити php.ini: \verb'session.name = SID' 
+
+можна створити. htaccess файл у каталозі з скриптами вашого сайту і помістити рядок \verb'php_value session.name SID'
+
+Щоб отримати назву змінної, яку використовують для зберігання ідентифікатора, треба скористатися функцією без параметра \$name = \verb'session_name()'.
+
+Щоб встановити таку змінну в довільну назву, скористайтеся функцією з параметром \verb'session_name("МояНазва")'. Зрозуміло, якщо Вам чомусь знадобилося змінити ім'я змінної для cookies за допомогою цієї функції, то її треба викликати перед \verb'session_start()' або \verb'session_register()'.
+
+\textbf{session\_module\_name()} або \verb'session_save_handler'
+
+Отримати або встановити поточний модуль сесії. РНР може зберігати сесії різному вигляді. За замовчуванням~--- в файлах.
+
+\textbf{session\_save\_path()} або \verb'session.save_path'
+
+Отримати або встановити каталог, в якому будуть зберігатися файли сесії. \$path = \verb'session_save_path()'~--- отримати. \verb'session_save_path("/mydir/temp")'~--- встановити. Параметр \verb'session.save_path' можна задавати в php.ini або <<.htaccess>>. 
+
+\textbf{session\_id()}
+
+Отримати або встановити ідентифікатор відвідувача (128-бітове число, представлене у вигляді рядка в 32 байти). У нормальних умовах Вам не потрібно встановлювати номер сесії. Але якщо Ви хочете для всіх своїх відвідувачів використовувати одну сессіію, то перед \verb'session_start()' придумайте будь-яке ім'я (наприклад, \verb'session_id ("my_name")') або отримаєте справжній ідентифікатор іншим чином. Виклик функції без параметрів поверне Вам поточний номер сесії (в такому випадку~--- викликати після \verb'session_start()').
+
+\textbf{session\_register()}
+
+Зареєструвати одну або кілька змінних. Передавати треба імена змінних, а не їх значення: \verb'session_register("змінна1", "змінна2", ...)'. 
+
+\textbf{session\_unregister()}
+
+Видалити з сесії необхідну змінну. Можна передати тільки одне ім'я змінної за один виклик функції.
+
+\textbf{session\_unset()}
+
+Очистити всі змінні сесії. У відмінності від \verb'session_destroy()' сесія і ідентифікатор залишається.
+
+\textbf{session\_is\_registered()}
+
+Перевірити, зареєстрована якась змінна в поточній сесії чи ні:
+
+\verb'if (session_is_registered("змінна")) ...'
+
+\textbf{session\_get\_cookies\_params()} і
+
+\textbf{session\_set\_cookies\_params()}
+
+Отримати інформацію про cookies, що зберігає змінну з ідентифікатором сесії, можна наступним чином:
+
+\begin{verbatim}
+echo "<pre> session INFO: \ n";
+print_r (session_get_cookies_params());
+\end{verbatim}
+
+Так можна дізнатися про час життя змінної, домен та шляхи cookies.
+
+Функцією \verb'session_set_cookies_params()' можна перевстановити параметри (хоча всі ці параметри задані в php.ini).
+
+\textbf{session\_decode()} і \textbf{session\_encode()}
+
+Декодування закодованих рядків у сесії і кодування змінних у рядок сесії.
+
+\textbf{session\_set\_save\_handler()}
+
+Можливо, Вас не влаштовують варіанти зберігання сесій, що пропонуються в РНР. Може бути, ви хочете зберігати сесії в простих текстових файлах, щоб їх можна було легко редагувати. Тоді Вам потрібно створити декілька функцій, що відповідають за функціонування сесій і передати назви цих функцій в \verb'session_set_save_handler()'.
