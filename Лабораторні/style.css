@@ -13,12 +13,18 @@
 			font-size: 14pt;
 		}
 		body{
-			padding-left: 10%;
-			padding-right: 10%;
+			padding-left: 0;
+			padding-right: 0;
 		}
 		.paper{
 			max-width: 210mm;
 			min-width: 300px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.paper p, li{
+			text-align: justify;
+			text-indent: 1cm;
 		}
 		#colontitle{
 			color: grey;
