@@ -3,68 +3,8 @@
 <head>
 	<title>МЗКІТ Лабораторна робота № 5</title>
 	<meta charset="utf-8">
-	<style type="text/css">
-		h1{
-			text-align: center;
-			font-size: 16pt;
-			font-weight: bold;
-			text-transform: uppercase;
-		}
-		h2{
-			text-align: center;
-			font-size: 14pt;
-			font-weight: bold;
-		}
-		p, li{
-			font-size: 14pt;
-		}
-		body{
-			padding-left: 10%;
-			padding-right: 10%;
-		}
-		.paper{
-			max-width: 210mm;
-			min-width: 300px;
-		}
-		#colontitle{
-			color: grey;
-			text-align: center;
-			font-size: 12pt;
-		}
-		.figc{
-			width: 600px;
-			max-width: 90%;
-		}
-		.row{
-			overflow: hidden;
-		}
-		.row p{
-			text-align: center;
-		}
-		.col{
-			min-width: 300px;
-		    width: 50%;
-    		float: left; 
-		}
-		pre{
-			min-width: 250px;
-			margin: 10px;
-			padding: 10px 40px 10px 40px;
-			background-color: #EEEEEE;
-			font-weight: 400;
-			font-size: 16px;
-			border-top: 1px solid black;
-			border-bottom: 1px solid black;
-		}
-		figure{
-			margin: 30px 0 30px 0;
-			padding: 0;
-			text-align: center;
-		}
-		figcaption{
-			text-align: center;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 <body>
 	<div class="paper">
@@ -306,70 +246,42 @@
 			<li>Перейти за адресою <code>http://127.0.0.1/</code> або <code>http://localhost/</code> та впевнитись, що сторінка вітання XAMPP завантажилась</li>
 			<li>Очистити зміст каталогу <code>C:\xampp\htdocs\</code></li>
 			<li>Створити файл <code>index.html</code> в середині каталогу <code>C:\xampp\htdocs\</code></li>
-			<li>
-				<p>У файл <code>index.html</code> помістити наступні рядки:</p>
-				<p>
-					<pre>
-						&lt;!DOCTYPE html&gt;
-						&lt;html lang=&quot;en&quot;&gt;
-						&lt;head&gt;
-						&#x9;&lt;title&gt;Test page&lt;/title&gt;
-						&lt;/head&gt;
-						&lt;body&gt;
-						&#x9;&lt;h1&gt;It works!&lt;/h1&gt;
-						&lt;/body&gt;
-						&lt;/html&gt;
-					</pre>
-				</p>
+			<li>У файл <code>index.html</code> помістити код, що наданий у теоретичних відомостях в розділі 3.2
 			</li>
 			<li>Перейти за адресою <code>http://127.0.0.1/</code> або <code>http://localhost/</code> та впевнитись, що сторінка, яку ви створили, завантажилася корректно</li>
-			<li>Profit! Вітаю! Ви створили налаштували свій перший web-сервер</li>
 			<li>
-				<p>Створити просту форму, що складається з двох текстових полів та копки відправки форми(<a href="#link06">6</a>, <a href="#link07">7</a>, <a href="#link08">8</a>)</p>
+				<p>Використовуючи, як приклад, попередній код, створіть триколонковий макет фіксованої ширини, який відповідатиме прототипу.
+				</p>
+				<p>Оформіть дизайн сторінки згідно з власним смаком. Під час створення імен классів та ідентифікаторів використовувати рекомендації БЕМ. Для виділення окремих структурних блоків сторінки використовувати семантичні елементи HTML5.
+				</p>
 				<figure>
-					<img class="figc" src="img/0401.png">
-					<figcaption>Форма з двома текстовими полями</figcaption>
+					<img class="figc" src="img/0505.png">
+					<figcaption>Прототип сторінки</figcaption>
 				</figure>
-				<pre>
-					&lt;!DOCTYPE html&gt;
-					&lt;html lang=&quot;en&quot;&gt;
-					&lt;head&gt;
-					&#x9;&lt;title&gt;Test page&lt;/title&gt;
-					&lt;/head&gt;
-					&lt;body&gt;
-					&#x9;&lt;h1&gt;It works!&lt;/h1&gt;
-					&#x9;&lt;form&gt;
-					&#x9;&#x9;&lt;input type=&quot;text&quot; name=&quot;textfield1&quot;&gt;
-					&#x9;&#x9;&lt;input type=&quot;text&quot; name=&quot;textfield2&quot; value=&quot;12345&quot;&gt;
-					&#x9;&#x9;&lt;button type=&quot;submit&quot; name=&quot;btsubmit&quot; value=&quot;send&quot;&gt;&Vcy;&iukcy;&dcy;&pcy;&rcy;&acy;&vcy;&icy;&tcy;&icy;&lt;/button&gt;
-					&#x9;&lt;/form&gt;
-					&lt;/body&gt;
-					&lt;/html&gt;
-				</pre>
 			</li>
-			
 			<li>
-				<p>Перейдіть у вкладку "Сеть" (Network). </p>
-				<p>Оновіть сторінку і переконайтеся, що зміст вкладки "Сеть" відповідає одному з наданих нижче</p>
+				<p>Створіть сторінку фотогалереї, що відповідає прототипу, наведеному нижче. За допомогою посилань зв'яжіть створені сторінки між собою.
+				</p>
+				<p>Оформіть дизайн сторінки згідно з власним смаком. Під час створення імен классів та ідентифікаторів використовувати рекомендації БЕМ. Для виділення окремих структурних блоків сторінки використовувати семантичні елементи HTML5.
+				</p>
+				</p>
 				<figure>
-					<img class="figc" src="img/0405.png">
-					<figcaption>Вкладка "Сеть" у браузері Mozilla Firefox</figcaption>
-				</figure>				
-				<figure>
-					<img class="figc" src="img/0406.png">
-					<figcaption>Вкладка "Network" у браузері Google Chrome</figcaption>
-				</figure>				
+					<img class="figc" src="img/0506.png">
+					<figcaption>Прототип сторінки</figcaption>
+				</figure>
+			</li>
+			<li>Самостійно спробуйте модифікувати створені макети таким чином, щоб від отримав властивості адаптивності**
 			</li>
 			
 			
 		</ol>
 		<h2>Контрольні питання</h2>
 		<ol>
-			<li>Яким чином відбувається передача даних у методі GET?</li>
-			<li>Які недоліки та обмеження методу GET ви знаєте?</li>
-			<li>Яким чином відбувається передача даних у методі POST?</li>
-			<li>Яким чином перетворити випадаючий список на список із множинним вибором?</li>
-			<li>Як змінити адресу, за якої будуть відправлено дані форми?</li>			
+			<li>Яким чином можна змінити поведінку блочних елементів HTML?</li>
+			<li>Які властивості CSS потрібно змінити, щоб блочні елементи стали "плаваючими" об'єктами?</li>
+			<li>Яким чином заборонити обтікання після останнього плаваючого елементу?</li>
+			<li>Яким чином можна створити "резиновий" макет?</li>
+			<li>Чим відрізняються властивості CSS width, min-width, max-width?</li>			
 		</ol>
 		<h2>Довідники та додаткові матеріали</h2>
 		<ol>
@@ -378,11 +290,7 @@
 			<li id="link03"><a href="http://htmlbook.ru/">Справочник по HTML</a></li>
 			<li id="link04"><a href="https://www.w3schools.com/">Комплексний довідник web-розробника</a></li>
 			<li id="link05"><a href="https://html5book.ru/html5-semantic-elements">Семантические элементы HTML5</a></li>
-			<li id="link06"><a href="https://html5book.ru/html5-semantic-elements">Семантические элементы HTML5</a></li>
-			
-
-
-			
+			<li id="link06"><a href="http://htmlbook.ru/samlayout/blochnaya-verstka/plavayushchie-elementy">Плавающие элементы</a></li>
 		</ol>
 		<hr width="90%">
 		<p>* &mdash; на випадок, якщо ви прибулець з 90-х років.</p>
