@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ Лабораторна робота № 10</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ Лабораторна робота № 10</div>
+		<h1>Лабораторна робота № 10. <br>Використання коду JavaScript на сторінці. Консоль розробника</h1>
+		<h2>Мета роботи</h2>
+		<p>Розглянути приклади використання коду JavaScript в HTML-документі. Навчитись підключати зовнішні файли коду та вбудовувати код всередині тіла документу.</p>
+		<h2>Обладнання</h2>
+		<p>Персональний комп'ютер. Текстовий редактор Sublime Text 3 або Notepad++. Пакет програм XAMPP. Web-браузер Chrome, Firefox, Opera, Internet Explorer*</p>
+		<h2>Теоретичні відомості</h2>
+		<h3>1. Способи використання JavaScript в HTML-документі</h3>
+		<p>
+			Програми на JavaScript можуть бути вставлені в будь-яке місце HTML-документа за допомогою тега <code>&lt;script&gt;</code>.
+		</p>
+		<p>
+			Тег <code>&lt;script&gt;</code> має кілька атрибутів, які рідко використовуються, але все ще можуть зустрітися в старому коді:
+		</p>
+		<h4>Атрибут type: <code>&lt;script type=...&gt;</code></h4>
+		<p>
+			Старий стандарт HTML, HTML4, вимагав наявності цього атрибута в тезі <code>&lt;script&gt;</code>. Зазвичай він мав значення <code>type="text/javascript"</code>. На поточний момент цього більше не потрібно. Більш того, в сучасному стандарті HTML сенс цього атрибута повністю змінився. Тепер він може використовуватися для JavaScript-модулів.
+		</p>
+		<h4>Атрибут type: <code>&lt;script language=...&gt;</code></h4>
+		<p>
+			Цей атрибут повинен був зазначати мову, якою написано скрипт. Але так як JavaScript є мовою за замовчуванням, в цьому атрибуті вже немає необхідності.
+		</p>
+		<p>
+			HTML-документ, в тілі якого міститься код JavaScript, може виглядати наступним чином:
+		</p>
+		<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Text&lt;/p&gt;
+    &lt;script&gt;
+      alert(&apos;hello world!&apos;);
+    &lt;/script&gt;
+    &lt;p&gt;Text&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+		</pre>
+		<h4>Зовнішні сценарії</h4>
+		<p>
+			Якщо у вас багато JavaScript-коду, ви можете помістити його в окремий файл. Файл скрипта можна підключити до HTML за допомогою атрибута <code>src</code>:
+		</p>
+				<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;script src="/path/to/script.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Text&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+		</pre>
+		<p>
+			Якщо у вас дуже багато коду, його можна розділити на модулі і почергово додати їх. Також можливо підключення модулів з різних джерел, в тому числі і віддалених:
+		</p>
+		<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;script src="/path/to/script1.js"&gt;&lt;/script&gt;
+    &lt;script src="/path/to/script2.js"&gt;&lt;/script&gt;
+    &lt;script src="http://other.site/path/to/script3.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Text&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+		</pre>
+		<h3>2. Консоль розробника</h3>
+		<p>
+			Код вразливий для помилок. Але за замовчуванням у браузері помилки не відображаються. Тобто, якщо щось піде не так, ми не побачимо, що саме зламалося, і не зможемо це полагодити.
+		</p>
+		<p>
+			Для вирішення завдань такого роду в браузер вбудовані так звані «Інструменти розробки» (Developer tools або скорочено - devtools). Виклик консолі розробника у браузерах Google Chrome та Mozilla Firefox виконується за допомогою клавіши <code>F12</code>.
+		</p>
+		<figure>
+			<img class="figc" src="img/0403.png">
+			<figcaption>Консоль розробника у браузері Mozilla Firefox</figcaption>
+		</figure>
+		<figure>
+			<img class="figc" src="img/0404.png">
+			<figcaption>Консоль розробника у браузері Google Chrome</figcaption>
+		</figure>
+
+		<p>
+			Робота з інтерпитатором JavaScript проходить у вкладці "Консоль" або "Console".
+		</p>
+		<figure>
+			<img class="figc" src="img/1001.png">
+			<figcaption>Вкладка "Console" у браузері Google Chrome</figcaption>
+		</figure>
+		<p>
+			Браузер Safari все ж має невелику відмінність. Для початку роботи нам потрібно включити «Меню розробки» («Developer menu»). Відкрийте Налаштування (Preferences) і перейдіть до панелі «Просунуті» (Advanced). У самому низу ви знайдете чекбокс:
+		</p>
+		<figure>
+			<img class="figc" src="img/1002.png">
+			<figcaption>Активація консолі розробника в Safari</figcaption>
+		</figure>
+		<div class="row">
+			<div class="col">		
+				<figure>
+					<img class="figc" src="img/0602a.png">
+					<figcaption>Гнучкий макет варіант 1</figcaption>
+				</figure>
+			</div>
+			<div class="col">		
+				<figure>
+					<img class="figc" src="img/0602b.png">
+					<figcaption>Гнучкий макет варіант 2</figcaption>
+				</figure>
+			</div>
+		</div>
+		<p>
+			HTML та CSS для такого макету може виглядати наступним чином:
+		</p>
+		<div class="row">
+			<div class="col">		
+				<pre>
+					&lt;!DOCTYPE html&gt;
+					&lt;html lang=&quot;en&quot;&gt;
+					&lt;head&gt;
+					&#x9;&lt;title&gt;Test page&lt;/title&gt;
+					&lt;style&gt;
+					body {
+					margin: 0;
+				}
+				.aside {
+				float: left;
+				width: 250px;
+			}
+			.main {
+			margin-left: 250px;
+		}
+		&lt;/style&gt;
+		&lt;/head&gt; 
+		&lt;body&gt;
+		&lt;div class=&quot;container&quot;&gt;
+		&lt;aside class=&quot;aside&quot;&gt;
+		ASIDE
+		&lt;/aside&gt;
+		&lt;main class=&quot;main&quot;&gt;
+		MAIN
+		&lt;/main&gt;
+		&lt;/div&gt;
+		&lt;/body&gt;
+	</pre>
+</div>
+<div class="col">
+	<pre>
+		&lt;!DOCTYPE html&gt;
+		&lt;html lang=&quot;en&quot;&gt;
+		&lt;head&gt;
+		&#x9;&lt;title&gt;Test page&lt;/title&gt;
+		&lt;style&gt;
+		body {
+		margin: 0;
+	}
+	.aside {
+	float: left;
+	width: 25%;
+}
+.main {
+margin-left: 25%;
+}
+&lt;/style&gt;
+&lt;/head&gt; 
+&lt;body&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;aside class=&quot;aside&quot;&gt;
+ASIDE
+&lt;/aside&gt;
+&lt;main class=&quot;main&quot;&gt;
+MAIN
+&lt;/main&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+</pre>
+</div>
+</div>
+<h4>1.3 Адаптивний макет сайту</h4>	
+<p>
+	Адаптивний макет сайту - це макет, який може «пристосовуватися» під різні пристрої (ширину робочої області вікна браузера). Тобто на одних пристроях він може мати одну структуру, а на інших - іншу.
+</p>
+<p>
+	Розглянемо приклад адаптивного макета, що складається з 2 блоків, який на різних пристроях виглядає по-різному. А саме:
+</p>
+<ol>
+	<li>на смартфонах і планшетах (пристроях з дуже маленьким розміром екрану) блоки повинні розташовуватися вертикально, тобто один під іншим;</li>
+	<li>на ноутбуках (пристроях із середнім розміром екрану) блоки повинні розташовуватися горизонтально (1 блок - 33.3%, 2 блок - 66.7%);</li>
+	<li>на десктопах (пристроях з великим розміром екрану) теж горизонтально, але з іншими розмірами (1 блок - 25%, 2 блок - 75%)</li>
+</ol>
+<figure>
+	<img class="figc" src="img/0603.png">
+	<figcaption>Фіксований макет</figcaption>
+</figure>
+<p>
+	HTML та CSS для такого макету може виглядати наступним чином:
+</p>
+
+<pre>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang=&quot;en&quot;&gt;
+	&lt;head&gt;
+	&#x9;&lt;title&gt;Test page&lt;/title&gt;
+	&lt;style&gt;
+	body {
+	margin: 0;
+}
+.container {
+display: flex;
+flex-wrap: wrap;
+}
+.aside, .main {
+width: 100%;
+min-height: 1px;
+}
+@media (min-width: 992px) {
+.aside {
+flex: 0 0 33.333333%;
+max-width: 33.333333%;
+order: 1;
+}
+.main {
+flex: 0 0 66.666667%;
+max-width: 66.666667%;
+order: 2;
+}
+}
+@media (min-width: 1400px) {
+.aside {
+flex: 0 0 25%;
+max-width: 25%;
+}
+.main {
+flex: 0 0 75%;
+max-width: 75%;
+}
+}
+&lt;/style&gt;
+&lt;/head&gt; 
+&lt;body&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;aside class=&quot;aside&quot;&gt;
+ASIDE
+&lt;/aside&gt;
+&lt;main class=&quot;main&quot;&gt;
+MAIN
+&lt;/main&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+</pre>	
+<h2>Хід роботи</h2>
+<ol>
+	<li>Перевірити чи встановлено пакет програм web-розробника XAMPP</li>
+	<li>Викликати панель керування xampp-control.exe</li>
+	<li>Впевнитись, що web-сервер Apache запущений</li>
+	<li>Перейти за адресою <code>http://127.0.0.1/</code> або <code>http://localhost/</code> та впевнитись, що сторінка вітання XAMPP завантажилась</li>
+	<li>Очистити зміст каталогу <code>C:\xampp\htdocs\</code></li>
+	<li>Створити файл <code>index.html</code> в середині каталогу <code>C:\xampp\htdocs\</code></li>
+	<li>У файл <code>index.html</code> помістити код, що наданий у теоретичних відомостях в розділі 1.3
+	</li>
+	<li>Перейти за адресою <code>http://127.0.0.1/</code> або <code>http://localhost/</code> та впевнитись, що сторінка, яку ви створили, завантажилася корректно</li>
+	<li>
+		<p>Створіть сторінку фотогалереї, що відповідає прототипу, наведеному нижче. 
+		</p>
+		<p>Оформіть дизайн сторінки згідно з власним смаком. Під час створення імен классів та ідентифікаторів використовувати рекомендації БЕМ. Для виділення окремих структурних блоків сторінки використовувати семантичні елементи HTML5.
+		</p>
+	</p>
+	<figure>
+		<img class="figc" src="img/0605a.png">
+		<figcaption>Прототип сторінки на великий екран</figcaption>
+	</figure>
+	<figure>
+		<img class="figc" src="img/0605b.png">
+		<figcaption>Прототип сторінки на середній екран</figcaption>
+	</figure>
+	<figure>
+		<img class="figc" src="img/0605c.png">
+		<figcaption>Прототип сторінки на мобільний пристрій</figcaption>
+	</figure>
+</li>
+<li>
+	<p>Використовуючи, як приклад, попередній код, створіть триколонковий макет фіксованої ширини, який відповідатиме прототипу**. Також необхідно створити варіанти для середнього та малого екранів.
+	</p>
+	<p>Оформіть дизайн сторінки згідно з власним смаком. Під час створення імен классів та ідентифікаторів використовувати рекомендації БЕМ. Для виділення окремих структурних блоків сторінки використовувати семантичні елементи HTML5.
+	</p>
+	<figure>
+		<img class="figc" src="img/0606a.png">
+		<figcaption>Прототип сторінки на великий екран</figcaption>
+	</figure>
+</li>
+
+</ol>
+<h2>Контрольні питання</h2>
+<ol>
+	<li>Чим відрізняється гнучкий макет від адаптивного?</li>
+	<li>Для чого використовується властивість <code>flex</code>?</li>
+	<li>За допомогою чого можна створити стилі для різних розмірів екрану?</li>
+	<li>Яким чином вказати, що певні стилі будуть відноситись до екрану, розмір якого менше за 1024 пікселі?</li>
+	<li>Чим відрізняються властивості CSS width, min-width, max-width?</li>			
+</ol>
+<h2>Довідники та додаткові матеріали</h2>
+<ol>
+	<li id="link01"><a href="https://validator.w3.org/">Валідатор W3C</a></li>
+	<li id="link02"><a href="https://css.in.ua/">Довідник HTML та CSS</a></li>
+	<li id="link03"><a href="http://htmlbook.ru/">Справочник по HTML</a></li>
+	<li id="link04"><a href="https://www.w3schools.com/">Комплексний довідник web-розробника</a></li>
+	<li id="link05"><a href="https://html5book.ru/html5-semantic-elements">Семантические элементы HTML5</a></li>
+	<li id="link06"><a href="http://htmlbook.ru/samlayout/blochnaya-verstka/plavayushchie-elementy">Плавающие элементы</a></li>
+</ol>
+<hr width="90%">
+<p>* &mdash; на випадок, якщо ви прибулець з 90-х років.</p>
+<p>** &mdash; завдання підвищеної складності для самостійного вивчення.</p>
+</div>
+</body>
+</html>
