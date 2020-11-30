@@ -10,17 +10,148 @@
 	<div class="paper">
 		<div id="colontitle">МЗКІТ. Лекція №10 </div>
 		<h1>Конструкції мови JavaScript</h1>
-		
+		<h1 id="-switch-">Конструкція &quot;switch&quot;</h1>
+		<p>Конструкція <code>switch</code> замінює собою відразу кілька <code>if</code>.</p>
+		<p>Вона являє собою більш наочний спосіб порівняти вираз відразу з декількома варіантами.</p>
+		<h2 id="-">Синтаксис</h2>
+		<p>Конструкція <code>switch</code> має один або більше блок <code>case</code> і необов&#39;язковий блок <code>default</code>.</p>
+		<p>Виглядає вона так:</p>
+		<pre><code><span class="hljs-keyword">switch</span> (x) {
+			<span class="hljs-keyword">case</span> <span class="hljs-string">'value1'</span>: // <span class="hljs-keyword">if</span> (x === <span class="hljs-string">'value1'</span>)
+			...
+			[<span class="hljs-built_in">Break</span>]
+
+			<span class="hljs-keyword">case</span> <span class="hljs-string">'value2'</span>: // <span class="hljs-keyword">if</span> (x === <span class="hljs-string">'value2'</span>)
+			...
+			[<span class="hljs-built_in">Break</span>]
+
+			<span class="hljs-keyword">default</span>:
+			...
+			[<span class="hljs-built_in">Break</span>]
+		}
+	</code></pre><ul>
+		<li>Змінна <code>x</code> перевіряється на суворе рівність першому значенню <code>value1</code>, потім другого <code>value2</code> і так далі.</li>
+		<li>Якщо відповідність встановлено - <code>switch</code> починає виконуватися від відповідної директиви <code>case</code> і далі, до найближчого <code>break</code> (або до кінця <code>switch</code>).</li>
+		<li>Якщо жоден <code>case</code> не співпали - виконується (якщо є) варіант <code>default</code>.</li>
+	</ul>
+	<h2 id="-">Приклад роботи</h2>
+	<p>Приклад використання <code>switch</code> (спрацював код виділений):</p>
+	<pre><code>let a = <span class="hljs-number">2</span> + <span class="hljs-number">2</span>;
+
+		<span class="hljs-keyword">switch</span> (a) {
+		<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+		alert ( 'Малувато');
+		<span class="hljs-keyword">break</span>;
+		*! *
+		<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+		alert ( 'В точку!');
+		<span class="hljs-keyword">break</span>;
+		* /! *
+		<span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+		alert ( 'Перебір');
+		<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">default</span>:
+		alert ( <span class="hljs-string">"Немає таких значень"</span>);
+	}
+</code></pre><p>Тут оператор <code>switch</code> послідовно порівняє <code>a</code> з усіма варіантами з <code>case</code>.</p>
+<p>Спочатку <code>3</code>, потім - так як немає збігу - <code>4</code>. Збіг знайдено, буде виконаний цей варіант, з рядка <code>alert(&#39;В точку!&#39;)</code> І далі, до найближчого <code>break</code>, який перерве виконання.</p>
+<p><strong> Якщо <code>break</code> немає, то виконання піде нижче за наступними <code>case</code>, при цьому інші перевірки ігноруються. </strong></p>
+<p>Приклад без <code>break</code>:</p>
+<pre><code>let a = <span class="hljs-number">2</span> + <span class="hljs-number">2</span>;
+
+	<span class="hljs-keyword">switch</span> (a) {
+	<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+	alert ( 'Малувато');
+	*! *
+	<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+	alert ( 'В точку!');
+	<span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+	alert ( 'Перебір');
+	<span class="hljs-keyword">default</span>:
+	alert ( <span class="hljs-string">"Немає таких значень"</span>);
+	* /! *
+}
+</code></pre><p>В наведеному вище прикладі послідовно виконуватися три <code>alert</code>:</p>
+<pre><code><span class="hljs-selector-tag">alert</span> ( <span class="hljs-string">'В точку!'</span>);
+	<span class="hljs-selector-tag">alert</span> ( <span class="hljs-string">'Перебір'</span>);
+	<span class="hljs-selector-tag">alert</span> ( <span class="hljs-string">"Немає таких значень"</span>);
+</code></pre>
+<p>Smart header = &quot;Будь-яке вираження може бути аргументом для <code>switch / case</code> &quot;</p>
+<p>І <code>switch</code> і <code>case</code> допускають будь-який вираз в якості аргументу.</p>
+<p>наприклад:</p>
+<pre><code>let a = <span class="hljs-string">"1"</span>;
+	let b = <span class="hljs-number">0</span>;
+
+	<span class="hljs-keyword">switch</span> (+ a) {
+	*! *
+	<span class="hljs-keyword">case</span> b + <span class="hljs-number">1</span>:
+	alert ( <span class="hljs-string">"Виконати, тому що значенням + a буде 1, що в точності так само b + 1"</span>);
+	<span class="hljs-keyword">break</span>;
+	* /! *
+
+	<span class="hljs-keyword">default</span>:
+	alert ( <span class="hljs-string">"Це не виконається"</span>);
+}
+</code></pre>
+<p>У цьому прикладі вираз <code>+a</code> обчислюється в <code>1</code>, що збігається з виразом <code>b + 1</code> в <code>case</code>, і отже, код в цьому блоці буде виконаний.</p>
+<h2 id="-case-">Угруповання &quot;case&quot;</h2>
+<p>Кілька варіантів <code>case</code>, що використовують один код, можна групувати.</p>
+<p>Для прикладу, виконаємо один і той же код для <code>case 3</code> і <code>case 5</code>, згрупувавши їх:</p>
+<pre><code><span class="hljs-keyword">let</span> a = <span class="hljs-number">2</span> + <span class="hljs-number">2</span>;
+
+	<span class="hljs-keyword">switch</span> (a) {
+	<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+	alert ( <span class="hljs-string">'Правильно!'</span>);
+	<span class="hljs-keyword">break</span>;
+
+	*! *
+	<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>: <span class="hljs-comment">// (*) групуємо обидва case</span>
+	<span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+	alert ( <span class="hljs-string">'Неправильно!'</span>);
+	alert ( <span class="hljs-string">"Може вам відвідати урок математики?"</span>);
+	<span class="hljs-keyword">break</span>;
+	* /! *
+
+	<span class="hljs-keyword">default</span>:
+	alert ( <span class="hljs-string">'Результат виглядає трохи дивно. Чесно.'</span>);
+}
+</code></pre>
+<p>Тепер обидва варіанти <code>3</code> і <code>5</code> виводять одне повідомлення.</p>
+<p>Можливість групувати <code>case</code>- це побічний ефект того, як <code>switch / case</code>працює без <code>break</code>. Тут виконання <code>case 3</code>починається з рядка <code>(*)</code> і триває в <code>case 5</code>, тому що відсутня <code>break</code>.</p>
+<h2 id="-">Тип має значення</h2>
+<p>Потрібно відзначити, що перевірка на рівність завжди сувора. Значення повинні бути одного типу, щоб виконувалося рівність.</p>
+<p>Для прикладу, давайте розглянемо наступний код:</p>
+<pre><code><span class="hljs-keyword">let</span> arg = prompt ( <span class="hljs-string">"Введіть число?"</span>);
+	<span class="hljs-keyword">switch</span> (arg) {
+	<span class="hljs-keyword">case</span> <span class="hljs-string">'0'</span>:
+	<span class="hljs-keyword">case</span> <span class="hljs-string">'1'</span>:
+	alert ( <span class="hljs-string">'Один або нуль'</span>);
+	<span class="hljs-keyword">break</span>;
+
+	<span class="hljs-keyword">case</span> <span class="hljs-string">'2'</span>:
+	alert ( <span class="hljs-string">'Два'</span>);
+	<span class="hljs-keyword">break</span>;
+
+	<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+	alert ( <span class="hljs-string">'Ніколи не виконається!'</span>);
+	<span class="hljs-keyword">break</span>;
+	<span class="hljs-keyword">default</span>:
+	alert ( <span class="hljs-string">'Невідоме значення'</span>);
+}
+</code></pre><ol>
+	<li>Для <code>&#39;0&#39;</code> і <code>&#39; 1&#39;</code> виконається перший <code>alert</code>.</li>
+	<li>Для <code>&#39;2&#39;</code> - другий <code>alert</code>.</li>
+	<li>Але для <code>3</code>, результат виконання <code>prompt</code>буде рядок <code>&quot;3&quot;</code>, яка не відповідає суворому рівності <code>===</code> з числом<code>3</code>. Таким чином, ми маємо &quot;мертвий код&quot; в <code>case 3</code>! Виконається варіант <code>default</code>.</li>
+</ol>
 
 
+<h2>Контрольні запитання</h2>
+<ol>
 
-			<h2>Контрольні запитання</h2>
-			<ol>
-				
-<li> </li>
+	<li> </li>
 
 
-			</ol>
-		</div>
-	</body>
-	</html>
+</ol>
+</div>
+</body>
+</html>
