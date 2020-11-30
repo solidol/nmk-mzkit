@@ -23,11 +23,12 @@
 <strong>параметр = "значення"</strong>. Атрибути дозволяють змінювати властивості елемента, для якого вони задані. Атрибути прописуються в початковому тезі елемента.
 </p>
 <p>
-Атрибути <strong>class</strong> і <strong>id</strong> застосовні до всіх HTML-елементів. Кожному конкретному елементу можна привласнити кілька значень class і тільки одне значення id. Множинні значення class записуються через пробіл, наприклад,<xmp><div class = "nav top"></xmp><p> Значення class і id повинні складатися тільки з букв, цифр, дефісів і нижніх підкреслень і повинні починатися тільки з літер.</p>
+Атрибути <strong>class</strong> і <strong>id</strong> застосовні до всіх HTML-елементів. Кожному конкретному елементу можна привласнити кілька значень class і тільки одне значення id. Множинні значення class записуються через пробіл, наприклад,   &lt;div class = &quot;nav top&quot;&gt;
+<p> Значення class і id повинні складатися тільки з букв, цифр, дефісів і нижніх підкреслень і повинні починатися тільки з літер.</p>
 </p>
 <p>Більшість тегів - парні, вони складаються з початкового і кінцевого тегів. Початковий тег показує, де починається елемент, кінцевий - де закінчується. Закриваючий тег утворюється шляхом додавання слешу / перед ім'ям тега: <ім'я тега> ... </ ім'я тега>. Між початковим і кінцевим тегами знаходиться вміст тега - контент.
 </p>
-<p>Одиночні теги не можуть зберігати в собі вмісту безпосередньо, він прописується як значення атрибута, наприклад, тег <xmp><input type = "button" value = "Кнопка"></xmp> 
+<p>Одиночні теги не можуть зберігати в собі вмісту безпосередньо, він прописується як значення атрибута, наприклад, тег &lt;input type = &quot;button&quot; value = &quot;&Kcy;&ncy;&ocy;&pcy;&kcy;&acy;&quot;&gt; 
 </p>
 <h2>СТРУКТУРА HTML-ДОКУМЕНТА</h2>
 <p>
@@ -39,29 +40,33 @@
 <p>
 <code>	
 <xmp>
-<! DOCTYPE html> <! - Оголошення формату документа ->
 
-<html>
-
-<head>  <!- Технічна інформація про документ ->
-
-<meta charset = "UTF-8"> <! - Визначаємо кодування символів документа ->
-
-<title> ... </ title> <! - Задаємо заголовок документа ->
-
-<link rel = "stylesheet" type = "text / css" href = "style.css"> <! - Підключаємо зовнішню таблицю стилів ->
-
-<script src = "script.js"> </script> <! - Підключаємо сценарії ->
-
-</ head>
-
-<body> <! - Основна частина документа ->
-
-</ body>
-
-</ html>
 </xmp>
 </code>
+<pre><code>
+&#x3C;!DOCTYPE html&gt; &lt;! - &Ocy;&gcy;&ocy;&lcy;&ocy;&shcy;&iecy;&ncy;&ncy;&yacy; &fcy;&ocy;&rcy;&mcy;&acy;&tcy;&ucy; &dcy;&ocy;&kcy;&ucy;&mcy;&iecy;&ncy;&tcy;&acy; -&gt;
+
+&lt;html&gt;
+
+&lt;head&gt;  &lt;!- &Tcy;&iecy;&khcy;&ncy;&iukcy;&chcy;&ncy;&acy; &iukcy;&ncy;&fcy;&ocy;&rcy;&mcy;&acy;&tscy;&iukcy;&yacy; &pcy;&rcy;&ocy; &dcy;&ocy;&kcy;&ucy;&mcy;&iecy;&ncy;&tcy; -&gt;
+
+&lt;meta charset = &quot;UTF-8&quot;&gt; &lt;! - &Vcy;&icy;&zcy;&ncy;&acy;&chcy;&acy;&jukcy;&mcy;&ocy; &kcy;&ocy;&dcy;&ucy;&vcy;&acy;&ncy;&ncy;&yacy; &scy;&icy;&mcy;&vcy;&ocy;&lcy;&iukcy;&vcy; &dcy;&ocy;&kcy;&ucy;&mcy;&iecy;&ncy;&tcy;&acy; -&gt;
+
+&lt;title&gt; ... &lt;/ title&gt; &lt;! - &Zcy;&acy;&dcy;&acy;&jukcy;&mcy;&ocy; &zcy;&acy;&gcy;&ocy;&lcy;&ocy;&vcy;&ocy;&kcy; &dcy;&ocy;&kcy;&ucy;&mcy;&iecy;&ncy;&tcy;&acy; -&gt;
+
+&lt;link rel = &quot;stylesheet&quot; type = &quot;text / css&quot; href = &quot;style.css&quot;&gt; 
+&lt;! - &Pcy;&iukcy;&dcy;&kcy;&lcy;&yucy;&chcy;&acy;&jukcy;&mcy;&ocy; &zcy;&ocy;&vcy;&ncy;&iukcy;&shcy;&ncy;&yucy; &tcy;&acy;&bcy;&lcy;&icy;&tscy;&yucy; &scy;&tcy;&icy;&lcy;&iukcy;&vcy; -&gt;
+
+&lt;script src = &quot;script.js&quot;&gt; &lt;/script&gt; &lt;! - &Pcy;&iukcy;&dcy;&kcy;&lcy;&yucy;&chcy;&acy;&jukcy;&mcy;&ocy; &scy;&tscy;&iecy;&ncy;&acy;&rcy;&iukcy;&yicy; -&gt;
+
+&lt;/ head&gt;
+
+&lt;body&gt; &lt;! - &Ocy;&scy;&ncy;&ocy;&vcy;&ncy;&acy; &chcy;&acy;&scy;&tcy;&icy;&ncy;&acy; &dcy;&ocy;&kcy;&ucy;&mcy;&iecy;&ncy;&tcy;&acy; -&gt;
+
+&lt;/ body&gt;
+
+&lt;/ html&gt;
+</code></pre>
 </p>
 <p>
 Елементи, що знаходяться всередині тега <strong>DOM (document object model)
@@ -99,7 +104,8 @@
 <p>
 	Елемент не вимагає закриваючого тегу. Даний елемент визначає відносини між поточною сторінкою та іншими документами. Таких елементів на сторінці може бути кілька. Запис буде мати наступний вигляд:
 
-<code><xmp><link rel = "stylesheet" href = "style.css" type = "text / css"></xmp></code>
+&lt;link rel = &quot;stylesheet&quot; href = &quot;style.css&quot; type = &quot;text / css&quot;&gt;
+<br>
 
 Для елемента доступні атрибути href, hreflang, media, rel, type, а також глобальні атрибути.
 </p>
@@ -108,8 +114,8 @@
 	Всередині цього елемента задаються стилі, які використовуються на сторінці. Для завдання стилів в html-документі використовується мова CSS. Таких елементів на сторінці може бути декілька. Для елемента доступні атрибути media, scoped, type, а також глобальні атрибути.
 
 Всередину цього елемента можна записувати код форматування як самих елементів сторінки, так і сторінки цілком.
-<code><xmp>
-<style type="text/css">
+<pre><code>
+&lt;style type="text/css">
 
 .paper {
 
@@ -122,22 +128,20 @@ background-color: #ef4444;
 color: #666666;
 
 }
-
-</style>
-</xmp></code>
+</code></pre>
 Щоб підключити до елементу заданий стиль, необхідно через атрибут class (або id) привласнити елементу відповідну назву:
-<code><xmp>
-<div class="paper">
+<pre><code>
+&lt;div class="paper"&gt;
 
 ...
 
-</div>
-</xmp></code>
+&lt;div&gt;
+</code></pre>
 CSS-код можна вбудовувати безпосередньо в елемент розмітки у вигляді значення атрибута style, наприклад:
-<code><xmp>
-<p style="color: #666666; background-color: #ef4444; padding: 20px;">
-</p>
-</xmp></code>
+<pre><code>
+&#x3C;p style=&#x22;color: #666666; background-color: #ef4444; padding: 20px;&#x22;&#x3E;
+&#x3C;/p&#x3E;
+</code></pre>
 <h2>ЕЛЕМЕНТ &lt;SCRIPT&gt;</h2>
 <p>
 	Елемент &lt;script&gt;дозволяє приєднувати до документа різні сценарії. Закриваючий тег обов'язковий, при цьому текст сценарію може розташовуватися або всередині цього елемента, або в зовнішньому файлі. Якщо текст сценарію розташований в зовнішньому файлі, то він підключається за допомогою атрибутів елемента. Для елемента доступні атрибути async, charset, defer, src, type, а також глобальні атрибути.
