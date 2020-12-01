@@ -30,7 +30,7 @@
 </p>
  
 <p>
-<img src="https://echo.lviv.ua/wp-content/uploads/2017/12/1-10.jpg">
+<img src="img/0601.jpg">
 </p>
  
 <p>
@@ -46,7 +46,7 @@
 </p>
  
 <p>
-<img src="https://echo.lviv.ua/wp-content/uploads/2017/12/moreflexible.jpg">
+<img src="img/0602.jpg">
 </p>
  
 <p>
@@ -62,7 +62,7 @@
 </p>
  
 <p>
-<img src="https://echo.lviv.ua/wp-content/uploads/2017/12/croppinglogo.jpg">
+<img src="img/0603.jpg">
 </p>
  
 <p>
@@ -92,7 +92,7 @@
 </p>
  
 <p>
-<img src="https://echo.lviv.ua/wp-content/uploads/2017/12/filamentgroup.jpg">
+<img src="img/0604.jpg">
 </p>
  
 <p>
@@ -104,7 +104,7 @@
 </p>
  
 <p>
-<img src="https://echo.lviv.ua/wp-content/uploads/2017/12/iphonescale.jpg">
+<img src="img/0605.jpg">
 </p>
  
 <p>
@@ -152,12 +152,24 @@ float: left;
 <p>
 <em>mobile.css (дочірній) :</em>
 </p>
- <pre class="line-numbers"><code class="language-css">#wrapper{ width: 90%;}#content{ width: 100%;}#sidebar - left{ width: 100%; clear: both; /* Additional styling for our new layout */ border-top: 1px solid #ccc; margin-top: 20px;}#sidebar - right{ width: 100%; clear: both; /* Additional styling for our new layout */ border-top: 1px solid #ccc; 
+ <pre class="line-numbers"><code class="language-css">
+#wrapper{
+width: 90%;
+#content{
+width: 100%;}
+#sidebar - left{ 
+width: 100%; clear: both;
+/* Additional styling for our new layout */ 
+border-top: 1px solid #ccc;
+margin-top: 20px;}
+#sidebar - right{ width: 100%; clear: both;
+/* Additional styling for our new layout */
+border-top: 1px solid #ccc; 
 		}</code>
 </pre>
  
 <p>
-<img src="https://echo.lviv.ua/wp-content/uploads/2017/12/movingcontent.jpg">
+<img src="img/0606.jpg">
 </p>
  <h4>Медіазапити CSS3</h4> 
 <p>
@@ -167,13 +179,14 @@ float: left;
 <p>
 Приклад:
 </p>
- <pre class="line-numbers"><code class="language-css">@media screen and (min-width: 600px) { .hereIsMyClass { width: 30%; float: right; }}</code>
+ <pre class="line-numbers"><code class="language-css">@media screen and (min-width: 600px)
+{ .hereIsMyClass { width: 30%; float: right; }}</code>
 </pre>
- 
 <p>
 Медіазапит запрацює тільки у тому випадку, коли <code>min-width</code> буде більше або дорівнюватиме 600 px.
 </p>
- <pre class="line-numbers"><code class="language-css">@media screen and (max -width: 600px) { .aClassforSmallScreens { clear: both; font-size: 1.3em; }}</code>
+ <pre class="line-numbers"><code class="language-css">@media screen and (max -width: 600px)
+{ .aClassforSmallScreens { clear: both; font-size: 1.3em; }}</code>
 </pre>
  
 <p>
@@ -183,19 +196,26 @@ float: left;
 <p>
 Тоді як <code>min-width</code> і <code>max-width</code> можуть бути застосовані до екранів і вікон браузерів, нам може знадобитися працювати тільки з шириною пристрою. Для цього можна використати <code>min-device-width</code> і <code>max-device-width</code>:
 </p>
- <pre class="line-numbers"><code class="language-css">@media screen and (max-device-width: 480px) { .classForiPhoneDisplay { font-size: 1.2em; }}@media screen and (min-device-width: 768px) { .minimumiPadWidth { clear: both; margin-bottom: 2px solid #ccc; }}</code>
+ <pre class="line-numbers"><code class="language-css">@media screen and (max-device-width: 480px)
+{ .classForiPhoneDisplay { font-size: 1.2em; }}
+@media screen and (min-device-width: 768px) 
+{ .minimumiPadWidth { clear: both; margin-bottom: 2px solid #ccc; }}</code>
 </pre>
  
 <p>
 Спеціально для iPad у медіазапитів є властивість <em>orientation</em>, значеннями якого можуть бути або <em>landscape </em>(горизонтальний) або <em>potrait </em>(вертикальний):
 </p>
- <pre class="line-numbers"><code class="language-css">@media screen and (orientation: landscape) { .iPadLandscape { width: 30%; float: right; }}@media screen and (orientation: portrait) { .iPadPortrait { clear: both; }}</code>
+ <pre class="line-numbers"><code class="language-css">@media screen and (orientation: landscape) 
+ { .iPadLandscape { width: 30%; float: right; }}
+@media screen and (orientation: portrait) 
+{ .iPadPortrait { clear: both; }}</code>
 </pre>
  
 <p>
 Також значення медіазапитів можна комбінувати, наприклад:
 </p>
- <pre class="line-numbers"><code class="language-css">@media screen and (min -width: 800px) and (max -width: 1200px) { .classForaMediumScreen { background: #cc0000; width: 30%; float: right; }}</code>
+ <pre class="line-numbers"><code class="language-css">@media screen and (min -width: 800px) and (max -width: 1200px) 
+{ .classForaMediumScreen { background: #cc0000; width: 30%; float: right; }}</code>
 </pre>
  
 <p>
@@ -211,7 +231,7 @@ float: left;
 </p>
  
 <p>
-<img src="https://echo.lviv.ua/wp-content/uploads/2017/12/diggmobile.jpg">
+<img src="img/0607.jpg">
 </p>
  
 <p>
@@ -229,7 +249,7 @@ float: left;
 </p>
  
 <p>
-<img src="https://echo.lviv.ua/wp-content/uploads/2017/12/showinghidingcontent.jpg">
+<img src="img/0608.jpg">
 </p>
  
 <p>
@@ -239,7 +259,19 @@ float: left;
 <p>
 <em>style.css (основний) :</em>
 </p>
- <pre class="line-numbers"><code class="language-css">#content{ width: 54%; float: left; margin-right: 3%;}#sidebar - left{ width: 20%; float: left; margin-right: 3%;}#sidebar - right{ width: 20%; float: left;}.sidebar - nav{ display: none;}</code>
+ <pre class="line-numbers"><code class="language-css">#content{ 
+width: 54%; 
+float: left; 
+margin-right: 3%;}
+#sidebar - left{ 
+width: 20%; 
+float: left; 
+margin-right: 3%;}
+#sidebar - right{ 
+width: 20%; 
+float: left;}
+.sidebar - nav{ 
+display: none;}</code>
 </pre>
  
 <p>
@@ -249,7 +281,14 @@ float: left;
 <p>
 <em>mobile.css (спрощений) :</em>
 </p>
- <pre class="line-numbers"><code class="language-css">#content{ width: 100%;}#sidebar - left{ display: none;}#sidebar - right{ display: none;}.sidebar - nav{ display: inline;}</code>
+ <pre class="line-numbers"><code class="language-css">#content{ 
+width: 100%;}
+#sidebar - left{ 
+display: none;}
+#sidebar - right{ 
+display: none;}
+.sidebar - nav{ 
+display: inline;}</code>
 </pre>
  
 <p>
@@ -260,9 +299,11 @@ float: left;
 		<h2>Контрольні запитання</h2>
 		<ol>
 
-			<li> </li>
-
-
+			<li>Що таке адаптивне верстання?</li>
+			<li>Що таке чутливі зображення?</li>
+			<li>Яким чином можна змінювати розмір зображень?</li>
+			<li>Які є типм медіазапитів?</li>
+			<li>За допомогою чого можна працювати тільки з шириною пристрою?</li>
 		</ol>
 	</div>
 </body>
