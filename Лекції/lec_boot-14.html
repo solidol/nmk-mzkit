@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ. Лекція №14 </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ. Лекція №14 </div>
+		<h1>Уроки по Bootstrap: создание вкладок, табов</h1>
+		<p>Кажется, впервые табы использовали на Amazon в 1995 году и с тех пор так или иначе табы встречаются в повседневной жизни любого пользователя интернетов. До появления Bootstrap создавать табы было не то, чтобы сложно, но довольно затратно по времени. Теперь, чтобы создать динамическую навигацию на табах, достаточно осилить этот урок. Поехали!</p>
+<p>Bootstrap поддерживает любое количество вкладок, в т.ч. выпадающие меню. Вложенные вкладки не поддерживаются.</p>
+<h2>Пример табов</h2>
+<p><img src="img/lec-14/1.png" alt=""></p>
+<h2>Как пользоваться?</h2>
+<p>Каждый набор вкладок нужно активировать через JavaScript таким образом:</p>
+<pre>$('#my-tabs a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})</pre>
+<p>Чтобы показать определённую вкладку пользуйтесь таким методом:</p>
+<pre>$('#my-tabs a[href="#life"]').tab('show') // селектор по имени
+$('#my-tabs a:first').tab('show') // выбор первой вкладки
+$('#my-tabs a:last').tab('show') // последняя вкладка
+$('#my-tabs li:eq(2) a').tab('show') // выбор вкладки по номеру</pre>
+<p>Обратите внимание на последнюю строку кода: нумерация вкладок начинается с нуля, поэтому третья вкладка будет иметь индекс <code>2</code>.</p>
+<h2>Настройка</h2>
+<p>Вы можете обойтись без JS: для того, чтобы табы начали работать, достаточно добавить атрибут <code>data-toggle="tab"</code> или <code>data-toggle="pill"</code> элементам. Смотрите пример, чтобы стало понятнее.</p>
+<p>Классы <code>.nav</code> и <code>.nav-tabs</code>, которые добавляются к элементу списка <code>ul</code> добавляют ему стили вкладок Bootstrap. А классы <code>.nav</code> и <code>.nav-pills</code> используют стили кнопок.</p>
+<h3>Пример</h3>
+<pre>&lt;div&gt;
+  &lt;!-- Навигация --&gt;
+  &lt;ul class="nav nav-tabs" role="tablist"&gt;
+    &lt;li class="active"&gt;&lt;a href="#home" aria-controls="home" role="tab" data-toggle="tab"&gt;Домой&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"&gt;Профиль&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"&gt;Сообщения&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"&gt;Настройки&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;!-- Содержимое вкладок --&gt;
+  &lt;div class="tab-content"&gt;
+    &lt;div role="tabpanel" class="tab-pane active" id="home"&gt;...&lt;/div&gt;
+    &lt;div role="tabpanel" class="tab-pane" id="profile"&gt;...&lt;/div&gt;
+    &lt;div role="tabpanel" class="tab-pane" id="messages"&gt;...&lt;/div&gt;
+    &lt;div role="tabpanel" class="tab-pane" id="settings"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+<h3>Плавная смена вкладок</h3>
+<p>Чтобы вкладки менялись не моментально, а плавно, добавьте класс <code>.fade</code> к каждому элементу с классом <code>.tab-pane</code>. Первая вкладка должна иметь также класс <code>.in</code>, чтобы её содержимое было видимым при загрузке страницы.</p>
+<pre>&lt;div class="tab-content"&gt;
+  &lt;div role="tabpanel" class="tab-pane fade in active" id="home"&gt;...&lt;/div&gt;
+  &lt;div role="tabpanel" class="tab-pane fade" id="profile"&gt;...&lt;/div&gt;
+  &lt;div role="tabpanel" class="tab-pane fade" id="messages"&gt;...&lt;/div&gt;
+  &lt;div role="tabpanel" class="tab-pane fade" id="settings"&gt;...&lt;/div&gt;
+&lt;/div&gt;</pre>
+<h2>Методы</h2>
+<h3>$().tab</h3>
+<p>Активирует вкладку и контейнер для содержимого. Вкладка должна иметь либо атрибут <code>data-target</code>, либо <code>href</code>, который бы указывал на селектор контейнера на странице. В примерах выше все вкладки сделаны при помощи ссылок <code>&lt;a&gt;</code> с атрибутами <code>data-toggle="tab"</code>.</p>
+<h3>.tab(&#8216;show&#8217;)</h3>
+<p>Меняет вкладку на указанную и отображает её содержимое. Любые другие вкладки становятся неактивными, а их содержание прячется.</p>
+<pre>$('#tab-01').tab('show')</pre>
+<h2>События</h2>
+<p>Часто бывает необходимым выполнять те или иные действия по смене вкладок. В этом нам помогают их события. При показе новой вкладки события происходят в таком порядке:</p>
+<ol>
+<li><code>hide.bs.tab</code> — на текущей вкладке</li>
+<li><code>show.bs.tab</code> — на той, которая должна отобразиться</li>
+<li><code>hidden.bs.tab</code> — на той же вкладке, что и <code>hide.bs.tab</code></li>
+<li><code>shown.bs.tab</code> — на только что показанной вкладке, той же, что в событии <code>show.bs.tab</code></li>
+</ol>
+<p>Если до этого ни одна из вкладок не была активна, то события <code>hide.bs.tab</code> и <code>hidden.bs.tab</code> не произойдут.</p>
+<h3>Описание событий</h3>
+<div>
+<table  border=1 cellpadding=5 style="border-collapse:collapse;;background-color: #fff ">
+<thead>
+<tr>
+<th>Событие</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>show.bs.tab</code></td>
+<td>Событие происходит при показе вкладки, но до того, как она становится видимой. Переменные <code>event.target</code> и <code>event.relatedTarget</code> указывают на активную вкладку и на ту, которая была активна ранее (если таковая имеется).</td>
+</tr>
+<tr>
+<td><code>shown.bs.tab</code></td>
+<td>Аналогично первому событию, это срабатывает при показе вкладки, но уже после того, как она полностью становится видимой. Переменные <code>event.target</code> и <code>event.relatedTarget</code> указывают на активную вкладку и на предыдущую активную.</td>
+</tr>
+<tr>
+<td><code>hide.bs.tab</code></td>
+<td>Срабатывает перед показом новой вкладки (и перед скрытием предыдущей активной). <code>event.target</code> и <code>event.relatedTarget</code> укажут на текущую активную вкладку и ту, которая скоро станет активной.</td>
+</tr>
+<tr>
+<td><code>hidden.bs.tab</code></td>
+<td>Срабатывает после того, как новая вкладка стала активной, а предыдущая активная стала скрытой. <code>event.target</code> и <code>event.relatedTarget</code> содержат ссылки на предыдущую активную и текущую активную вкладки.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Пример события</h3>
+<pre>$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  e.target // вкладка, которая стала активной
+  e.relatedTarget // предыдущая активная вкладка
+})</pre>
+</p>
+		
+    </div>
+	</body>
+	</html>

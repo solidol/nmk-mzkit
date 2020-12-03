@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ. Лекція №13 </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ. Лекція №13 </div>
+		
+		<h1>Уроки з Bootstrap: спливні вікна, modal.js</h1>
+		<p>При появі модальне вікно затемнює інші елементи й відображається над всією сторінкою. При створенні вікна не забувайте додавати елементи керування, щоб користувач міг його закрити.</p>
+<p>На одній сторінці може бути будь-яку кількість вікон, які будуть працювати незалежно один від одного.</p>
+<p>Варто зауважити, що атрибут <code>autofocus</code> не буде працювати у спливних вікнах.</p>
+<h2>Спливні вікна</h2>
+<p>За роботу модуля відповідає файл <code>modal.js</code>, його можна використовувати окремо або разом з іншими елементами (за замовчуванням він включений до складу файлів <code>bootstrap.js</code> і <code>bootstrap.min.js</code>). Щоб отримати можливість користуватися модальними вікнами, потрібно спочатку підключити <code>jQuery.js</code>, а після цього файл модуля або загальний файл з усіма js-модулями Bootstrap.</p>
+<p><img src="img/lec-13/1.png" alt=""></p>
+<p>Щоб побачити, що таке модальне вікно, натисніть на кнопку:</p>
+<p><img src="img/lec-13/2.png" alt=""></p>
+<p>Код прикладу:</p>
+<pre>&lt;button class="btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#myModal"&gt;Показати спливне вікно&lt;/button&gt;
+&lt;div id="myModal" class="modal fade"&gt;
+&lt;div class="modal-dialog"&gt;
+&lt;div class="modal-content"&gt;
+&lt;div class="modal-header"&gt;&lt;button class="close" type="button" data-dismiss="modal"&gt;×&lt;/button&gt;
+&lt;h4 class="modal-title"&gt;Заголовок вікна&lt;/h4&gt;
+&lt;/div&gt;
+&lt;div class="modal-body"&gt;Текст повідомлення&lt;/div&gt;
+&lt;div class="modal-footer"&gt;&lt;button class="btn btn-default" type="button" data-dismiss="modal"&gt;Закрити&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</pre>
+<h2>Пояснення прикладу</h2>
+<p><strong>Виклик вікна:</strong></p>
+<p>Щоб показати вікно, можна використовувати кнопку або посилання. Вкажіть для них <code>data-*</code> атрибути вікна:</p>
+<ul>
+<li><code>data-toggle="modal"</code> показує модальне вікно</li>
+<li><code>data-target="#myModal"</code> вказує <code>id</code> вікна, котре треба відкрити</li>
+</ul>
+<p><strong>Блок &#8220;Modal&#8221;, контейнер вікна:</strong></p>
+<ul>
+<li>Батьківський елемент <code>&lt;div&gt;</code> модального вікна повинен мати <code>id</code>, такий же, як і атрибут <code>data-target</code> у кнопки або посилання, що викликає це вікно, (в даному випадку це <code>myModal</code>).</li>
+<li>Клас <code>.modal</code> визначає контент вікна.</li>
+<li>Клас <code>.fade</code> додає ефект плавної появи і затухання вікна. Якщо клас прибрати, вікно буде з&#8217;являтися й зникати моментально.</li>
+<li>Атрибут <code>role="dialog"</code> використовується на пристроях для людей з обмеженими можливостями. Це може бути screen reader, який озвучує контент сторінки для людей, що погано бачать</li>
+<li>Клас <code>.modal-dialog</code> встановлює ширину і відступи для вікна.</li>
+</ul>
+<p><strong>Блок з контентом вікна:</strong></p>
+<ul>
+<li>елемент з класом <code>.modal-content</code> додає стилі Bootstrap вікну (бордер, колір фону, тіні тощо). Весь контент модального вікна (заголовок, футер, тексти) має знаходитись всередині цього блоку.</li>
+<li>елемент <code>.modal-header</code> визначає стилі для заголовку спливного вікна. Зверніть увагу: у кнопки <code>&lt;button&gt;</code> всередині цього блоку є атрибут <code>data-dismiss="modal"</code>, який використовується, щоб закрити модальне вікно по кліку на кнопці. Клас <code>.close</code> додає стилі кнопці, а клас <code>.modal-title</code> class встановлює стилі для заголовку з потрібною висотою строчки.</li>
+<li>елемент <code>.modal-body</code> це то, ради чего все затевалось, то є контент спливного вікна. Здесь може бути что угодно: текст, изображения, видео і любые другие html-елементы.</li>
+<li><code>.modal-footer</code> використовується для стилізації нижньої частини вікна. Зверніть увагу: за замовчуванням рівняння тексту тут йде за правим краєм.</li>
+</ul>
+<h2>Розміри вікна</h2>
+<p>В бутстрапі передбачено три розміри вікна: звичайний, зменшений та великий.</p>
+<p>Щоб змінити размер вікна, до елементу з класом <code>.modal-dialog</code> треба додати <code>.modal-sm</code> для зменшеного або <code>.modal-lg</code> для збільшеного розміру вікна:</p>
+<pre>&lt;div class="modal-dialog modal-sm"&gt;</pre>
+<p>або</p>
+<pre>&lt;div class="modal-dialog modal-lg"&gt;</pre>
+<h2>Закриття по кнопці Esc</h2>
+<p>Щоб модальне вікно можна було закрити не лише за допомогу кнопки, але й клавішею <code>Esc</code> на клавиатурі, елементу <code>.modal</code> треба додати атрибут <code>tabindex="-1"</code>:</p>
+<pre>&lt;div class="modal fade" tabindex="-1" role="dialog"&gt;</pre>
+<p>Другий варіант: додати атрибут <code>keyboard</code> при виклиці вікна, про це написано нижче.</p>
+<h2>Виклик спливного вікна</h2>
+<p>Крім описаного виклику через кнопку або посилання, також є спосіб запуска вікна за допомоги JavaScript:</p>
+<pre>$('#myModal').modal(options)</pre>
+<h2>Налаштування вікна</h2>
+<p>Налаштування модальних вікон можна також передавати як через data-атрибути, так і через JavaScript. Для першого випадку, доавайте ім&#8217;я опції <code>data-</code> кнопці або посиланню для виклику вікна:</p>
+<table  border=1 cellpadding=5 style="border-collapse:collapse;;background-color: #fff ">
+<thead>
+<tr>
+<th>Атрибут</th>
+<th>Тип</th>
+<th>За замовч.</th>
+<th>Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>backdrop</td>
+<td><code>boolean</code> або слово <code>'static'</code></td>
+<td>true</td>
+<td>Затемнення фону під спливним вікном.</p>
+<ul>
+<li><code>true</code> &#8211; темний фон</li>
+<li><code>false</code> &#8211; без затемнення (прозорий фон)</li>
+</ul>
+<p>якщо вказати <code>static</code>, то по кліку на темний фон вікно не закриється.</td>
+</tr>
+<tr>
+<td>keyboard</td>
+<td><code>boolean</code></td>
+<td>true</td>
+<td>Закриття вікна при натисканні кнопки &#8220;Escape&#8221;</p>
+<ul>
+<li><code>true</code> &#8211; вікно можна закрити через Esc</li>
+<li><code>false</code> &#8211; вікно не реагує на кнопку Esc</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>show</td>
+<td><code>boolean</code></td>
+<td>true</td>
+<td>Показ вікна після ініціалізації</td>
+</tr>
+</tbody>
+</table>
+<h2>Методи Modal.js</h2>
+<p>Ці методи допоможуть вам мати повний контроль над спливними вікнами: показувати або приховувати або міняти стан залежно від поточного.</p>
+<table  border=1 cellpadding=5 style="border-collapse:collapse;;background-color: #fff ">
+<tbody>
+<tr>
+<th>Метод</th>
+<th>Опис</th>
+</tr>
+<tr>
+<td><code>.modal(options)</code></td>
+<td>Створює модальне вікно</td>
+</tr>
+<tr>
+<td><code>.modal("toggle")</code></td>
+<td>Міняє видимість вікна</td>
+</tr>
+<tr>
+<td><code>.modal("show")</code></td>
+<td>Показує вікно</td>
+</tr>
+<tr>
+<td><code>.modal("hide")</code></td>
+<td>Приховує вікно</td>
+</tr>
+</tbody>
+</table>
+<h2>Події Modal.js</h2>
+<p>Bootstrap дозволяє створювати власні обробники подій модальних вікон. Їх легко налаштувати, є 4 таких події.</p>
+<table  border=1 cellpadding=5 style="border-collapse:collapse;;background-color: #fff ">
+<thead>
+<tr>
+<th>Подія</th>
+<th>Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>show.bs.modal</code></td>
+<td>Подія відбувається відразу, як тільки запускається метод show (показ вікна). Якщо ви запускаєте вікно по кліку, то елемент, на якому був клік, доступний через властивість події <code>relatedTarget</code>.</td>
+</tr>
+<tr>
+<td><code>shown.bs.modal</code></td>
+<td>Подія відбувається, коли вікно стало повністю видимим для користувача (всі анімації закінчились).</td>
+</tr>
+<tr>
+<td><code>hide.bs.modal</code></td>
+<td>Подія відбувається як тільки запускається метод <code>hide</code>.</td>
+</tr>
+<tr>
+<td><code>hidden.bs.modal</code></td>
+<td>Подія відбувається після того, как вікно повністю приховується від користувача (після всіх анімацій).</td>
+</tr>
+</tbody>
+</table>
+<p>Приклад події:</p>
+<pre>$('#myModal').on('hidden.bs.modal', function (event) { 
+// функції 
+});</pre>
+<p>В старіших версіях діяла подія <code>remote</code>, але з 4-ї версії її було видалено.</p>
+    </div>
+	</body>
+	</html>

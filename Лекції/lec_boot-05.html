@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ. Лекція №5 </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ. Лекція №5 </div>
+		<h1>Уроки по Bootstrap. Урок №5: верстка шаблонов, мобильная верстка</h1>
+		<p><strong>Блочная система (Grid System) Bootstrap позволяет вам горизонтально разделить страницу на 12 столбцов.</strong> Если использовать все 12 частей вам нет необходимости, такие блоки можно легко группировать, создавая более широкие столбцы. Они будут состоять из двух, трех и так далее частей страницы, разделённой на 12 частей. Это около 8.3% на столбец.</p>
+<p>Разделить таким образом можно как страницу, так и любой блочный элемент, размеры блоков будут рассчитаны как часть родительского элемента.</p>
+<p>Вот пример того, как можно разделить страницу при помощи Bootstrap.</p>
+<center><table  border=1 cellpadding=5 style="border-collapse:collapse;;background-color: #fff ">
+<tbody>
+<tr>
+<td class="text-center active">span 1</td>
+<td class="text-center">span 1</td>
+<td class="text-center active">span 1</td>
+<td class="text-center">span 1</td>
+<td class="text-center active">span 1</td>
+<td class="text-center">span 1</td>
+<td class="text-center active">span 1</td>
+<td class="text-center">span 1</td>
+<td class="text-center active">span 1</td>
+<td class="text-center">span 1</td>
+<td class="text-center active">span 1</td>
+<td class="text-center">span 1</td>
+</tr>
+<tr>
+<td class="text-center active" colspan="4"> span 4</td>
+<td class="text-center" colspan="4"> span 4</td>
+<td class="text-center active" colspan="4"> span 4</td>
+</tr>
+<tr>
+<td class="text-center active" colspan="4">span 4</td>
+<td class="text-center" colspan="8">span 8</td>
+</tr>
+<tr>
+<td class="text-center active" colspan="6">span 6</td>
+<td class="text-center" colspan="6">span 6</td>
+</tr>
+<tr>
+<td class="text-center active" colspan="12">span 12</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Блочная структура в Bootstrap рассчитана также на мобильные устройства и планшеты. Блоки будут автоматически перестраиваться в зависимости от размера экрана.</p>
+<h2>Классы для ячеек</h2>
+<p>В блочной верстке Bootstrap есть четыре основных класса:</p>
+<ul>
+<li>xs (extra small) — для мобильных телефонов, до 767 пикс. включительно</li>
+<li>sm (small) — для планшетов, размер экрана 768—991 пикс.</li>
+<li>md (middle) — для десктопов, 992—1199 пикс.</li>
+<li>lg (large) — для больших экранов, от 1200 пикс.</li>
+</ul>
+<p>Прелесть верстки на бутстрапе в том, что эти классы вы можете комбинировать, чтобы создавать адаптивную верстку и точно знать, как макет будет отображаться на том или ином размере экрана.</p>
+<h2>Базовая структура макета</h2>
+<p>Это пример верстки макета при помощи блочной системы Bootstrap:</p>
+<div class="example">
+<pre class="example_code notranslate">&lt;div class="row"&gt;
+  &lt;div class="col-*-*"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+ &lt;div class="col-*-*"&gt;&lt;/div&gt;
+ &lt;div class="col-*-*"&gt;&lt;/div&gt;
+ &lt;div class="col-*-*"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+  ...
+&lt;/div&gt;</pre>
+</div>
+<p>Для начала создайте строку с ячейками: <code>&lt;div class="row"&gt;</code> и далее добавьте в нее нужное количество столбцов с соответствующими классами <code>.col-*-*.</code></p>
+<h2>Отступы для колонок</h2>
+<p>Вы можете указывать, какой отступ будет у колонки, если вы хотите &#8220;отодвинуть&#8221; ее вправо. Для этого используйте класс <code>.col-md-offset-*</code>. Такой класс увеличит отступ слева на количество колонок, указанное в *</p>
+<pre>&lt;div class="row"&gt; 
+  &lt;div class="col-sm-5 col-md-6"&gt;.col-sm-5 .col-md-6&lt;/div&gt; 
+  &lt;div class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0"&gt; .col-sm-5 .col-sm-offset-2 .col-md-6 .col-md-offset-0&lt;/div&gt; 
+&lt;/div&gt;</pre>
+<h2>Смена порядка отображения ячеек</h2>
+<p>Можно указывать, в каком порядке будут отображаться ячейки, при помощи классов <code>.col-md-push-*</code> и <code>.col-md-pull-*</code>.</p>
+<pre>&lt;div class="row"&gt; 
+  &lt;div class="col-sm-4 col-sm-push-8"&gt;.col-sm-4 .col-sm-push-8&lt;/div&gt; 
+  &lt;div class="col-sm-8 col-sm-pull-4"&gt;.col-sm-8 .col-sm-pull-4&lt;/div&gt; 
+&lt;/div&gt;</pre>
+<p>Ниже приведено несколько примеров вёрстки самых популярных макетов при помощи блочной верстки Bootstrap.</p>
+<h2>Пример: три одинаковые колонки</h2>
+<p>Этот пример показывает, как сверстать три равных по ширине колонки, которые будут отображаться горизонтально на планшетах и более крупных экранах. На экране мобильного такая верстка будет растянута и каждая из ячеек займёт всю ширину экрана:</p>
+<pre>&lt;div class="row"&gt;
+ &lt;div class="col-sm-4"&gt;.col-sm-4&lt;/div&gt;
+ &lt;div class="col-sm-4"&gt;.col-sm-4&lt;/div&gt;
+ &lt;div class="col-sm-4"&gt;.col-sm-4&lt;/div&gt; 
+&lt;/div&gt;</pre>
+<h2>Пример: две колонки разной ширины</h2>
+<p>В этом примере страница делится на две колонки разной ширины, которые будут отображаться горизонтально на любых устройствах, кроме мобильных телефонов:</p>
+<pre>&lt;div class="row"&gt;
+ &lt;div class="col-sm-4"&gt;.col-sm-4&lt;/div&gt;
+ &lt;div class="col-sm-8"&gt;.col-sm-8&lt;/div&gt; 
+&lt;/div&gt;</pre>
+<h2>Пример: две колонки с двумя вложенными колонками</h2>
+<p>В этом случае страница будет разделена на две разные колонки на планшетах и больших экранах, а большая колонка в свою очередь будет разделена на две равные колонки. На экранах мобильных телефонов эти колонки будут растягиваться на всю ширину экрана.</p>
+<pre>&lt;div class="row"&gt;
+  &lt;div class="col-sm-8"&gt; 
+   .col-sm-8 
+   &lt;div class="row"&gt; 
+    &lt;div class="col-sm-6"&gt;.col-sm-6&lt;/div&gt; 
+    &lt;div class="col-sm-6"&gt;.col-sm-6&lt;/div&gt; 
+   &lt;/div&gt; 
+ &lt;/div&gt; 
+ &lt;div class="col-sm-4"&gt;.col-sm-4&lt;/div&gt; 
+&lt;/div&gt;</pre>
+<h2>Отзывчивая мобильная верстка</h2>
+<p>Добавляя несколько классов одной и той же ячейке, вы можете добиться полного контроля над отображением верстки на разных размерах экрана.</p>
+<p>В этом примере созданы две разные по размеру ячейки, которые на экране телефона займут всю ширину экрана, на планшете будут неравными, а на большом мониторе станут одинаковыми по размеру:</p>
+<pre>&lt;div class="row"&gt;
+  &lt;div class="col-sm-12 col-md-8 col-lg-6"&gt;
+  &lt;div class="col-sm-12 col-md-4 col-lg-6"&gt;
+&lt;/div&gt;</pre>
+<p>Таким образом вы легко сможете контролировать, как отображать ячейки из вашего шаблона, а вёрстка станет мобильной без дополнительных усилий.</p>
+</p>
+
+		</div>
+	</body>
+	</html>
