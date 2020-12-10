@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>МЗКІТ. Лекція №10 </title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+<div class="paper">
+<div id="colontitle">МЗКІТ. Лекція №10 </div>
+<h1>Конструкції мови JavaScript</h1>
+
+
+<h2 id="-if-">Умовне розгалуження: if, &#39;?&#39;</h2>
+<p>
+Іноді нам потрібно виконати різні дії в залежності від умов.
+</p>
+
+<p>
+Для цього ми можемо використовувати інструкцію <code>if</code> і умовний оператор<code>?</code>, Який також називають оператором&quot; знак питання &quot;.
+</p>
+
+<h3 id="-if-">Інструкція &quot;if&quot;</h3>
+<p>
+Інструкція <code>if (...)</code> обчислює умова в дужках і, якщо результат <code>true</code>, то виконує блок коду.
+</p>
+
+<p>
+наприклад:
+</p>
+
+<pre>
+let year = prompt ( <span class="hljs-string">'В якому році була опублікована специфікація ECMAScript-2015 році?'</span>, <span class="hljs-string">''</span>);
+
+<span class="hljs-comment">*! *</span>
+<span class="hljs-keyword">if</span> (year == <span class="hljs-number">2015</span>) alert ( <span class="hljs-string">'Ви маєте рацію!'</span>);
+<span class="hljs-comment">* /! *</span>
+</pre>
+<p>
+В наведеному вище прикладі, умова - це проста перевірка на рівність ( <code>year == 2015</code>), але воно може бути і набагато більш складним.
+</p>
+
+<p>
+Якщо ми хочемо виконати більше однієї інструкції, то потрібно укласти блок коду в фігурні дужки:
+</p>
+
+<pre>
+<span class="hljs-selector-tag">if</span> (year == <span class="hljs-number">2015</span>) {
+  <span class="hljs-selector-tag">alert</span> ( <span class="hljs-string">"Правильно!"</span>);
+  <span class="hljs-selector-tag">alert</span> ( <span class="hljs-string">"Ви такий розумний!"</span>);
+}
+</pre>
+<p>
+Ми рекомендуємо використовувати фігурні дужки <code>{}</code> завжди, коли ви використовуєте інструкцію <code>if</code>, навіть якщо виконується тільки одна команда. Це покращує читабельність коду.
+</p>
+
+<h3 id="-">Перетворення до логічного типу</h3>
+<p>
+Інструкція <code>if (...)</code> обчислює вираз в дужках і перетворює результат до логічного типу.
+</p>
+
+<p>
+Давайте згадаємо правила перетворення типів з голови <info: type-conversions>:
+</p>
+
+<ul>
+<li>Число <code>0</code>, порожній рядок<code>&quot;&quot;</code>,<code>null</code>, <code>undefined</code> і<code>NaN</code> стають <code>false</code>. Через це їх називають &quot;помилковими&quot; ( &quot;falsy&quot;) значеннями.</li>
+<li>Решта значення стають <code>true</code>, тому їх називають&quot; правдивими &quot;(&quot; truthy &quot;).</li>
+</ul>
+<p>
+Таким чином, код за такої умови ніколи не виконається:
+</p>
+
+<pre>
+<span class="hljs-keyword">if</span> (<span class="hljs-number">0</span>) {<span class="hljs-comment">// 0 is falsy</span>
+  ...
+}
+</pre>
+<p>
+... а при такому - виконається завжди:
+</p>
+
+<pre>
+<span class="hljs-keyword">if</span> (<span class="hljs-number">1</span>) {<span class="hljs-comment">// 1 is truthy</span>
+  ...
+}
+</pre>
+<p>
+Ми також можемо передати заздалегідь обчислена в змінної логічне значення в <code>if</code>, наприклад так:
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> <span class="hljs-attr">condition</span> = (<span class="hljs-attr">year</span> == <span class="hljs-number">2015</span>); // перетвориться до <span class="hljs-literal">true</span> або <span class="hljs-literal">false</span>
+
+<span class="hljs-keyword">if</span> (condition) {
+  ...
+}
+</pre>
+<h3 id="-else-">Блок &quot;else&quot;</h3>
+<p>
+Інструкція <code>if</code> може містити необов&#39;язковий блок&quot; else &quot;(&quot; інакше &quot;). Він виконується, коли умова помилкова.
+</p>
+
+<p>
+наприклад:
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> year = prompt ( <span class="hljs-string">'В якому році була опублікована специфікація ECMAScript-2015 році?'</span>, <span class="hljs-string">''</span>);
+
+<span class="hljs-keyword">if</span> (year == <span class="hljs-number">2015</span>) {
+  alert ( <span class="hljs-string">'Так ви знавець!'</span>);
+} <span class="hljs-keyword">Else</span> {
+  alert ( <span class="hljs-string">'А ось і неправильно!'</span>); <span class="hljs-comment">// будь-яке значення, крім 2015</span>
+}
+</pre>
+<h3 id="-else-if-">Кілька умов: &quot;else if&quot;</h3>
+<p>
+Іноді, потрібно перевірити кілька варіантів умови. Для цього використовується блок <code>else if</code>.
+</p>
+
+<p>
+наприклад:
+</p>
+
+<pre>
+<span class="hljs-attribute">let</span> year = prompt ( <span class="hljs-string">'В якому році була опублікована специфікація ECMAScript-2015 році?'</span>, <span class="hljs-string">''</span>);
+
+<span class="hljs-attribute">if</span> (year &lt;<span class="hljs-number">2015</span>) {
+  <span class="hljs-attribute">alert</span> ( <span class="hljs-string">'Це дуже рано ...'</span>);
+} <span class="hljs-attribute">Else</span> if (year&gt; <span class="hljs-number">2015</span>) {
+  <span class="hljs-attribute">alert</span> ( <span class="hljs-string">'Це запізно'</span>);
+} <span class="hljs-section">Else</span> {
+  <span class="hljs-attribute">alert</span> ( <span class="hljs-string">'Вірно!'</span>);
+}
+</pre>
+<p>
+У наведеному вище коді JavaScript спочатку перевірить <code>year &lt;2015</code>. Якщо це не так, він переходить до наступного умові <code>year&gt; 2015</code>. Якщо воно теж помилково, тоді спрацює останній <code>alert</code>.
+</p>
+
+<p>
+Блоків <code>else if</code> може бути і більше. Присутність блоку <code>else</code> не є обов&#39;язковим.
+</p>
+
+<h3 id="-">Умовний оператор &#39;?&#39;</h3>
+<p>
+Іноді нам потрібно визначити змінну в залежності від умови.
+</p>
+
+<p>
+наприклад:
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> accessAllowed;
+<span class="hljs-keyword">let</span> age = prompt ( <span class="hljs-string">'Скільки вам років?'</span>, <span class="hljs-string">''</span>);
+
+*! *
+<span class="hljs-keyword">if</span> (age&gt; <span class="hljs-number">18</span>) {
+  accessAllowed = <span class="hljs-literal">true</span>;
+} <span class="hljs-keyword">Else</span> {
+  accessAllowed = <span class="hljs-literal">false</span>;
+}
+* /! *
+
+alert (accessAllowed);
+</pre>
+<p>
+Так званий &quot;умовний&quot; оператор &quot;знак питання&quot; дозволяє нам зробити це більш коротким і простим способом.
+</p>
+
+<p>
+Оператор представлений знаком питання <code>?</code>. Його також називають &quot;тернарний&quot;, так як цей оператор, єдиний в своєму роді, має три аргументи.
+</p>
+
+<p>
+синтаксис:
+</p>
+
+<pre>
+<span class="hljs-attribute">let result</span> = умова? значення1: значення2;
+</pre>
+<p>
+Спочатку обчислюється <code>условіе</code>: якщо воно істинне, тоді повертається<code>значеніе1</code>, в іншому випадку - <code>значеніе2</code>.
+</p>
+
+<p>
+наприклад:
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> <span class="hljs-attr">accessAllowed</span> = (age&gt; <span class="hljs-number">18</span>)? <span class="hljs-literal">true</span>: <span class="hljs-literal">false</span>;
+</pre>
+<p>
+Технічно, ми можемо опустити круглі дужки навколо <code>age&gt; 18</code>. Оператор знаку має низький пріоритет, тому він виконується після порівняння <code>&gt;</code>.
+</p>
+
+<p>
+Цей приклад буде робити те ж саме, що і попередній:
+</p>
+
+<pre>
+<span class="hljs-comment">// оператор порівняння "age&gt; 18" виконується першим в будь-якому випадку</span>
+<span class="hljs-comment">// (немає необхідності укладати його в дужки)</span>
+<span class="hljs-keyword">let</span> accessAllowed = age&gt; <span class="hljs-number">18</span>? <span class="hljs-literal">true</span>: <span class="hljs-literal">false</span>;
+</pre>
+<p>
+Але дужки роблять код більш читабельним, тому ми рекомендуємо їх використовувати.
+</p>
+
+<p>
+В наведеному вище прикладі ви можете уникнути використання оператора знаку <code>?</code>, Тому що порівняння само по собі вже повертає <code>true / false</code>:
+</p>
+
+<pre>
+<span class="hljs-comment">// теж саме</span>
+<span class="hljs-keyword">let</span> accessAllowed = age&gt; <span class="hljs-number">18</span>;
+</pre>
+<h3 id="-">Кілька операторів &#39;?&#39;</h3>
+<p>
+Послідовність операторів знаку <code>?</code> Дозволяє повернути значення, яке залежить від більш ніж однієї умови.
+</p>
+
+<p>
+наприклад:
+</p>
+
+<pre>
+let age = prompt <span class="hljs-comment">( 'Вік?', 18)</span>;
+
+let message = <span class="hljs-comment">(age &lt;3)</span>? <span class="hljs-string">'Здрастуй, малюк!'</span> :
+  <span class="hljs-comment">(Age &lt;18)</span>? <span class="hljs-string">'Вітання!'</span> :
+  <span class="hljs-comment">(Age &lt;100)</span>? <span class="hljs-string">'Добридень!'</span> :
+  <span class="hljs-string">'Який незвичайний вік!'</span>;
+
+alert <span class="hljs-comment">(message)</span>;
+</pre>
+<p>
+Спочатку може бути складно зрозуміти, що відбувається. Але при найближчому розгляді ми бачимо, що це звичайна послідовна перевірка:
+</p>
+
+<ol>
+<li>Перший знак питання перевіряє <code>age &lt;3</code>.</li>
+<li>Якщо вірно - повертає <code>&#39;Здрастуй, малюк!&#39;</code>. В іншому випадку, перевіряє вираз після двокрапки &#39; &quot;:&quot;&#39;, обчислює <code>age &lt;18</code>.</li>
+<li>Якщо це вірно - повертає <code>&#39;Привіт!&#39;</code>. В іншому випадку, перевіряє вираз після наступного двокрапки &#39; &quot;:&quot;&#39;, обчислює <code>age &lt;100</code>.</li>
+<li>Якщо це вірно - повертає <code>&#39;Привіт!&#39;</code>. В іншому випадку, повертає вираз після останнього двокрапки - <code>&#39;Який незвичайний вік!&#39;</code>.</li>
+</ol>
+<p>
+Ось як це виглядає при використанні <code>if..else</code>:
+</p>
+
+<pre>
+<span class="hljs-attribute">if</span> (age &lt;<span class="hljs-number">3</span>) {
+  <span class="hljs-attribute">message</span> = <span class="hljs-string">'Здрастуй, малюк!'</span>;
+} <span class="hljs-attribute">Else</span> if (age &lt;<span class="hljs-number">18</span>) {
+  <span class="hljs-attribute">message</span> = <span class="hljs-string">'Привіт!'</span>;
+} <span class="hljs-attribute">Else</span> if (age &lt;<span class="hljs-number">100</span>) {
+  <span class="hljs-attribute">message</span> = <span class="hljs-string">'Привіт!'</span>;
+} <span class="hljs-section">Else</span> {
+  <span class="hljs-attribute">message</span> = <span class="hljs-string">'Який незвичайний вік!'</span>;
+}
+</pre>
+<h3 id="-">Нетрадиційне використання &#39;?&#39;</h3>
+<p>
+Іноді оператор &quot;знак питання&quot; <code>?</code> Використовується в якості заміни <code>if</code>:
+</p>
+
+<pre>
+let company = prompt ( <span class="hljs-string">'Яка компанія створила JavaScript?'</span>, <span class="hljs-string">''</span>);
+
+*! *
+(Company == <span class="hljs-string">'Netscape'</span>)?
+   alert ( <span class="hljs-string">'Вірно!'</span>): alert ( <span class="hljs-string">'Неправильно.'</span>);
+* /! *
+</pre>
+<p>
+Залежно від умови <code>company == &#39;Netscape&#39;</code>, буде виконана або перша, або друга частина після<code>?</code>.
+</p>
+
+<p>
+Тут ми не присвоюємо результат змінної. Замість цього ми виконуємо різний код в залежності від умови.
+</p>
+
+<p>
+<strong> Не рекомендується використовувати оператор знаку таким чином. </strong>
+</p>
+
+<p>
+Незважаючи на те, що такий запис коротше, ніж еквівалентна інструкція <code>if</code>, вона менш читабельна.
+</p>
+
+<p>
+Ось, для порівняння, той же код, який використовує <code>if</code>:
+</p>
+
+<pre>
+let company = prompt ( <span class="hljs-string">'Яка компанія створила JavaScript?'</span>, <span class="hljs-string">''</span>);
+
+<span class="hljs-comment">*! *</span>
+<span class="hljs-keyword">if</span> (company == <span class="hljs-string">'Netscape'</span>) {
+  alert ( <span class="hljs-string">'Вірно!'</span>);
+} <span class="hljs-keyword">Else</span> {
+  alert ( <span class="hljs-string">'Неправильно.'</span>);
+}
+<span class="hljs-comment">* /! *</span>
+</pre>
+<p>
+При читанні очі сканують код по вертикалі. Блоки коду, що займають кілька рядків, сприймаються набагато легше, ніж довгий горизонтальний набір інструкцій.
+</p>
+
+<p>
+Сенс оператора &quot;знак питання&quot; <code>?</code> - повернути ту чи іншу значення, в залежності від умови. Будь ласка, використовуйте його саме для цього. Коли вам потрібно виконати різні гілки коду - використовуйте <code>if</code>.
+</p>
+
+
+
+
+
+
+
+
+
+
+<h2 id="-switch-">Конструкція &quot;switch&quot;</h2>
+<p>
+Конструкція <code>switch</code> замінює собою відразу кілька <code>if</code>.
+</p>
+
+<p>
+Вона являє собою більш наочний спосіб порівняти вираз відразу з декількома варіантами.
+</p>
+
+<h3 id="-">Синтаксис</h3>
+<p>
+Конструкція <code>switch</code> має один або більше блок <code>case</code> і необов&#39;язковий блок <code>default</code>.
+</p>
+
+<p>
+Виглядає вона так:
+</p>
+
+<pre>
+<span class="hljs-keyword">switch</span> (x) {
+<span class="hljs-keyword">case</span> <span class="hljs-string">'value1'</span>: // <span class="hljs-keyword">if</span> (x === <span class="hljs-string">'value1'</span>)
+...
+[<span class="hljs-built_in">Break</span>]
+
+<span class="hljs-keyword">case</span> <span class="hljs-string">'value2'</span>: // <span class="hljs-keyword">if</span> (x === <span class="hljs-string">'value2'</span>)
+...
+[<span class="hljs-built_in">Break</span>]
+
+<span class="hljs-keyword">default</span>:
+...
+[<span class="hljs-built_in">Break</span>]
+}
+</pre>
+<ul>
+<li>Змінна <code>x</code> перевіряється на суворе рівність першому значенню <code>value1</code>, потім другого <code>value2</code> і так далі.</li>
+<li>Якщо відповідність встановлено - <code>switch</code> починає виконуватися від відповідної директиви <code>case</code> і далі, до найближчого <code>break</code> (або до кінця <code>switch</code>).</li>
+<li>Якщо жоден <code>case</code> не співпали - виконується (якщо є) варіант <code>default</code>.</li>
+</ul>
+<h3 id="-">Приклад роботи</h3>
+<p>
+Приклад використання <code>switch</code> (спрацював код виділений):
+</p>
+
+<pre>
+let a = <span class="hljs-number">2</span> + <span class="hljs-number">2</span>;
+
+<span class="hljs-keyword">switch</span> (a) {
+<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+alert ( 'Малувато');
+<span class="hljs-keyword">break</span>;
+*! *
+<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+alert ( 'В точку!');
+<span class="hljs-keyword">break</span>;
+* /! *
+<span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+alert ( 'Перебір');
+<span class="hljs-keyword">break</span>;
+<span class="hljs-keyword">default</span>:
+alert ( <span class="hljs-string">"Немає таких значень"</span>);
+}
+</pre>
+<p>
+Тут оператор <code>switch</code> послідовно порівняє <code>a</code> з усіма варіантами з <code>case</code>.
+</p>
+
+<p>
+Спочатку <code>3</code>, потім - так як немає збігу - <code>4</code>. Збіг знайдено, буде виконаний цей варіант, з рядка <code>alert(&#39;В точку!&#39;)</code> І далі, до найближчого <code>break</code>, який перерве виконання.
+</p>
+
+<p>
+<strong> Якщо <code>break</code> немає, то виконання піде нижче за наступними <code>case</code>, при цьому інші перевірки ігноруються. </strong>
+</p>
+
+<p>
+Приклад без <code>break</code>:
+</p>
+
+<pre>
+let a = <span class="hljs-number">2</span> + <span class="hljs-number">2</span>;
+
+<span class="hljs-keyword">switch</span> (a) {
+<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+alert ( 'Малувато');
+*! *
+<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+alert ( 'В точку!');
+<span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+alert ( 'Перебір');
+<span class="hljs-keyword">default</span>:
+alert ( <span class="hljs-string">"Немає таких значень"</span>);
+* /! *
+}
+</pre>
+<p>
+В наведеному вище прикладі послідовно виконуватися три <code>alert</code>:
+</p>
+
+<pre>
+<span class="hljs-selector-tag">alert</span> ( <span class="hljs-string">'В точку!'</span>);
+<span class="hljs-selector-tag">alert</span> ( <span class="hljs-string">'Перебір'</span>);
+<span class="hljs-selector-tag">alert</span> ( <span class="hljs-string">"Немає таких значень"</span>);
+</pre>
+
+<p>
+Smart header = &quot;Будь-яке вираження може бути аргументом для <code>switch / case</code> &quot;
+</p>
+
+<p>
+І <code>switch</code> і <code>case</code> допускають будь-який вираз в якості аргументу.
+</p>
+
+<p>
+наприклад:
+</p>
+
+<pre>
+let a = <span class="hljs-string">"1"</span>;
+let b = <span class="hljs-number">0</span>;
+
+<span class="hljs-keyword">switch</span> (+ a) {
+*! *
+<span class="hljs-keyword">case</span> b + <span class="hljs-number">1</span>:
+alert ( <span class="hljs-string">"Виконати, тому що значенням + a буде 1, що в точності так само b + 1"</span>);
+<span class="hljs-keyword">break</span>;
+* /! *
+
+<span class="hljs-keyword">default</span>:
+alert ( <span class="hljs-string">"Це не виконається"</span>);
+}
+</pre>
+
+<p>
+У цьому прикладі вираз <code>+a</code> обчислюється в <code>1</code>, що збігається з виразом <code>b + 1</code> в <code>case</code>, і отже, код в цьому блоці буде виконаний.
+</p>
+
+<h3 id="-case-">Угруповання &quot;case&quot;</h3>
+<p>
+Кілька варіантів <code>case</code>, що використовують один код, можна групувати.
+</p>
+
+<p>
+Для прикладу, виконаємо один і той же код для <code>case 3</code> і <code>case 5</code>, згрупувавши їх:
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> a = <span class="hljs-number">2</span> + <span class="hljs-number">2</span>;
+
+<span class="hljs-keyword">switch</span> (a) {
+<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+alert ( <span class="hljs-string">'Правильно!'</span>);
+<span class="hljs-keyword">break</span>;
+
+*! *
+<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>: <span class="hljs-comment">// (*) групуємо обидва case</span>
+<span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+alert ( <span class="hljs-string">'Неправильно!'</span>);
+alert ( <span class="hljs-string">"Може вам відвідати урок математики?"</span>);
+<span class="hljs-keyword">break</span>;
+* /! *
+
+<span class="hljs-keyword">default</span>:
+alert ( <span class="hljs-string">'Результат виглядає трохи дивно. Чесно.'</span>);
+}
+</pre>
+
+<p>
+Тепер обидва варіанти <code>3</code> і <code>5</code> виводять одне повідомлення.
+</p>
+
+<p>
+Можливість групувати <code>case</code>- це побічний ефект того, як <code>switch / case</code>працює без <code>break</code>. Тут виконання <code>case 3</code>починається з рядка <code>(*)</code> і триває в <code>case 5</code>, тому що відсутня <code>break</code>.
+</p>
+
+<h3 id="-">Тип має значення</h3>
+<p>
+Потрібно відзначити, що перевірка на рівність завжди сувора. Значення повинні бути одного типу, щоб виконувалося рівність.
+</p>
+
+<p>
+Для прикладу, давайте розглянемо наступний код:
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> arg = prompt ( <span class="hljs-string">"Введіть число?"</span>);
+<span class="hljs-keyword">switch</span> (arg) {
+<span class="hljs-keyword">case</span> <span class="hljs-string">'0'</span>:
+<span class="hljs-keyword">case</span> <span class="hljs-string">'1'</span>:
+alert ( <span class="hljs-string">'Один або нуль'</span>);
+<span class="hljs-keyword">break</span>;
+
+<span class="hljs-keyword">case</span> <span class="hljs-string">'2'</span>:
+alert ( <span class="hljs-string">'Два'</span>);
+<span class="hljs-keyword">break</span>;
+
+<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+alert ( <span class="hljs-string">'Ніколи не виконається!'</span>);
+<span class="hljs-keyword">break</span>;
+<span class="hljs-keyword">default</span>:
+alert ( <span class="hljs-string">'Невідоме значення'</span>);
+}
+</pre>
+<ol>
+<li>Для <code>&#39;0&#39;</code> і <code>&#39; 1&#39;</code> виконається перший <code>alert</code>.</li>
+<li>Для <code>&#39;2&#39;</code> - другий <code>alert</code>.</li>
+<li>Але для <code>3</code>, результат виконання <code>prompt</code>буде рядок <code>&quot;3&quot;</code>, яка не відповідає суворому рівності <code>===</code> з числом<code>3</code>. Таким чином, ми маємо &quot;мертвий код&quot; в <code>case 3</code>! Виконається варіант <code>default</code>.</li>
+</ol>
+
+
+
+
+
+
+<h2 id="-while-for">Цикли while і for</h2>
+<p>
+При написанні скриптів часто постає завдання зробити однотипне дію багато разів.
+</p>
+
+<p>
+Наприклад, вивести товари зі списку один за іншим. Або просто перебрати всі числа від <code>1</code> до<code>10</code> і для кожного виконати однаковий код.
+</p>
+
+<p>
+Для багаторазового повторення однієї ділянки коду передбачені цикли.
+</p>
+
+<h3 id="-while-">Цикл &quot;while&quot;</h3>
+<p>
+Цикл <code>while</code> має наступний синтаксис:
+</p>
+
+<pre>
+<span class="hljs-keyword">while</span> (condition) {
+  <span class="hljs-regexp">//</span> код
+  <span class="hljs-regexp">//</span> також званий <span class="hljs-string">"тілом циклу"</span>
+}
+</pre>
+<p>
+Код з тіла циклу виконується, поки умова <code>condition</code> істинно.
+</p>
+
+<p>
+Наприклад, цикл нижче виводить <code>i</code>, поки<code>i &lt;3</code>:
+</p>
+
+<pre>
+let i = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">while</span> <span class="hljs-comment">(i &lt;3)</span> {<span class="hljs-comment">// виводить 0, потім 1, потім 2</span>
+  alert <span class="hljs-comment">(i)</span>;
+  i ++;
+}
+</pre>
+<p>
+Одне виконання тіла циклу по-науковому називається <em> ітерація </em>. Цикл в прикладі вище робить три ітерації.
+</p>
+
+<p>
+Якби рядок <code>i ++</code> була відсутня в прикладі вище, то цикл б повторювався (в теорії) вічно. На практиці, звичайно, браузер не дозволить такому трапитися, він надасть користувачеві можливість зупинити &quot;підвішеному&quot; скрипт, а JavaScript на стороні сервера доведеться &quot;вбити&quot; процес.
+</p>
+
+<p>
+Будь-яке вираження або змінна може бути умовою циклу, а не тільки порівняння: умова <code>while</code> обчислюється і перетворюється в логічне значення.
+</p>
+
+<p>
+Наприклад, <code>while (i)</code> - більш короткий варіант <code>while (i! = 0)</code>:
+</p>
+
+<pre>
+let i = <span class="hljs-number">3</span>;
+<span class="hljs-comment">*! *</span>
+<span class="hljs-keyword">while</span> (i) {<span class="hljs-comment">// коли i дорівнюватиме 0, умова стане хибним, і цикл зупиниться</span>
+<span class="hljs-comment">* /! *</span>
+  alert (i);
+  i--;
+}
+</pre>
+<p>
+Smart header = &quot;Фігурні дужки не потрібні для тіла циклу з одного рядка&quot;
+Якщо тіло циклу складається лише з однієї інструкції, ми можемо опустити фігурні дужки <code>{...}</code>:
+</p>
+
+<pre>
+let i = <span class="hljs-number">3</span><span class="hljs-comment">;</span>
+*! *
+while (<span class="hljs-name">i</span>) alert (<span class="hljs-name">i--</span>)<span class="hljs-comment">;</span>
+* /! *
+</pre>
+<h3 id="-do-while-">Цикл &quot;do ... while&quot;</h3>
+<p>
+Перевірку умови можна розмістити під тілом циклу, використовуючи спеціальний синтаксис <code>do..while</code>:
+</p>
+
+<pre>
+<span class="hljs-keyword">do</span> {
+  <span class="hljs-comment">// тіло циклу</span>
+} <span class="hljs-keyword">While</span> <span class="hljs-comment">(condition)</span>;
+</pre>
+<p>
+Цикл спочатку виконає тіло, а потім перевірить умова <code>condition</code>, і поки його значення дорівнює<code>true</code>, він буде виконуватися знову і знову.
+</p>
+
+<p>
+наприклад:
+</p>
+
+<pre>
+<span class="hljs-attribute">let</span> i = <span class="hljs-number">0</span>;
+<span class="hljs-section">do</span> {
+  <span class="hljs-attribute">alert</span> (i);
+  <span class="hljs-attribute">i</span> ++;
+} <span class="hljs-attribute">While</span> (i &lt;<span class="hljs-number">3</span>);
+</pre>
+<p>
+Така форма синтаксису виправдана, якщо ви хочете, щоб тіло циклу виповнилося <strong> хоча б один раз </strong>, навіть якщо умова виявиться помилковим. На практиці частіше використовується форма з передумовою: <code>while (...) {...}</code>.
+</p>
+
+<h3 id="-for-">Цикл &quot;for&quot;</h3>
+<p>
+Більш складний, але при цьому найпоширеніший цикл - цикл <code>for</code>.
+</p>
+
+<p>
+Виглядає він так:
+</p>
+
+<pre>
+<span class="hljs-keyword">for</span> (початок; умова; крок) {
+  // <span class="hljs-keyword">...</span> тіло циклу <span class="hljs-keyword">...</span>
+}
+</pre>
+
+<p>
+Давайте розберемося, що означає кожна частина, на прикладі. Цикл нижче виконує <code>alert (i)</code> для <code>i</code> від<code>0</code> до (але не включаючи) <code>3</code>:
+</p>
+
+<pre>
+<span class="hljs-keyword">for</span> (let <span class="hljs-built_in">i</span> = <span class="hljs-number">0</span>; <span class="hljs-built_in">i</span> &lt;<span class="hljs-number">3</span>; <span class="hljs-built_in">i</span> ++) {// виведе <span class="hljs-number">0</span>, потім <span class="hljs-number">1</span>, потім <span class="hljs-number">2</span>
+  alert (i);
+}
+</pre>
+<p>
+Розглянемо конструкцію <code>for</code> детальніше:
+</p>
+
+<table>
+<thead>
+<tr>
+<th>частина</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em> Початок </em></td>
+<td><code>I = 0</code></td>
+<td>Виконується один раз при вході в цикл</td>
+</tr>
+<tr>
+<td><em> Умова </em></td>
+<td><code>I &lt;3</code></td>
+<td>Перевіряється <em> перед </em> кожної итерацией циклу. Якщо воно обчислити в <code>false</code>, цикл зупиниться.</td>
+</tr>
+<tr>
+<td><em> Крок </em></td>
+<td><code>I ++</code></td>
+<td>Виконується <em> після </em> тіла циклу на кожній ітерації <em> перед </em> перевіркою умови.</td>
+</tr>
+<tr>
+<td><em> Тіло </em></td>
+<td><code>Alert (i)</code></td>
+<td>Виконується знову і знову, поки умова обчислюється в <code>true</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>
+В цілому, алгоритм роботи циклу виглядає наступним чином:
+</p>
+
+<pre>
+Виконати <span class="hljs-bullet">* початок *</span>
+→ (Якщо <span class="hljs-bullet">* умова *</span> == true → Виконати <span class="hljs-bullet">* тіло *</span>, Виконати <span class="hljs-bullet">* крок *</span>)
+→ (Якщо <span class="hljs-bullet">* умова *</span> == true → Виконати <span class="hljs-bullet">* тіло *</span>, Виконати <span class="hljs-bullet">* крок *</span>)
+→ (Якщо <span class="hljs-bullet">* умова *</span> == true → Виконати <span class="hljs-bullet">* тіло *</span>, Виконати <span class="hljs-bullet">* крок *</span>)
+→ ...
+</pre>
+<p>
+Тобто, <em> початок </em> виконується один раз, а потім кожна ітерація полягає в перевірці <em> умови </em>, після якої виконується <em> тіло </em> і <em> крок </em>.
+</p>
+
+<p>
+Якщо тема циклів для вас нова, може бути корисним повернутися до прикладу вище і відтворити його роботу на аркуші паперу, крок за кроком.
+</p>
+
+<p>
+Ось в точності те, що відбувається в нашому випадку:
+</p>
+
+<pre>
+<span class="hljs-comment">// for (let i = 0; i &lt;3; i ++) alert (i)</span>
+
+<span class="hljs-comment">// Виконати початок</span>
+let i = <span class="hljs-number">0</span>;
+<span class="hljs-comment">// Якщо умова == true → Виконати тіло, Виконати крок</span>
+<span class="hljs-keyword">if</span> <span class="hljs-comment">(i &lt;3)</span> {alert <span class="hljs-comment">(i)</span>; i ++}
+<span class="hljs-comment">// Якщо умова == true → Виконати тіло, Виконати крок</span>
+<span class="hljs-keyword">if</span> <span class="hljs-comment">(i &lt;3)</span> {alert <span class="hljs-comment">(i)</span>; i ++}
+<span class="hljs-comment">// Якщо умова == true → Виконати тіло, Виконати крок</span>
+<span class="hljs-keyword">if</span> <span class="hljs-comment">(i &lt;3)</span> {alert <span class="hljs-comment">(i)</span>; i ++}
+<span class="hljs-comment">// ... кінець, тому що тепер i == 3</span>
+</pre>
+<p>
+Smart header = &quot;Вбудоване оголошення змінної&quot;
+У прикладі змінна лічильника <code>i</code> була оголошена прямо в циклі. Це так зване &quot;вбудоване&quot; оголошення змінної. Такі змінні існують тільки всередині циклу.
+</p>
+
+<pre>
+for <span class="hljs-comment">(*! * let * /! * i = 0; i &lt;3; i ++)</span> {
+  alert <span class="hljs-comment">(i)</span>; <span class="hljs-comment">// 0, 1, 2</span>
+}
+alert <span class="hljs-comment">(i)</span>; <span class="hljs-comment">// помилка, немає такої змінної</span>
+</pre>
+<p>
+Замість оголошення нової змінної ми можемо використовувати вже існуючу:
+</p>
+
+<pre>
+let i = <span class="hljs-number">0</span>;
+
+for <span class="hljs-comment">(i = 0; i &lt;3; i ++)</span> {<span class="hljs-comment">// використовуємо існуючу змінну</span>
+  alert <span class="hljs-comment">(i)</span>; <span class="hljs-comment">// 0, 1, 2</span>
+}
+
+alert <span class="hljs-comment">(i)</span>; <span class="hljs-comment">// 3, змінна доступна, тому що була оголошена зовні циклу</span>
+</pre>
+<h4 id="-for-">Пропуск частин &quot;for&quot;</h4>
+<p>
+Будь-яка частина <code>for</code> може бути пропущена.
+</p>
+
+<p>
+Для прикладу, ми можемо пропустити <code>начало</code> якщо нам нічого не потрібно робити перед стартом циклу.
+</p>
+
+<p>
+Ось так:
+</p>
+
+<pre>
+let i = <span class="hljs-number">0</span>; <span class="hljs-regexp">//</span> ми вже маємо оголошену i з присвоєним значенням
+
+<span class="hljs-keyword">for</span> (; i &lt;<span class="hljs-number">3</span>; i ++) {<span class="hljs-regexp">//</span> немає необхідності в <span class="hljs-string">"початку"</span>
+  alert (i); <span class="hljs-regexp">//</span> <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>
+}
+</pre>
+<p>
+Можна прибрати і <code>шаг</code>:
+</p>
+
+<pre>
+let <span class="hljs-built_in">i</span> = <span class="hljs-number">0</span>;
+
+<span class="hljs-keyword">for</span> (; <span class="hljs-built_in">i</span> &lt;<span class="hljs-number">3</span>;) {
+  alert (i ++);
+}
+</pre>
+<p>
+Це зробить цикл аналогічним <code>while (i &lt;3)</code>.
+</p>
+
+<p>
+А можна і взагалі прибрати все, отримавши нескінченний цикл:
+</p>
+
+<pre>
+<span class="hljs-keyword">for</span> (;;) {
+  <span class="hljs-comment">// буде виконуватися вічно</span>
+}
+</pre>
+<p>
+При цьому самі крапки з комою <code>;</code> обов&#39;язково повинні бути присутніми, інакше нічого не вийде синтаксису.
+</p>
+
+<h3 id="-break-">Переривання циклу: &quot;break&quot;</h3>
+<p>
+Зазвичай цикл завершується при обчисленні <em> умови </em> в <code>false</code>.
+</p>
+
+<p>
+Але ми можемо вийти з циклу в будь-який момент за допомогою спеціальної директиви <code>break</code>.
+</p>
+
+<p>
+Наприклад, наступний код підраховує суму чисел, що вводяться до тих пір, поки відвідувач їх вводить, а потім - видає:
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;
+
+<span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+
+  <span class="hljs-keyword">let</span> <span class="hljs-keyword">value</span> = + prompt ( <span class="hljs-string">"Введіть число"</span>, <span class="hljs-string">''</span>);
+
+*! *
+  <span class="hljs-keyword">if</span> (! <span class="hljs-keyword">value</span>) <span class="hljs-keyword">break</span>; <span class="hljs-comment">// (*)</span>
+* /! *
+
+  sum + = <span class="hljs-keyword">value</span>;
+
+}
+alert ( <span class="hljs-string">'Сума:'</span> + sum);
+</pre>
+<p>
+Директива <code>break</code> в рядку <code>(*)</code> повністю припиняє виконання циклу і передає управління на рядок за його тілом, тобто на <code>alert</code>.
+</p>
+
+<p>
+Взагалі, поєднання «нескінченний цикл + <code>break</code> »- відмінна штука для тих ситуацій, коли умова, за яким потрібно перерватися, знаходиться не на початку або наприкінці циклу, а посередині.
+</p>
+
+<h3 id="-continue-continue-">Перехід до наступної ітерації: continue [#continue]</h3>
+<p>
+Директива <code>continue</code> - &quot;полегшена версія&quot; <code>break</code>. При її виконанні цикл не переривається, а переходить до наступної ітерації (якщо умова все ще одно <code>true</code>).
+</p>
+
+<p>
+Її використовують, якщо зрозуміло, що на поточному повторі циклу робити більше нічого.
+</p>
+
+<p>
+Наприклад, цикл нижче використовує <code>continue</code>, щоб виводити тільки непарні значення:
+</p>
+
+<pre>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt;<span class="hljs-number">10</span>; i ++) {
+
+  <span class="hljs-comment">// якщо true, пропустити решту тіла циклу</span>
+  *! * <span class="hljs-keyword">If</span> (i% <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>; * /! *
+
+  alert (i); <span class="hljs-comment">// 1, потім 3, 5, 7, 9</span>
+}
+</pre>
+<p>
+Для парних значень <code>i</code>, директива<code>continue</code> припиняє виконання тіла циклу і передає управління на наступну ітерацію <code>for</code> (з наступним числом). Таким чином <code>alert</code> викликається тільки для непарних значень.
+</p>
+
+<p>
+Smart header = &quot;Директива<code>continue</code> дозволяє уникати вкладеності &quot;
+Цикл, який обробляє тільки непарні значення, міг би виглядати так:
+</p>
+
+<pre>
+for (<span class="hljs-name">let</span> i = <span class="hljs-number">0</span><span class="hljs-comment">; i &lt;10; i ++) {</span>
+
+  if (<span class="hljs-name">i</span>% <span class="hljs-number">2</span>) {
+    alert (<span class="hljs-name">i</span>)<span class="hljs-comment">;</span>
+  }
+
+}
+</pre>
+<p>
+З технічної точки зору він повністю ідентичний. Дійсно, замість <code>continue</code> можна просто загорнути дії в блок<code>if</code>.
+</p>
+
+<p>
+Однак ми отримали додатковий рівень вкладеності фігурних дужок. Якщо код всередині <code>if</code> довший, то це погіршує читаність, на відміну від варіанту з <code>continue</code>.
+</p>
+
+<p>
+Warn header = &quot;Не можна використовувати <code>break / continue</code> праворуч від оператора &#39;?&#39; &quot;
+Зверніть увагу, що ці синтаксичні конструкції не є виразами і не можуть бути використані з тернарного оператором <code>?</code>. Зокрема, використання таких директив, як <code>break / continue</code>, викличе помилку.
+</p>
+
+<p>
+Наприклад, якщо ми візьмемо цей код:
+</p>
+
+<pre>
+<span class="hljs-keyword">if</span> (i&gt; <span class="hljs-number">5</span>) {
+  alert (i)<span class="hljs-comment">;</span>
+} <span class="hljs-keyword">Else</span> {
+  <span class="hljs-keyword">continue</span><span class="hljs-comment">;</span>
+}
+</pre>
+<p>
+... і перепишемо його, використовуючи знак питання:
+</p>
+
+<pre>
+(I&gt; <span class="hljs-number">5</span>)? alert (i): *! * <span class="hljs-keyword">continue</span> * <span class="hljs-regexp">/! *; /</span>/ <span class="hljs-keyword">continue</span> тут призведе до помилки
+</pre>
+<p>
+... то буде синтаксична помилка.
+</p>
+
+<p>
+Це ще один привід не використовувати оператор знаку <code>?</code> Замість <code>if</code>.
+</p>
+
+<h3 id="-break-continue">Мітки для break / continue</h3>
+<p>
+Буває, потрібно вийти одночасно з декількох рівнів циклу відразу.
+</p>
+
+<p>
+Наприклад, в коді нижче ми проходимся циклами по <code>i</code> і <code>j</code>, запитуючи за допомогою <code>prompt</code> координати <code>(i, j)</code> з <code>(0,0)</code> до <code>(2,2)</code>:
+</p>
+
+<pre>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt;<span class="hljs-number">3</span>; i ++) {
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt;<span class="hljs-number">3</span>; j ++) {
+
+    <span class="hljs-keyword">let</span> input = prompt ( <span class="hljs-string">`Значення на координатах ($ {i}, $ {j})`</span>, <span class="hljs-string">''</span>);
+
+    <span class="hljs-comment">// Що якщо ми захочемо перейти до Готово (нижче) прямо звідси?</span>
+
+  }
+}
+
+alert ( <span class="hljs-string">'Готово!'</span>);
+</pre>
+<p>
+Нам потрібен спосіб зупинити виконання якщо користувач скасує введення.
+</p>
+
+<p>
+Звичайний <code>break</code> після <code>input</code> лише перерве внутрішній цикл, але цього недостатньо. Досягти бажаного поведінки можна за допомогою міток.
+</p>
+
+<ul>
+<li>Позначка * має вигляд ідентифікатора з двокрапкою перед циклом:<pre>
+labelName: <span class="hljs-keyword">for</span> (<span class="hljs-keyword">...</span>) {
+<span class="hljs-keyword">...</span>
+}
+</pre>
+</li>
+</ul>
+<p>
+Виклик <code>break &lt;labelName&gt;</code> в циклі нижче шукає найближчий зовнішній цикл з такою міткою і переходить в його кінець.
+</p>
+
+<pre>
+*! * Outer: * /! * <span class="hljs-keyword">For</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt;<span class="hljs-number">3</span>; i ++) {
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt;<span class="hljs-number">3</span>; j ++) {
+
+    <span class="hljs-keyword">let</span> input = prompt ( `Значення на координатах ($ {i}, $ {j})`, <span class="hljs-string">''</span>);
+
+    <span class="hljs-comment">// якщо порожній рядок або Скасування, то вийти з обох циклів</span>
+    <span class="hljs-keyword">if</span> (! input) *! * <span class="hljs-keyword">break</span> outer * /! *; <span class="hljs-comment">// (*)</span>
+
+    <span class="hljs-comment">// зробити що-небудь зі значеннями ...</span>
+  }
+}
+
+alert ( <span class="hljs-string">'Готово!'</span>);
+</pre>
+<p>
+В наведеному вище прикладі це означає, що викликом <code>break outer</code> буде розірваний зовнішній цикл до мітки з ім&#39;ям<code>outer</code>, і управління перейде зі рядки з позначкою <code>(*)</code>, до <code>alert ( &#39;Готово!&#39;)</code>.
+</p>
+
+<p>
+Можна розміщувати мітку на окремому рядку:
+</p>
+
+<pre>
+outer:
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt;<span class="hljs-number">3</span>; i ++) <span class="hljs-meta">{...}</span>
+</pre>
+<p>
+Директива <code>continue</code> також може бути використана з міткою. У цьому випадку управління перейде на наступну ітерацію циклу з міткою.
+</p>
+
+<p>
+Warn header = &quot;Мітки не дозволяють \&quot; стрибнути \ &quot;куди завгодно&quot;
+Мітки не дають можливості передавати управління в довільне місце коду.
+</p>
+
+<p>
+Наприклад, немає можливості зробити наступне:
+</p>
+
+<pre>
+break <span class="hljs-keyword">label</span><span class="bash">; // не стрибає до мітки нижче
+</span>
+<span class="hljs-keyword">label</span><span class="bash">: <span class="hljs-keyword">for</span> (...)</span>
+</pre>
+<p>
+Виклик <code>break / continue</code> можливий тільки всередині циклу, і мітка повинна знаходитися десь вище цієї директиви.
+</p>
+
+<h3 id="-">Разом</h3>
+<p>
+Ми розглянули 3 види циклів:
+</p>
+
+<ul>
+<li><code>while</code> - Перевіряє умова перед кожною итерацией.</li>
+<li><code>do..while</code> - Перевіряє умова після кожної ітерації.</li>
+<li><code>for (;;)</code> - Перевіряє умова перед кожною итерацией, є можливість задати додаткові налаштування.</li>
+</ul>
+<p>
+Щоб організувати нескінченний цикл, використовують конструкцію <code>while (true)</code>. При цьому він, як і будь-який інший цикл, може бути перерваний директивою <code>break</code>.
+</p>
+
+<p>
+Якщо на даній ітерації циклу робити більше нічого не треба, але повністю припиняти цикл не слід - використовують директиву <code>continue</code>.
+</p>
+
+<p>
+Обидві ці директиви підтримують <em> мітки </em>, які ставляться перед циклом. Мітки - єдиний спосіб для <code>break / continue</code> вийти за межі поточного циклу, вплинути на виконання зовнішнього.
+</p>
+
+<p>
+Зауважимо, що мітки не дозволяють стрибнути в довільне місце коду, в JavaScript немає такої можливості.
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Контрольні запитання</h3>
+<ol>
+
+<li> </li>
+
+
+</ol>
+</div>
+</body>
+</html>

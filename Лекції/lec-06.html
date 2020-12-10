@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ. Лекція №6 </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ. Лекція №6 </div>
+		<h1>Основи адаптивної верстки</h1>
+		
+
+
+<p>
+У наші дні практично кожен замовник хоче отримати мобільну версію для свого сайту. І це природно: потрібний один дизайн для iPhone, інший для iPad – і він також повинен підходити під усі інші розміри екранів.
+</p>
+ 
+<p>
+У темі веб-дизайну і розробки ми швидко наближаємося до точки, коли ми будемо не здатні справлятися з нескінченними новими дозволами і екранами. Для багатьох веб-сайтів створення окремої версії для кожного нового дозволу буде неможливим або, принаймні, непрактичним. Чи повинні ми змиритися з втратою відвідувачів, для яких у нас немає верстання? Чи можна щось зробити?<span id="more-23478"></span>
+</p>
+ 
+<p>
+Адаптивне верстання – підхід, що припускає зміну дизайну залежно від поведінки користувача, розміру екрана, платформи і орієнтації девайса. Іншими словами, сторінка повинна автоматично підлаштовуватися під дозвіл, змінювати розмір картинок і так далі. Це дозволить усунути потребу в розробці дизайну для кожного нового пристрою, що з’являється у продажу.
+</p>
+ <h3>Регулювання дозволу екрана</h3> 
+<p>
+Можна розбити пристрої на різні категорії і верстати для кожної з них окремо, але це займе надто багато часу, і хто знає, які стандарти будуть через п’ять років? Тим більше, згідно зі статистикою, що посилається на 400 проданих із 2005 по 2008 рік пристроїв (а зараз 2016), ми маємо цілих спектр різноманітних пристроїв:
+</p>
+ 
+<p>
+<img src="img/0601.jpg">
+</p>
+ 
+<p>
+Очевидно, що ми не зможемо продовжувати верстати для кожного пристрою окремо. Що ж тоді робити?
+</p>
+ <h4>Часткове рішення: робимо все гнучким</h4> 
+<p>
+Звичайно, це не ідеальне рішення, але воно розв’язує велику частину проблем.
+</p>
+ 
+<p>
+У статті Ітан Маркотт (Ethan Marcotte) створив <a href="http://alistapart.com/d/responsive-web-design/ex/ex-site-flexible.html" target="_blank" rel="nofollow noopener noreferrer">простий шаблон</a>, що демонструє використання гнучкого верстання:
+</p>
+ 
+<p>
+<img src="img/0602.jpg">
+</p>
+ 
+<p>
+Увесь дизайн – мікс <a href="http://alistapart.com/article/fluidgrids" target="_blank" rel="nofollow noopener noreferrer">адаптивних шарів</a>, <a href="http://unstoppablerobotninja.com/entry/fluid-images" target="_blank" rel="nofollow noopener noreferrer">картинок</a> і в деяких місцях розумної розмітки. Створення адаптивних шарів – часта практика, що не можна сказати про адаптивні картинки. Тому нижче представлена техніка для реалізації гнучких картинок:
+</p>
+ <ul> <li><a style="text-decoration: none;" href="http://zomigi.com/blog/hiding-and-revealing-portions-of-images/" target="_blank" rel="noopener noreferrer nofollow">Hiding and Revealing Portions of Images</a>;</li> <li><a style="text-decoration: none;" href="http://zomigi.com/blog/creating-sliding-composite-images/" target="_blank" rel="noopener noreferrer nofollow">Creating Sliding Composite Images</a>;</li> <li><a style="text-decoration: none;" href="http://zomigi.com/blog/foreground-images-that-scale-with-the-layout/" target="_blank" rel="noopener noreferrer nofollow">Foreground Images That Scale With the Layout</a>.</li> </ul> 
+<p>
+Для детальнішої інформації рекомендуємо ознайомитися з книгою Зої Мклі Гілленуотер (Zoe Mickley Gillenwater) “Flexible Web Design: Creating Liquid Layouts with CSS” і завантажити розділ&nbsp;<a href="http://www.flexiblewebbook.com/bonus.html" target="_blank" rel="noopener noreferrer nofollow">“Creating Flexible Images”</a>.
+</p>
+ 
+<p>
+З першого погляду може здатися, що все легко, але це не так. Подивіться на логотип:
+</p>
+ 
+<p>
+<img src="img/0603.jpg">
+</p>
+ 
+<p>
+Якщо зробити дозвіл занадто маленьким, може здатися, що чіткість картинки знизилась, але це необхідно для того, щоб зберегти пропорції назви. Тому картинка поділена на дві частини: перша частина (ілюстрація) використовується як фон, друга (логотип) змінює свої розміри пропорційно.
+</p>
+ 
+<p>
+Елемент <code>h1</code> містить зображення як фон, і картинка вирівняна згідно з фоном контейнера (заголовка).
+</p>
+ <h3>Гнучкі зображення</h3> 
+<p>
+Одна з найголовніших проблем, яка потребує розв’язання при роботі з адаптивним дизайном, – це робота з картинками. Є багато способів змінювати розмір зображень, і більшість з них реалізується дуже просто. Один з таких прикладів – використання <span style="font-family: monospace;">max – width</span> у CSS:
+</p>
+ <pre class="line-numbers"><code class="language-css">img {max-width: 100%;}</code>
+</pre>
+ 
+<p>
+<strong>Максимальна ширина</strong> зображення дорівнює 100 % від ширини екрана або вікна браузера, і, коли ширина зменшується, те саме робить і картинка. Зверніть увагу, що <code>max-width</code> <strong>не підтримується в IE</strong>, тому використовуйте <code>width: 100 %</code>.
+</p>
+ 
+<p>
+Представлений спосіб є відмінним початком у створенні адаптивних зображень, але дозвіл і час завантаження повинні залишатися пріоритетними.
+</p>
+ <h4>Ще один спосіб: чутливі зображення</h4> 
+<p>
+Техніка, представлена Filament Group, не лише змінює розмір зображень відповідно до пропорцій, але й стискає дозвіл картинок на маленьких екранах, щоб на великих вони не займали додаткового місця.
+</p>
+ 
+<p>
+<img src="img/0604.jpg">
+</p>
+ 
+<p>
+Для використання цієї техніки потрібно декілька файлів, усі вони доступні на <a style="text-decoration: none;" href="https://github.com/filamentgroup/Responsive-Images" target="_blank" rel="noopener noreferrer nofollow">Github</a>. Спочатку беремо JavaScript- файл (<em>rwd – images.js</em>), файл <em>.htaccess</em> і <em>rwd.gif</em> (файл зображення). Потім використовуємо трохи HTML, щоб зв’язати великі і маленькі дозволи: спочатку маленьке зображення з префіксом <em>.r</em> (для позначення того, що картинка має бути адаптивною) потім відсилання до більшого зображення, використовуючи <code>data-fullsrc.</code> Для будь-якого екрана ширше 480 пікселів завантажиться зображення з великим дозволом (<em>largeRes.jpg</em>); маленьким екранам не знадобиться завантажувати велике зображення, завантажиться маленьке (<em>smallRes.jpg</em>).
+</p>
+ <h4>Цікава фіча для iPhone</h4> 
+<p>
+Є одна цікава річ, iPhone, що стосується й iPod. Дизайн, створений для великих екранів, просто стиснеться для маленького браузера, без необхідності додавання скрола або додаткового мобільного верстання. Проте зображень і тексту не буде видно:
+</p>
+ 
+<p>
+<img src="img/0605.jpg">
+</p>
+ 
+<p>
+Для розв’язання цієї проблеми скористаємося тегом <code>meta</code>: якщо <code>initial-scale</code> дорівнює одиниці, ширина картинок буде дорівнювати ширині екрана.
+</p>
+ <h3>Структура макета сторінки, що налаштовується</h3> 
+<p>
+Для надзвичайних змін розмірів ми можемо захотіти змінити розташування елементів у цілому через окремий файл зі стилями або, що ефективніше, через CSS-медіазапит. Це не повинно викликати особливо багато проблем, оскільки більшість стилів залишаться колишніми, але деякі зміняться.
+</p>
+ 
+<p>
+Наприклад, у нас є головний файл зі стилями, який задає <code>#wrapper</code>, <code>#content</code>, <code>#sidebar</code>, <code>#nav</code> разом з кольорами, фоном і шрифтами. Якщо наші головні стилі роблять макет занадто вузьким, коротким, широким або високим, ми можемо це визначити і підключити нові стилі.
+</p>
+ 
+<p>
+<em>style.css (основний) :</em>
+</p>
+ <pre class="line-numbers">
+ /* Default styles that will carry to the child style sheet */
+html, body{ 
+background... font... color...}
+h1, h2, h3{}p, blockquote, pre, code, ol, ul{}
+/* Structural elements */
+#wrapper{ 
+width: 80%; 
+margin: 0 auto; 
+background: #fff; 
+padding: 20px;}
+#content{ 
+width: 54%; 
+float: left; 
+margin-right: 3%;
+}
+#sidebar-left{ 
+width: 20%; 
+float: left; 
+margin-right: 3%;
+}
+#sidebar-right{ 
+width: 20%; 
+float: left;
+}
+</pre>
+ 
+<p>
+<em>mobile.css (дочірній) :</em>
+</p>
+ <pre class="line-numbers"><code class="language-css">
+#wrapper{
+width: 90%;
+#content{
+width: 100%;}
+#sidebar - left{ 
+width: 100%; clear: both;
+/* Additional styling for our new layout */ 
+border-top: 1px solid #ccc;
+margin-top: 20px;}
+#sidebar - right{ width: 100%; clear: both;
+/* Additional styling for our new layout */
+border-top: 1px solid #ccc; 
+		}</code>
+</pre>
+ 
+<p>
+<img src="img/0606.jpg">
+</p>
+ <h4>Медіазапити CSS3</h4> 
+<p>
+Давайте подивимося, як можна використати CSS3- медіазапити для створення адаптивного дизайну. <code>min-width</code> задає мінімальну ширину вікна браузера або екрана, до якої будуть застосовані певні стилі. Якщо значення буде нижче <code>min-width</code>, то стилі будуть проігноровані; <code>max-width</code> робить протилежне.
+</p>
+ 
+<p>
+Приклад:
+</p>
+ <pre class="line-numbers"><code class="language-css">@media screen and (min-width: 600px)
+{ .hereIsMyClass { width: 30%; float: right; }}</code>
+</pre>
+<p>
+Медіазапит запрацює тільки у тому випадку, коли <code>min-width</code> буде більше або дорівнюватиме 600 px.
+</p>
+ <pre class="line-numbers"><code class="language-css">@media screen and (max -width: 600px)
+{ .aClassforSmallScreens { clear: both; font-size: 1.3em; }}</code>
+</pre>
+ 
+<p>
+У цьому випадку клас (<em>aClassforSmallscreens</em>) спрацює, коли ширина екрана буде менше або дорівнюватиме 600 px.
+</p>
+ 
+<p>
+Тоді як <code>min-width</code> і <code>max-width</code> можуть бути застосовані до екранів і вікон браузерів, нам може знадобитися працювати тільки з шириною пристрою. Для цього можна використати <code>min-device-width</code> і <code>max-device-width</code>:
+</p>
+ <pre class="line-numbers"><code class="language-css">@media screen and (max-device-width: 480px)
+{ .classForiPhoneDisplay { font-size: 1.2em; }}
+@media screen and (min-device-width: 768px) 
+{ .minimumiPadWidth { clear: both; margin-bottom: 2px solid #ccc; }}</code>
+</pre>
+ 
+<p>
+Спеціально для iPad у медіазапитів є властивість <em>orientation</em>, значеннями якого можуть бути або <em>landscape </em>(горизонтальний) або <em>potrait </em>(вертикальний):
+</p>
+ <pre class="line-numbers"><code class="language-css">@media screen and (orientation: landscape) 
+ { .iPadLandscape { width: 30%; float: right; }}
+@media screen and (orientation: portrait) 
+{ .iPadPortrait { clear: both; }}</code>
+</pre>
+ 
+<p>
+Також значення медіазапитів можна комбінувати, наприклад:
+</p>
+ <pre class="line-numbers"><code class="language-css">@media screen and (min -width: 800px) and (max -width: 1200px) 
+{ .classForaMediumScreen { background: #cc0000; width: 30%; float: right; }}</code>
+</pre>
+ 
+<p>
+Цей код буде виконаний тільки для екранів або вікон браузерів шириною між 800 і 1200 px.
+</p>
+ <h4>JavaScript</h4> 
+<p>
+Якщо Ваш браузер не підтримує CSS3-медіазапити, то заміну стилів можна організувати за допомогою &nbsp;jQuery.
+</p>
+ <h3>Опціональне відображення контенту</h3> 
+<p>
+Можливість стискати і міняти місцями елементи, так,щоб вони всі вміщалися на маленьких екранах, це чудово. Але це не кращий варіант. Для мобільних пристроїв зазвичай використовуються: спрощена навігація, більше сфокусований контент, списки або рядки замість колонок.
+</p>
+ 
+<p>
+<img src="img/0607.jpg">
+</p>
+ 
+<p>
+На щастя, CSS дає нам можливість показувати і ховати контент з неймовірною легкістю!
+</p>
+ <pre class="line-numbers"><code class="language-css">display: none;</code>
+</pre>
+ 
+<p>
+<code>display: none</code> використовується для об’єктів, які треба сховати.
+</p>
+ 
+<p>
+Приклад:
+</p>
+ 
+<p>
+<img src="img/0608.jpg">
+</p>
+ 
+<p>
+У головному файлі стилів ми міняємо посилання на колонки, оскільки у нас великий екран, щоб відобразити весь контент.
+</p>
+ 
+<p>
+<em>style.css (основний) :</em>
+</p>
+ <pre class="line-numbers"><code class="language-css">#content{ 
+width: 54%; 
+float: left; 
+margin-right: 3%;}
+#sidebar - left{ 
+width: 20%; 
+float: left; 
+margin-right: 3%;}
+#sidebar - right{ 
+width: 20%; 
+float: left;}
+.sidebar - nav{ 
+display: none;}</code>
+</pre>
+ 
+<p>
+Тепер ховаємо колонки і показуємо посилання:
+</p>
+ 
+<p>
+<em>mobile.css (спрощений) :</em>
+</p>
+ <pre class="line-numbers"><code class="language-css">#content{ 
+width: 100%;}
+#sidebar - left{ 
+display: none;}
+#sidebar - right{ 
+display: none;}
+.sidebar - nav{ 
+display: inline;}</code>
+</pre>
+ 
+<p>
+З можливостями ховати і показувати елементи, змінювати розміри картинок, елементів і багато іншого, дизайн зміг пристосовуватися до різних пристроїв та екранів. Якщо розмір екрана зменшується, можна, наприклад, використати скрипт або альтернативний файл зі стилями, щоб збільшити білий простір, або замінити навігацію для більшої зручності.
+</p>
+
+
+		<h2>Контрольні запитання</h2>
+		<ol>
+
+			<li>Що таке адаптивне верстання?</li>
+			<li>Що таке чутливі зображення?</li>
+			<li>Яким чином можна змінювати розмір зображень?</li>
+			<li>Які є типм медіазапитів?</li>
+			<li>За допомогою чого можна працювати тільки з шириною пристрою?</li>
+		</ol>
+	</div>
+</body>
+</html>
