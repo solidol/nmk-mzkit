@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ. Лекція №9 </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ. Лекція №9 </div>
+		<h1>Типи даних та перетворення типів</h1>
+<h1 id="-">Тип даних</h1>
+<p>
+Значення в JavaScript завжди відноситься до даних певного типу. Наприклад, це може бути рядок або число.
+</p>
+
+<p>
+Є вісім основних типів даних в JavaScript. У цьому розділі ми розглянемо їх загалом, а в наступних розділах поговоримо докладніше про кожного.
+</p>
+
+<p>
+Змінна в JavaScript може містити будь-які дані. В один момент там може бути рядок, а в іншій-число:
+</p>
+
+<pre>
+// Не буде помилкою
+let message = <span class="hljs-string">"hello"</span><span class="hljs-comment">;</span>
+<span class="hljs-attribute">message</span> = <span class="hljs-number">123456</span><span class="hljs-comment">;</span>
+</pre>
+<p>
+Мови програмування, в яких таке можливо, називаються &quot;динамічно типізованими&quot;. Це означає, що типи даних є, але змінні не прив'язані до жодного з них.
+</p>
+<h2 id="-">Число</h2>
+<pre>
+<span class="hljs-attribute">let n</span> = 123;
+<span class="hljs-attribute">n</span> = 12.345;
+</pre>
+<p>
+Числовий тип даних (<code>number</code>) представляє як цілочисельні значення, так і числа з плаваючою точкою.
+</p>
+
+<p>
+Існує безліч операцій для чисел, наприклад, множення<code>*</code>, ділення<code>/</code>, додавання<code>+</code>, віднімання <code>-</code> і так далі.
+</p>
+
+<p>
+Крім звичайних чисел, існують так звані &quot;спеціальні числові значення&quot;, які відносяться до цього типу даних: <code>Infinity</code>, <code>-Infinity</code> і <code>NaN</code>.
+</p>
+
+<p>
+<code>Infinity</code> являє собою математичну <a href="https://ru.wikipedia.org/wiki/Бесконечность#В_математике">нескінченність</a>∞. Це особливе значення, яке більше будь-якого числа.
+</p>
+
+<p>
+Ми можемо отримати його в результаті поділу на нуль:
+</p>
+
+<pre>
+alert( <span class="hljs-number">1</span> / <span class="hljs-number">0</span> ); <span class="hljs-comment">// Infinity</span>
+</pre>
+<p>
+Або задати його явно:
+</p>
+
+<pre>
+alert<span class="hljs-comment">( Infinity )</span>; <span class="hljs-comment">// Infinity</span>
+</pre>
+<ul>
+<li><code>NaN</code> означає обчислювальну помилку. Це результат неправильної або невизначеної математичної операції, наприклад:</li>
+</ul>
+<pre>
+alert (<span class="hljs-string">"не число"</span> / <span class="hljs-number">2</span>); <span class="hljs-regexp">/ /</span> <span class="hljs-literal">NaN</span>, такий поділ є помилкою
+</pre>
+<p>
+Значення <code>NaN</code> &quot;прилипливо&quot;. Будь-яка операція з <code>NaN</code> повертає <code>NaN</code>:
+</p>
+
+<pre>
+alert (<span class="hljs-string">"не число"</span> / <span class="hljs-number">2</span> + <span class="hljs-number">5</span>); <span class="hljs-regexp">/ /</span> <span class="hljs-literal">NaN</span>
+</pre>
+<p>
+Якщо десь в математичному вираженні є <code>NaN</code>, то результатом обчислень з його участю буде <code>NaN</code>.
+</p>
+
+<p>
+&quot;'smart header=&quot; математичні операції -- безпечні&quot;
+Математичні операції в JavaScript &quot;безпечні&quot;. Ми можемо робити що завгодно: ділити на нуль, поводитися з нечисловими рядками як з числами і т. д.
+</p>
+
+<p>
+Скрипт ніколи не зупиниться з фатальною помилкою (не &quot;помре&quot;). У гіршому випадку ми отримаємо <code>NaN</code> як результат виконання.
+</p>
+
+<p>
+Спеціальні числові значення відносяться до типу&quot;число&quot;. Звичайно, це не числа в звичному значенні цього слова.
+</p>
+
+<p>
+Детальніше про роботу з числами ми поговоримо в розділі <info:number>.
+</p>
+<h2 id="bigint">BigInt</h2>
+<p>
+У JavaScript тип &quot;number&quot; не може містити числа більше, ніж <code>(2<sup>53</sup>-1)</code> (тобто <code>9007199254740991</code>), або менше, ніж <code>-(2<sup>53</sup>-1)</code> для негативних чисел. Це технічне обмеження викликано їх внутрішнім поданням.
+</p>
+
+<p>
+Для більшості випадків цього достатньо. Але іноді нам потрібні дійсно гігантські числа, наприклад, в криптографії або при використанні мітки часу (&quot;timestamp&quot;) з мікросекундами.
+</p>
+
+<p>
+Тип<code>BigInt</code> був доданий в JavaScript, щоб дати можливість працювати з цілими числами довільної довжини.
+</p>
+
+<p>
+Щоб створити значення типу <code>BigInt</code>, необхідно додати <code>n</code> в кінець числового літерала:
+</p>
+
+<pre>
+// символ <span class="hljs-string">"n"</span> в кінці означає, Що це <span class="hljs-keyword">BigInt
+</span><span class="hljs-symbol">const</span> <span class="hljs-keyword">bigInt </span>= <span class="hljs-number">1234567890123456789012345678901234567890</span>n<span class="hljs-comment">;</span>
+</pre>
+<p>
+Так як <code>BigInt</code> - числа потрібні досить рідко, ми розглянемо їх в окремому розділі <info:bigint>. Ознайомтеся з нею, коли вам знадобляться настільки великі числа.
+</p>
+
+<p>
+&quot;'smart header=&quot; підтримка&quot;
+В даний момент <code>BigInt</code> підтримується тільки в браузерах Firefox, Chrome і Edge, але не підтримується в Safari і IE.
+</p>
+<h2 id="-">Рядок</h2>
+<p>
+Рядок (<code>string</code>) в JavaScript повинна бути укладена в лапки.
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> str = <span class="hljs-string">" Привіт"</span>;
+<span class="hljs-keyword">let</span> str2 =<span class="hljs-string">'одинарні лапки теж підійдуть'</span>;
+<span class="hljs-keyword">let</span> phrase =`зворотні лапки дозволяють вбудовувати змінні ${str}`;
+</pre>
+<p>
+У JavaScript існує три типи лапок.
+</p>
+<ol>
+<li>Подвійні лапки: <code>&quot;Привіт&quot;</code>.</li>
+<li>Одинарні лапки: &quot;Привіт&quot;.</li>
+<li>Зворотні лапки: <code> &amp; #96; Привіт&#96;</code>.</li>
+</ol>
+<p>
+Подвійні або одинарні лапки є &quot;простими&quot;, між ними немає різниці в JavaScript.
+</p>
+
+<p>
+Зворотні ж лапки мають розширену функціональність. Вони дозволяють нам вбудовувати вирази в рядок, укладаючи їх в <code>${ ... }</code>. Наприклад:
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> name = <span class="hljs-string">" Іван"</span>;
+<span class="hljs-comment">// Вставимо змінну</span>
+alert `` Привіт, *!*${name}*/!*!` ); / / Привіт, Іван!
+<span class="hljs-comment">// Вставимо вираз</span>
+alert `` результат:*!*${<span class="hljs-number">1</span> + <span class="hljs-number">2</span>}*/!* ` ); / / результат: <span class="hljs-number">3</span>
+</pre>
+<p>
+Вираз всередині <code>$ { ... }</code> обчислюється, і його результат стає частиною рядка. Ми можемо покласти туди все, що завгодно: змінну <code>name</code>, або вираз <code>1 + 2</code>, або щось більш складне.
+</p>
+
+<p>
+Зверніть увагу, що це можна робити тільки в зворотних лапках. Інші лапки не мають такої функціональності вбудовування!
+</p>
+
+<pre>
+alert (<span class="hljs-string">"результат: <span class="hljs-subst">${<span class="hljs-number">1</span> + <span class="hljs-number">2</span>}</span>"</span> ); <span class="hljs-comment">// результат: $ {1 + 2} (подвійні лапки нічого не роблять)</span>
+</pre>
+<p>
+Ми розглянемо рядки більш детально в розділі <info:string>.
+</p>
+
+<p>
+&quot;'smart header=&quot; немає окремого типу даних для одного символу.&quot;
+У деяких мовах, наприклад C і Java, для зберігання одного символу, наприклад <code>&quot;a&quot;</code> або <code>&quot;%&quot;</code>, існує окремий тип. У мовах C і Java це <code>char</code>.
+</p>
+
+<p>
+У JavaScript подібного типу немає, є тільки тип <code>string</code>. Рядок може містити нуль символів (бути порожній), один символ або безліч.
+</p>
+<h2 id="-">Булевий (логічний) тип</h2>
+<p>
+Булевий тип (<code>boolean</code>) може приймати тільки два значення: <code>true</code> (істина) і <code>false</code> (брехня).
+</p>
+
+<p>
+Такий тип, як правило, використовується для зберігання значень так / ні <code>true</code> означає&quot; Так, правильно&quot;, а <code>false</code> означає&quot;Ні, не правильно&quot;.
+</p>
+
+<p>
+Наприклад:
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> nameFieldChecked = <span class="hljs-literal">true</span>; <span class="hljs-regexp">/ /</span> так, поле відзначено
+<span class="hljs-keyword">let</span> ageFieldChecked = <span class="hljs-literal">false</span>; <span class="hljs-regexp">/ /</span> ні, поле не відзначено
+</pre>
+<p>
+Булеві значення також можуть бути результатом порівнянь:
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> <span class="hljs-attr">isGreater</span> = <span class="hljs-number">4</span> &gt; <span class="hljs-number">1</span>;
+alert (isGreater ); // <span class="hljs-literal">true</span> (результатом порівняння буде <span class="hljs-string">" так"</span>)
+</pre>
+<p>
+Ми розглянемо булеві значення більш детально в розділі <info:logical-operators>.
+</p>
+<h2 id="-null-">Значення &quot;null&quot;</h2>
+<p>
+Спеціальне значення <code>null</code> не відноситься до жодного з типів, описаних вище.
+</p>
+
+<p>
+Воно формує окремий тип, який містить тільки значення <code>null</code>:
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> <span class="hljs-attr">age</span> = <span class="hljs-literal">null</span>;
+</pre>
+<p>
+У JavaScript<code>null</code> не є &quot;посиланням на неіснуючий об'єкт&quot; або &quot;нульовим покажчиком&quot;, як у деяких інших мовах.
+</p>
+
+<p>
+Це просто спеціальне значення, яке являє собою &quot;нічого&quot;, &quot;порожньо&quot;або&quot; значення невідоме&quot;.
+</p>
+
+<p>
+У наведеному вище коді зазначено, що значення змінної<code>age</code> невідоме.
+</p>
+<h2 id="-undefined-">Значення &quot;undefined&quot;</h2>
+<p>
+Спеціальне значення <code>undefined</code> також стоїть осібно. Воно формує тип з самого себе так само, як і <code>null</code>.
+</p>
+
+<p>
+Воно означає, що&quot;значення не було присвоєно&quot;.
+</p>
+
+<p>
+Якщо змінна оголошена, але їй не присвоєно ніякого значення, то її значенням буде <code>undefined</code>:
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> age;
+alert (age); <span class="hljs-regexp">/ /</span> виведе <span class="hljs-string">" undefined"</span>
+</pre>
+<p>
+Технічно ми можемо присвоїти значення<code>undefined</code> будь-якої змінної:
+</p>
+
+<pre>
+let age = <span class="hljs-number">123</span><span class="hljs-comment">;</span>
+// змінюємо значення на undefined
+<span class="hljs-attribute">age</span> = undefined<span class="hljs-comment">;</span>
+alert(age)<span class="hljs-comment">; // "undefined"</span>
+</pre>
+<p>
+...Але так робити не рекомендується. Зазвичай <code>null</code>використовується для присвоєння змінної&quot; порожнього &quot;або&quot; невідомого &quot;значення, а<code>undefined</code> - для перевірок, чи була змінна призначена.
+</p>
+<h2 id="-">Об'єкти та символи</h2>
+<p>
+Тип <code>object</code> (об'єкт) - особливий.
+</p>
+
+<p>
+Всі інші типи називаються &quot;примітивними&quot;, тому що їх значеннями можуть бути тільки прості значення (будь то рядок, або число, або щось ще). В об'єктах же зберігають колекції даних або більш складні структури.
+</p>
+
+<p>
+Об'єкти займають важливе місце в мові і вимагають особливої уваги. Ми розберемося з ними в розділі <info: object> після того, як дізнаємося більше про примітиви.
+</p>
+
+<p>
+Тип <code>symbol</code>(символ) використовується для створення унікальних ідентифікаторів в об'єктах. Ми згадуємо тут про нього для повноти картини, вивчимо цей тип після об'єктів.
+</p>
+<h2 id="-typeof-type-typeof-">Оператор typeof [#type-typeof]</h2>
+<p>
+Оператор <code>typeof</code> повертає тип аргументу. Це корисно, коли ми хочемо обробляти значення різних типів по-різному або просто хочемо зробити перевірку.
+</p>
+
+<p>
+У нього є дві синтаксичні форми:
+</p>
+<ol>
+<li>Синтаксис оператора: <code>typeof x</code>.</li>
+<li>Синтаксис функції: <code>typeof (x)</code>.</li>
+</ol>
+<p>
+Іншими словами, він працює з дужками або без дужок. Результат однаковий.
+</p>
+
+<p>
+Виклик <code>typeof x</code> повертає рядок з ім'ям типу:
+</p>
+
+<pre>
+<span class="hljs-keyword">typeof</span> <span class="hljs-literal">undefined</span> <span class="hljs-comment">// "undefined"</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-number">0</span> <span class="hljs-comment">// "number"</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-number">10</span>n <span class="hljs-comment">// "bigint"</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-literal">true</span> <span class="hljs-comment">// "boolean"</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-string">"foo"</span> <span class="hljs-comment">// "string"</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">"id"</span>) <span class="hljs-comment">// "symbol"</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Math</span> <span class="hljs-comment">// "object"  (1)</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-literal">null</span> <span class="hljs-comment">// "object"  (2)</span>
+<span class="hljs-keyword">typeof</span> alert <span class="hljs-comment">// "function"  (3)</span>
+</pre>
+<p>
+Останні три рядки потребують пояснення:
+</p>
+<ol>
+<li><code>Math</code> - це вбудований об'єкт, який надає математичні операції та константи. Ми розглянемо його докладніше в розділі <info:number>. Тут він служить лише прикладом об'єкта.</li>
+<li>Результатом виклику<code>typeof null</code> є <code>&quot;object&quot;</code>. Це офіційно визнана помилка в <code>typeof</code>, що веде початок з часів створення JavaScript і збережена для сумісності. Звичайно, <code>null</code> не є об'єктом. Це спеціальне значення з окремим типом.</li>
+<li>Виклик <code>typeof alert</code>повертає <code>&quot;function&quot;</code>, тому що <code>alert</code> є функцією. Ми вивчимо функції в наступних розділах, де заодно побачимо, що в JavaScript немає спеціального типу &quot;функція&quot;. Функції відносяться до об'єктного типу. Але <code>typeof</code> обробляє їх особливим чином, повертаючи <code>&quot;function&quot;</code>. Так теж повелося від створення JavaScript. Формально це невірно, але може бути зручним на практиці.</li>
+</ol>
+<h2 id="-">Підсумок</h2>
+<p>
+У JavaScript є 8 основних типів.
+</p>
+
+<p>
+<code>'number</code> для будь-яких чисел: цілочисельних або чисел з плаваючою точкою; цілочисельні значення обмежені діапазоном <code>±(2<sup>53</sup>-1)</code>.
+</p>
+<ul>
+<li><code>bigint</code> для цілих чисел довільної довжини.
+<code>string</code> для рядків. Рядок може містити нуль або більше символів, немає окремого символьного типу.
+<code>boolean</code> для<code>true</code> / <code>false</code>.</li>
+<li><code>null</code> для невідомих значень -- окремий тип, що має одне значення <code>null</code>.
+<code>'undefined</code> для неприсвоєних значень-окремий тип, що має одне значення <code>undefined</code>.
+<code>'object</code> для більш складних структур даних.
+<code>'symbol</code> для унікальних ідентифікаторів.</li>
+</ul>
+<p>
+Оператор <code>typeof</code> дозволяє нам побачити, який тип даних збережений у змінній.
+</p>
+<ul>
+<li>Має дві форми: <code>typeof x</code> або <code>typeof(x)</code>.</li>
+<li>Повертає рядок з ім'ям типу. Наприклад, <code>&quot;string&quot;</code>.</li>
+<li>Для<code>null</code>повертається <code>&quot; object &quot;</code> -- це помилка в мові, насправді це не об'єкт.</li>
+</ul>
+<p>
+У наступних розділах ми сконцентруємося на примітивних значеннях, а коли познайомимося з ними, перейдемо до об'єктів.
+</p>
+
+
+
+<h1 id="-">Перетворення типів</h1>
+<p>
+Найчастіше оператори і функції автоматично приводять передані їм значення до потрібного типу.
+</p>
+
+<p>
+Наприклад, <code>alert</code> автоматично перетворює будь-яке значення до рядка. Математичні оператори перетворюють значення до чисел.
+</p>
+
+<p>
+Є також випадки, коли нам потрібно явно перетворити значення в очікуваний тип.
+</p>
+
+<p>
+&quot;<code>.mart header=&quot; поки що ми не говоримо про об</code>.кти&quot;
+У цьому розділі ми не торкаємося об<code>.ктів. Спочатку ми розберемо перетворення примітивних значень. Ми розберемо перетворення об</code>.ктів пізніше, в розділі <info:object-toprimitive>.
+</p>
+<h2 id="-">Рядкове перетворення</h2>
+<p>
+Рядкове перетворення відбувається, коли потрібно представлення чого-небудь у вигляді рядка.
+</p>
+
+<p>
+Наприклад <code>alert (value)</code> перетворює значення до рядка.
+</p>
+
+<p>
+Також ми можемо використовувати функцію<code>String (value)</code>, щоб перетворити значення до рядка:
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">value</span> = <span class="hljs-literal">true</span>;
+alert(<span class="hljs-keyword">typeof</span> <span class="hljs-keyword">value</span>); <span class="hljs-comment">// boolean</span>
+<span class="hljs-keyword">value</span> = String (<span class="hljs-keyword">value</span>); / / тепер <span class="hljs-keyword">value</span> це рядок <span class="hljs-string">" true"</span>
+alert(<span class="hljs-keyword">typeof</span> <span class="hljs-keyword">value</span>); <span class="hljs-comment">// string</span>
+</pre>
+<p>
+Перетворення відбувається очевидним чином.<code>false</code> стає <code>&quot;false&quot;</code>, <code>null</code>стає <code>&quot;null&quot;</code> і т. п.
+</p>
+<h2 id="-">Чисельне перетворення</h2>
+<p>
+Чисельне перетворення відбувається в математичних функціях і виразах.
+</p>
+
+<p>
+Наприклад, коли операція ділення <code>/</code> застосовується не до числа:
+</p>
+
+<pre>
+<span class="hljs-selector-tag">alert</span>( <span class="hljs-string">"6"</span> / <span class="hljs-string">"2"</span> ); <span class="hljs-comment">// 3, рядки перетворюються в числа</span>
+</pre>
+<p>
+Ми можемо використовувати функцію<code>Number (value)</code>, щоб явно перетворити <code>value</code> до числа:
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">str</span> = <span class="hljs-string">"123"</span>;
+alert(<span class="hljs-keyword">typeof</span> <span class="hljs-keyword">str</span>); <span class="hljs-comment">// string</span>
+<span class="hljs-keyword">let</span> num = Number (<span class="hljs-keyword">str</span>); / / стає числом <span class="hljs-number">123</span>
+alert(<span class="hljs-keyword">typeof</span> num); <span class="hljs-comment">// number</span>
+</pre>
+<p>
+Явне перетворення часто застосовується, коли ми очікуємо отримати число з строкового контексту, наприклад з текстових полів форм.
+</p>
+
+<p>
+Якщо рядок не може бути явно приведена до числа, то результатом перетворення буде <code>NaN</code>. Наприклад:
+</p>
+
+<pre>
+<span class="hljs-keyword">let</span> age = <span class="hljs-built_in">Number</span> (<span class="hljs-string">"будь-який рядок замість числа"</span>);
+alert (age); <span class="hljs-regexp">/ /</span> <span class="hljs-literal">NaN</span>, перетворення не вдалося
+</pre>
+<p>
+Правила чисельного перетворення:
+</p>
+
+<p>
+/ Значення / перетворюється в... |
+|----------|-------------|
+|<code>undefined</code>|<code>NaN</code>|
+|<code>null</code>|<code>0</code>|
+|<code>true&nbsp;/&nbsp;false</code> | <code>1</code> / <code>0</code> |
+| <code>string</code> / пробільні Символи по краях обрізаються. Далі, якщо залишається порожній рядок, то отримуємо <code>0</code>, інакше з непорожнього рядка &quot;зчитується&quot; число. При помилці результат <code>nan</code>.|
+</p>
+
+<p>
+Приклад:
+</p>
+
+<pre>
+alert( <span class="hljs-name">Number</span>(<span class="hljs-string">"   123   "</span>) )<span class="hljs-comment">; // 123</span>
+alert (<span class="hljs-name">Number</span> (<span class="hljs-string">"123z"</span>))<span class="hljs-comment">; / / NaN (помилка читання числа на місці символу " z")</span>
+alert( <span class="hljs-name">Number</span>(<span class="hljs-name">true</span>) )<span class="hljs-comment">;        // 1</span>
+alert( <span class="hljs-name">Number</span>(<span class="hljs-name">false</span>) )<span class="hljs-comment">;       // 0</span>
+</pre>
+<p>
+Врахуйте, що <code>null</code> і <code>undefined</code> поводяться по-різному. Так, <code>null</code> стає нулем, тоді як <code>undefined</code> приводиться до <code>NaN</code>.
+</p>
+
+<p>
+Більшість математичних операторів також виробляє дане перетворення, як ми побачимо в наступному розділі.
+</p>
+<h2 id="-">Логічне перетворення</h2>
+<p>
+Логічне перетворення найпростіше.
+</p>
+
+<p>
+Відбувається в логічних операціях(пізніше ми познайомимося з умовними перевірками і подібними конструкціями), але також може бути виконано явно за допомогою функції <code>Boolean (value)</code>.
+</p>
+
+<p>
+Правило перетворення:
+</p>
+<ul>
+<li>Значення, які інтуїтивно &quot;порожні&quot;, на зразок <code>0</code>, порожнього рядка, <code>null</code>, <code>undefined</code> і <code>NaN</code>, стають <code>false</code>.</li>
+<li>Всі інші значення стають<code>true</code>.</li>
+</ul>
+<p>
+Наприклад:
+</p>
+
+<pre>
+alert( <span class="hljs-name">Boolean</span>(<span class="hljs-number">1</span>) )<span class="hljs-comment">; // true</span>
+alert( <span class="hljs-name">Boolean</span>(<span class="hljs-number">0</span>) )<span class="hljs-comment">; // false</span>
+alert (<span class="hljs-name">Boolean</span> (<span class="hljs-string">"Привіт!"</span>) )<span class="hljs-comment">; // true</span>
+alert( <span class="hljs-name">Boolean</span>(<span class="hljs-string">""</span>) )<span class="hljs-comment">; // false</span>
+</pre>
+<p>
+&quot;&quot;warn header=&quot; зауважимо, що рядок з нулем<code>\&quot;0\&quot;</code> - це<code>true</code>&quot;
+Деякі мови (наприклад, PHP) сприймають рядок <code>&quot;0&quot;</code> як <code>false</code>. Але в JavaScript, якщо рядок не порожній, то він завжди <code>true</code>.
+</p>
+
+<pre>
+alert( <span class="hljs-keyword">Boolean</span>(<span class="hljs-string">"0"</span>) ); <span class="hljs-comment">// true</span>
+alert (<span class="hljs-keyword">Boolean</span> ( <span class="hljs-string">""</span> )); <span class="hljs-regexp">/ /</span> пробіл це теж <span class="hljs-keyword">true</span> (будь-яка непорожня рядок це <span class="hljs-keyword">true</span>)
+</pre>
+<h2 id="-">Разом</h2>
+<p>
+Існує 3 найбільш широко використовуваних перетворення: рядкове, чисельне і логічне.
+</p>
+
+<p>
+<code>cтрокове</code> -- відбувається, коли нам потрібно щось вивести. Може бути викликано за допомогою <code>String (value)</code>. Для примітивних значень працює очевидним чином.
+</p>
+
+<p>
+<code>чисельне</code> -- відбувається в математичних операціях. Може бути викликано за допомогою <code>Number (value)</code>.
+</p>
+
+<p>
+Перетворення підпорядковується правилам:
+</p>
+
+<p>
+/ Значення / Стає... |
+|-------|-------------|
+|<code>undefined</code>|<code>NaN</code>|
+|<code>null</code>|<code>0</code>|
+|<code>true&nbsp;/&nbsp;false</code> | <code>1 / 0</code> |
+| <code>string</code> / пробільні Символи по краях обрізаються. Далі, якщо залишається порожній рядок, то отримуємо <code>0</code>, інакше з непорожнього рядка &quot;зчитується&quot; число. При помилці результат <code>nan</code>.|
+</p>
+
+<p>
+<code>Логічне</code> -- відбувається в логічних операціях. Може бути викликано за допомогою <code>Boolean (value)</code>.
+</p>
+
+<p>
+Підпорядковується правилам:
+</p>
+
+<p>
+/ Значення / Стає... |
+|----------|-------------|
+|<code>0</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code>, <code>&quot;&quot;</code> |<code>false</code>|
+/ будь-яке інше значення  <code>true</code> |
+</p>
+
+<p>
+Більшу частину з цих правил легко зрозуміти і запам'ятати. Особливі випадки, в яких часто допускаються помилки:
+</p>
+
+<p>
+<code>undefined</code>.при чисельному перетворенні стає <code>NaN</code>, не <code>0</code>.
+</p>
+<ul>
+<li><code>&quot;0&quot;</code> і рядки з одних пробілів типу <code>&quot;&quot;</code> при логічному перетворенні завжди <code>true</code>.</li>
+</ul>
+<p>
+У цьому розділі ми не говорили про об'єкти. Ми повернемося до них пізніше, в розділі <info: object-toprimitive>, присвяченій тільки об'єктам, відразу після того, як дізнаємося більше про основи JavaScript.
+</p>
+
+
+
+			<h2>Контрольні запитання</h2>
+			<ol>
+				
+<li> </li>
+
+			</ol>
+		</div>
+	</body>
+	</html>

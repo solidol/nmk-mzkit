@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ. Лекція №12 </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ. Лекція №12 </div>
+		<h1>Об'єкти та методи у мові JavaScript</h1>
+		<h1 id="-">Об&#39;єкт</h1>
+<p>Як ми знаємо з розділу <info: types>, в JavaScript існує 8 типів даних. Сім з них називаються &quot;примітивними&quot;, так як містять тільки одне значення (будь то рядок, число або щось інше).</p>
+<p>Об&#39;єкти ж використовуються для зберігання колекцій різних значень і більш складних сутностей. У JavaScript об&#39;єкти використовуються дуже часто, це одна з основ мови. Тому ми повинні зрозуміти їх, перш ніж заглиблюватися куди-небудь ще.</p>
+<p>Об&#39;єкт може бути створений за допомогою фігурних дужок &#39;{ ... } &#39; з необов&#39;язковим списком <em> властивостей</em>. Властивість-це пара &quot;ключ: значення&quot;, де <code>ключ</code> - це рядок (також називається&quot; ім&#39;ям властивості&quot;), а <code>значення</code> може бути чим завгодно.</p>
+<p>Ми можемо представити об&#39;єкт у вигляді ящика з підписаними папками. Кожен елемент даних зберігається в своїй папці, на якій написаний ключ. По ключу папку легко знайти, видалити або додати в неї що-небудь.</p>
+<p><img src="object.svg" alt=""></p>
+<p>Порожній об&#39;єкт (&quot;порожній ящик&quot;) можна створити, використовуючи один з двох варіантів синтаксису:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> user = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span> (); <span class="hljs-regexp">/ /</span> синтаксис <span class="hljs-string">" конструктор об'єкта"</span>
+<span class="hljs-keyword">let</span> user = {}; <span class="hljs-regexp">/ /</span> синтаксис <span class="hljs-string">" літерал об'єкта"</span>
+</code></pre>
+<p><img src="object-user-empty.svg" alt=""></p>
+<p>Зазвичай використовують варіант з фігурними дужками <code>{...}</code>. Таке оголошення називають <em> літералом об&#39;єкта</em>або <em> літеральною нотацією</em>.</p>
+<h2 id="-">Літерали і властивості</h2>
+<p>При використанні літерального синтаксису&#39; {...}` ми відразу можемо помістити в об&#39;єкт кілька властивостей у вигляді пар &quot; ключ: значення&quot;:</p>
+<pre><code class="lang-js">let user = {<span class="hljs-comment">//об'єкт</span>
+<span class="hljs-string">name:</span> <span class="hljs-string">"John"</span>, <span class="hljs-regexp">/ /</span> під ключем <span class="hljs-string">"name"</span> зберігається значення <span class="hljs-string">" John"</span>
+<span class="hljs-string">age:</span> <span class="hljs-number">30</span> <span class="hljs-regexp">/ /</span> під ключем <span class="hljs-string">"age"</span> зберігається значення <span class="hljs-number">30</span>
+};
+</code></pre>
+<p>Кожна властивість має ключ (також називається &quot;ім&#39;я&quot; або &quot;ідентифікатор&quot;). Після імені властивості слід двокрапка<code>&quot;:&quot;</code>, і потім вказується значення властивості. Якщо в об&#39;єкті кілька властивостей, то вони перераховуються через кому.</p>
+<p>В об&#39;єкті &#39;user&#39; зараз знаходяться дві властивості:</p>
+<ol>
+<li>Перша властивість з ім&#39;ям <code>&quot;name&quot;</code> і значенням <code>&quot;John&quot;</code>.</li>
+<li>Друга властивість з ім&#39;ям <code>&quot; age &quot;</code> і значенням <code>30</code>.</li>
+</ol>
+<p>Можна сказати, що наш об&#39;єкт &#39;user&#39; - це ящик з двома папками, підписаними &quot;name&quot; і &quot;age&quot;.</p>
+<p><img src="object-user.svg" alt="user object"></p>
+<p>Ми можемо в будь-який момент додати в нього нові папки, видалити папки або прочитати вміст будь-якої папки.</p>
+<p>Для звернення до властивостей використовується запис &quot; через точку&quot;:</p>
+<pre><code class="lang-js"><span class="hljs-comment">// отримуємо властивості об'єкта:</span>
+alert<span class="hljs-comment">( user.name )</span>; <span class="hljs-comment">// John</span>
+alert<span class="hljs-comment">( user.age )</span>; <span class="hljs-comment">// 30</span>
+</code></pre>
+<p>Значення може бути будь-якого типу. Давайте додамо властивість з логічним значенням:</p>
+<pre><code class="lang-js">user.<span class="hljs-built_in">isAdmin</span> = <span class="hljs-literal">true</span><span class="hljs-comment">;</span>
+</code></pre>
+<p><img src="object-user-isadmin.svg" alt="user object 2"></p>
+<p>Для видалення властивості ми можемо використовувати оператор &#39; delete`:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">delete</span> user.age;
+</code></pre>
+<p><img src="object-user-delete.svg" alt="user object 3"></p>
+<p>Ім&#39;я властивості може складатися з декількох слів, але тоді воно повинно бути укладено в лапки:</p>
+<pre><code class="lang-js">let <span class="hljs-keyword">user</span> <span class="hljs-title">= {
+name</span>: <span class="hljs-string">"John"</span>,
+age: <span class="hljs-number">30</span>,
+<span class="hljs-string">"likes birds"</span>: <span class="hljs-literal">true</span> / / ім'я властивості з декількох слів має бути в лапках
+};
+</code></pre>
+<p><img src="object-user-props.svg" alt=""></p>
+<p>Остання властивість об&#39;єкта може закінчуватися комою:</p>
+<pre><code class="lang-js">let <span class="hljs-keyword">user</span> <span class="hljs-title">= {
+name</span>: <span class="hljs-string">"John"</span>,
+age: <span class="hljs-number">30</span>*!*,*/!*
+}
+</code></pre>
+<p>Це називається &quot;висяча кома&quot;. Такий підхід спрощує додавання, видалення і переміщення властивостей, так як всі рядки об&#39;єкта стають однаковими.</p>
+<p>&quot;&quot;smart header=&quot; Об&#39;єкт, оголошений як константа, може бути змінений&quot;
+Об&#39;єкт, оголошений через &#39;const&#39;, <em> може </em> бути змінений.</p>
+<p>Наприклад:</p>
+<p>```js run
+const user = {
+name: &quot;John&quot;
+};</p>
+<p><em>!</em>
+user.name = &quot;Pete&quot;; // (<em>)
+</em>/!*</p>
+<p>alert(user.name); // Pete</p>
+<pre><code>
+Може здатися, що рядок ` ( * ) ` повинна викликати помилку, але ні, тут все в порядку. Справа в тому, що оголошення` const 'захищає від змін тільки саму змінну' user`, а не її вміст.
+
+<span class="hljs-symbol">Визначення 'const' видасть помилку тільки якщо ми присвоїмо змінній інше значення:</span> `user=...`.
+
+<span class="hljs-symbol">Є ще один спосіб зробити константами властивості об'єкта, який ми розглянемо в розділі &lt;info:</span>property-descriptors&gt;.
+`
+</code></pre><h2 id="-">Квадратні дужки</h2>
+<p>Для властивостей, імена яких складаються з декількох слів, доступ до значення &quot;через точку&quot; не працює:</p>
+<p>```js run
+// це викличе синтаксичну помилку
+user.likes birds = true</p>
+<pre><code>
+JavaScript бачить, що ми звертаємося до властивості ' user.likes`, а потім йде незрозуміле слово `birds'. В результаті синтаксична помилка.
+
+Точка вимагає, щоб ключ був іменований за правилами іменування змінних. Тобто не мав прогалин, не починався з цифри і не містив спеціальні символи, крім `$` і `_`.
+
+<span class="hljs-symbol">Для таких випадків існує альтернативний спосіб доступу до властивостей через квадратні дужки. Такий спосіб спрацює з будь-яким ім'ям властивості:</span>
+
+```js run
+let user = {}<span class="hljs-comment">;</span>
+
+// присвоювання значення властивості
+user[<span class="hljs-string">"likes birds"</span>] = <span class="hljs-literal">true</span><span class="hljs-comment">;</span>
+
+// отримання значення властивості
+alert(user[<span class="hljs-string">"likes birds"</span>])<span class="hljs-comment">; // true</span>
+
+// видалення властивості
+delete user[<span class="hljs-string">"likes birds"</span>]<span class="hljs-comment">;</span>
+</code></pre><p>Зараз все гаразд. Зверніть увагу, що рядок в квадратних дужках укладена в лапки (підійде будь-який тип лапок).</p>
+<p>Квадратні дужки також дозволяють звернутися до властивості, ім&#39;я якого може бути результатом виразу. Наприклад, ім&#39;я властивості може зберігатися у змінній:</p>
+<pre><code class="lang-js"><span class="hljs-built_in">let</span> <span class="hljs-built_in">key</span> = <span class="hljs-string">"likes birds"</span>;
+
+// те ж саме, що і user [<span class="hljs-string">"likes birds"</span>] = <span class="hljs-literal">true</span>;
+user[<span class="hljs-built_in">key</span>] = <span class="hljs-literal">true</span>;
+</code></pre>
+<p>Тут змінна &#39; key &#39; може бути обчислена під час виконання коду або залежати від призначеного для користувача введення. Після цього ми використовуємо її для доступу до властивості. Це дає нам велику гнучкість.</p>
+<p>Приклад:</p>
+<p>```js run
+let user = {
+name: &quot;John&quot;,
+age: 30
+};</p>
+<p>let key = prompt (&quot;що ви хочете дізнатися про Користувача?&quot;, &quot;name&quot;);</p>
+<p>// доступ до властивості через змінну
+alert (user[key]); / / John (якщо ввели &quot; name&quot;)</p>
+<pre><code>
+Запис <span class="hljs-string">"через точку"</span> такого не дозволяє:
+
+```js run
+<span class="hljs-keyword">let</span> user = {
+name: <span class="hljs-string">"John"</span>,
+age: <span class="hljs-number">30</span>
+};
+
+<span class="hljs-keyword">let</span> key = <span class="hljs-string">"name"</span>;
+alert( user.key ); <span class="hljs-comment">// undefined</span>
+</code></pre><h3 id="-">Обчислювані властивості</h3>
+<p>Ми можемо використовувати квадратні дужки в літеральній нотації для створення <em> обчислюваної властивості</em>.</p>
+<p>Приклад:</p>
+<p>```js run
+let fruit = prompt (&quot;який фрукт купити?&quot;, &quot;apple&quot;);</p>
+<p>let bag = {
+<em>!</em>
+[fruit]: 5, / / ім&#39;я властивості буде взято зі змінної fruit
+<em>/!</em>
+};</p>
+<p>alert( bag.apple); / / 5, якщо fruit= &quot; apple&quot;</p>
+<pre><code>
+Сенс обчислюваної властивості простий: запис `<span class="javascript">[fruit]</span>` означає, що ім<span class="hljs-string">'я властивості необхідно взяти зі змінної `fruit`.
+
+І якщо Відвідувач введе слово `"apple"`, то в об'</span>єкті `<span class="javascript">bag</span>` тепер буде лежати властивість `<span class="javascript">{<span class="hljs-attr">apple</span>: <span class="hljs-number">5</span>}</span>`.
+
+По суті, приклад вище працює так само, як і наступний приклад:
+`<span class="javascript"></span>``<span class="javascript">js run
+<span class="hljs-keyword">let</span> fruit = prompt (<span class="hljs-string">"який фрукт купити?"</span>, <span class="hljs-string">"apple"</span>);
+<span class="hljs-keyword">let</span> bag = {};
+
+<span class="hljs-comment">// ім'я властивості буде взято зі змінної fruit</span>
+bag[fruit] = <span class="hljs-number">5</span>;</span>
+</code></pre><p>...Але перший приклад виглядає лаконічніше.</p>
+<p>Ми можемо використовувати і більш складні вирази в квадратних дужках:</p>
+<pre><code class="lang-js"><span class="hljs-attribute">let fruit</span> = <span class="hljs-string">'apple'</span>;
+<span class="hljs-attribute">let bag</span> = {
+[fruit + <span class="hljs-string">'Computers'</span>]: 5 // bag.appleComputers = 5
+};
+</code></pre>
+<p>Квадратні дужки дають набагато більше можливостей, ніж запис через точку. Вони дозволяють використовувати будь-які імена властивостей і змінні, хоча і вимагають більш громіздких конструкцій коду.</p>
+<p>Підіб&#39;ємо підсумок: у більшості випадків, коли Імена властивостей відомі і прості, використовується запис через точку. Якщо ж нам потрібно щось більш складне, то ми використовуємо квадратні дужки.</p>
+<h2 id="-">Властивість зі змінної</h2>
+<p>У реальному коді часто нам необхідно використовувати існуючі змінні як значення для властивостей з тим же ім&#39;ям.</p>
+<p>Наприклад:</p>
+<p>```js run
+function makeUser(name, age) {
+return {
+name: name,
+age: age
+// ...інші властивості
+};
+}</p>
+<p>let user = makeUser(&quot;John&quot;, 30);
+alert(user.name); // John</p>
+<pre><code>
+У прикладі вище назва властивостей <span class="hljs-string">' name` і `age` збігаються з назвами змінних, які ми підставляємо в якості значень цих властивостей. Такий підхід настільки поширений, що існують спеціальні * короткі властивості * для спрощення цього запису.
+
+Замість '</span>name `<span class="javascript">name<span class="hljs-string">' ми можемо написати просто '</span> name</span>`:
+
+`<span class="javascript"></span>``<span class="javascript">js
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">makeUser</span>(<span class="hljs-params">name, age</span>) </span>{
+*!*
+<span class="hljs-keyword">return</span> {
+name, / <span class="hljs-regexp">/ те ж саме, що і name: name
+age /</span> / те ж саме, що і age: age
+<span class="hljs-comment">// ...</span>
+};
+*<span class="hljs-regexp">/!*
+}</span></span>
+</code></pre><p>Ми можемо використовувати як звичайні властивості, так і короткі в одному і тому ж об&#39;єкті:</p>
+<pre><code class="lang-js">let user = {
+<span class="hljs-built_in">name</span>, / / те ж саме, що і <span class="hljs-built_in">name</span>: <span class="hljs-built_in">name</span>
+age: <span class="hljs-number">30</span>
+};
+</code></pre>
+<h2 id="-">Обмеження на Імена властивостей</h2>
+<p>Як ми вже знаємо, ім&#39;я змінної не може збігатися з зарезервованими словами, такими як&quot; for&quot;,&quot; let&quot;,&quot; return &quot; і т. д.</p>
+<p>Але для властивостей об&#39;єкта такого обмеження немає:</p>
+<p>```js run
+// ці імена властивостей допустимі
+let obj = {
+for: 1,
+let: 2,
+return: 3
+};</p>
+<p>alert( obj.for + obj.let + obj.return ); // 6</p>
+<pre><code>
+Іншими словами, немає ніяких обмежень до Імен властивостей. Вони можуть бути у вигляді рядків або символів (спеціальний тип для ідентифікаторів, який буде розглянуто пізніше).
+
+Всі інші типи даних будуть автоматично перетворені до рядка.
+
+Наприклад, якщо використовувати число '<span class="hljs-number">0</span>` в якості ключа, то воно перетвориться в рядок ` <span class="hljs-string">"0"</span>`:
+
+```js run
+let obj = {
+<span class="hljs-number">0</span>: <span class="hljs-string">"Тест"</span> / / те ж саме що і <span class="hljs-string">"0"</span>: <span class="hljs-string">"Тест"</span>
+}<span class="hljs-comment">;</span>
+
+// обидві функції alert виведуть одне і те ж властивість (число <span class="hljs-number">0</span> перетворюється в рядок <span class="hljs-string">" 0"</span>)
+alert (obj [<span class="hljs-string">"0"</span>])<span class="hljs-comment">; / / Тест</span>
+alert (obj[<span class="hljs-number">0</span>])<span class="hljs-comment">; / / Тест (те ж властивість)</span>
+</code></pre><p>Є невеликий підводний камінь, пов&#39;язаний зі спеціальною властивістю <code>_ _ proto__</code>. Ми не можемо встановити його в необ&#39;єктне значення:</p>
+<p>```js run
+let obj = {};
+obj.<strong>proto <em> </em> = 5; / / присвоїмо число
+alert(obj.</strong>proto__); / / [object Object], значення-це об&#39;єкт, тобто не те, що ми очікували</p>
+<pre><code>
+Як ми бачимо, присвоєння примітивного значення <span class="hljs-code">`5`</span> ігнорується.
+
+Ми більш детально досліджуємо особливості властивості '<span class="hljs-emphasis">_ _</span> proto<span class="hljs-emphasis">_ _</span> ` в наступних розділах [<span class="hljs-string"></span>](<span class="hljs-link">info: prototype-inheritance</span>), а також запропонуємо [<span class="hljs-string">способи виправлення</span>](<span class="hljs-link">info:prototype-methods</span>) такої поведінки.
+
+<span class="hljs-section">## Перевірка існування властивості, оператор " in"</span>
+
+На відміну від багатьох інших мов, особливість JavaScript-об'єктів в тому, що можна отримати доступ до будь-якої властивості. Навіть якщо властивості не існує - помилки не буде!
+
+При зверненні до властивості, якого немає, повертається `undefined'. Це дозволяє просто перевірити існування властивості:
+
+<span class="hljs-code">```js run
+let user = {};
+
+alert( user.noSuchProperty = = = undefined); / / true означає " властивості немає"</span>
+</code></pre><p>Також існує спеціальний оператор <code>&quot; in &quot;</code> для перевірки існування властивості в об&#39;єкті.</p>
+<p>Синтаксис оператора:</p>
+<pre><code class="lang-js"><span class="hljs-string">"key"</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">object</span>
+</code></pre>
+<p>Приклад:</p>
+<p>```js run
+let user = { name: &quot;John&quot;, age: 30 };</p>
+<p>alert( &quot;age&quot; in user ); // true, user.age існує
+alert( &quot;blabla&quot; in user ); // false, user.blabla не існує</p>
+<pre><code>
+Зверніть увагу, що зліва від оператора` <span class="hljs-keyword">in</span> ' має бути * ім'я властивості*. Зазвичай це рядок в лапках.
+
+Якщо ми опускаємо лапки, це означає, що ми вказуємо змінну, в якій знаходиться ім'я властивості. Наприклад:
+
+```js run
+<span class="hljs-built_in">let</span> user = { age: <span class="hljs-number">30</span> };
+
+<span class="hljs-built_in">let</span> <span class="hljs-built_in">key</span> = <span class="hljs-string">"age"</span>;
+alert( *!*<span class="hljs-built_in">key</span>*/!* <span class="hljs-keyword">in</span> user); / / <span class="hljs-literal">true</span>, ім'я властивості було взято зі змінної <span class="hljs-built_in">key</span>
+</code></pre><p>Для чого взагалі потрібен оператор <code>in</code>? Хіба недостатньо порівняння з &#39; undefined`?</p>
+<p>У більшості випадків прекрасно спрацює порівняння з &#39;undefined&#39;. Але є особливий випадок, коли воно не підходить, і потрібно використовувати <code>&quot;in&quot;</code>.</p>
+<p>Це коли властивість існує, але містить значення &#39; undefined`:</p>
+<p>```js run
+let obj = {
+test: undefined
+};</p>
+<p>alert( obj.test); / / виведе undefined, значить властивість не існує?
+alert (&quot;test&quot; in obj ); / / true, властивість існує!</p>
+<pre><code>
+У прикладі вище властивість <span class="hljs-string">' obj.test '</span> технічно існує в об<span class="hljs-string">'єкті. Оператор` in '</span> спрацював правильно.
+
+Подібні ситуації трапляються дуже рідко, так як` undefined <span class="hljs-string">' зазвичай явно не присвоюється. Для" невідомих "або" порожніх "властивостей ми використовуємо значення'</span> null`. Таким чином, оператор `<span class="hljs-keyword">in</span>` є екзотичним гостем в коді.
+
+## Цикл <span class="hljs-string">" for..in"</span>
+
+Для перебору всіх властивостей об<span class="hljs-string">'єкта використовується цикл `for..in`. цей цикл відрізняється від вивченого раніше циклу '</span> for (;;)`.
+
+Синтаксис:
+
+```js
+for (key <span class="hljs-keyword">in</span> object) {
+<span class="hljs-comment">// тіло циклу виконується для кожного властивості об'єкта</span>
+}
+</code></pre><p>Наприклад, давайте виведемо всі властивості об&#39;єкта &#39; user`:</p>
+<p>```js run
+let user = {
+name: &quot;John&quot;,
+age: 30,
+isAdmin: true
+};</p>
+<p>for (let key in user) {
+// ключ
+alert( key ); // name, age, isAdmin
+// значення ключів
+alert( user[key] ); // John, 30, true
+}</p>
+<pre><code>
+Зверніть увагу, що всі конструкції <span class="hljs-string">" for "</span> дозволяють нам оголошувати змінну всередині циклу, як, наприклад, `<span class="hljs-keyword">let</span> <span class="hljs-built_in">key</span>` тут.
+
+Крім того, ми могли б використовувати інше ім'я змінної. Наприклад, часто використовується варіант '<span class="hljs-string">" for (let prop in obj)"</span>`.
+
+<span class="hljs-meta">### Упорядкування властивостей об'єкта</span>
+
+Чи впорядковані властивості об'єкта? Іншими словами, якщо ми будемо в циклі перебирати всі властивості об'єкта, чи отримаємо ми їх в тому ж порядку, в якому ми їх додавали? Чи можемо ми на це розраховувати?
+
+Коротка відповідь: властивості впорядковані особливим чином: властивості з цілочисельними ключами сортуються за зростанням, інші розташовуються в порядку створення. Розберемося докладніше.
+
+Як приклад розглянемо об'єкт з телефонними кодами:
+
+```js <span class="hljs-keyword">run</span>
+<span class="hljs-keyword">let</span> codes = {
+<span class="hljs-string">"49"</span>: <span class="hljs-string">"Німеччина"</span>,
+<span class="hljs-string">"41"</span>: <span class="hljs-string">"Швейцарія"</span>,
+<span class="hljs-string">"44"</span>: <span class="hljs-string">"Великобританія"</span>,
+<span class="hljs-comment">// ..,</span>
+<span class="hljs-string">"1"</span>: <span class="hljs-string">"США"</span>
+};
+
+*!*
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> <span class="hljs-built_in">code</span> in codes) {
+alert(<span class="hljs-built_in">code</span>); <span class="hljs-comment">// 1, 41, 44, 49</span>
+}
+*/!*
+</code></pre><p>Якщо ми робимо сайт для німецької аудиторії, то, ймовірно,ми хочемо, щоб код <code>49</code> був першим.</p>
+<p>Але якщо ми запустимо код, ми побачимо зовсім іншу картину:</p>
+<ul>
+<li>США (1) йде першим</li>
+<li>потім Швейцарія (41) і так далі.</li>
+</ul>
+<p>Телефонні коди йдуть в порядку зростання, тому що вони є цілими числами: <code>1, 41, 44, 49</code>.</p>
+<p>&quot;&quot;smart header=&quot; цілочисельні властивості? Це що?&quot;
+Термін &quot;цілочисельна властивість&quot; означає рядок, яка може бути перетворена в ціле число і назад без змін.</p>
+<p>Тобто, <code>&quot;49&quot;</code> - це цілочисельне ім&#39;я властивості, тому що якщо його перетворити в ціле число, а потім назад в рядок, то воно не зміниться. А ось властивості <code>&quot; + 49 &quot;</code> або <code>&quot;1.2</code>&#39; такими не є:</p>
+<p>```js run
+// Math.trunc-вбудована функція, яка видаляє десяткову частину
+alert( String(Math.trunc (Number(&quot;49&quot;))) ); // &quot;49&quot;, те ж саме ⇒ властивість цілочисельне
+alert( String(Math.trunc (Number(&quot;+49&quot;))) ); // &quot;49&quot;, не те ж саме, що &quot;+49&quot; ⇒ властивість не цілочисельна
+alert( String(Math.trunc (Number(&quot;1.2&quot;))) ); // &quot;1&quot;, не те ж саме, що &quot;1.2&quot; ⇒ властивість не цілочисельна</p>
+<pre><code>`
+</code></pre><p>...З іншого боку, якщо ключі не цілочисельні, то вони перебираються в порядку створення, наприклад:</p>
+<p>```js run
+let user = {
+name: &quot;John&quot;,
+surname: &quot;Smith&quot;
+};
+user.age = 25; / / додамо ще одну властивість</p>
+<p><em>!</em>
+// не цілочисельні властивості перераховані в порядку створення
+<em>/!</em>
+for (let prop in user) {
+alert( prop ); // name, surname, age
+}</p>
+<pre><code>
+Таким чином, щоб вирішити нашу проблему з телефонними кодами, ми можемо схитрувати, зробивши коди не цілочисельними властивостями. Додавання знака ` <span class="hljs-string">" + "</span>' перед кожним кодом буде достатньо.
+
+Приклад:
+
+```js <span class="hljs-keyword">run</span>
+<span class="hljs-keyword">let</span> codes = {
+<span class="hljs-string">"+49"</span>: <span class="hljs-string">"Німеччина"</span>,
+<span class="hljs-string">"+41"</span>: <span class="hljs-string">"Швейцарія"</span>,
+<span class="hljs-string">"+44"</span>: <span class="hljs-string">"Великобританія"</span>,
+<span class="hljs-comment">// ..,</span>
+<span class="hljs-string">"+1"</span>: <span class="hljs-string">"США"</span>
+};
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> <span class="hljs-built_in">code</span> in codes) {
+alert( +<span class="hljs-built_in">code</span> ); <span class="hljs-comment">// 49, 41, 44, 1</span>
+}
+</code></pre><p>Тепер код працює так, як ми задумували.</p>
+<h2 id="-">Разом</h2>
+<p>Об&#39;єкти-це асоціативні масиви з рядом додаткових можливостей.</p>
+<p>Вони зберігають властивості (пари ключ-значення), де:</p>
+<ul>
+<li>Ключі властивостей повинні бути рядками або символами (зазвичай рядками).</li>
+<li>Значення можуть бути будь-якого типу.</li>
+</ul>
+<p>Щоб отримати доступ до властивості, ми можемо використовувати:</p>
+<ul>
+<li>Запис через точку: <code>obj.property</code>.</li>
+<li>Квадратні дужки &#39; obj [&quot;property&quot;]<code>. Квадратні дужки дозволяють взяти ключ зі змінної, наприклад, &#39; obj[varWithKey]</code>.</li>
+</ul>
+<p>Додаткові оператори:</p>
+<ul>
+<li>Видалення властивості <code>&#39; delete obj.prop</code>.</li>
+<li>Перевірка існування властивості: <code>&quot; key &quot; in obj</code>.</li>
+<li>Перебір властивостей об&#39;єкта:цикл for &#39; for (let key in obj)`.</li>
+</ul>
+<p>Те, що ми вивчали в цьому розділі, називається &quot;простим об&#39;єктом&quot; (&quot;plain object&quot;) або просто <code>Object</code>.</p>
+<p>У JavaScript є багато інших типів об&#39;єктів:</p>
+<p><code>&#39;Array&#39; для зберігання впорядкованих колекцій даних,</code>&#39;Date<code>для зберігання інформації про дату і час,</code>&#39;Error` для зберігання інформації про помилку.</p>
+<ul>
+<li>... і так далі.</li>
+</ul>
+<p>У них є свої особливості, які ми вивчимо пізніше. Іноді люди говорять щось на кшталт &quot;тип даних Array &quot;або&quot; тип даних Date&quot;, але формально вони не є окремими типами, а відносяться до типу даних <code>Object</code>. Вони лише розширюють його різними способами.</p>
+<p>Об&#39;єкти в JavaScript дуже потужні. Тут ми тільки трохи заглибилися в дійсно величезну тему. Ми будемо щільно працювати з об&#39;єктами і дізнаємося про них більше в наступних частинах підручника.</p>
+<!--  -->
+<h1 id="-">Копіювання об&#39;єктів і посилання</h1>
+<p>Однією з фундаментальних відмінностей об&#39;єктів від примітивних типів даних є те, що вони зберігаються і копіюються &quot;за посиланням&quot;.</p>
+<p>Примітивні типи: рядки, числа, логічні значення - присвоюються і копіюються &quot;за значенням&quot;.</p>
+<p>Наприклад:</p>
+<pre><code class="lang-js"><span class="hljs-attribute">let message</span> = <span class="hljs-string">" Привіт!"</span>;
+<span class="hljs-attribute">let phrase</span> = message;
+</code></pre>
+<p>В результаті ми маємо дві незалежні змінні, кожна з яких зберігає рядок <code>&quot; Привіт!&quot;</code>.</p>
+<p><img src="variable-copy-value.svg" alt=""></p>
+<p>Об&#39;єкти поводяться інакше.</p>
+<p><strong> Змінна зберігає не сам об&#39;єкт, а його &quot;адресу в пам&#39;яті&quot;, іншими словами &quot;посилання&quot; на нього.</strong></p>
+<p>Проілюструємо це:</p>
+<pre><code class="lang-js">let <span class="hljs-keyword">user</span> <span class="hljs-title">= {
+name</span>: <span class="hljs-string">"Іван"</span>
+};
+</code></pre>
+<p><img src="variable-contains-reference.svg" alt=""></p>
+<p>Сам об&#39;єкт зберігається десь в пам&#39;яті. А в змінній &#39;user&#39; лежить &quot;посилання&quot; на цю область пам&#39;яті.</p>
+<p><strong> Коли змінна об&#39;єкта копіюється-копіюється посилання, сам же об&#39;єкт не дублюється.</strong></p>
+<p>Якщо ми представляємо об&#39;єкт як ящик, то змінна-це ключ до нього. Копіювання змінної дублює ключ, але не сам ящик.</p>
+<p>Наприклад:</p>
+<p>```js no-beautify
+let user = { name: &quot;Іван&quot; };</p>
+<p>let admin = user; / / копіюється посилання</p>
+<pre><code>
+Тепер у нас є дві змінні, кожна з яких містить посилання на один і той же об'єкт:
+
+![](variable-<span class="hljs-keyword">copy</span>-<span class="hljs-keyword">reference</span>.svg)
+
+Ми можемо використовувати будь-яку з змінних для доступу до ящика і зміни його вмісту:
+
+```js <span class="hljs-built_in">run</span>
+let user = { <span class="hljs-built_in">name</span>: 'Іван' };
+
+let admin = user;
+
+*!*
+admin.<span class="hljs-built_in">name</span> = 'Петя'; / / змінено за посиланням зі змінної <span class="hljs-string">" admin"</span>
+*/!*
+
+alert<span class="hljs-comment">(*!*user.name*/!*)</span>; / / 'Петя', зміни видно за посиланням зі змінної <span class="hljs-string">" user"</span>
+</code></pre><p>Наведений вище приклад демонструє, що об&#39;єкт тільки один. Як якщо б у нас був один ящик з двома ключами і ми використовували один з них (<code>admin</code>), щоб увійти в нього і щось змінити, а потім, відкривши ящик іншим ключем (<code>user</code>), ми б побачили ці зміни.</p>
+<h2 id="-">Порівняння за посиланням</h2>
+<p>Оператори рівності <code>==</code> і суворої рівності &#39; = = = ` для об&#39;єктів працюють однаково.</p>
+<p><strong> Два об&#39;єкти рівні тільки в тому випадку, якщо це один і той же об&#39;єкт.</strong></p>
+<p>У прикладі нижче дві змінні посилаються на один і той же об&#39;єкт, тому вони рівні один одному:</p>
+<p>```js run
+let a = {};
+let b = a; / / копіювання за посиланням</p>
+<p>alert (a = = b); / / true, тому що обидві змінні посилаються на один і той же об&#39;єкт
+alert( a === b ); // true</p>
+<pre><code>
+В іншому прикладі два різних об'єкти не рівні, хоча обидва порожні:
+
+```js run
+<span class="hljs-keyword">let</span> <span class="hljs-attr">a</span> = {};
+<span class="hljs-keyword">let</span> <span class="hljs-attr">b</span> = {}; / / два незалежних об'єкта
+
+alert( <span class="hljs-attr">a</span> == b ); // <span class="hljs-literal">false</span>
+</code></pre><p>Для порівнянь типу &#39;obj1 &gt; obj2&#39; або для порівняння з примітивом <code>obj == 5</code> об&#39;єкти перетворюються в примітиви. Ми скоро вивчимо, як працюють такі перетворення об&#39;єктів, але, по правді кажучи, порівняння такого роду необхідні дуже рідко і зазвичай є результатом помилки програміста.</p>
+<h2 id="-object-assign">Клонування та об&#39;єднання об&#39;єктів, Object . assign</h2>
+<p>Таким чином, при копіюванні змінної з об&#39;єктом створюється ще одне посилання на той же самий об&#39;єкт.</p>
+<p>Але що, якщо нам все ж потрібно дублювати об&#39;єкт? Створити незалежну копію, клон?</p>
+<p>Це здійсненно, але трохи складно, так як в JavaScript немає вбудованого методу для цього. Насправді, така потреба виникає рідко. У більшості випадків нам достатньо копіювання за посиланням.</p>
+<p>Але якщо ми дійсно цього хочемо, то нам потрібно створювати новий об&#39;єкт і повторювати структуру дубльованого об&#39;єкта, перебираючи його властивості і копіюючи їх.</p>
+<p>Наприклад так:</p>
+<p>```js run
+let user = {
+name: &quot;Іван&quot;,
+age: 30
+};</p>
+<p><em>!</em>
+let clone = {}; / / новий порожній об&#39;єкт</p>
+<p>// скопіюємо всі властивості user в нього
+for (let key in user) {
+clone[key] = user[key];
+}
+<em>/!</em></p>
+<p>// тепер у змінній clone знаходиться абсолютно незалежний клон об&#39;єкта
+clone.name = &quot;Петро&quot;; / / змінимо в ньому дані</p>
+<p>alert( user.name ); / / в оригінальному об&#39;єкті значення властивості <code>name</code> залишилося колишнім – Іван.</p>
+<pre><code>
+Крім того, для цих цілей ми можемо використовувати метод [<span class="hljs-string">Object .assign</span>](<span class="hljs-link">mdn:js/Object/assign</span>).
+
+Синтаксис:
+
+<span class="hljs-code">```js
+Object.assign(dest, [src1, src2, src3...])</span>
+</code></pre><ul>
+<li>Перший аргумент <code>dest</code> - цільовий об&#39;єкт.</li>
+<li>Інші аргументи <code>src1, ..., srcN</code> (може бути стільки, скільки потрібно)) є вихідними об&#39;єктами</li>
+<li>Метод копіює властивості всіх вихідних об&#39;єктів <code>src1, ..., srcN &#39; в цільовий об&#39;єкт</code>dest`. Тобто, властивості всіх перерахованих об&#39;єктів, починаючи з другого, копіюються в перший об&#39;єкт.</li>
+<li>Повертає об&#39;єкт `dest&#39;.</li>
+</ul>
+<p>Наприклад, об&#39;єднаємо кілька об&#39;єктів в один:</p>
+<pre><code class="lang-js">let <span class="hljs-keyword">user</span> <span class="hljs-title">= { name</span>: <span class="hljs-string">"Іван"</span> };
+
+let permissions1 = { canView: <span class="hljs-literal">true</span> };
+let permissions2 = { canEdit: <span class="hljs-literal">true</span> };
+
+*!*
+// копіюємо всі властивості з permissions1 і permissions2 в <span class="hljs-keyword">user</span>
+<span class="hljs-title">Object</span>.assign(user, permissions1, permissions2);
+*/!*
+
+// тепер <span class="hljs-keyword">user</span> <span class="hljs-title">= { name</span>: <span class="hljs-string">"Іван"</span>, canView: <span class="hljs-literal">true</span>, canEdit: <span class="hljs-literal">true</span> }
+</code></pre>
+<p>Якщо приймаючий об&#39;єкт (`user&#39;) вже має властивість з таким ім&#39;ям, воно буде перезаписано:</p>
+<p>```js run
+let user = { name: &quot;Іван&quot; };</p>
+<p>Object.assign (user, { name: &quot;Петро&quot; });</p>
+<p>alert(user.name); / / тепер user = { name: &quot;Петро&quot; }</p>
+<pre><code>
+Ми також можемо використовувати ' Object `assign` для заміни `for..<span class="hljs-keyword">in</span>` на просте клонування:
+
+```js
+let <span class="hljs-keyword">user</span> <span class="hljs-title">= {
+name</span>: <span class="hljs-string">"Іван"</span>,
+age: <span class="hljs-number">30</span>
+};
+
+*!*
+let <span class="hljs-keyword">clone</span> <span class="hljs-title">= Object</span>.assign({}, user);
+*/!*
+</code></pre><p>Цей метод скопіює всі властивості об&#39;єкта &#39;user&#39; в порожній об&#39;єкт і поверне його.</p>
+<h2 id="-">Вкладене клонування</h2>
+<p>До цих пір ми припускали, що всі властивості об&#39;єкта &#39; user` зберігають примітивні значення. Але властивості можуть бути посиланнями на інші об&#39;єкти. Що з ними робити?</p>
+<p>Наприклад, є об&#39;єкт:
+```js run
+let user = {
+name: &quot;Іван&quot;,
+sizes: {
+height: 182,
+width: 50
+}
+};</p>
+<p>alert( user.sizes.height ); // 182</p>
+<pre><code>
+Тепер при клонуванні недостатньо просто скопіювати <span class="hljs-string">' clone `sizes = user.sizes`, оскільки '</span> user.sizes`<span class="javascript"> - це об<span class="hljs-string">'єкт, він буде скопійований за посиланням. А значить об'</span>єкти <span class="hljs-string">'clone</span></span>` і `<span class="javascript"><span class="hljs-string">user'</span> в своїх властивостях</span>` sizes <span class="hljs-string">' будуть посилатися на один і той же об'</span>єкт:
+
+`<span class="javascript"></span>``<span class="javascript">js run
+<span class="hljs-keyword">let</span> user = {
+<span class="hljs-attr">name</span>: <span class="hljs-string">"Іван"</span>,
+<span class="hljs-attr">sizes</span>: {
+<span class="hljs-attr">height</span>: <span class="hljs-number">182</span>,
+<span class="hljs-attr">width</span>: <span class="hljs-number">50</span>
+}
+};
+
+<span class="hljs-keyword">let</span> clone = <span class="hljs-built_in">Object</span>.assign({}, user);
+
+alert( user.sizes === clone.sizes); <span class="hljs-regexp">/ /</span> <span class="hljs-literal">true</span>, один і той же об<span class="hljs-string">'єкт
+
+// user і clone звертаються до одного sizes
+user.sizes.width++; / / міняємо властивість в одному об'</span>єкті
+alert(clone.sizes.width); <span class="hljs-regexp">/ /</span> <span class="hljs-number">51</span>, бачимо результат в іншому об<span class="hljs-string">'єкті</span></span>
+</code></pre><p>Щоб виправити це, ми повинні в циклі клонування робити перевірку, чи не є значення <code>user[key]</code> об&#39;єктом, і якщо це так-скопіювати і його структуру теж. Це називається &quot;глибоке клонування&quot;.</p>
+<p>Ми можемо реалізувати глибоке клонування, використовуючи рекурсію. Або, щоб не винаходити велосипед, використовувати готову реалізацію-метод [_. cloneDeep(obj)] (<a href="https://lodash.com/docs#cloneDeep">https://lodash.com/docs#cloneDeep</a>) з JavaScript-бібліотеки <a href="https://lodash.com">lodash</a>.</p>
+<h2 id="-">Разом</h2>
+<p>Об&#39;єкти присвоюються і копіюються за посиланням. Іншими словами, змінна зберігає не &quot;Значення об&#39;єкта&quot;, а&quot; Посилання &quot; (адреса в пам&#39;яті) на це значення. Тому копіювання такої змінної або передача її в якості аргументу функції призводить до копіювання цього посилання, а не самого об&#39;єкта.</p>
+<p>Всі операції з використанням скопійованих посилань (наприклад, додавання або видалення властивостей) виконуються з одним і тим же об&#39;єктом.</p>
+<p>Для &quot;простого клонування&quot; об&#39;єкта можна використовувати &#39; Object.assign<code>. Необхідно пам&#39;ятати, що</code>Object.assign &#39; не робить глибоке клонування об&#39;єкта. Якщо всередині копіюваного об&#39;єкта є властивість значення, якого не є примітивом, воно буде передано за посиланням. Для створення &quot;справжньої копії&quot; (повного клону об&#39;єкта) можна скористатися методом зі сторонньої JavaScript-бібліотеки [_. cloneDeep(obj)] (<a href="https://lodash.com/docs#cloneDeep">https://lodash.com/docs#cloneDeep</a>).</p>
+<h1 id="-">Збирання сміття</h1>
+<p>Управління пам&#39;яттю в JavaScript виконується автоматично і непомітно. Ми створюємо примітиви, об&#39;єкти, функції... Все це займає пам&#39;ять.</p>
+<p>Але що відбувається, коли щось більше не потрібно? Як JavaScript розуміє, що пора очищати пам&#39;ять?</p>
+<h2 id="-">Досяжність</h2>
+<p>Основною концепцією управління пам&#39;яттю в JavaScript є принцип <em> досяжності</em>.</p>
+<p>Якщо спростити, то&quot; досяжні &quot; значення-це ті, які доступні або використовуються. Вони гарантовано знаходяться в пам&#39;яті.</p>
+<ol>
+<li>Існує базове безліч досяжних значень, які не можуть бути видалені.</li>
+</ol>
+<p>Наприклад:</p>
+<ul>
+<li>Локальні змінні і параметри поточної функції.</li>
+<li>Змінні та параметри інших функцій у поточному ланцюжку вкладених викликів.</li>
+<li>Глобальна змінна.</li>
+<li>(деякі інші внутрішні значення)</li>
+</ul>
+<p>Ці значення ми будемо називати <em> корінням</em>.</p>
+<ol>
+<li>Будь-яке інше значення вважається досяжним, якщо воно доступне з кореня за посиланням або по ланцюжку посилань.</li>
+</ol>
+<p>Наприклад, якщо в локальній змінній є об&#39;єкт, і він має властивість, в якій зберігається посилання на інший об&#39;єкт, то цей об&#39;єкт вважається досяжним. І ті, на які він посилається, теж досяжні. Далі ви познайомитеся з докладними прикладами на цю тему.</p>
+<p>В інтерпретаторі JavaScript є фоновий процес, який називається <a href="https://ru.wikipedia.org/wiki/Сборка_мусора">збирач сміття</a>. він стежить за всіма об&#39;єктами і видаляє ті, які стали недосяжні.</p>
+<h2 id="-">Простий приклад</h2>
+<p>Ось найпростіший приклад:</p>
+<pre><code class="lang-js">// в <span class="hljs-keyword">user</span> <span class="hljs-title">знаходиться посилання на об'єкт
+let</span> <span class="hljs-keyword">user</span> <span class="hljs-title">= {
+name</span>: <span class="hljs-string">"John"</span>
+};
+</code></pre>
+<p><img src="memory-user-john.svg" alt=""></p>
+<p>Тут стрілка позначає посилання на об&#39;єкт. Глобальна змінна &#39;user&#39; посилається на об&#39;єкт &#39;{name <code>&quot;John&quot;}</code> (ми будемо називати його просто &quot;John&quot;). У властивості`&quot; name &quot;&#39; об&#39;єкта John зберігається примітив, тому воно намальовано всередині об&#39;єкта.</p>
+<p>Якщо перезаписати значення &#39; user`, то посилання загубиться:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">user</span> <span class="hljs-title">= null</span>;
+</code></pre>
+<p><img src="memory-user-john-lost.svg" alt=""></p>
+<p>Тепер Об&#39;єкт John стає недосяжним. До нього немає доступу, на нього немає посилань. Збирач сміття видалить ці дані і звільнить пам&#39;ять.</p>
+<h2 id="-">Два посилання</h2>
+<p>Уявімо, що ми скопіювали посилання з &#39;user&#39; в &#39; admin`:</p>
+<pre><code class="lang-js">// в <span class="hljs-keyword">user</span> <span class="hljs-title">знаходиться посилання на об'єкт
+let</span> <span class="hljs-keyword">user</span> <span class="hljs-title">= {
+name</span>: <span class="hljs-string">"John"</span>
+};
+
+*!*
+let admin = user;
+*/!*
+</code></pre>
+<p><img src="memory-user-john-admin.svg" alt=""></p>
+<p>Тепер, якщо ми зробимо те ж саме:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">user</span> <span class="hljs-title">= null</span>;
+</code></pre>
+<p>...те об&#39;єкт John все ще досяжний через глобальну змінну &#39; admin<code>, тому він знаходиться в пам&#39;яті. Якби ми також перезаписали &#39; admin</code>, то John був би видалений.</p>
+<h2 id="-">Взаємопов&#39;язані об&#39;єкти</h2>
+<p>Тепер більш складний приклад. Сім&#39;я:</p>
+<pre><code class="lang-js">function marry(<span class="hljs-keyword">man</span>, <span class="hljs-keyword">woman</span>) {
+<span class="hljs-keyword">woman</span>.husband = <span class="hljs-keyword">man</span>;
+<span class="hljs-keyword">man</span>.wife = <span class="hljs-keyword">woman</span>;
+
+return {
+father: <span class="hljs-keyword">man</span>,
+mother: <span class="hljs-keyword">woman</span>
+}
+}
+
+let family = marry({
+name: <span class="hljs-string">"John"</span>
+}, {
+name: <span class="hljs-string">"Ann"</span>
+});
+</code></pre>
+<p>Функція &#39; marry` &quot;одружує&quot; два об&#39;єкти, даючи їм посилання один на одного, і повертає новий об&#39;єкт, що містить посилання на два попередніх.</p>
+<p>В результаті отримуємо таку структуру пам&#39;яті:</p>
+<p><img src="family.svg" alt=""></p>
+<p>На даний момент всі об&#39;єкти досяжні.</p>
+<p>Тепер видалимо два посилання:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">delete</span> family.father;
+<span class="hljs-keyword">delete</span> family.mother.husband;
+</code></pre>
+<p><img src="family-delete-refs.svg" alt=""></p>
+<p>Недостатньо видалити лише одну з цих посилань, оскільки всі об&#39;єкти залишаться досяжними.</p>
+<p>Але якщо ми видалимо обидві, то побачимо, що у об&#39;єкта John більше немає вхідних посилань:</p>
+<p><img src="family-no-father.svg" alt=""></p>
+<p>Вихідні посилання не мають значення. Тільки вхідні посилання можуть зробити об&#39;єкт досяжним. Об&#39;єкт John тепер недосяжний і буде видалений з пам&#39;яті з усіма своїми даними, які також стали недоступні.</p>
+<p>Після збирання сміття:</p>
+<p><img src="family-no-father-2.svg" alt=""></p>
+<h2 id="-">Недосяжний &quot; Острів&quot;</h2>
+<p>Цілком можлива ситуація, при якій цілий &quot;острів&quot; пов&#39;язаних об&#39;єктів може стати недосяжним і піти з пам&#39;яті.</p>
+<p>Візьмемо об&#39;єкт <code>family</code> з прикладу вище. А тоді:</p>
+<pre><code class="lang-js"><span class="hljs-attribute">family</span> = null<span class="hljs-comment">;</span>
+</code></pre>
+<p>Структура в пам&#39;яті тепер стане такою:</p>
+<p><img src="family-no-family.svg" alt=""></p>
+<p>Цей приклад демонструє, наскільки важлива концепція досяжності.</p>
+<p>Об&#39;єкти John і Ann все ще пов&#39;язані, обидва мають вхідні посилання, але цього недостатньо.</p>
+<p>У об&#39;єкта &#39;family&#39; більше немає посилання від кореня, тому весь &quot;острів&quot; стає недосяжним і буде видалений.</p>
+<h2 id="-">Внутрішні алгоритми</h2>
+<p>Основний алгоритм збирання сміття- &quot;алгоритм позначок&quot; (англ. &quot;mark-and-sweep&quot;).</p>
+<p>Згідно з цим алгоритмом, збирач сміття регулярно виконує наступні кроки:</p>
+<ul>
+<li>Збирач сміття &quot;позначає &quot;(запам&#39;ятовує) всі кореневі об&#39;єкти.</li>
+<li>Потім він йде по їх посиланнях і позначає всі знайдені об&#39;єкти.</li>
+<li>Потім він йде по посиланнях позначених об&#39;єктів і позначає об&#39;єкти, на які є посилання від них. Всі об&#39;єкти запам&#39;ятовуються, щоб в майбутньому не відвідувати один і той же об&#39;єкт двічі.</li>
+<li>...І так далі, поки не будуть відвідані всі посилання (досяжні від коренів).</li>
+<li>Все непозначені об&#39;єкти видаляються.</li>
+</ul>
+<p>Наприклад, нехай наша структура об&#39;єктів виглядає так:</p>
+<p><img src="garbage-collection-1.svg" alt=""></p>
+<p>Явно видно&quot; недосяжний Острів &quot; праворуч. Тепер подивимося, як буде працювати &quot;алгоритм позначок&quot; збирача сміття.</p>
+<p>На першому кроці позначаються коріння:</p>
+<p><img src="garbage-collection-2.svg" alt=""></p>
+<p>Потім позначаються об&#39;єкти по їх посиланнях:</p>
+<p><img src="garbage-collection-3.svg" alt=""></p>
+<p>...а потім об&#39;єкти по їх посиланнях і так далі, поки це взагалі можливо:</p>
+<p><img src="garbage-collection-4.svg" alt=""></p>
+<p>Тепер об&#39;єкти, до яких не вдалося дійти від коренів, вважаються недосяжними і будуть видалені:</p>
+<p><img src="garbage-collection-5.svg" alt=""></p>
+<p>Це і є принцип роботи збірки сміття.</p>
+<p>Інтерпретатори JavaScript застосовують безліч оптимізацій, щоб збірка сміття працювала швидше і не впливала на продуктивність.</p>
+<p>Ось деякі з оптимізацій:</p>
+<ul>
+<li><em>*Збірка по поколіннях (Generational collection) </em> * - об&#39;єкти діляться на &quot;нові&quot; і &quot;старі&quot;. Багато об&#39;єктів з&#39;являються, виконують своє завдання і швидко вмирають, їх можна видаляти більш агресивно. Ті, які живуть досить довго, стають &quot;старими&quot; і перевіряються рідше.</li>
+<li><em>*Інкрементальна збірка (Incremental collection) </em> * - якщо об&#39;єктів багато, то обхід всіх посилань і позначка досяжних об&#39;єктів може зайняти значний час і привести до видимих затримок виконання скрипта. Тому інтерпретатор намагається організувати збірку сміття поетапно. Етапи виконуються окремо один за іншим. Це вимагає додаткового обліку для відстеження змін між етапами, але зате тепер у нас є багато крихітних затримок замість однієї великої.</li>
+<li><strong>Збірка у вільний час (Idle-time collection)</strong> - щоб зменшити можливий вплив на продуктивність, збирач сміття намагається працювати тільки під час простою процесора.</li>
+</ul>
+<p>Існують і інші способи оптимізації та різновиди алгоритмів збирання сміття. Але як би мені не хотілося описати їх тут, я повинен утриматися від цього, тому що різні інтерпретатори JavaScript застосовують різні прийоми і хитрощі. І, що більш важливо, все змінюється в міру розвитку інтерпретаторів, тому заглиблюватися в цю тему заздалегідь, без реальної необхідності, ймовірно, не варто. Якщо, звичайно, це не питання чистого інтересу, тоді для вас будуть корисні деякі посилання нижче.</p>
+<h2 id="-">Разом</h2>
+<p>Головне з того, що ми дізналися:</p>
+<ul>
+<li>Збірка сміття виконується автоматично. Ми не можемо прискорити або запобігти її.</li>
+<li>Об&#39;єкти зберігаються в пам&#39;яті, поки вони досяжні.</li>
+<li>Наявність посилання не гарантує, що об&#39;єкт досяжний (від кореня): кілька взаємопов&#39;язаних об&#39;єктів можуть стати недосяжними як єдине ціле.</li>
+</ul>
+<p>Сучасні інтерпретатори реалізують передові алгоритми збирання сміття.</p>
+<p>Деякі з них висвітлені в книзі &quot;The Garbage Collection Handbook: The Art of Automatic Memory Management&quot; (R. Jones та ін.).</p>
+<p>Якщо Ви знайомі з низькорівневим програмуванням, то більш детальна інформація про збирача сміття інтерпретатора V8 знаходиться в статті <a href="http://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection">a tour of V8: Garbage Collection</a>.</p>
+<p>Також в <a href="https://v8.dev/">блозі інтерпретатора V8</a> час від часу публікуються статті про зміни в управлінні пам&#39;яттю. Зрозуміло, щоб вивчити збірку сміття, вам необхідно розуміти, як влаштований всередині інтерпретатор V8 в цілому. Про це ви можете почитати в блозі <a href="http://mrale.ph">В&#39;ячеслава Єгорова</a>, одного з інженерів, що розробляли V8. Я говорю про &quot;V8&quot;, тому що він найкраще висвітлений статтями в Інтернеті. В інших інтерпретаторах багато підходів схожі, але збірка сміття в багатьох аспектах відрізняється.</p>
+<p>Глибоке розуміння роботи інтерпретаторів необхідно, коли вам потрібні низькорівневі оптимізації. Було б розумно запланувати їх вивчення як наступний крок після освоєння мови.</p>
+<h1 id="-this-">Методи об&#39;єкта, &quot; this&quot;</h1>
+<p>Об&#39;єкти зазвичай створюються, щоб представляти сутності реального світу, будь то користувачі, замовлення і так далі:</p>
+<pre><code class="lang-js">// Об'єкт користувача
+let <span class="hljs-keyword">user</span> <span class="hljs-title">= {
+name</span>: <span class="hljs-string">"Джон"</span>,
+age: <span class="hljs-number">30</span>
+};
+</code></pre>
+<p>І так само, як і в реальному світі, користувач може <em>здійснювати дії</em>: вибирати щось з кошика покупок, авторизуватися, виходити з системи, оплачувати і т. п.</p>
+<p>Такі дії в JavaScript представлені властивостями-функціями об&#39;єкта.</p>
+<h2 id="-">Приклади методів</h2>
+<p>Для початку давайте навчимо нашого користувача` user &#39; вітатися:</p>
+<p>```js run
+let user = {
+name: &quot;Джон&quot;,
+age: 30
+};</p>
+<p><em>!</em>
+user.sayHi = function() {
+alert (&quot;Привіт!&quot;);
+};
+<em>/!</em></p>
+<p>user.sayHi (); / / Привіт!</p>
+<pre><code>
+Тут ми просто використовували function Expression (функціональний вираз), щоб створити функцію для привітання, і присвоїли її властивості `user.sayHi <span class="hljs-string">' нашого об'</span>єкта.
+
+Потім ми викликали її. Тепер користувач може говорити!
+
+Функцію, яка є властивістю об<span class="hljs-string">'єкта, називають *методом* цього об'</span>єкта.
+
+Отже, ми отримали метод` sayHi <span class="hljs-string">' об'</span>єкта `user`.
+
+Звичайно, ми могли б заздалегідь оголосити функцію і використовувати її в якості методу, приблизно так:
+
+```js run
+<span class="hljs-keyword">let</span> user = {
+<span class="hljs-comment">// ...</span>
+};
+
+*!*
+<span class="hljs-comment">// спочатку оголошуємо</span>
+function sayHi() {
+alert (<span class="hljs-string">"Привіт!"</span>);
+};
+
+<span class="hljs-comment">// потім додаємо в якості методу</span>
+user.sayHi = sayHi;
+*/!*
+
+user.sayHi (); / / Привіт!
+</code></pre><p>&quot;&#39;smart header=&quot; Об&#39;єктно-орієнтоване програмування&quot;
+Коли ми пишемо наш код, використовуючи об&#39;єкти для представлення сутностей реального світу, - це називається <a href="https://ru.wikipedia.org/wiki/%D0%9E%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BD%D0%BE-%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5">об&#39;єктно-орієнтоване программирование</a> або скорочено: &quot;ООП&quot;.</p>
+<p>ООП є великою предметною областю і цікавою наукою саме по собі. Як вибрати правильні сутності? Як організувати взаємодію між ними? Це-створення архітектури , і є хороші книги з цієї теми, такі як &quot; прийоми об&#39;єктно-орієнтованого проектування. Патерни проектування &quot; авторів Еріх гама, Річард Хелм, Ральф Джонсон, Джон Вліссідес або &quot;Об&#39;єктно-орієнтований аналіз і проектування з прикладами додатків&quot;, а також ще безліч інших книг.</p>
+<pre><code><span class="hljs-comment">### Скорочений запис методу</span>
+
+Існує коротший синтаксис для методів в літералі об'єкта:
+
+```js
+// ці об'єкти роблять одне і те ж (однакові методи)
+
+<span class="hljs-keyword">user</span> <span class="hljs-title">= {
+sayHi</span>: function() {
+alert (<span class="hljs-string">"Привіт"</span>);
+}
+};
+
+// скорочений запис виглядає краще, чи не так?
+<span class="hljs-keyword">user</span> <span class="hljs-title">= {
+*!*
+sayHi</span> () {//те ж саме, що і <span class="hljs-string">" sayHi: function()"</span>
+*/!*
+alert (<span class="hljs-string">"Привіт"</span>);
+}
+};
+</code></pre><p>Як було показано, ми можемо пропустити ключове слово <code>&quot;function&quot;</code> і просто написати <code>sayHi ()</code>.</p>
+<p>Потрібно відзначити, що ці два записи не повністю еквівалентні. Є тонкі відмінності, пов&#39;язані з успадкуванням об&#39;єктів (що буде розглянуто пізніше), але на даному етапі вивчення це неважливо. У більшості випадків скорочений синтаксис кращий.</p>
+<h2 id="-this-">Ключове слово &quot;this&quot; в методах</h2>
+<p>Як правило, методу об&#39;єкта необхідний доступ до інформації, яка зберігається в об&#39;єкті, щоб виконати з нею будь-які дії (відповідно до призначення методу).</p>
+<p>Наприклад, коду всередині &#39; user.sayHi () &#39;може знадобитися ім&#39;я користувача, яке зберігається в об&#39;єкті &#39;user&#39;.</p>
+<p><strong> Для доступу до інформації всередині об&#39;єкта метод може використовувати ключове слово &#39;this&#39;.</strong></p>
+<p>Значення &#39;this&#39; - це об&#39;єкт &quot;перед точкою&quot;, який використовувався для виклику методу.</p>
+<p>Наприклад:</p>
+<p>```js run
+let user = {
+name: &quot;Джон&quot;,
+age: 30,</p>
+<p>sayHi() {
+<em>!</em>
+// this - це &quot; поточний об&#39;єкт&quot;
+alert(this.name);
+<em>/!</em>
+}</p>
+<p>};</p>
+<p>user.sayHi (); / / Джон</p>
+<pre><code>
+Тут під час виконання коду <span class="hljs-string">' user.sayHi () '</span>значенням<span class="hljs-string">' this '</span>буде<span class="hljs-string">' user` (посилання на об'</span>єкт `<span class="javascript">user</span>`).
+
+Технічно також можливо отримати доступ до об<span class="hljs-string">'єкта без ключового слова '</span> <span class="hljs-keyword">this</span>`<span class="javascript">, посилаючись на нього через зовнішню змінну (в якій зберігається посилання на цей об<span class="hljs-string">'єкт):
+
+</span></span>``<span class="javascript"><span class="hljs-string"></span></span>`js
+let user = {
+name: <span class="hljs-string">"Джон"</span>,
+age: <span class="hljs-number">30</span>,
+
+sayHi() {
+*!*
+alert(user.name); / / використовуємо змінну <span class="hljs-string">"user"</span> замість ключового слова <span class="hljs-string">"this"</span>
+*/!*
+}
+
+};
+</code></pre><p>...Але такий код буде ненадійним. Якщо ми вирішимо скопіювати посилання на об&#39;єкт &#39;user<code>в іншу змінну, наприклад</code>&#39; admin = user<code>, і перезапишемо змінну</code> user &#39;чимось іншим, тоді буде здійснено доступ до неправильного об&#39;єкту при виклику методу з &#39;admin&#39;.</p>
+<p>Це показано нижче:</p>
+<p>```js run
+let user = {
+name: &quot;Джон&quot;,
+age: 30,</p>
+<p>sayHi() {
+<em>!</em>
+alert( user.name ); / / призведе до помилки
+<em>/!</em>
+}</p>
+<p>};</p>
+<p>let admin = user;
+user = null; / / обнулимо змінну для наочності, тепер вона не зберігає посилання на об&#39;єкт.</p>
+<p>admin.sayHi (); / / помилка! Всередині sayHi () використовується user, яка більше не посилається на об&#39;єкт!</p>
+<pre><code>
+Якщо ми використовуємо `this.name 'замість `user.name 'всередині' alert`, тоді цей код буде працювати.
+
+## <span class="hljs-string">"this"</span> не є фіксованим
+
+У JavaScript ключове слово <span class="hljs-string">"this"</span> поводиться інакше, ніж у більшості інших мов програмування. Воно може використовуватися в будь-якій функції.
+
+<span class="hljs-symbol">У цьому коді немає синтаксичної помилки:</span>
+
+```js
+function sayHi() {
+alert( *!*this*/!*.name )<span class="hljs-comment">;</span>
+}
+</code></pre><p>Значення &#39; this` обчислюється під час виконання коду і залежить від контексту.</p>
+<p>Наприклад, тут одна і та ж функція призначена двом різним об&#39;єктам і має різне значення&quot; this &quot; при викликах:</p>
+<p>```js run
+let user = { name: &quot;Джон&quot; };
+let admin = { name: &quot;Адмін&quot; };</p>
+<p>function sayHi() {
+alert( this.name );
+}</p>
+<p><em>!</em>
+// використовуємо одну і ту ж функцію в двох об&#39;єктах
+user.f = sayHi;
+admin.f = sayHi;
+<em>/!</em></p>
+<p>// виклики функції, наведені нижче, мають різне значення this
+// &quot;this&quot; всередині функції є посиланням на об&#39;єкт, який вказаний &quot; перед точкою&quot;
+user.f (); / / Джон (this = = user)
+admin.f (); / / Адмін (this = = admin)</p>
+<p>admin[&#39;f&#39;] (); / / Адмін (неважливий спосіб доступу до методу-через точку або квадратні дужки)</p>
+<pre><code>
+Правило просте: при виклику <span class="hljs-string">' obj.f () '</span>значення<span class="hljs-string">' this '</span>всередині<span class="hljs-string">' f '</span>дорівнює<span class="hljs-string">' obj`. Так що, в наведеному прикладі це `user '</span> або <span class="hljs-string">`admin`</span>.
+
+<span class="hljs-string">""</span>smart <span class="hljs-keyword">header</span>=<span class="hljs-string">" виклик без об'єкта ` ' this = = undefined`"</span>
+Ми навіть можемо викликати функцію зовсім без використання об<span class="hljs-string">'єкта:
+
+```js run
+function sayHi() {
+alert(this);
+}
+
+sayHi(); // undefined</span>
+</code></pre><p>У строгому режимі (<code>&quot;use strict&quot;</code>) в такому коді значенням <code>this</code> буде <code>undefined</code>. Якщо ми спробуємо отримати доступ до &#39;name&#39;, використовуючи <code>this.name</code> - це викличе помилку.</p>
+<p>У нестрогому режимі значенням &#39;this&#39; в такому випадку буде <em>глобальний об&#39;єкт</em> (<code>window</code> для браузера, ми повернемося до цього пізніше в розділі <a href="info:global-object">Глобальний об&#39;єкт</a>). Це-історично сформована поведінка &#39; this<code>, яка виправляється використанням суворого режиму (</code>&quot;use strict&quot;`).</p>
+<p>Зазвичай подібний виклик є помилкою програмування. Якщо всередині функції використовується &#39; this`, тоді очікується, що вона буде викликатися в контексті будь-якого об&#39;єкта.</p>
+<pre><code class="lang-`">
+<span class="hljs-string">"'smart header="</span> наслідки вільного <span class="hljs-string">' this`"
+Якщо ви до цього вивчали інші мови програмування, тоді ви, швидше за все, звикли до ідеї "фіксованого `this`" - коли методи, визначені всередині об'</span>єкта, завжди зберігають в якості значення `<span class="javascript"><span class="hljs-keyword">this</span></span>` посилання на свій об<span class="hljs-string">'єкт (в якому був визначений метод).
+
+У JavaScript '</span><span class="hljs-keyword">this</span><span class="hljs-string">' є "вільним", його значення обчислюється в момент виклику методу і не залежить від того, де цей метод був оголошений, а залежить від того, який об'</span>єкт викликає метод (який об<span class="hljs-string">'єкт стоїть"перед точкою").
+
+Ця ідея обчислення '</span><span class="hljs-keyword">this</span><span class="hljs-string">' в момент виконання має як свої плюси, так і мінуси. З одного боку, функція може бути повторно використана в якості методу у різних об'</span>єктів (що підвищує гнучкість). З іншого боку, більша гнучкість збільшує ймовірність помилок.
+
+Тут ми не будемо судити про те, чи є це рішення в мові хорошим чи поганим. Ми повинні розуміти, як з цим працювати, щоб отримувати вигоди і уникати проблем.
+</code></pre>
+<h2 id="-">Внутрішня реалізація: Тип посилання</h2>
+<p>&quot;&#39;warn header=&quot; Просунута можливість мови&quot;
+Цей розділ пояснює складну тему, щоб краще розуміти деякі заплутані випадки.</p>
+<p>Якщо ви хочете просуватися швидше, його можна пропустити або відкласти.</p>
+<pre><code>
+Деякі хитрі способи виклику методу призводять до втрати значення ' this`, наприклад:
+
+```js run
+let <span class="hljs-keyword">user</span> = {
+name: <span class="hljs-string">"Джон"</span>,
+hi() { alert(this.name); },
+bye () { alert (<span class="hljs-string">"поки"</span>); }
+};
+
+<span class="hljs-keyword">user</span>.hi (); / / Джон (простий виклик методу працює добре)
+
+*!*
+// тепер давайте спробуємо викликати <span class="hljs-keyword">user</span>.hi або <span class="hljs-keyword">user</span>.bye
+// залежно від імені користувача <span class="hljs-keyword">user</span>.name
+(<span class="hljs-keyword">user</span>.name = = <span class="hljs-string">"Джон"</span>? <span class="hljs-keyword">user</span>.hi : <span class="hljs-keyword">user</span>.bye) (); / / помилка!
+*/!*
+</code></pre><p>В останньому рядку коду використовується умовний оператор <code>?</code> , який визначає, який буде викликаний метод <code>&#39; user.hi &#39; або &#39; user.bye</code>) залежно від виконання умови. В даному випадку буде обраний <code>user.hi</code>.</p>
+<p>Потім метод тут же викликається за допомогою дужок <code>()</code>. Але виклик не працює як годиться!</p>
+<p>Ви можете бачити, що при виклику буде помилка, тому що значенням <code>&quot;this&quot;</code> всередині функції стає <code>undefined</code> (вважаємо, що у нас строгий режим).</p>
+<p>Так працює (доступ до методу об&#39;єкта через точку):</p>
+<pre><code class="lang-js">user.hi()<span class="hljs-comment">;</span>
+</code></pre>
+<p>Так вже не працює (викликається метод обчислюється):</p>
+<pre><code class="lang-js">(<span class="hljs-name">user.name</span> = = <span class="hljs-string">"Джон"</span>? user.hi : user.bye) ()<span class="hljs-comment">; / / помилка!</span>
+</code></pre>
+<p>Чому? Якщо ми хочемо зрозуміти, чому так відбувається, давайте розберемося (заглянемо під капот), як працює виклик методів (<code>obj.method()</code>).</p>
+<p>Придивившись ближче, у виразі &#39; obj.method ()` можна помітити дві операції:</p>
+<ol>
+<li>Спочатку оператор точка&quot;.&quot;повертає властивість об&#39;єкта - його метод (<code>obj.method</code>).</li>
+<li>Потім дужки ` () &#39; викликають цей метод (виконується код методу).</li>
+</ol>
+<p>Отже, яким же чином інформація про &#39;this&#39; передається з першої частини в другу?</p>
+<p>Якщо ми помістимо ці операції в окремі рядки, то значення &#39; this`, природно, буде втрачено:</p>
+<p>```js run
+let user = {
+name: &quot;Джон&quot;,
+hi() { alert(this.name); }
+};</p>
+<p><em>!</em>
+// розділимо отримання методу об&#39;єкта і його виклик в різних рядках
+let hi = user.hi;
+hi (); / / помилка, тому що значенням this є undefined
+<em>/!</em></p>
+<pre><code>
+Тут `<span class="javascript">hi = user.hi <span class="hljs-string">' зберігає функцію в змінній, і далі в останньому рядку вона викликається повністю сама по собі, без об'</span>єкта, так що немає </span>`<span class="hljs-keyword">this</span>`<span class="javascript">.
+
+** Для роботи викликів типу <span class="hljs-string">' user.hi ()</span></span>`, JavaScript використовує трюк-точка<span class="hljs-string">"."</span>повертає не саму функцію, а спеціальне значення <span class="hljs-string">"посилального типу"</span>, званого [Reference Type](https:<span class="hljs-regexp">//</span>tc39.github.io<span class="hljs-regexp">/ecma262/</span><span class="hljs-comment">#sec-reference-specification-type).**</span>
+
+Цей тип посилання (Reference Type) є внутрішнім типом. Ми не можемо явно використовувати його, але він використовується всередині мови.
+
+Значення посилального типу - це <span class="hljs-string">"триплет"</span>: комбінація з трьох значень `<span class="javascript"><span class="hljs-string">(base, name, strict)</span></span>`, де:
+
+`<span class="javascript"><span class="hljs-string">'</span>base</span>` - це об<span class="hljs-string">'єкт.
+`'</span>name<span class="hljs-string">' - це ім'</span>я властивості об<span class="hljs-string">'єкта.
+`'</span>strict`<span class="javascript"> - це режим виконання. Є <span class="hljs-literal">true</span>, якщо діє строгий режим (</span>`use strict`<span class="javascript">).
+
+Результатом доступу до властивості <span class="hljs-string">' user.hi '</span> є не функція, а значення посилального типу. Для </span>`user.hi`<span class="javascript"> в строгому режимі воно буде таким:
+
+</span>``<span class="javascript"></span>`js
+<span class="hljs-regexp">//</span> значення посилального типу (Reference Type)
+(user, <span class="hljs-string">"hi"</span>, <span class="hljs-literal">true</span>)
+</code></pre><p>Коли дужки <code>()</code>застосовуються до значення посилального типу (відбувається виклик), то вони отримують повну інформацію про об&#39;єкт і його метод, і можуть поставити правильний<code>this</code>(<code>=user</code>в даному випадку, по`base&#39;).</p>
+<p>Посилальний тип-виключно внутрішній, проміжний, який використовується, щоб передати інформацію від точки <code>.</code> до викликаючих дужок <code>()</code>.</p>
+<p>При будь-якій іншій операції, наприклад, присвоюванні &#39; hi = user.hi<code>, посилальний тип замінюється на власне значення &#39; user.hi</code> (функцію), і далі робота вже йде тільки з нею. Тому подальший виклик відбувається вже без &#39;this&#39;.</p>
+<p>Таким чином, значення &#39;this<code>передається правильно, тільки якщо функція викликається безпосередньо з використанням синтаксису точки&#39; obj.method () &#39; або квадратних дужок</code>obj[&#39;method&#39;] ()` (вони роблять те ж саме). Пізніше в цьому підручнику ми вивчимо різні варіанти вирішення проблеми втрати значення &#39;this&#39;. Наприклад, такі як <a href="/bind#solution-2-bind">func.bind()</a>.</p>
+<h2 id="-this-">У стрілочних функцій немає &quot; this&quot;</h2>
+<p>Стрілочні функції особливі: у них немає свого &quot;власного&quot; <code>this</code>. Якщо ми використовуємо` this &#39;всередині стрілочної функції, то його значення береться із зовнішньої&quot; нормальної &quot; функції.</p>
+<p>Наприклад, тут <code>arrow () &#39;використовує значення&#39; this</code> із зовнішнього методу &#39; user.sayHi()`:</p>
+<p>```js run
+let user = {
+firstName: &quot;Ілля&quot;,
+sayHi() {
+let arrow = () =&gt; alert(this.firstName);
+arrow();
+}
+};</p>
+<p>user.sayHi (); / / Ілля
+```</p>
+<p>Це є особливістю стрілочних функцій. Вони корисні, коли ми насправді не хочемо мати окреме значення <code>this</code>, а хочемо брати його з зовнішнього контексту. Пізніше в розділі <info: arrow-functions> ми побачимо більше прикладів на цю тему.</p>
+<h2 id="-">Разом</h2>
+<ul>
+<li>Функції, які знаходяться в об&#39;єкті в якості його властивостей, називаються &quot;методами&quot;.</li>
+<li>Методи дозволяють об&#39;єктам &quot;діяти&quot;: <code>object.doSomething()</code>.</li>
+<li>Методи можуть посилатися на об&#39;єкт через &#39;this&#39;.</li>
+</ul>
+<p>Значення &#39;this&#39; визначається під час виконання коду.</p>
+<ul>
+<li>При оголошенні будь-якої функції в ній можна використовувати &#39;this<code>, але цей&#39; this</code> не має значення до тих пір, поки функція не буде викликана.</li>
+<li>Ця функція може бути скопійована між об&#39;єктами (з одного об&#39;єкта в інший).</li>
+<li>Коли функція викликається синтаксисом &quot;методу&quot; - <code>object.method ()</code>, значенням &#39; this` під час виклику є об&#39;єкт перед точкою.</li>
+</ul>
+<p>Також ще раз зауважимо, що стрілочні функції є особливими - у них немає <code>this</code>. Коли всередині стрілочної функції звертаються до &#39;this&#39;, то його значення береться зовні.</p>
+<h1 id="-new-">Конструктори, створення об&#39;єктів через &quot; new&quot;</h1>
+<p>Звичайний синтаксис&#39; {...} &#39;дозволяє створити тільки один об&#39;єкт. Але найчастіше нам потрібно створити безліч однотипних об&#39;єктів, таких як користувачі, елементи меню і т. д.</p>
+<p>Це можна зробити за допомогою функції-конструктора і оператора <code>&quot;new&quot;</code>.</p>
+<h2 id="-">Функція-конструктор</h2>
+<p>Функції-конструктори є звичайними функціями. Але є дві угоди:</p>
+<ol>
+<li>Ім&#39;я функції-конструктора має починатися з великої літери.</li>
+<li>Функція-конструктор повинна викликатися за допомогою оператора <code>&quot;new&quot;</code>.</li>
+</ol>
+<p>Наприклад:</p>
+<p>```js run
+function User(name) {
+this.name = name;
+this.isAdmin = false;
+}</p>
+<p><em>!</em>
+let user = new User (&quot;Вася&quot;);
+<em>/!</em></p>
+<p>alert(user.name); / / Вася
+alert(user.isAdmin); // false</p>
+<pre><code>
+Коли функція викликається як `<span class="javascript"><span class="hljs-keyword">new</span> User(...)</span>`, відбувається наступне:
+
+<span class="hljs-number">1.</span> Створюється новий порожній об<span class="hljs-string">'єкт, і він присвоюється `this`.
+2. Виконується код функції. Зазвичай він модифікує '</span><span class="hljs-keyword">this</span><span class="hljs-string">', додає туди нові властивості.
+3. Повертається значення '</span><span class="hljs-keyword">this</span><span class="hljs-string">'.
+
+Іншими словами, виклик '</span> <span class="hljs-keyword">new</span> User (...`<span class="javascript"> <span class="hljs-string">'робить приблизно ось що:
+
+</span></span>``<span class="javascript"><span class="hljs-string"></span></span>`js
+function User(name) {
+*!*
+<span class="hljs-regexp">//</span> <span class="hljs-keyword">this</span> = {}; (неявно)
+*/!*
+
+<span class="hljs-regexp">//</span> додає властивості до <span class="hljs-keyword">this</span>
+<span class="hljs-keyword">this</span>.name = name;
+<span class="hljs-keyword">this</span>.isAdmin = <span class="hljs-literal">false</span>;
+
+*!*
+<span class="hljs-regexp">//</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>; (неявно)
+*/!*
+}
+</code></pre><p>Тобто, результат виклику &#39; new User (&quot;Вася&quot;)` - це той же об&#39;єкт, що і:</p>
+<pre><code class="lang-js">let <span class="hljs-keyword">user</span> <span class="hljs-title">= {
+name</span>: <span class="hljs-string">"Вася"</span>,
+isAdmin: <span class="hljs-literal">false</span>
+};
+</code></pre>
+<p>Тепер, коли нам необхідно буде створити інших користувачів, ми можемо використовувати &#39; new User (&quot;Маша&quot;)<code>,
+&#39;new User (&quot;Даша&quot;)</code> і т.д. дана конструкція набагато зручніше і читабельніше, ніж кожен раз створювати літерал об&#39;єкта. Це і є основною метою конструкторів-зручне повторне створення однотипних об&#39;єктів.</p>
+<p>Ще раз зауважимо: технічно будь-яка функція може бути використана як конструктор. Тобто, кожна функція може бути викликана за допомогою оператора <code>new</code>, і виконається алгоритм, зазначений вище в прикладі. Велика літера в назві функції є загальною угодою по іменуванню, вона як би підказує розробнику, що дана функція є функцією-конструктором, і її потрібно викликати через <code>new</code>.</p>
+<p>````smart header=&quot;new function() { ... }&quot;
+Якщо в нашому коді велика кількість рядків, що створюють один складний об&#39;єкт, ми можемо обернути їх у функцію-конструктор наступним чином:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> user = <span class="hljs-keyword">new</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+<span class="hljs-keyword">this</span>.name = <span class="hljs-string">" Вася"</span>;
+<span class="hljs-keyword">this</span>.isAdmin = <span class="hljs-literal">false</span>;
+
+<span class="hljs-comment">// ...інший код для створення користувача</span>
+<span class="hljs-comment">// можлива будь-яка складна логіка і вирази</span>
+<span class="hljs-comment">// локальні змінні і т. д.</span>
+};
+</code></pre>
+<p>Такий конструктор не може бути викликаний двічі, так як він ніде не зберігається, просто створюється і тут же викликається. Таким чином, такий метод створення дозволяє інкапсулювати код, який створює окремий об&#39;єкт, але без можливості його повторного використання.</p>
+<pre><code>
+## Перевірка на виклик в режимі конструктора: new.target
+
+<span class="hljs-string">"'smart header="</span> Просунута можливість"
+Даний метод використовується дуже рідко. Ви можете пропустити цю секцію, якщо не хочете заглиблюватися в деталі мови.
+```
+
+Використовуючи спеціальну властивість ' new `target ' всередині функції, ми можемо перевірити, чи викликана функція за допомогою оператора `new` або без нього.
+
+У разі, якщо функція викликана за допомогою 'new`, то в' new.target 'буде сама функція, в іншому випадку 'undefined'.
+
+```js <span class="hljs-keyword">run</span>
+function User() {
+alert(new.target);
+}
+
+<span class="hljs-comment">// без " new":</span>
+<span class="hljs-comment">*!*</span>
+User(); <span class="hljs-comment">// undefined</span>
+<span class="hljs-comment">*/!*</span>
+
+<span class="hljs-comment">// с " new":</span>
+<span class="hljs-comment">*!*</span>
+new User(); <span class="hljs-comment">// function User { ... }</span>
+<span class="hljs-comment">*/!*</span>
+```
+
+Це можна використовувати, щоб відрізнити звичайний виклик від виклику <span class="hljs-string">"в режимі конструктора"</span>. Зокрема, ось так можна зробити, щоб функцію можна було викликати як з, так і без `new`:
+
+```js <span class="hljs-keyword">run</span>
+function User(name) {
+<span class="hljs-keyword">if</span> (!new.target) {<span class="hljs-comment">//у випадку, якщо ви викликали без оператора new</span>
+<span class="hljs-keyword">return</span> new User(name); <span class="hljs-comment">// ...додамо оператор new за вас</span>
+}
+
+this.name = name;
+}
+
+let vasya = User (<span class="hljs-string">"Вася"</span>); / / переадресовує виклики на new User
+alert(vasya.name); / / Вася
+```
+
+Такий підхід іноді використовується в бібліотеках для створення більш гнучкого синтаксису, який дозволяє розробникам викликати функції за допомогою оператора `new` або без нього.
+
+Втім, це не дуже хороша практика, так як відсутність `new` може ввести розробника в оману. З оператором ' new` ми точно знаємо, що в підсумку буде створено новий об'єкт.
+
+
+## Повернення значення з конструктора <span class="hljs-built_in">return</span>
+
+Зазвичай конструктори нічого не повертають явно. Їх завдання-записати все необхідне в ' this`, який в підсумку стане результатом.
+
+Але якщо '<span class="hljs-keyword">return</span>' все ж є, то застосовується просте правило:
+
+- При виклику `<span class="hljs-keyword">return</span>` з об'єктом, буде повернуто об'єкт, а не `this`.
+- При виклику `<span class="hljs-keyword">return</span>` з примітивним значенням, примітивне значення буде відкинуто.
+
+Іншими словами ` '<span class="hljs-keyword">return</span>' з об'єктом повертає об'єкт, в будь-якому іншому випадку конструктор поверне `this`.
+
+У прикладі нижче `<span class="hljs-keyword">return</span> 'повертає об'єкт замість' this`:
+
+```js <span class="hljs-keyword">run</span>
+function BigUser() {
+
+this.name = <span class="hljs-string">" Вася"</span>;
+
+<span class="hljs-keyword">return</span> { name:<span class="hljs-string">" Godzilla"</span>}; / / &lt; -- повертає цей об'єкт
+}
+
+alert (new BigUser (). name); / / Godzilla, отримали цей об'єкт
+```
+
+А ось приклад з порожнім `<span class="hljs-keyword">return</span>` (або ми могли б поставити примітив після `<span class="hljs-keyword">return</span>`, неважливо)
+
+```js <span class="hljs-keyword">run</span>
+function SmallUser() {
+
+this.name = <span class="hljs-string">" Вася"</span>;
+
+<span class="hljs-keyword">return</span>; / / &lt; -- повертає this
+}
+
+alert (new SmallUser (). name); / / Вася
+```
+
+Зазвичай у конструкторів відсутня <span class="hljs-symbol">`return'</span>. У цьому блоці ми згадали особливу поведінку з об'єктами, що повертаються, щоб не залишати прогалин у вивченні мови.
+
+
+<span class="hljs-string">""</span>smart header=<span class="hljs-string">" відсутність дужок"</span>
+До речі, ми можемо не ставити дужки після ' new`, якщо виклик конструктора йде без аргументів.
+
+```js
+let user = new User; / / &lt; -- без дужок
+<span class="hljs-comment">// те ж, що і</span>
+let user = new User();
+```
+
+Пропуск дужок вважається поганою практикою, але синтаксис мови таке дозволяє.
+</code></pre><h2 id="-">Створення методів в конструкторі</h2>
+<p>Використання конструкторів для створення об&#39;єктів дає велику гнучкість. Можна передавати конструктору параметри, що визначають, як створювати об&#39;єкт, і що в нього записувати.</p>
+<p>У `this &#39; ми можемо додавати не тільки властивості, але і методи.</p>
+<p>Наприклад, у прикладі нижче, &#39;new User<code>name)&#39; створює об&#39;єкт з даним ім&#39;ям &#39; name</code> і методом <code>sayHi</code>:</p>
+<p>```js run
+function User(name) {
+this.name = name;</p>
+<p>this.sayHi = function() {
+alert (&quot;мене звуть:&quot; + this.name );
+};
+}</p>
+<p><em>!</em>
+let vasya = new User (&quot;Вася&quot;);</p>
+<p>vasya.sayHi (); / / мене звуть: Вася
+<em>/!</em></p>
+<p>/<em>
+vasya = {
+name: &quot;Вася&quot;,
+sayHi: function() { ... }
+}
+</em>/</p>
+<pre><code>
+Для створення складних об'єктів є і більш "просунутий" синтаксис - [<span class="hljs-string">класи</span>](<span class="hljs-link">info:classes</span>), які ми розберемо пізніше.
+
+<span class="hljs-section">## Разом</span>
+
+<span class="hljs-bullet">- </span>Функції-конструктори або просто конструктори є звичайними функціями, іменувати які слід з великої літери.
+<span class="hljs-bullet">- </span>Конструктори слід викликати за допомогою оператора ' new`. Такий виклик створює порожній 'this' на початку виконання і повертає заповнений в кінці.
+
+Ми можемо використовувати Конструктори для створення безлічі схожих об'єктів.
+
+JavaScript надає функції-Конструктори для безлічі вбудованих об'єктів мови: наприклад, <span class="hljs-code">`Date`</span>, <span class="hljs-code">`Set`</span> та інших, які нам ще належить вивчити.
+
+"'smart header=" Об'єкти, ми до них ще повернемося!"
+У цьому розділі ми розглянули базові принципи об'єктів і конструкторів. Дана інформація необхідна нам для подальшого вивчення типів даних і функцій. Як тільки ми з ними розберемося, ми повернемося до об'єктів для більш детального вивчення в
+розділах <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">info:</span> <span class="hljs-attr">prototypes</span>&gt;</span></span> і <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">info:</span> <span class="hljs-attr">classes</span>&gt;</span></span>.
+</code></pre>
+			<h2>Контрольні запитання</h2>
+			<ol>
+				
+<li> </li>
+
+
+			</ol>
+		</div>
+	</body>
+	</html>
