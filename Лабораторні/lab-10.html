@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ Лабораторна робота № 10</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ Лабораторна робота № 10</div>
+		<h1>Лабораторна робота № 10. <br>Використання коду JavaScript на сторінці. Консоль розробника</h1>
+		<h2>Мета роботи</h2>
+		<p>Розглянути приклади використання коду JavaScript в HTML-документі. Навчитись підключати зовнішні файли коду та вбудовувати код всередині тіла документу.</p>
+		<h2>Обладнання</h2>
+		<p>Персональний комп'ютер. Текстовий редактор Sublime Text 3 або Notepad++. Пакет програм XAMPP. Web-браузер Chrome, Firefox, Opera, Internet Explorer*</p>
+		<h2>Теоретичні відомості</h2>
+		<h3>1. Способи використання JavaScript в HTML-документі</h3>
+		<p>
+			Програми на JavaScript можуть бути вставлені в будь-яке місце HTML-документа за допомогою тега <code>&lt;script&gt;</code>.
+		</p>
+		<p>
+			Тег <code>&lt;script&gt;</code> має кілька атрибутів, які рідко використовуються, але все ще можуть зустрітися в старому коді:
+		</p>
+		<h4>Атрибут type: <code>&lt;script type=...&gt;</code></h4>
+		<p>
+			Старий стандарт HTML, HTML4, вимагав наявності цього атрибута в тезі <code>&lt;script&gt;</code>. Зазвичай він мав значення <code>type="text/javascript"</code>. На поточний момент цього більше не потрібно. Більш того, в сучасному стандарті HTML сенс цього атрибута повністю змінився. Тепер він може використовуватися для JavaScript-модулів.
+		</p>
+		<h4>Атрибут type: <code>&lt;script language=...&gt;</code></h4>
+		<p>
+			Цей атрибут повинен був зазначати мову, якою написано скрипт. Але так як JavaScript є мовою за замовчуванням, в цьому атрибуті вже немає необхідності.
+		</p>
+		<p>
+			HTML-документ, в тілі якого міститься код JavaScript, може виглядати наступним чином:
+		</p>
+		<pre>
+			&lt;!DOCTYPE html&gt;
+			&lt;html&gt;
+			&lt;head&gt;
+			&lt;title&gt;Title&lt;/title&gt;
+			&lt;meta charset=&quot;utf-8&quot;&gt;
+			&lt;/head&gt;
+			&lt;body&gt;
+			&lt;p&gt;Text&lt;/p&gt;
+			&lt;script&gt;
+			alert(&apos;hello world!&apos;);
+			&lt;/script&gt;
+			&lt;p&gt;Text&lt;/p&gt;
+			&lt;/body&gt;
+			&lt;/html&gt;
+		</pre>
+		<h4>Зовнішні сценарії</h4>
+		<p>
+			Якщо у вас багато JavaScript-коду, ви можете помістити його в окремий файл. Файл скрипта можна підключити до HTML за допомогою атрибута <code>src</code>:
+		</p>
+		<pre>
+			&lt;!DOCTYPE html&gt;
+			&lt;html&gt;
+			&lt;head&gt;
+			&lt;title&gt;Title&lt;/title&gt;
+			&lt;meta charset=&quot;utf-8&quot;&gt;
+			&lt;script src="/path/to/script.js"&gt;&lt;/script&gt;
+			&lt;/head&gt;
+			&lt;body&gt;
+			&lt;p&gt;Text&lt;/p&gt;
+			&lt;/body&gt;
+			&lt;/html&gt;
+		</pre>
+		<p>
+			Якщо у вас дуже багато коду, його можна розділити на модулі і почергово додати їх. Також можливо підключення модулів з різних джерел, в тому числі і віддалених:
+		</p>
+		<pre>
+			&lt;!DOCTYPE html&gt;
+			&lt;html&gt;
+			&lt;head&gt;
+			&lt;title&gt;Title&lt;/title&gt;
+			&lt;meta charset=&quot;utf-8&quot;&gt;
+			&lt;script src="/path/to/script1.js"&gt;&lt;/script&gt;
+			&lt;script src="/path/to/script2.js"&gt;&lt;/script&gt;
+			&lt;script src="http://other.site/path/to/script3.js"&gt;&lt;/script&gt;
+			&lt;/head&gt;
+			&lt;body&gt;
+			&lt;p&gt;Text&lt;/p&gt;
+			&lt;/body&gt;
+			&lt;/html&gt;
+		</pre>
+		<h3>2. Консоль розробника</h3>
+		<p>
+			Код вразливий для помилок. Але за замовчуванням у браузері помилки не відображаються. Тобто, якщо щось піде не так, ми не побачимо, що саме зламалося, і не зможемо це полагодити.
+		</p>
+		<p>
+			Для вирішення завдань такого роду в браузер вбудовані так звані «Інструменти розробки» (Developer tools або скорочено - devtools). Виклик консолі розробника у браузерах Google Chrome та Mozilla Firefox виконується за допомогою клавіши <code>F12</code>.
+		</p>
+		<figure>
+			<img class="figc" src="img/0403.png">
+			<figcaption>Консоль розробника у браузері Mozilla Firefox</figcaption>
+		</figure>
+		<figure>
+			<img class="figc" src="img/0404.png">
+			<figcaption>Консоль розробника у браузері Google Chrome</figcaption>
+		</figure>
+
+		<p>
+			Робота з інтерпитатором JavaScript проходить у вкладці "Консоль" або "Console".
+		</p>
+		<figure>
+			<img class="figc" src="img/1001.png">
+			<figcaption>Вкладка "Console" у браузері Google Chrome</figcaption>
+		</figure>
+		<p>
+			Браузер Safari все ж має невелику відмінність. Для початку роботи нам потрібно включити «Меню розробки» («Developer menu»). Відкрийте Налаштування (Preferences) і перейдіть до панелі «Просунуті» (Advanced). У самому низу ви знайдете чекбокс:
+		</p>
+		<figure>
+			<img class="figc" src="img/1002.png">
+			<figcaption>Активація консолі розробника в Safari</figcaption>
+		</figure>
+
+		<h2>Хід роботи</h2>
+		<ol>
+			<li>Перевірити чи встановлено пакет програм web-розробника XAMPP</li>
+			<li>Викликати панель керування xampp-control.exe</li>
+			<li>Впевнитись, що web-сервер Apache запущений</li>
+			<li>Перейти за адресою <code>http://127.0.0.1/</code> або <code>http://localhost/</code> та впевнитись, що сторінка вітання XAMPP завантажилась</li>
+			<li>Очистити зміст каталогу <code>C:\xampp\htdocs\</code></li>
+			<li>Створити файл <code>index.html</code> в середині каталогу <code>C:\xampp\htdocs\</code></li>
+			<li>Файл <code>index.html</code> зробити з порожнім вмістом секції <code>&lt;body&gt;</code></li>
+			<li>Перевірити файл валідатором та виправити помилки</li>
+			<li>Перейти за адресою <code>http://127.0.0.1/</code> або <code>http://localhost/</code> та впевнитись, що сторінка, яку ви створили, завантажилася корректно</li>
+			<li>Додати у файл <code>&lt;script&gt;</code> використовуючи метод <code>document.write()</code> вивести в документ довільний текст</li>
+			<li>Використовуючи метод <code>document.write()</code> вивести в документ сумму цілих чисел</li>
+			<li>Використовуючи метод <code>document.write()</code> вивести в документ сумму дійсних (з дробною частиною) чисел</li>
+			<li>Відкрити консоль розробника та перейти на вкладку інтерпритатора JavaScript</li>
+			<li>Використовуючи консоль виконати три попередні команди та порівняти результат</li>
+			<li>Створити файл з назвою <code>script.js</code> та помістити його поряд з файлом <code>index.html</code></li>
+			<li>Видалити з файлу <code>index.html</code> секцію <code>&lt;script&gt;</code> та підключити файл <code>script.js</code> в секції <code>&lt;head&gt;</code></li>
+			<li>У файл <code>script.js</code> помістити код, розроблений раніше та перевірити його роботу</li>
+			<li>Для кожного етапу роботи зробити знімки екрану або скопіювати текст консолі та додати їх у звіт з описом кожного скіншота</li>
+			<li>Дати відповіді на контрольні запитання</li>
+			<li>Зберегти звіт у форматі PDF</li>
+		</li>
+
+	</ol>
+	<h2>Контрольні питання</h2>
+	<ol>
+		<li>Які атрибути має тег <code>&lt;script&gt;</code> та для чого вони використовуються?</li>
+		<li>Чим відрізняється гнучкий макет від адаптивного?</li>
+		<li>Як підключити JavaScript до HTML-документу?</li>
+		<li>Де проходить робота з інтерпритатором JavaScript?</li>
+		<li>Як перейти до консолі розробника?</li>			
+	</ol>
+	<h2>Довідники та додаткові матеріали</h2>
+	<ol>
+		<li id="link01"><a href="https://validator.w3.org/">Валідатор W3C</a></li>
+		<li id="link02"><a href="https://css.in.ua/">Довідник HTML та CSS</a></li>
+		<li id="link03"><a href="http://htmlbook.ru/">Справочник по HTML</a></li>
+		<li id="link04"><a href="https://learn.javascript.ru/devtools/">Справочник по роботі з JavaScript в консолі розробника</a></li>
+		<li id="link05"><a href="https://learn.javascript.ru/hello-world/">Справочник по JavaScript</a></li>
+
+	</ol>
+
+</div>
+</body>
+</html>

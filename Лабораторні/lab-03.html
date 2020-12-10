@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ Лабораторна робота № 3</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ Лабораторна робота № 3</div>
+		<h1>Лабораторна робота № 3. <br>Використання методу табличного верстання</h1>
+		<h2>Мета роботи</h2>
+		<p>Розглянути приклади табличного верстання та створити власну сторінку за таким зразком. Визначити недоліки табличного верстання.</p>
+		<h2>Обладнання</h2>
+		<p>Персональний комп'ютер. Текстовий редактор Sublime Text 3 або Notepad++. Web-браузер Chrome, Firefox, Opera, Internet Explorer*</p>
+		<h2>Хід роботи</h2>
+		<ol>
+			<li><p>Відкрити редактор коду та створити новий файл, якщо у вікні редактора вже завантажено будь-який інший</p>
+			</li>
+			<li>Зберегти файл з іменем <code>index.html</code></li>
+			<li>
+				<p>Створити сторінку відповідно до макету</p>
+				<figure>
+					<img class="figc" src="img/0201.jpg">
+					<figcaption>Макет-каркас сторінки</figcaption>
+				</figure>
+			</li>
+			<li>
+				<p>У файл <code>index.html</code> помістити наступні рядки:</p>
+				
+				<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&Tcy;&acy;&bcy;&lcy;&icy;&chcy;&ncy;&acy;&yacy; &vcy;&iocy;&rcy;&scy;&tcy;&kcy;&acy;&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;table border=&quot;1&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+      &lt;tr&gt;
+        &lt;th colspan=2&gt;&shcy;&acy;&pcy;&kcy;&acy; &scy;&acy;&jcy;&tcy;&acy; (&lcy;&ocy;&gcy;&ocy;&tcy;&icy;&pcy;, &scy;&lcy;&ocy;&gcy;&acy;&ncy;, &tcy;&iecy;&lcy;&iecy;&fcy;&ocy;&ncy;)&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th width=&quot;20%&quot;&gt;&ncy;&acy;&vcy;&icy;&gcy;&acy;&tscy;&icy;&yacy;&lt;/th&gt;
+        &lt;th width=&quot;80%&quot;&gt;&zcy;&acy;&gcy;&ocy;&lcy;&ocy;&vcy;&ocy;&kcy;&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td width=&quot;20%&quot;&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href=&quot;index.html&quot; title=&quot;&Scy;&scy;&ycy;&lcy;&kcy;&acy; 1&quot;&gt;&Scy;&scy;&ycy;&lcy;&kcy;&acy; 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;index.html&quot; title=&quot;&Scy;&scy;&ycy;&lcy;&kcy;&acy; 2&quot;&gt;&Scy;&scy;&ycy;&lcy;&kcy;&acy; 2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;index.html&quot; title=&quot;&Scy;&scy;&ycy;&lcy;&kcy;&acy; 3&quot;&gt;&Scy;&scy;&ycy;&lcy;&kcy;&acy; 3&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/td&gt;
+        &lt;td width=&quot;80%&quot;&gt;&kcy;&ocy;&ncy;&tcy;&iecy;&ncy;&tcy;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td colspan=2&gt;&Ncy;&icy;&zcy; &scy;&acy;&jcy;&tcy;&acy; (&bcy;&acy;&ncy;&ncy;&iecy;&rcy;&ycy;, &scy;&chcy;&iecy;&tcy;&chcy;&icy;&kcy;&icy;, &icy;&ncy;&fcy;&ocy;&rcy;&mcy;&acy;&tscy;&icy;&yacy;)&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/body&gt;
+&lt;/html&gt;				</pre>
+			</li>
+			<li>
+				<p>Впевнитися, що результат відповідає наступному (<a href="#link07">7</a> - <a href="#link09">9</a>)</p>
+				<figure>
+					<img class="figc" src="img/0202.jpg">
+					<figcaption>Готовий табличний каркас сторінки</figcaption>
+				</figure>
+			</li>
+			<li>Перевірити даний файл у валідаторі розмітки W3C за посиланням <code>https://validator.w3.org/</code></li>
+			<li>
+				<p>
+					Виявити наявність помилок та попереджень. Скорегувати документ, використовуючи стилі CSS.
+				</p>
+				<p>
+					Для розміщення стилів використати контейнер <code>&lt;style&gt;&lt;/style&gt;</code>
+				</p>
+				<p>
+					Для налаштування ширини та висоти таблиці та її колонок використати стилі <code>height</code> i <code>width</code>
+				</p>
+			</li>
+			<li>Зберегти файл та перевірити його знову</li>
+			<li>
+				Створити HTML-сторінку за зразком сторінки Wikipedia на будь-яку обрану тему. Для створення каркасу сторінки використати таблицю, для налаштування зовнішнього вигляду - стилі CSS.
+			</li>
+			<li>Зберегти файл та перевірити його на валідність</li>
+			<li>HTML-код файлу та скріншот перевірки валідатором останнього завдання зберегти у звіт</li>
+			<li>Роздрукувати звіт та письмово відповісти на контрольні запитання</li>
+		</ol>
+		<h2>Контрольні питання</h2>
+		<ol>
+			<li>Які недоліки табличного верстання ви знаєте?</li>
+			<li>Які атрибути тегів таблиці потрібно заміняти відповідними стилями CSS?</li>
+			<li>Які способи використання стилів існують та в чому між ними різниця?</li>
+			<li>Що можна налаштувати використавши стилі <code>height</code> i <code>width</code>?</li>
+			<li>Як підключити зовнішній файл CSS?</li>			
+		</ol>
+		<h2>Довідники та додаткові матеріали</h2>
+		<ol>
+			<li id="link01"><a href="https://validator.w3.org/">Валідатор W3C</a></li>
+			<li id="link02"><a href="https://css.in.ua/">Довідник HTML та CSS</a></li>
+			<li id="link03"><a href="http://htmlbook.ru/">Справочник по HTML</a></li>
+			<li id="link04"><a href="https://developer.mozilla.org/ru/docs/Learn/HTML/%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B2_HTML/The_head_metadata_in_HTML">Метаданные в HTML</a></li>
+			<li id="link05"><a href="https://developer.mozilla.org/ru/docs/Learn/HTML/%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B2_HTML/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0_%D0%B8_%D0%B2%D0%B5%D0%B1-%D1%81%D0%B0%D0%B9%D1%82%D0%B0">Структура документа и веб-сайта</a></li>
+			<li id="link06"><a href="https://www.w3schools.com/">Комплексний довідник web-розробника</a></li>
+			<li id="link07"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/table">Елемент table</a></li>
+			<li id="link08"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/tr">Елемент tr</a></li>
+			<li id="link09"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/td">Елемент td</a></li>
+		</ol>
+		<hr width="90%">
+		* &mdash; на випадок, якщо ви прибулець з 90-х років.
+	</div>
+</body>
+</html>
