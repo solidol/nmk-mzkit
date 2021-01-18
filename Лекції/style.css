@@ -28,6 +28,16 @@
 			text-align: justify;
 			text-indent: 1cm;
 		}
+
+		div.content-board{
+    float: right; /* Выравнивание по правому краю */
+    background: #F3F0E9; /* Цвет фона */
+    border: 1px solid #000; /* Параметры границы */
+    padding: 0 10px; /* Поля вокруг картинки */
+    margin: 5px 0px 5px 10px; /* Отступы */
+    width: 50%; /* Ширина */
+    font-size: 0.9em; /* Размер шрифта */
+		}
 		#colontitle{
 			color: grey;
 			text-align: center;
