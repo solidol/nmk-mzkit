@@ -17,7 +17,7 @@
 			padding-right: 0;
 		}
 		.paper{
-			background-color: #cbe3ca;
+			background-color: #ebe2bc;
 			padding: 10px;
 			max-width: 210mm;
 			min-width: 300px;
@@ -27,6 +27,16 @@
 		.paper p, ol, ul{
 			text-align: justify;
 			text-indent: 1cm;
+		}
+
+		p.notice {
+			margin: 5px;
+			padding: 5px;
+			background-color: #fcf590;
+			font-weight: 600;
+			border-top: 2px solid #420303;
+			border-bottom: 2px solid #420303;	
+			color: #420303;		
 		}
 
 		li{
