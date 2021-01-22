@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ. Лекція №6 </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ. Лекція №6 </div>
+		<h1>Уроки з Bootstrap. Урок №6: створення форм</h1>
+		<p>З кнопками розібралися, але як же бути з формами? Bootstrap дозволяє додавати оформлення будь-яким формам на сторінці. Форми, створені на Bootstrap, можуть бути горизонтальними й вертикальними.</p>
+<h2>Стандартні налаштування</h2>
+<p>Елементи <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code> і <code>&lt;select&gt;</code> при додаванні їм класу <code>.form-control</code> стають блочними й займають 100% ширини батьківського блоку.</p>
+<h2>Типи форм у Bootstrap</h2>
+<p>За допомоги різних класів ви можете оформити форму</p>
+<ul>
+<li>вертикально</li>
+<li>горизонтально</li>
+<li>у вигляді строчних елементів (однією строкою)</li>
+</ul>
+<p>Є три основні правила для створення форм у бутстрапі:</p>
+<ul>
+<li>використовуйте <code>&lt;form role="form"&gt;</code></li>
+<li>всі елементи форми та їхні назви мають знаходитися в блоці <code>&lt;div class="form-group"&gt;</code>, це треба для оптимальних відстаней між строками</li>
+<li>додавайте клас <code>.form-control</code> для елементів <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code> і <code>&lt;select&gt;</code></li>
+</ul>
+<h2>Вертикальна форма</h2>
+<p>За замовчуванням будь-яка форма буде оформлена как вертикально-орієнтована.</p>
+<p><img src="img/lec-6/1.png" alt=""></p>
+<p>Ось приклад стандартної форми, створеної за допомоги Bootstrap:</p>
+<pre>&lt;form role="form"&gt;
+ &lt;div class="form-group"&gt;
+  &lt;label for="email"&gt;Email&lt;/label&gt;
+  &lt;input type="email" class="form-control" id="email" placeholder="Введите email"&gt;
+  &lt;p class="help-block"&gt;Приклад строки з підказкою&lt;/p&gt;
+ &lt;/div&gt;
+ &lt;div class="form-group"&gt;
+  &lt;label for="pass"&gt;Пароль&lt;/label&gt;
+  &lt;input type="password" class="form-control" id="pass" placeholder="Пароль"&gt;
+ &lt;/div&gt;
+ &lt;div class="checkbox"&gt;
+  &lt;label&gt;&lt;input type="checkbox"&gt; Чекбокс&lt;/label&gt;
+ &lt;/div&gt;
+ &lt;button type="submit" class="btn btn-success"&gt;Увійти&lt;/button&gt;
+&lt;/form&gt;</pre>
+<h2>Строчна форма</h2>
+<p>Строчна форма означає, что всі її елементи та їхні назви (<code>&lt;label&gt;</code>) будуть розташовані однією строкою з вирівнюванням зліва.</p>
+<blockquote>Зверніть увагу: строчна форма буде відображатись як класична на екранах розміром менше 768 пікселів в ширину.</blockquote>
+<p>Єдине правило, що перетворює класичну форму в строчну:</p>
+<ul>
+<li>додати клас <code>.form-inline</code> до тегу <code>&lt;form&gt;</code></li>
+</ul>
+<p>В цьому прикладі — створення строчної форми з двома полями й кнопкою підтвердження:</p>
+<pre>&lt;form role="form" class="form-inline"&gt;
+ &lt;div class="form-group"&gt;
+  &lt;label for="email"&gt;Email&lt;/label&gt;
+  &lt;input type="email" class="form-control" id="email" placeholder="Введите email"&gt;
+ &lt;/div&gt;
+ &lt;div class="form-group"&gt;
+  &lt;label for="pass"&gt;Пароль&lt;/label&gt;
+  &lt;input type="password" class="form-control" id="pass" placeholder="Пароль"&gt;
+ &lt;/div&gt;
+ &lt;button type="submit" class="btn btn-success"&gt;Увійти&lt;/button&gt;
+&lt;/form&gt;</pre>
+<p><img src="img/lec-6/2.png" alt=""></p>
+<h2>Горизонтальна форма</h2>
+<p>Такий вид форми значно відрізняється синтаксисом від двох попередніх. Є два правила для створення горизонтальних форм в Bootstrap:</p>
+<ul>
+<li>додати клас <code>.form-horizontal</code> до тегу <code>&lt;form&gt;</code></li>
+<li>додати клас <code>.control-label</code> всім елементам <code>&lt;label&gt;</code></li>
+</ul>
+<p>Ось приклад коду горизонтальної форми:</p>
+<pre>&lt;form class="form-horizontal"&gt;
+ &lt;div class="form-group"&gt;
+  &lt;label for="mail" class="col-sm-2 control-label"&gt;Email&lt;/label&gt;
+  &lt;div class="col-sm-10"&gt;
+   &lt;input type="email" class="form-control" id="mail" placeholder="Email"&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class="form-group"&gt;
+  &lt;label for="pass" class="col-sm-2 control-label"&gt;Пароль&lt;/label&gt;
+  &lt;div class="col-sm-10"&gt;
+   &lt;input type="password" class="form-control" id="pass" placeholder="Пароль"&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class="form-group"&gt;
+  &lt;div class="col-sm-offset-2 col-sm-10"&gt;
+   &lt;div class="checkbox"&gt;
+    &lt;label&gt;
+     &lt;input type="checkbox"&gt; Запам'ятати мене
+    &lt;/label&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class="form-group"&gt;
+  &lt;div class="col-sm-offset-2 col-sm-10"&gt;
+   &lt;button type="submit" class="btn btn-success"&gt;Підтвердити&lt;/button&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/form&gt;</pre>
+<p><img src="img/lec-6/3.png" alt=""></p>
+<h2>Чекбокси й радіокнопки</h2>
+<p>Чекбокси потрібні для вибору кількох параметрів, радіокнопки — для вибору єдиного варіянту.</p>
+<pre>&lt;div class="checkbox"&gt;
+ &lt;label&gt;
+  &lt;input type="checkbox" value="check1"&gt;
+  Звичайний чекбокс, який можна відмітити
+ &lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="checkbox disabled"&gt;
+ &lt;label&gt;
+  &lt;input type="checkbox" value="check2" disabled&gt;
+  Заблокований чекбокс, не відмічається
+ &lt;/label&gt;
+&lt;/div&gt;</pre>
+<p>І аналогічний приклад для радіокнопок:</p>
+<pre>&lt;div class="radio"&gt;
+ &lt;label&gt;
+  &lt;input type="radio" name="optionsRadios" id="radio1" value="option1" checked&gt;
+  Перший елемент списку з радіокнопок, її можна вибирати
+ &lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="radio"&gt;
+ &lt;label&gt;
+  &lt;input type="radio" name="optionsRadios" id="radio22" value="option2" disabled&gt;
+  Друга опція списку, заблокована
+ &lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="radio disabled"&gt;
+  &lt;label&gt;
+  &lt;input type="radio" name="optionsRadios" id="radio3" value="option3"&gt;
+  Третя смішна опція
+ &lt;/label&gt;
+&lt;/div&gt;</pre>
+<p>Щоб заблокувати вибір чекбоксу або радіокнопки, їм додають атрибут <code>disabled</code>.</p>
+<p><img src="img/lec-6/4.png" alt=""></p>
+<h2>Строчні чекбокси й радіокнопки</h2>
+<p>Використовуйте класи <code>.checkbox-inline</code> і <code>.radio-inline</code> для того, щоб зробити ці елементи строчними:</p>
+<pre>&lt;label class="checkbox-inline"&gt;
+ &lt;input type="checkbox" id="inlineCheckbox1" value="option1"&gt; 1
+&lt;/label&gt;
+&lt;label class="checkbox-inline"&gt;
+ &lt;input type="checkbox" id="inlineCheckbox2" value="option2"&gt; 2
+&lt;/label&gt;
+&lt;label class="checkbox-inline"&gt;
+ &lt;input type="checkbox" id="inlineCheckbox3" value="option3"&gt; 3
+&lt;/label&gt;</pre>
+<pre>&lt;label class="radio-inline"&gt;
+ &lt;input type="radio" name="inlineRadioOptions" id="radio1" value="option1"&gt; 1
+&lt;/label&gt;
+&lt;label class="radio-inline"&gt;
+ &lt;input type="radio" name="inlineRadioOptions" id="radio2" value="option2"&gt; 2
+&lt;/label&gt;
+&lt;label class="radio-inline"&gt;
+ &lt;input type="radio" name="inlineRadioOptions" id="radio3" value="option3"&gt; 3
+&lt;/label&gt;</pre>
+<p><img src="img/lec-6/5.png" alt=""></p>
+<h2>Випадні списки</h2>
+<p>Тут все дуже просто: тегу <code>&lt;select&gt;</code> треба призначити класс <code>.form-control</code>.</p>
+<pre>&lt;select class="form-control"&gt;
+ &lt;option&gt;1&lt;/option&gt;
+ &lt;option&gt;2&lt;/option&gt;
+ &lt;option&gt;3&lt;/option&gt;
+ &lt;option&gt;4&lt;/option&gt;
+ &lt;option&gt;5&lt;/option&gt;
+&lt;/select&gt;</pre>
+<p>Якщо ви хочете додати списку можливість вибору кількох варіянтів, додайте йому атрибут <code>multiple</code>:</p>
+<pre>&lt;select class="form-control" multiple&gt;
+ &lt;option&gt;1&lt;/option&gt;
+ &lt;option&gt;2&lt;/option&gt;
+ &lt;option&gt;3&lt;/option&gt;
+ &lt;option&gt;4&lt;/option&gt;
+ &lt;option&gt;5&lt;/option&gt;
+&lt;/select&gt;</pre>
+<h2>Статичні надписи замість полей</h2>
+<p>Поля форми можна заміняти текстовими елементами, для цього потрібен клас <code>.form-control-static</code> для елементу <code>&lt;p&gt;</code>:</p>
+<pre>&lt;form class="form-horizontal"&gt;
+ &lt;div class="form-group"&gt;
+  &lt;label class="col-sm-2 control-label"&gt;Електропочта&lt;/label&gt;
+  &lt;div class="col-sm-10"&gt;
+   &lt;p class="form-control-static"&gt;email@example.com>&lt;/p&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class="form-group"&gt;
+  &lt;label for="pass" class="col-sm-2 control-label"&gt;Пароль&lt;/label&gt;
+  &lt;div class="col-sm-10"&gt;
+   &lt;input type="password" class="form-control" id="pass" placeholder="Пароль"&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/form&gt;</pre>
+<p><img src="img/lec-6/6.png" alt=""></p>
+<h2>Контекстні класи</h2>
+<p>В Bootstrap є три класи для оформлення різних станів полів у формі:</p>
+<ul>
+<li>успіх, клас <code>.has-success</code></li>
+<li>попередження, клас <code>.has-warning</code></li>
+<li>помилка, клас <code>.has-error</code></li>
+</ul>
+<p>Цей клас треба призначити елементу <code>.form-group</code>:</p>
+<pre>&lt;div class="form-group has-success"&gt;
+ &lt;label class="control-label" for="succ"&gt;Поле без помилок&lt;/label&gt;
+ &lt;input type="text" class="form-control" id="succ"&gt;
+&lt;/div&gt;
+&lt;div class="form-group has-warning"&gt;
+ &lt;label class="control-label" for="warn"&gt;Поле з попередженням&lt;/label&gt;
+ &lt;input type="text" class="form-control" id="warn"&gt;
+&lt;/div&gt;
+&lt;div class="form-group has-error"&gt;
+ &lt;label class="control-label" for="err"&gt;Поле з помилкою&lt;/label&gt;
+ &lt;input type="text" class="form-control" id="err"&gt;
+&lt;/div&gt;
+&lt;div class="has-success"&gt;
+ &lt;div class="checkbox"&gt;
+  &lt;label&gt;
+  &lt;input type="checkbox" id="check-succ" value="option1"&gt;
+  Чекбокс без помилок
+ &lt;/label&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="has-warning"&gt;
+ &lt;div class="checkbox"&gt;
+ &lt;label&gt;
+  &lt;input type="checkbox" id="check-warn" value="option1"&gt;
+  чекбокс із попередженням
+  &lt;/label&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="has-error"&gt;
+ &lt;div class="checkbox"&gt;
+  &lt;label&gt;
+  &lt;input type="checkbox" id="checkboxError" value="option1"&gt;
+  Чекбокс з помилкою
+ &lt;/label&gt;
+ &lt;/div&gt;
+&lt;/div&gt;</pre>
+<p><img src="img/lec-6/7.png" alt=""></p>
+<h2>Розміри полів</h2>
+<p>Щоб змінити розмір елемента форми, йому можна приначити один з класів:</p>
+<ul>
+<li><code>.input-sm</code></li>
+<li><code>.input-lg<br />
+</code></li>
+</ul>
+<p><img src="img/lec-6/8.png" alt=""></p>
+		
+
+		</div>
+	</body>
+	</html>

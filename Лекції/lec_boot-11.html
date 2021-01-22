@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ. Лекція №11 </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ. Лекція №11 </div>
+		<h1>Уроки з Bootstrap. Урок №11: випадні меню й списки</h1>
+		<p>Цей урок продовжить серію заміток з розробки на Bootstrap, трохи підвищивши рівень. З попередніх уроків ви могли дізнатися, як працювати з текстом, таблицями, як верстати шаблони й створювати форми.</p>
+<p>Для створення динамічних елементів Bootstrap має бібліотеку bootstrap.js. Вона працює в зв&#8217;язці з jQuery і дозволяє легко створювати об&#8217;єкти, з якими може взаємодіяти відвідувач вашого сайту. Це можуть бути модальні вікна, що випадають списки, вкладки, слайдери і так далі. Сьогодні мова піде про найпростіший з них — випадних списках.</p>
+<h2>Як підключити Bootstrap.js</h2>
+<p>Для своєї роботи скрипти Bootstrap вимагають jQuery, тому переконайтеся, що ця бібліотека підключена перед бутстрапом:</p>
+<pre>&lt;script src="https://code.jquery.com/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"&gt;&lt;/script&gt;</pre>
+<p>Створювати списки, що випадають на бутстрапа — суцільне задоволення. Ви можете налаштувати стиль таких списків за допомогою пари класів, а для їх роботи буде потрібно підключити jQuery і bootstrap.js.</p>
+<h2>Випадні списки</h2>
+<p>Список, що випадає — це меню, видимість якого можна змінювати. В даному випадку список з&#8217;являється при кліці на зазначений об&#8217;єкт. Для прикладу нехай це буде кнопка. Ось приклад такого списку, реалізований на Bootstrap:</p>
+<p><img src="img/lec-11/1.png" alt=""></p>
+<p>Код прикладу:</p>
+<pre>&lt;div class="dropdown"&gt;
+ &lt;button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"&gt;Випадний список
+&lt;/button&gt;
+&lt;ul class="dropdown-menu"&gt;
+ &lt;li&gt;&lt;a href="#"&gt;HTML&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;CSS&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;JavaScript&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</pre>
+<p>Клас <code>.dropdown</code> потрібно привласнити блоку, який містить список. Для показу списку використовується кнопка або посилання з класом <code>.dropdown-toggle</code> атрибутом <code>data-toggle="dropdown"</code>.</p>
+<p>Клас <code>.caret</code> створить стрілку вниз (<i class="glyphicon glyphicon-triangle-bottom"></i>), щоб показати, що з&#8217;явиться список. І останнє: додайте клас <code>.dropdown-menu</code>списку <code>&lt;ul&gt;</code>, щоб він став випадним.</p>
+<h2>Разділювач у випадному списку</h2>
+<pre>&lt;li class="divider"&gt;&lt;/li&gt;</pre>
+<p>Елемент з класом <code>.divider</code> можна використовувати для розділення елементів всередині списку:</p>
+<p><img src="img/lec-11/2.png" alt=""></p>
+<h2>Заголовки елементів</h2>
+<pre>&lt;li class="dropdown-header"&gt;Заголовок 1&lt;/li&gt;</pre>
+<p>Ви можете позначити групи елементів всередині списку за допомогою класа <code>.dropdown-header</code>:</p>
+<p><img src="img/lec-11/3.png" alt=""></p>
+<h2>Заблоковані елементи</h2>
+<pre>&lt;li class="disabled"&gt;&lt;a href="#"&gt;Архів уроков&lt;/a&gt;&lt;/li&gt;</pre>
+<p>Щоб зробити елемент списку неактивним, додайте йому клас <code>.disabled</code>:</p>
+<p><img src="img/lec-11/4.png" alt=""></p>
+<h2>Приклад: список справа</h2>
+<pre>&lt;ul class="dropdown-menu dropdown-menu-right"&gt;</pre>
+<p>Ви можете поміняти місце появи списку зі стандартного на появу зверху або праворуч. Щоб список з&#8217;являвся праворуч, призначте елементу <code>&lt;ul&gt;</code> клас <code>.dropdown-menu-right</code>:</p>
+<p><img src="img/lec-11/5.png" alt=""></p>
+<h2>Приклад: список, що «випадає» нагору</h2>
+<p>Щоб список з&#8217;являвся вище кнопки, поміняйте клас <code>.dropdown</code> на <code>.dropup</code>:</p>
+<p><img src="img/lec-11/6.png" alt=""></p>
+		
+    </div>
+	</body>
+	</html>
