@@ -28,7 +28,58 @@
 			<li><a href="lec-16.html">16</a></li>
 		</ul>
 		<h1>Типи даних та перетворення типів</h1>
-<h1 id="-">Тип даних</h1>
+		<div class="content-board">
+			<li>
+				<a href="#h01">Тип даних</a>
+			</li>
+			<li>
+				<a href="#h02">Число</a>
+			</li>
+			<li>
+				<a href="#bigint">BigInt</a>
+			</li>
+			<li>
+				<a href="#h03">Рядок</a>
+
+			<li>
+				<a href="#h04">Булевий (логічний) тип</a>
+			</li>
+			<li>
+				<a href="#-null-">Значення "null"</a>
+			</li>
+			<li>
+				<a href="#-undefined-">Значення "undefined"</a>
+			</li>
+			<li>
+				<a href="#h05">Об'єкти та символи</a>
+			</li>
+			<li>
+				<a href="#-typeof-type-typeof-">Оператор typeof [#type-typeof]</a>
+			</li>
+			<li>
+				<a href="#h06">Підсумок</a>
+			</li>
+			<li>
+				<a href="#h07">ПЕРЕТВОРЕННЯ ТИПІВ</a>
+			</li>
+			<li>
+				<a href="#h08">Рядкове перетворення</a>
+			</li>
+			<li>
+				<a href="#h09">Чисельне перетворення</a>
+			</li>
+			<li>
+				<a href="#h010">Логічне перетворення</a>
+			</li>
+			<li>
+				<a href="#h011">Разом</a>
+			</li>
+			<li>
+				<a href="#h012">Контрольні запитання
+</a>
+			</li>
+		</div>
+<h1 id="#h01">Тип даних</h1>
 <p>
 Значення в JavaScript завжди відноситься до даних певного типу. Наприклад, це може бути рядок або число.
 </p>
@@ -49,7 +100,7 @@ let message = <span class="hljs-string">"hello"</span><span class="hljs-comment"
 <p>
 Мови програмування, в яких таке можливо, називаються &quot;динамічно типізованими&quot;. Це означає, що типи даних є, але змінні не прив'язані до жодного з них.
 </p>
-<h2 id="-">Число</h2>
+<h2 id="#h02">Число</h2>
 <pre>
 <span class="hljs-attribute">let n</span> = 123;
 <span class="hljs-attribute">n</span> = 12.345;
@@ -146,7 +197,7 @@ alert (<span class="hljs-string">"не число"</span> / <span class="hljs-nu
 &quot;'smart header=&quot; підтримка&quot;
 В даний момент <code>BigInt</code> підтримується тільки в браузерах Firefox, Chrome і Edge, але не підтримується в Safari і IE.
 </p>
-<h2 id="-">Рядок</h2>
+<h2 id="h03">Рядок</h2>
 <p>
 Рядок (<code>string</code>) в JavaScript повинна бути укладена в лапки.
 </p>
@@ -202,7 +253,7 @@ alert (<span class="hljs-string">"результат: <span class="hljs-subst">$
 <p>
 У JavaScript подібного типу немає, є тільки тип <code>string</code>. Рядок може містити нуль символів (бути порожній), один символ або безліч.
 </p>
-<h2 id="-">Булевий (логічний) тип</h2>
+<h2 id="h04">Булевий (логічний) тип</h2>
 <p>
 Булевий тип (<code>boolean</code>) може приймати тільки два значення: <code>true</code> (істина) і <code>false</code> (брехня).
 </p>
@@ -283,7 +334,7 @@ alert(age)<span class="hljs-comment">; // "undefined"</span>
 <p>
 ...Але так робити не рекомендується. Зазвичай <code>null</code>використовується для присвоєння змінної&quot; порожнього &quot;або&quot; невідомого &quot;значення, а<code>undefined</code> - для перевірок, чи була змінна призначена.
 </p>
-<h2 id="-">Об'єкти та символи</h2>
+<h2 id="h05">Об'єкти та символи</h2>
 <p>
 Тип <code>object</code> (об'єкт) - особливий.
 </p>
@@ -338,7 +389,7 @@ alert(age)<span class="hljs-comment">; // "undefined"</span>
 <li>Результатом виклику<code>typeof null</code> є <code>&quot;object&quot;</code>. Це офіційно визнана помилка в <code>typeof</code>, що веде початок з часів створення JavaScript і збережена для сумісності. Звичайно, <code>null</code> не є об'єктом. Це спеціальне значення з окремим типом.</li>
 <li>Виклик <code>typeof alert</code>повертає <code>&quot;function&quot;</code>, тому що <code>alert</code> є функцією. Ми вивчимо функції в наступних розділах, де заодно побачимо, що в JavaScript немає спеціального типу &quot;функція&quot;. Функції відносяться до об'єктного типу. Але <code>typeof</code> обробляє їх особливим чином, повертаючи <code>&quot;function&quot;</code>. Так теж повелося від створення JavaScript. Формально це невірно, але може бути зручним на практиці.</li>
 </ol>
-<h2 id="-">Підсумок</h2>
+<h2 id="h06">Підсумок</h2>
 <p>
 У JavaScript є 8 основних типів.
 </p>
@@ -369,7 +420,7 @@ alert(age)<span class="hljs-comment">; // "undefined"</span>
 
 
 
-<h1 id="-">Перетворення типів</h1>
+<h1 id="h07">Перетворення типів</h1>
 <p>
 Найчастіше оператори і функції автоматично приводять передані їм значення до потрібного типу.
 </p>
@@ -386,7 +437,7 @@ alert(age)<span class="hljs-comment">; // "undefined"</span>
 &quot;<code>.mart header=&quot; поки що ми не говоримо про об</code>.кти&quot;
 У цьому розділі ми не торкаємося об<code>.ктів. Спочатку ми розберемо перетворення примітивних значень. Ми розберемо перетворення об</code>.ктів пізніше, в розділі <info:object-toprimitive>.
 </p>
-<h2 id="-">Рядкове перетворення</h2>
+<h2 id="h08">Рядкове перетворення</h2>
 <p>
 Рядкове перетворення відбувається, коли потрібно представлення чого-небудь у вигляді рядка.
 </p>
@@ -408,7 +459,7 @@ alert(<span class="hljs-keyword">typeof</span> <span class="hljs-keyword">value<
 <p>
 Перетворення відбувається очевидним чином.<code>false</code> стає <code>&quot;false&quot;</code>, <code>null</code>стає <code>&quot;null&quot;</code> і т. п.
 </p>
-<h2 id="-">Чисельне перетворення</h2>
+<h2 id="h09">Чисельне перетворення</h2>
 <p>
 Чисельне перетворення відбувається в математичних функціях і виразах.
 </p>
@@ -472,7 +523,7 @@ alert( <span class="hljs-name">Number</span>(<span class="hljs-name">false</span
 <p>
 Більшість математичних операторів також виробляє дане перетворення, як ми побачимо в наступному розділі.
 </p>
-<h2 id="-">Логічне перетворення</h2>
+<h2 id="h010">Логічне перетворення</h2>
 <p>
 Логічне перетворення найпростіше.
 </p>
@@ -507,7 +558,7 @@ alert( <span class="hljs-name">Boolean</span>(<span class="hljs-string">""</span
 alert( <span class="hljs-keyword">Boolean</span>(<span class="hljs-string">"0"</span>) ); <span class="hljs-comment">// true</span>
 alert (<span class="hljs-keyword">Boolean</span> ( <span class="hljs-string">""</span> )); <span class="hljs-regexp">/ /</span> пробіл це теж <span class="hljs-keyword">true</span> (будь-яка непорожня рядок це <span class="hljs-keyword">true</span>)
 </pre>
-<h2 id="-">Разом</h2>
+<h2 id="h011">Разом</h2>
 <p>
 Існує 3 найбільш широко використовуваних перетворення: рядкове, чисельне і логічне.
 </p>
@@ -564,7 +615,7 @@ alert (<span class="hljs-keyword">Boolean</span> ( <span class="hljs-string">""<
 
 
 
-			<h2>Контрольні запитання</h2>
+			<h2 id="h012">Контрольні запитання</h2>
 			<ol>
 				
 <li> </li>
