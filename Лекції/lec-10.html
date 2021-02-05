@@ -123,9 +123,9 @@
 <pre>
 let year = prompt ( <span class="hljs-string">'В якому році була опублікована специфікація ECMAScript-2015 році?'</span>, <span class="hljs-string">''</span>);
 
-<span class="hljs-comment">*! *</span>
+<span class="hljs-comment"> </span>
 <span class="hljs-keyword">if</span> (year == <span class="hljs-number">2015</span>) alert ( <span class="hljs-string">'Ви маєте рацію!'</span>);
-<span class="hljs-comment">* /! *</span>
+<span class="hljs-comment"> </span>
 </pre>
 <p>
 В наведеному вище прикладі, умова - це проста перевірка на рівність ( <code>year == 2015</code>), але воно може бути і набагато більш складним.
@@ -246,13 +246,13 @@ let year = prompt ( <span class="hljs-string">'В якому році була �
 <span class="hljs-keyword">let</span> accessAllowed;
 <span class="hljs-keyword">let</span> age = prompt ( <span class="hljs-string">'Скільки вам років?'</span>, <span class="hljs-string">''</span>);
 
-*! *
+ 
 <span class="hljs-keyword">if</span> (age&gt; <span class="hljs-number">18</span>) {
   accessAllowed = <span class="hljs-literal">true</span>;
 } <span class="hljs-keyword">Else</span> {
   accessAllowed = <span class="hljs-literal">false</span>;
 }
-* /! *
+ 
 
 alert (accessAllowed);
 </pre>
@@ -359,10 +359,10 @@ alert <span class="hljs-comment">(message)</span>;
 <pre>
 let company = prompt ( <span class="hljs-string">'Яка компанія створила JavaScript?'</span>, <span class="hljs-string">''</span>);
 
-*! *
+ 
 (Company == <span class="hljs-string">'Netscape'</span>)?
    alert ( <span class="hljs-string">'Вірно!'</span>): alert ( <span class="hljs-string">'Неправильно.'</span>);
-* /! *
+ 
 </pre>
 <p>
 Залежно від умови <code>company == &#39;Netscape&#39;</code>, буде виконана або перша, або друга частина після<code>?</code>.
@@ -387,13 +387,13 @@ let company = prompt ( <span class="hljs-string">'Яка компанія ств
 <pre>
 let company = prompt ( <span class="hljs-string">'Яка компанія створила JavaScript?'</span>, <span class="hljs-string">''</span>);
 
-<span class="hljs-comment">*! *</span>
+<span class="hljs-comment"> </span>
 <span class="hljs-keyword">if</span> (company == <span class="hljs-string">'Netscape'</span>) {
   alert ( <span class="hljs-string">'Вірно!'</span>);
 } <span class="hljs-keyword">Else</span> {
   alert ( <span class="hljs-string">'Неправильно.'</span>);
 }
-<span class="hljs-comment">* /! *</span>
+<span class="hljs-comment"> </span>
 </pre>
 <p>
 При читанні очі сканують код по вертикалі. Блоки коду, що займають кілька рядків, сприймаються набагато легше, ніж довгий горизонтальний набір інструкцій.
@@ -462,11 +462,11 @@ let a = <span class="hljs-number">2</span> + <span class="hljs-number">2</span>;
 <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
 alert ( 'Малувато');
 <span class="hljs-keyword">break</span>;
-*! *
+ 
 <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
 alert ( 'В точку!');
 <span class="hljs-keyword">break</span>;
-* /! *
+ 
 <span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
 alert ( 'Перебір');
 <span class="hljs-keyword">break</span>;
@@ -496,14 +496,14 @@ let a = <span class="hljs-number">2</span> + <span class="hljs-number">2</span>;
 <span class="hljs-keyword">switch</span> (a) {
 <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
 alert ( 'Малувато');
-*! *
+ 
 <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
 alert ( 'В точку!');
 <span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
 alert ( 'Перебір');
 <span class="hljs-keyword">default</span>:
 alert ( <span class="hljs-string">"Немає таких значень"</span>);
-* /! *
+ 
 }
 </pre>
 <p>
@@ -533,11 +533,11 @@ let a = <span class="hljs-string">"1"</span>;
 let b = <span class="hljs-number">0</span>;
 
 <span class="hljs-keyword">switch</span> (+ a) {
-*! *
+ 
 <span class="hljs-keyword">case</span> b + <span class="hljs-number">1</span>:
 alert ( <span class="hljs-string">"Виконати, тому що значенням + a буде 1, що в точності так само b + 1"</span>);
 <span class="hljs-keyword">break</span>;
-* /! *
+ 
 
 <span class="hljs-keyword">default</span>:
 alert ( <span class="hljs-string">"Це не виконається"</span>);
@@ -565,13 +565,13 @@ alert ( <span class="hljs-string">"Це не виконається"</span>);
 alert ( <span class="hljs-string">'Правильно!'</span>);
 <span class="hljs-keyword">break</span>;
 
-*! *
+ 
 <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>: <span class="hljs-comment">// (*) групуємо обидва case</span>
 <span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
 alert ( <span class="hljs-string">'Неправильно!'</span>);
 alert ( <span class="hljs-string">"Може вам відвідати урок математики?"</span>);
 <span class="hljs-keyword">break</span>;
-* /! *
+ 
 
 <span class="hljs-keyword">default</span>:
 alert ( <span class="hljs-string">'Результат виглядає трохи дивно. Чесно.'</span>);
@@ -682,9 +682,9 @@ let i = <span class="hljs-number">0</span>;
 
 <pre>
 let i = <span class="hljs-number">3</span>;
-<span class="hljs-comment">*! *</span>
+<span class="hljs-comment"> </span>
 <span class="hljs-keyword">while</span> (i) {<span class="hljs-comment">// коли i дорівнюватиме 0, умова стане хибним, і цикл зупиниться</span>
-<span class="hljs-comment">* /! *</span>
+<span class="hljs-comment"> </span>
   alert (i);
   i--;
 }
@@ -696,9 +696,9 @@ Smart header = &quot;Фігурні дужки не потрібні для ті
 
 <pre>
 let i = <span class="hljs-number">3</span><span class="hljs-comment">;</span>
-*! *
+ 
 while (<span class="hljs-name">i</span>) alert (<span class="hljs-name">i--</span>)<span class="hljs-comment">;</span>
-* /! *
+ 
 </pre>
 <h3 id="-do-while-">Цикл &quot;do ... while&quot;</h3>
 <p>
@@ -830,7 +830,7 @@ Smart header = &quot;Вбудоване оголошення змінної&quot
 </p>
 
 <pre>
-for <span class="hljs-comment">(*! * let * /! * i = 0; i &lt;3; i ++)</span> {
+for <span class="hljs-comment">(  let   i = 0; i &lt;3; i ++)</span> {
   alert <span class="hljs-comment">(i)</span>; <span class="hljs-comment">// 0, 1, 2</span>
 }
 alert <span class="hljs-comment">(i)</span>; <span class="hljs-comment">// помилка, немає такої змінної</span>
@@ -916,9 +916,9 @@ let <span class="hljs-built_in">i</span> = <span class="hljs-number">0</span>;
 
   <span class="hljs-keyword">let</span> <span class="hljs-keyword">value</span> = + prompt ( <span class="hljs-string">"Введіть число"</span>, <span class="hljs-string">''</span>);
 
-*! *
+ 
   <span class="hljs-keyword">if</span> (! <span class="hljs-keyword">value</span>) <span class="hljs-keyword">break</span>; <span class="hljs-comment">// (*)</span>
-* /! *
+ 
 
   sum + = <span class="hljs-keyword">value</span>;
 
@@ -950,7 +950,7 @@ alert ( <span class="hljs-string">'Сума:'</span> + sum);
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt;<span class="hljs-number">10</span>; i ++) {
 
   <span class="hljs-comment">// якщо true, пропустити решту тіла циклу</span>
-  *! * <span class="hljs-keyword">If</span> (i% <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>; * /! *
+    <span class="hljs-keyword">If</span> (i% <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;  
 
   alert (i); <span class="hljs-comment">// 1, потім 3, 5, 7, 9</span>
 }
@@ -1002,7 +1002,7 @@ Warn header = &quot;Не можна використовувати <code>break /
 </p>
 
 <pre>
-(I&gt; <span class="hljs-number">5</span>)? alert (i): *! * <span class="hljs-keyword">continue</span> * <span class="hljs-regexp">/! *; /</span>/ <span class="hljs-keyword">continue</span> тут призведе до помилки
+(I&gt; <span class="hljs-number">5</span>)? alert (i):   <span class="hljs-keyword">continue</span> * <span class="hljs-regexp">/! *; /</span>/ <span class="hljs-keyword">continue</span> тут призведе до помилки
 </pre>
 <p>
 ... то буде синтаксична помилка.
@@ -1056,14 +1056,14 @@ labelName: <span class="hljs-keyword">for</span> (<span class="hljs-keyword">...
 </p>
 
 <pre>
-*! * Outer: * /! * <span class="hljs-keyword">For</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt;<span class="hljs-number">3</span>; i ++) {
+  Outer:   <span class="hljs-keyword">For</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt;<span class="hljs-number">3</span>; i ++) {
 
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt;<span class="hljs-number">3</span>; j ++) {
 
     <span class="hljs-keyword">let</span> input = prompt ( `Значення на координатах ($ {i}, $ {j})`, <span class="hljs-string">''</span>);
 
     <span class="hljs-comment">// якщо порожній рядок або Скасування, то вийти з обох циклів</span>
-    <span class="hljs-keyword">if</span> (! input) *! * <span class="hljs-keyword">break</span> outer * /! *; <span class="hljs-comment">// (*)</span>
+    <span class="hljs-keyword">if</span> (! input)   <span class="hljs-keyword">break</span> outer  ; <span class="hljs-comment">// (*)</span>
 
     <span class="hljs-comment">// зробити що-небудь зі значеннями ...</span>
   }

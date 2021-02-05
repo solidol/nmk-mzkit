@@ -472,9 +472,9 @@ alert (JSON.stringify (meetup));
 / *
 {
 	<span class="hljs-string">"Title"</span>: <span class="hljs-string">"Conference"</span>,
-	*! *
+	 
 	<span class="hljs-string">"Date"</span>: <span class="hljs-string">"2017-01-01T00: 00: 00.000Z"</span>, <span class="hljs-comment">// (1)</span>
-	* /! *
+	 
 	<span class="hljs-string">"Room"</span>: { <span class="hljs-string">"number"</span>: <span class="hljs-number">23</span>} <span class="hljs-comment">// (2)</span>
 }
 * /
@@ -490,11 +490,11 @@ alert (JSON.stringify (meetup));
 <pre>
 	let room = {
 	number: 23,
-	<span class="hljs-comment">*! *</span>
+	<span class="hljs-comment"> </span>
 	toJSON () {
 	<span class="hljs-keyword">return</span> this.number;
 }
-<span class="hljs-comment">* /! *</span>
+<span class="hljs-comment"> </span>
 };
 
 let meetup = {
@@ -502,17 +502,17 @@ title: <span class="hljs-string">"Conference"</span>,
 room
 };
 
-<span class="hljs-comment">*! *</span>
+<span class="hljs-comment"> </span>
 alert (JSON.stringify (room)); <span class="hljs-comment">// 23</span>
-<span class="hljs-comment">* /! *</span>
+<span class="hljs-comment"> </span>
 
 alert (JSON.stringify (meetup));
 / *
 {
 	<span class="hljs-string">"Title"</span>: <span class="hljs-string">"Conference"</span>,
-	<span class="hljs-comment">*! *</span>
+	<span class="hljs-comment"> </span>
 	<span class="hljs-string">"Room"</span>: 23
-	<span class="hljs-comment">* /! *</span>
+	<span class="hljs-comment"> </span>
 }
 <span class="hljs-comment">* /</span>
 </pre>
@@ -575,10 +575,10 @@ alert (JSON.stringify (meetup));
 
 <pre>
 	<span class="hljs-keyword">let</span> on = `{
-	*! * Name * /! *: <span class="hljs-string">"John"</span>, <span class="hljs-comment">// Помилка: ім'я властивості без лапок</span>
-	<span class="hljs-string">"Surname"</span>: *! * <span class="hljs-string">'Smith'</span> * /! *, <span class="hljs-comment">// Помилка: одинарні лапки в значенні (повинні бути подвійними)</span>
-	*! * <span class="hljs-string">'IsAdmin'</span> * /! *: <span class="hljs-literal">False</span> <span class="hljs-comment">// Помилка: одинарні лапки в ключі (повинні бути подвійними)</span>
-	<span class="hljs-string">"Birthday"</span>: *! * New Date (<span class="hljs-number">2000</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>) * /! *, <span class="hljs-comment">// Помилка: не допускається конструктор "new", тільки значення.</span>
+	  Name  : <span class="hljs-string">"John"</span>, <span class="hljs-comment">// Помилка: ім'я властивості без лапок</span>
+	<span class="hljs-string">"Surname"</span>:   <span class="hljs-string">'Smith'</span>  , <span class="hljs-comment">// Помилка: одинарні лапки в значенні (повинні бути подвійними)</span>
+	  <span class="hljs-string">'IsAdmin'</span>  : <span class="hljs-literal">False</span> <span class="hljs-comment">// Помилка: одинарні лапки в ключі (повинні бути подвійними)</span>
+	<span class="hljs-string">"Birthday"</span>:   New Date (<span class="hljs-number">2000</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)  , <span class="hljs-comment">// Помилка: не допускається конструктор "new", тільки значення.</span>
 	<span class="hljs-string">"Friends"</span>: [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>] <span class="hljs-comment">// Тут все в порядку</span>
 } `;
 </pre>
@@ -620,9 +620,9 @@ alert (JSON.stringify (meetup));
 
 	<span class="hljs-keyword">let</span> meetup = JSON.<span class="hljs-built_in">parse</span> (str);
 
-	*! *
+	 
 	alert (meetup.<span class="hljs-built_in">date</span>.getDate ()); <span class="hljs-comment">// Error!</span>
-	* /! *
+	 
 </pre>
 <p>
 	Ой, помилка!
@@ -639,12 +639,12 @@ alert (JSON.stringify (meetup));
 <pre>
 	<span class="hljs-keyword">let</span> str = '{ <span class="hljs-string">"title"</span>: <span class="hljs-string">"Conference"</span>, <span class="hljs-string">"date"</span>: <span class="hljs-string">"2017-11-30T12: 00: 00.000Z"</span>}';
 
-	*! *
+	 
 	<span class="hljs-keyword">let</span> meetup = JSON.<span class="hljs-built_in">parse</span> (str, function (<span class="hljs-built_in">key</span>, value) {
 	<span class="hljs-keyword">if</span> (<span class="hljs-built_in">key</span> == '<span class="hljs-built_in">date</span>') <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span> (value);
 	<span class="hljs-keyword">return</span> value;
 });
-* /! *
+ 
 
 alert (meetup.<span class="hljs-built_in">date</span>.getDate ()); <span class="hljs-comment">// 30 - тепер працює!</span>
 </pre>
@@ -665,9 +665,9 @@ schedule = JSON.<span class="hljs-built_in">parse</span> (schedule, function (<s
 <span class="hljs-keyword">return</span> value;
 });
 
-*! *
+ 
 alert (schedule.meetups [<span class="hljs-number">1</span>] .<span class="hljs-built_in">date</span>.getDate ()); <span class="hljs-comment">// 18 - відмінно!</span>
-* /! *
+ 
 </pre>
 <h2 id="h01">Підсумок</h2>
 <ul>

@@ -84,10 +84,10 @@
   <span class="hljs-selector-tag">alert</span> ( <span class="hljs-string">'Всім привіт!'</span>);
 }
 
-*! *
+ 
 <span class="hljs-selector-tag">showMessage</span> ();
 <span class="hljs-selector-tag">showMessage</span> ();
-* /! *
+ 
 </code></pre><p>Виклик <code>showMessage()</code> виконує код функції. Тут ми побачимо повідомлення двічі.</p>
 <p>Цей приклад явно демонструє одне з головних призначень функцій: позбавлення від дублювання коду.</p>
 <p>Якщо знадобиться поміняти повідомлення або спосіб його виведення - досить змінити його в одному місці: в функції, яка його виводить.</p>
@@ -95,9 +95,9 @@
 <p>Змінні, оголошені всередині функції, видно тільки всередині цієї функції.</p>
 <p>наприклад:</p>
 <pre><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showMessage</span> <span class="hljs-params">()</span> {</span>
-*! *
+ 
   <span class="hljs-built_in">let</span> message = <span class="hljs-string">"Привіт, я JavaScript!"</span>; <span class="hljs-comment">// локальна змінна</span>
-* /! *
+ 
 
   alert (message);
 }
@@ -107,68 +107,68 @@ showMessage (); <span class="hljs-comment">// Привіт, я JavaScript!</span
 alert (message); <span class="hljs-comment">// &lt;- буде помилка, тому що змінна видно тільки всередині функції</span>
 </code></pre><h2 id="h04">Зовнішні змінні</h2>
 <p>У функції є доступ до зовнішніх змінним, наприклад:</p>
-<pre><code><span class="hljs-keyword">let</span> *! * userName * /! * = <span class="hljs-string">'Вася'</span>;
+<pre><code><span class="hljs-keyword">let</span>   userName   = <span class="hljs-string">'Вася'</span>;
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showMessage</span> <span class="hljs-params">()</span> </span>{
-  <span class="hljs-keyword">let</span> message = <span class="hljs-string">'Привіт,'</span> + *! * userName * /! *;
+  <span class="hljs-keyword">let</span> message = <span class="hljs-string">'Привіт,'</span> +   userName  ;
   alert (message);
 }
 
 showMessage (); <span class="hljs-comment">// Привіт Василь</span>
 </code></pre><p>Функція має повний доступом до зовнішніх змінним і може змінювати їх значення.</p>
 <p>наприклад:</p>
-<pre><code>let *! * userName * /! * = <span class="hljs-string">'Вася'</span>;
+<pre><code>let   userName   = <span class="hljs-string">'Вася'</span>;
 
 function showMessage () {
-  *! * UserName * /! * = <span class="hljs-string">"Петя"</span>; // (<span class="hljs-number">1</span>) змінюємо значення зовнішньої змінної
+    UserName   = <span class="hljs-string">"Петя"</span>; // (<span class="hljs-number">1</span>) змінюємо значення зовнішньої змінної
 
-  let message = <span class="hljs-string">'Привіт,'</span> + *! * userName * /! *;
+  let message = <span class="hljs-string">'Привіт,'</span> +   userName  ;
   alert (message);
 }
 
-alert (userName); // *! * Вася * /! * Перед викликом функції
+alert (userName); //   Вася   Перед викликом функції
 
 showMessage ();
 
-alert (userName); // *! * Петя * /! *, Значення зовнішньої змінної було змінено функцією
+alert (userName); //   Петя  , Значення зовнішньої змінної було змінено функцією
 </code></pre><p>Зовнішня змінна використовується, тільки якщо всередині функції немає такої локальної.</p>
 <p>Якщо однойменна змінна оголошується всередині функції, тоді вона перекриває зовнішню. Наприклад, в коді нижче функція використовує локальну змінну <code>userName</code>. Зовнішня буде проігнорована:</p>
 <pre><code><span class="hljs-keyword">let</span> userName = <span class="hljs-string">'Вася'</span>;
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showMessage</span> <span class="hljs-params">()</span> </span>{
-*! *
+ 
   <span class="hljs-keyword">let</span> userName = <span class="hljs-string">"Петя"</span>; <span class="hljs-comment">// оголошуємо локальну змінну</span>
-* /! *
+ 
 
-  <span class="hljs-keyword">let</span> message = <span class="hljs-string">'Привіт,'</span> + userName; <span class="hljs-comment">// *! * Петя * /! *</span>
+  <span class="hljs-keyword">let</span> message = <span class="hljs-string">'Привіт,'</span> + userName; <span class="hljs-comment">//   Петя  </span>
   alert (message);
 }
 
 <span class="hljs-comment">// функція створить і буде використовувати свою власну локальну змінну userName</span>
 showMessage ();
 
-alert (userName); <span class="hljs-comment">// *! * Вася * /! *, Не змінилася, функція не чіпала зовнішню змінну</span>
+alert (userName); <span class="hljs-comment">//   Вася  , Не змінилася, функція не чіпала зовнішню змінну</span>
 </code></pre><p>Змінні, оголошені зовні всіх функцій, такі як зовнішня змінна <code>userName</code> у вищенаведеному коді - називаються глобальними.</p>
 <p>Глобальні змінні видимі для будь-якої функції (якщо тільки їх не перекривають однойменні локальні змінні).</p>
 <p>Бажано зводити використання глобальних змінних до мінімуму. У сучасному коді зазвичай мало або зовсім немає глобальних змінних. Хоча вони іноді корисні для зберігання найважливіших &quot;общепроектових&quot; даних.</p>
 <h2 id="h05">Параметри</h2>
 <p>Ми можемо передати всередину функції будь-яку інформацію, використовуючи параметри (також звані  аргументами функції ).</p>
 <p>У нижчеподаному прикладі функції передаються два параметри: <code>from</code> і <code>text</code>.</p>
-<pre><code><span class="hljs-selector-tag">function</span> <span class="hljs-selector-tag">showMessage</span> (*! * from, text * /! *) {<span class="hljs-comment">// аргументи: from, text</span>
+<pre><code><span class="hljs-selector-tag">function</span> <span class="hljs-selector-tag">showMessage</span> (  from, text  ) {<span class="hljs-comment">// аргументи: from, text</span>
   <span class="hljs-selector-tag">alert</span> (from + <span class="hljs-string">':'</span> + text);
 }
 
-*! *
+ 
 <span class="hljs-selector-tag">showMessage</span> ( <span class="hljs-string">'Аня'</span>, <span class="hljs-string">'Привіт!'</span>); <span class="hljs-comment">// Аня: Привіт! (*)</span>
 <span class="hljs-selector-tag">showMessage</span> ( <span class="hljs-string">'Аня'</span>, <span class="hljs-string">"Як справи?"</span>); <span class="hljs-comment">// Аня: Як справи? (**)</span>
-* /! *
+ 
 </code></pre><p>Коли функція викликається в рядках <code>(*)</code> і <code>(**)</code>, передані значення копіюються в локальні змінні <code>from</code> і<code>text</code>. Потім вони використовуються в тілі функції.</p>
 <p>Ось ще один приклад: у нас є змінна <code>from</code>, і ми передаємо її функції. Зверніть увагу: функція змінює значення <code>from</code>, але ця зміна не видно зовні. Функція завжди отримує тільки копію значення:</p>
 <pre><code><span class="hljs-function">function <span class="hljs-title">showMessage</span> (<span class="hljs-params"><span class="hljs-keyword">from</span>, text</span>) </span>{
 
-*! *
+ 
   <span class="hljs-keyword">from</span> = <span class="hljs-string">'*'</span> + <span class="hljs-keyword">from</span> + <span class="hljs-string">'*'</span>; <span class="hljs-comment">// трохи прикрасимо "from"</span>
-* /! *
+ 
 
   alert (<span class="hljs-keyword">from</span> + <span class="hljs-string">':'</span> + text);
 }
@@ -185,7 +185,7 @@ alert (<span class="hljs-keyword">from</span>); <span class="hljs-comment">// А
 <pre><code><span class="hljs-keyword">showMessage </span>( <span class="hljs-string">"Аня"</span>)<span class="hljs-comment">;</span>
 </code></pre><p>Це не призведе до помилки. Такий виклик виведе <code>&quot;Аня: undefined&quot;</code>. У виклику не вказано параметр <code>text</code>, тому передбачається, що<code>text === undefined</code>.</p>
 <p>Якщо ми хочемо задати параметру <code>text</code> значення за замовчуванням, ми повинні вказати його після<code>=</code>:</p>
-<pre><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showMessage</span> <span class="hljs-params">(from, *! * text = <span class="hljs-string">"текст не додано"</span> * /! *)</span> {</span>
+<pre><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showMessage</span> <span class="hljs-params">(from,   text = <span class="hljs-string">"текст не додано"</span>  )</span> {</span>
   alert (from + <span class="hljs-string">":"</span> + <span class="hljs-built_in">text</span>);
 }
 
@@ -201,11 +201,11 @@ showMessage ( <span class="hljs-string">"Аня"</span>); <span class="hljs-comm
 <p>Ранні версії JavaScript не підтримували параметри за замовчуванням. Тому існують альтернативні способи, які можуть зустрічатися в старих скриптах.</p>
 <p>Наприклад, явна перевірка на <code>undefined</code>:</p>
 <pre><code>function showMessage (<span class="hljs-keyword">from</span>, <span class="hljs-built_in">text</span>) {
-*! *
+ 
   <span class="hljs-keyword">if</span> (<span class="hljs-built_in">text</span> === undefined) {
     <span class="hljs-built_in">text</span> = <span class="hljs-string">'текст не доданий'</span>;
   }
-* /! *
+ 
 
   alert (<span class="hljs-keyword">from</span> + <span class="hljs-string">":"</span> + <span class="hljs-built_in">text</span>);
 }
@@ -219,7 +219,7 @@ showMessage ( <span class="hljs-string">"Аня"</span>); <span class="hljs-comm
 <p>Функція може повернути результат, який буде переданий в який викликав її код.</p>
 <p>Найпростішим прикладом може служити функція складання двох чисел:</p>
 <pre><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span> <span class="hljs-params">(a, b)</span> <span class="hljs-comment">{
-  *! * Return * /! * A + b;
+    Return   A + b;
 }</span>
 
 <span class="hljs-title">let</span> <span class="hljs-title">result</span> = <span class="hljs-title">sum</span> <span class="hljs-params">(1, 2)</span>;</span>
@@ -228,13 +228,13 @@ alert (<span class="hljs-keyword">result</span>); <span class="hljs-comment">// 
 <p>Викликів <code>return</code> може бути кілька, наприклад:</p>
 <pre><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkAge</span> <span class="hljs-params">(age)</span> </span>{
   <span class="hljs-keyword">if</span> (age&gt; <span class="hljs-number">18</span>) {
-*! *
+ 
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
-* /! *
+ 
   } <span class="hljs-keyword">Else</span> {
-*! *
+ 
     <span class="hljs-keyword">return</span> confirm ( <span class="hljs-string">'А батьки дозволили?'</span>);
-* /! *
+ 
   }
 }
 
@@ -249,9 +249,9 @@ alert (<span class="hljs-keyword">result</span>); <span class="hljs-comment">// 
 <p>наприклад:</p>
 <pre><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showMovie</span> <span class="hljs-params">(age)</span> </span>{
   <span class="hljs-keyword">if</span> (! checkAge (age)) {
-*! *
+ 
     <span class="hljs-keyword">return</span>;
-* /! *
+ 
   }
 
   alert ( <span class="hljs-string">"Вам показується кіно"</span>); <span class="hljs-comment">// (*)</span>
@@ -272,7 +272,7 @@ alert (doNothing () === <span class="hljs-literal">undefined</span>); <span clas
 <pre><code><span class="hljs-literal">return</span>
  (Some + <span class="hljs-keyword">long</span> + expression + <span class="hljs-keyword">or</span> + whatever * f (<span class="hljs-keyword">a</span>) + f (b))
 </code></pre><p>Код не виконається, тому що інтерпретатор JavaScript підставить крапку з комою після <code>return</code>. Для нього це буде виглядати так:</p>
-<pre><code><span class="hljs-literal">return</span> *! *; * /! *
+<pre><code><span class="hljs-literal">return</span>  ;  
  (Some + <span class="hljs-keyword">long</span> + expression + <span class="hljs-keyword">or</span> + whatever * f (<span class="hljs-keyword">a</span>) + f (b))
 </code></pre><p>Таким чином, це фактично стало порожнім <code>return</code>.</p>
 <p>Якщо ми хочемо, щоб повертається вираз займало кілька рядків, потрібно почати його на тому ж рядку, що і <code>return</code>. Або, хоча б, поставити там відкриває дужку, ось так:</p>
@@ -329,7 +329,7 @@ alert (doNothing () === <span class="hljs-literal">undefined</span>); <span clas
 <pre><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showPrimes</span> <span class="hljs-params">(n)</span> </span>{
 
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>; i &lt;n; i ++) {
-    *! * <span class="hljs-keyword">If</span> (! IsPrime (i)) <span class="hljs-keyword">continue</span>; * /! *
+      <span class="hljs-keyword">If</span> (! IsPrime (i)) <span class="hljs-keyword">continue</span>;  
 
     alert (i); <span class="hljs-comment">// просте</span>
   }
