@@ -29,154 +29,190 @@
 		</ul>
 		<h1>Об'єктна нотація JSON</h1>
 		<div class="content-board">
-			<li>
-				<a href="#-json-tojson">Формат JSON, метод toJSON</a>
-			</li>
-			<li>
-				<a href="#json-stringify">JSON.stringify</a>
-			</li>
-			<li>
-				<a href="#-replacer">Виключаємо і перетворимо: replacer</a>
-			</li>
-			<li>
-				<a href="#-space">Форматування: space</a>
-			</li>
-			<li>
-				<a href="#-tojson-">Призначений для користувача toJSON</a>
-			</li>
-			<li>
-				<a href="#json-parse">JSON.parse</a>
-			</li>
-			<li>
-				<a href="#-reviver">Використання reviver</a>
-			</li>
-			<li>
-				<a href="#h01">Підсумок</a>
-			</li>
-			<li>
-				<a href="#h02">Контрольні запитання</a>
-			</li>
-			
+			<ol>
+				<li>
+					<a href="#h001">Загальні відомості</a>
+				</li>
+				<li>
+					<a href="#json-tojson">Формат JSON, метод toJSON</a>
+				</li>
+				<li>
+					<a href="#json-stringify">JSON.stringify</a>
+				</li>
+				<li>
+					<a href="#replacer">Виключаємо і перетворимо: replacer</a>
+				</li>
+				<li>
+					<a href="#space">Форматування: space</a>
+				</li>
+				<li>
+					<a href="#tojson">Призначений для користувача toJSON</a>
+				</li>
+				<li>
+					<a href="#json-parse">JSON.parse</a>
+				</li>
+				<li>
+					<a href="#reviver">Використання reviver</a>
+				</li>
+				<li>
+					<a href="#h01">Підсумок</a>
+				</li>
+				<li>
+					<a href="#h02">Контрольні запитання</a>
+				</li>
+			</ol>
 		</div>
 		
-		<h1 id="-json-tojson">Формат JSON, метод toJSON</h1>
+		<h2 id="h001">Загальні відомості</h2>
 		<p>
-			Припустимо, у нас є складний об'єкт, і ми хотіли б перетворити його в рядок, щоб відправити мережі або просто вивести для логування.
+			JSON (JavaScript Object Notation) - простий формат обміну даними, зручний для читання і написання як людиною, так і комп'ютером. Він заснований на підмножині мови програмування JavaScript, визначеного в стандарті ECMA-262 3rd Edition - December 1999. JSON - текстовий формат, повністю незалежний від мови реалізації. Його опис задокументовано в стандарті <a href="http://tools.ietf.org/html/rfc4627">RFC 4627</a>
+		</p>
+		<p>
+			<p>
+				JSON заснований на двох структурах даних:
+			</p>
+			<ul>
+				<li>
+					Колекція пар ключ / значення. У різних мовах, ця концепція реалізована як об'єкт, запис, структура, словник, хеш, іменований список або асоціативний масив.
+				</li>
+				<li>
+					Упорядкований список значень. У більшості мов це реалізовано як масив, вектор, список або послідовність.
+				</li>
+			</ul>
+			<p>
+				Об'єкт - невпорядкований набір пар ключ / значення. Об'єкт починається з {(що відкриває фігурної дужки) і закінчується }(закриває фігурної дужки). Кожне ім'я супроводжується :(двокрапкою), пари ключ / значення поділяються ,(коми).
+			</p>
+			<figure>
+				<img class="figc" src="img/json-object.png">
+				<figcaption>Графічне представлення об'єкту JSON</figcaption>
+			</figure>
+			<p>
+				Масив - впорядкована колекція значень. Масив починається з [(відкриває квадратної дужки) і закінчується ](закриває квадратної дужкою). Значення розділені ,(коми).
+			</p>
+			<figure>
+				<img class="figc" src="img/json-array.png">
+				<figcaption>Графічне представлення масиву JSON</figcaption>
+			</figure>
+
+			<h2 id="json-tojson">Формат JSON, метод toJSON</h2>
+			<p>
+				Припустимо, у нас є складний об'єкт, і ми хотіли б перетворити його в рядок, щоб відправити мережі або просто вивести для логування.
+			</p>
+
+			<p>
+				Природно, такий рядок повинна включати в себе всі важливі властивості.
+			</p>
+
+			<p>
+				Ми могли б реалізувати перетворення наступним чином:
+			</p>
+
+			<pre>
+				let user = 
+				{
+					name: "John",
+					age: 30,
+					toString () 
+					{
+						return {
+						name:" $ {this.name} ", age: $ {this.age}
+					};
+				}
+			};
+
+			alert (user); // {name: "John", age: 30}
+		</pre>
+		<p>
+			Але в процесі розробки додаються нові властивості, старі властивості перейменовуються і видаляються. Оновлення такого <code>toString</code> кожен раз може стати проблемою. Ми могли б спробувати перебрати властивості в ньому, але що, якщо об'єкт складний, і в його властивостях містить додаткові об'єкти? Ми повинні були б здійснити їх перетворення теж.
 		</p>
 
 		<p>
-			Природно, такий рядок повинна включати в себе всі важливі властивості.
+			На щастя, немає необхідності писати код для обробки всього цього. У завдання є просте рішення.
 		</p>
+
+		<h2 id="json-stringify">JSON.stringify</h2>
 
 		<p>
-			Ми могли б реалізувати перетворення наступним чином:
+			JavaScript надає методи:
 		</p>
 
-<pre>
-let user = {
-	name: "John",
-	age: 30,
-	toString () {
-		return {name:" $ {this.name} ", age: $ {this.age}};
-	}
-};
+		<ul>
+			<li><code>JSON.stringify</code> для перетворення об'єктів в JSON.</li>
+			<li><code>JSON.parse</code> для перетворення JSON назад в об'єкт.</li>
+		</ul>
+		<p>
+			Наприклад, тут ми перетворимо через <code>JSON.stringify</code> дані студента:
+		</p>
 
-alert (user); // {name: "John", age: 30}
-</pre>
-<p>
-	... Але в процесі розробки додаються нові властивості, старі властивості перейменовуються і видаляються. Оновлення такого <code>toString</code> кожен раз може стати проблемою. Ми могли б спробувати перебрати властивості в ньому, але що, якщо об'єкт складний, і в його властивостях містить додаткові об'єкти? Ми повинні були б здійснити їх перетворення теж.
-</p>
+		<pre>
+			let student = {
+			name: 'John',
+			age: 30,
+			isAdmin: false,
+			courses: [ 'html', 'css', ''],
+			wife: null
+		};
 
-<p>
-	На щастя, немає необхідності писати код для обробки всього цього. У завдання є просте рішення.
-</p>
+		let on = JSON.stringify (student);
+		alert (typeof on); // ми отримали рядок!
 
-<h2 id="json-stringify">JSON.stringify</h2>
-<p>
-	[JSON] (<a href="https://ru.wikipedia.org/wiki/JSON">https://ru.wikipedia.org/wiki/JSON</a>) (JavaScript Object Notation) - це загальний формат для представлення значень і об'єктів. Його опис задокументовано в стандарті [RFC 4627] (<a href="http://tools.ietf.org/html/rfc4627">http://tools.ietf.org/html/rfc4627</a>). Спочатку він був створений для JavaScript, але багато інших мов також мають бібліотеки, які можуть працювати з ним. Таким чином, JSON легко використовувати для обміну даними, коли клієнт використовує JavaScript, а сервер написаний на Ruby / PHP / Java або будь-якому іншому мовою.
-</p>
+		alert (on);
+		/* Виведе об'єкт в форматі JSON:
+		{
+			"Name": "John",
+			"Age": 30,
+			"IsAdmin": false,
+			"Courses": [ "html", "css", ""],
+			"Wife": null
+		}
+		*/
+	</pre>
+	<p>
+		Метод <code>JSON.stringify(student)</code> бере об'єкт і перетворює його в рядок.
+	</p>
 
-<p>
-	JavaScript надає методи:
-</p>
+	<p>
+		Отримана рядок <code>on</code> називається JSON-форматованим або серіалізовані об'єктом. Ми можемо відправити його по мережі або помістити в звичайне сховище даних.
+	</p>
 
-<ul>
-	<li><code>JSON.stringify</code> для перетворення об'єктів в JSON.</li>
-	<li><code>JSON.parse</code> для перетворення JSON назад в об'єкт.</li>
-</ul>
-<p>
-	Наприклад, тут ми перетворимо через <code>JSON.stringify</code> дані студента:
-</p>
+	<p>
+		Зверніть увагу, що об'єкт в форматі JSON має кілька важливих відмінностей від об'єктного литерала:
+	</p>
 
-<pre>
-let student = {
-	name: 'John',
-	age: 30,
-	isAdmin: false,
-	courses: [ 'html', 'css', ''],
-	wife: null
-};
-
-let on = JSON.stringify (student);
-alert (typeof on); // ми отримали рядок!
-
-alert (on);
-/* Виведе об'єкт в форматі JSON:
-{
-	"Name": "John",
-	"Age": 30,
-	"IsAdmin": false,
-	"Courses": [ "html", "css", ""],
-	"Wife": null
-}
-*/
-</pre>
-<p>
-	Метод <code>JSON.stringify (student)</code> бере об'єкт і перетворює його в рядок.
-</p>
-
-<p>
-	Отримана рядок <code>on</code> називається JSON-форматованим або серіалізовані об'єктом. Ми можемо відправити його по мережі або помістити в звичайне сховище даних.
-</p>
-
-<p>
-	Зверніть увагу, що об'єкт в форматі JSON має кілька важливих відмінностей від об'єктного литерала:
-</p>
-
-<ul>
-	<li>Рядки використовують подвійні лапки. Ніяких одинарних лапок або зворотних лапок в JSON. Так <code>'John'</code> стає<code>&quot;John&quot;</code>.</li>
-	<li>Імена властивостей об'єкта також полягають в подвійні лапки. Це обов'язково. Так <code>age: 30</code> стає <code>&quot;age&quot;: 30</code>.</li>
-</ul>
-<p>
-	<code>JSON.stringify</code> може бути застосований і до примітивів.
-</p>
-
-<p>
-	JSON підтримує такі типи даних:
-</p>
-
-<ul>
-	<li>Об'єкти <code>{...}</code></li>
-	<li>Масиви <code>[...]</code></li>
-	<li>Примітиви:<ul>
-		<li>рядки,</li>
-		<li>числа,</li>
-		<li>логічні значення <code>true / false</code>,</li>
-		<li><code>null</code>.</li>
+	<ul>
+		<li>Рядки використовують подвійні лапки. Ніяких одинарних лапок або зворотних лапок в JSON. Так <code>'John'</code> стає<code>&quot;John&quot;</code>.</li>
+		<li>Імена властивостей об'єкта також полягають в подвійні лапки. Це обов'язково. Так <code>age: 30</code> стає <code>&quot;age&quot;: 30</code>.</li>
 	</ul>
-</li>
+	<p>
+		<code>JSON.stringify</code> може бути застосований і до примітивів.
+	</p>
+
+	<p>
+		JSON підтримує такі типи даних:
+	</p>
+
+	<ul>
+		<li>Об'єкти <code>{...}</code></li>
+		<li>Масиви <code>[...]</code></li>
+		<li>Примітиви:<ul>
+			<li>рядки,</li>
+			<li>числа,</li>
+			<li>логічні значення <code>true / false</code>,</li>
+			<li><code>null</code>.</li>
+		</ul>
+	</li>
 </ul>
 <p>
 	наприклад:
 </p>
 
 <pre>
-// число в JSON залишається числом
-alert (JSON.stringify (1)) // 1
-// рядок в JSON як і раніше залишається рядком, але в подвійних лапках
-alert (JSON.stringify ( 'test')) // "test"
-alert (JSON.stringify (true)); // true
-alert (JSON.stringify ([1, 2, 3])); // [1,2,3]
+	// число в JSON залишається числом
+	alert(JSON.stringify(1)) // 1
+	// рядок в JSON як і раніше залишається рядком, але в подвійних лапках
+	alert(JSON.stringify('test')) // "test"
+	alert(JSON.stringify(true)); // true
+	alert(JSON.stringify([1, 2, 3])); // [1,2,3]
 </pre>
 <p>
 	JSON є незалежною від мови специфікацією для даних, тому <code>JSON.stringify</code> пропускає деякі специфічні властивості об'єктів JavaScript.
@@ -192,9 +228,9 @@ alert (JSON.stringify ([1, 2, 3])); // [1,2,3]
 	<li>Властивості, що містять <code>undefined</code>.</li>
 </ul>
 <pre>
-let user = {
-sayHi () {// буде пропущено
-alert ( "Hello");
+	let user = {
+	sayHi () {// буде пропущено
+	alert ( "Hello");
 },
 [Symbol ( "id")]: 123, // також буде пропущено
 something: undefined // як і це - пропущено
@@ -214,11 +250,11 @@ alert (JSON.stringify (user)); // {} (порожній об'єкт)
 </p>
 
 <pre>
-let meetup = {
-title: "Conference",
-room: {
-number: 23,
-participants: [ "john", "ann"]
+	let meetup = {
+	title: "Conference",
+	room: {
+	number: 23,
+	participants: [ "john", "ann"]
 }
 
 };
@@ -226,8 +262,8 @@ participants: [ "john", "ann"]
 alert (JSON.stringify (meetup));
 /* Вся структура перетворена в рядок:
 {
-"Title": "Conference",
-"Room": { "number": 23, "participants": [ "john", "ann"]},
+	"Title": "Conference",
+	"Room": { "number": 23, "participants": [ "john", "ann"]},
 }
 */
 </pre>
@@ -240,7 +276,7 @@ alert (JSON.stringify (meetup));
 </p>
 
 <pre>
-let room = {
+	let room = {
 	number: 23
 };
 
@@ -252,21 +288,15 @@ meetup.place = room; // meetup посилається на room
 room.occupiedBy = meetup; // room посилається на meetup
 JSON.stringify (meetup); // Помилка: Перетворення циклової структури в JSON
 </pre>
-<p>
-	Тут перетворення завершується невдало через циклічну посилання: <code>room.occupiedBy</code> посилається на <code>meetup</code>, і <code>meetup.place</code> посилається на <code>room</code>:
-</p>
 
-<p>
-	! [] (on-meetup.svg)
-</p>
 
-<h2 id="-replacer">Виключаємо і перетворимо: replacer</h2>
+<h2 id="replacer">Виключаємо і перетворимо: replacer</h2>
 <p>
 	Повний синтаксис <code>JSON.stringify</code>:
 </p>
 
 <pre>
-let on = JSON.stringify (value [, replacer, space])
+	let on = JSON.stringify (value [, replacer, space])
 </pre>
 <p>
 	value
@@ -296,8 +326,8 @@ let on = JSON.stringify (value [, replacer, space])
 </p>
 
 <pre>
-let room = {
-number: 23
+	let room = {
+	number: 23
 };
 
 let meetup = {
@@ -319,8 +349,8 @@ alert (JSON.stringify (meetup, [ 'title', 'participants'] ));
 </p>
 
 <pre>
-let room = {
-number: 23
+	let room = {
+	number: 23
 };
 
 let meetup = {
@@ -334,9 +364,9 @@ room.occupiedBy = meetup; // room посилається на meetup
 alert (JSON.stringify (meetup, [ 'title', 'participants', 'place', 'name', 'number'] ));
 /*
 {
-"Title": "Conference",
-"Participants": [{ "name": "John"}, { "name": "Alice"}],
-"Place": { "number": 23}
+	"Title": "Conference",
+	"Participants": [{ "name": "John"}, { "name": "Alice"}],
+	"Place": { "number": 23}
 }
 */
 </pre>
@@ -357,34 +387,34 @@ alert (JSON.stringify (meetup, [ 'title', 'participants', 'place', 'name', 'numb
 </p>
 
 <pre>
-	let room = <span class="hljs-comment">{
+	let room = {
 		number: 23
-	}</span>;
+	};
 
-	let meetup = <span class="hljs-comment">{
+	let meetup = {
 		title: "Conference",
-	participants: [{name: "John"}</span>, <span class="hljs-comment">{name: "Alice"}</span>],
-	place: room <span class="hljs-comment">// meetup посилається на room</span>
+	participants: [{name: "John"}, {name: "Alice"}],
+	place: room // meetup посилається на room
 };
 
-room.occupiedBy = meetup; <span class="hljs-comment">// room посилається на meetup</span>
+room.occupiedBy = meetup; // room посилається на meetup
 
-alert (JSON.stringify (meetup, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">replacer</span> <span class="hljs-params">(key, value)</span> <span class="hljs-comment">{
-alert ( `$ {key}</span>:</span> $ <span class="hljs-comment">{value}</span>`);
-return (key == <span class="hljs-string">'occupiedBy'</span>)? undefined: value;
+alert (JSON.stringify (meetup, function replacer (key, value) {
+alert ( $ {key}: $ {value});
+return (key == 'occupiedBy')? undefined: value;
 }));
 
-/ * Пари ключ: значення, які приходять в replacer:
-: [<span class="hljs-keyword">Object</span> <span class="hljs-keyword">Object</span>]
+/* Пари ключ: значення, які приходять в replacer:
+: [Object Object]
 title: Conference
-participants: [<span class="hljs-keyword">object</span> <span class="hljs-keyword">Object</span>], [<span class="hljs-keyword">object</span> <span class="hljs-keyword">Object</span>]
-<span class="hljs-number">0</span>: [<span class="hljs-keyword">object</span> <span class="hljs-keyword">Object</span>]
-<span class="hljs-keyword">name</span>: John
-<span class="hljs-number">1</span>: [<span class="hljs-keyword">object</span> <span class="hljs-keyword">Object</span>]
-<span class="hljs-keyword">name</span>: Alice
-place: [<span class="hljs-keyword">object</span> <span class="hljs-keyword">Object</span>]
-number: <span class="hljs-number">23</span>
-* /
+participants: [object Object], [object Object]
+0: [object Object]
+name: John
+1: [object Object]
+name: Alice
+place: [object Object]
+number: 23
+*/
 </pre>
 <p>
 	Зверніть увагу, що функція <code>replacer</code> отримує кожну пару ключ / значення, включаючи вкладені об'єкти і елементи масиву. І вона застосовується рекурсивно. Значення <code>this</code> всередині <code>replacer</code> - це об'єкт, який містить поточний властивість.
@@ -398,7 +428,7 @@ number: <span class="hljs-number">23</span>
 	Ідея полягає в тому, щоб дати якомога більше можливостей <code>replacer</code> - у нього є можливість проаналізувати і замінити / пропустити навіть весь об'єкт цілком, якщо це необхідно.
 </p>
 
-<h2 id="-space">Форматування: space</h2>
+<h2 id="space">Форматування: space</h2>
 <p>
 	Третій аргумент в <code>JSON.stringify (value, replacer, space)</code> - це кількість прогалин, які використовуються для зручного форматування.
 </p>
@@ -412,43 +442,43 @@ number: <span class="hljs-number">23</span>
 </p>
 
 <pre>
-	<span class="hljs-keyword">let</span> <span class="hljs-attr">user</span> = {
-	name: <span class="hljs-string">"John"</span>,
-	age: <span class="hljs-number">25</span>,
+	let user = {
+	name: "John",
+	age: 25,
 	roles: {
-	isAdmin: <span class="hljs-literal">false</span>,
-	isEditor: <span class="hljs-literal">true</span>
+	isAdmin: false,
+	isEditor: true
 }
 };
 
-alert (JSON.stringify (user, <span class="hljs-literal">null</span>, <span class="hljs-number">2</span>));
-/ * Відступ в <span class="hljs-number">2</span> пробілу:
+alert (JSON.stringify (user, null, 2));
+/* Відступ в 2 пробілу:
 {
-	<span class="hljs-string">"Name"</span>: <span class="hljs-string">"John"</span>,
-	<span class="hljs-string">"Age"</span>: <span class="hljs-number">25</span>,
-	<span class="hljs-string">"Roles"</span>: {
-	<span class="hljs-string">"IsAdmin"</span>: <span class="hljs-literal">false</span>,
-	<span class="hljs-string">"IsEditor"</span>: <span class="hljs-literal">true</span>
+	"Name": "John",
+	"Age": 25,
+	"Roles": {
+	"IsAdmin": false,
+	"IsEditor": true
 }
 }
-* /
+*/
 
-/ * Для JSON.stringify (user, <span class="hljs-literal">null</span>, <span class="hljs-number">4</span>) результат містить більше відступів:
+/* Для JSON.stringify (user, null, 4) результат містить більше відступів:
 {
-	<span class="hljs-string">"Name"</span>: <span class="hljs-string">"John"</span>,
-	<span class="hljs-string">"Age"</span>: <span class="hljs-number">25</span>,
-	<span class="hljs-string">"Roles"</span>: {
-	<span class="hljs-string">"IsAdmin"</span>: <span class="hljs-literal">false</span>,
-	<span class="hljs-string">"IsEditor"</span>: <span class="hljs-literal">true</span>
+	"Name": "John",
+	"Age": 25,
+	"Roles": {
+	"IsAdmin": false,
+	"IsEditor": true
 }
 }
-* /
+*/
 </pre>
 <p>
 	Параметр <code>space</code> застосовується для логування і красивого виведення.
 </p>
 
-<h2 id="-tojson-">Призначений для користувача &quot;toJSON&quot;</h2>
+<h2 id="tojson">Призначений для користувача &quot;toJSON&quot;</h2>
 <p>
 	Як і <code>toString</code> для перетворення рядків, об'єкт може надавати метод <code>toJSON</code> для перетворення в JSON. <code>JSON.stringify</code> автоматично викликає його, якщо він є.
 </p>
@@ -458,26 +488,24 @@ alert (JSON.stringify (user, <span class="hljs-literal">null</span>, <span class
 </p>
 
 <pre>
-	<span class="hljs-keyword">let</span> room = {
-	number: <span class="hljs-number">23</span>
+	let room = {
+	number: 23
 };
 
-<span class="hljs-keyword">let</span> meetup = {
-<span class="hljs-built_in">title</span>: <span class="hljs-string">"Conference"</span>,
-<span class="hljs-built_in">date</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span> (<span class="hljs-built_in">Date</span>.UTC (<span class="hljs-number">2017</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)),
+let meetup = {
+title: "Conference",
+date: new Date (Date.UTC (2017, 0, 1)),
 room
 };
 
 alert (JSON.stringify (meetup));
-/ *
+/*
 {
-	<span class="hljs-string">"Title"</span>: <span class="hljs-string">"Conference"</span>,
-	 
-	<span class="hljs-string">"Date"</span>: <span class="hljs-string">"2017-01-01T00: 00: 00.000Z"</span>, <span class="hljs-comment">// (1)</span>
-	 
-	<span class="hljs-string">"Room"</span>: { <span class="hljs-string">"number"</span>: <span class="hljs-number">23</span>} <span class="hljs-comment">// (2)</span>
+	"Title": "Conference",
+	"Date": "2017-01-01T00: 00: 00.000Z", // (1)
+	"Room": { "number": 23} // (2)
 }
-* /
+*/
 </pre>
 <p>
 	Як бачимо, <code>date(1)</code>став рядком. Це тому, що всі об'єкти типу <code>Date</code> мають вбудований метод <code>toJSON</code>, який повертає такий рядок.
@@ -490,31 +518,22 @@ alert (JSON.stringify (meetup));
 <pre>
 	let room = {
 	number: 23,
-	<span class="hljs-comment"> </span>
 	toJSON () {
-	<span class="hljs-keyword">return</span> this.number;
+	return this.number;
 }
-<span class="hljs-comment"> </span>
 };
-
 let meetup = {
-title: <span class="hljs-string">"Conference"</span>,
+title: "Conference",
 room
 };
-
-<span class="hljs-comment"> </span>
-alert (JSON.stringify (room)); <span class="hljs-comment">// 23</span>
-<span class="hljs-comment"> </span>
-
+alert (JSON.stringify (room)); // 23
 alert (JSON.stringify (meetup));
-/ *
+/*
 {
-	<span class="hljs-string">"Title"</span>: <span class="hljs-string">"Conference"</span>,
-	<span class="hljs-comment"> </span>
-	<span class="hljs-string">"Room"</span>: 23
-	<span class="hljs-comment"> </span>
+	"Title": "Conference",
+	"Room": 23
 }
-<span class="hljs-comment">* /</span>
+*/
 </pre>
 <p>
 	Як бачите, <code>toJSON</code> використовується як при прямому виклику<code>JSON.stringify (room)</code>, так і коли<code>room</code> вкладений в інший Серіалізуемое об'єкт.
@@ -530,7 +549,7 @@ alert (JSON.stringify (meetup));
 </p>
 
 <pre>
-	<span class="hljs-keyword">let</span> <span class="hljs-keyword">value</span> = JSON.parse (str, [reviver]);
+	let value = JSON.parse (str, [reviver]);
 </pre>
 <p>
 	str
@@ -548,22 +567,22 @@ alert (JSON.stringify (meetup));
 
 <pre>
 	// строковий масив
-	let numbers = <span class="hljs-string">"[0, 1, 2, 3]"</span><span class="hljs-comment">;</span>
+	let numbers = "[0, 1, 2, 3]";
 
-	<span class="hljs-attribute">numbers</span> = JSON.parse (numbers)<span class="hljs-comment">;</span>
+	numbers = JSON.parse (numbers);
 
-	alert (numbers [<span class="hljs-number">1</span>])<span class="hljs-comment">; // 1</span>
+	alert (numbers [1]); // 1
 </pre>
 <p>
 	Або для вкладених об'єктів:
 </p>
 
 <pre>
-	<span class="hljs-keyword">let</span> <span class="hljs-attr">user</span> = '{ <span class="hljs-string">"name"</span>: <span class="hljs-string">"John"</span>, <span class="hljs-string">"age"</span>: <span class="hljs-number">35</span>, <span class="hljs-string">"isAdmin"</span>: <span class="hljs-literal">false</span>, <span class="hljs-string">"friends"</span>: [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]}';
+	let user = '{ "name": "John", "age": 35, "isAdmin": false, "friends": [0,1,2,3]}';
 
-	<span class="hljs-attr">user</span> = JSON.parse (user);
+	user = JSON.parse (user);
 
-	alert (user.friends [<span class="hljs-number">1</span>]); // <span class="hljs-number">1</span>
+	alert (user.friends [1]); // 1
 </pre>
 <p>
 	JSON може бути настільки складним, наскільки це необхідно, об'єкти і масиви можуть включати інші об'єкти і масиви. Але вони повинні бути в тому ж JSON-форматі.
@@ -574,27 +593,23 @@ alert (JSON.stringify (meetup));
 </p>
 
 <pre>
-	<span class="hljs-keyword">let</span> on = `{
-	  Name  : <span class="hljs-string">"John"</span>, <span class="hljs-comment">// Помилка: ім'я властивості без лапок</span>
-	<span class="hljs-string">"Surname"</span>:   <span class="hljs-string">'Smith'</span>  , <span class="hljs-comment">// Помилка: одинарні лапки в значенні (повинні бути подвійними)</span>
-	  <span class="hljs-string">'IsAdmin'</span>  : <span class="hljs-literal">False</span> <span class="hljs-comment">// Помилка: одинарні лапки в ключі (повинні бути подвійними)</span>
-	<span class="hljs-string">"Birthday"</span>:   New Date (<span class="hljs-number">2000</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)  , <span class="hljs-comment">// Помилка: не допускається конструктор "new", тільки значення.</span>
-	<span class="hljs-string">"Friends"</span>: [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>] <span class="hljs-comment">// Тут все в порядку</span>
-} `;
+	let on = {
+	Name: "John", // Помилка: ім'я властивості без лапок
+	"Surname": 'Smith'  , // Помилка: одинарні лапки в значенні (повинні бути подвійними)
+	'IsAdmin': False // Помилка: одинарні лапки в ключі (повинні бути подвійними)
+	"Birthday": New Date(2000, 2, 3)  , // Помилка: не допускається конструктор "new", тільки значення.
+	"Friends": [0,1,2,3] // Тут все в порядку
+} ;
 </pre>
 <p>
 	Крім того, JSON не підтримує коментарі. Додавання коментаря в JSON робить його недійсним.
 </p>
 
 <p>
-	Існує ще один формат [JSON5] (<a href="http://on5.org/">http://on5.org/</a>), який підтримує ключі без лапок, коментарі і т.д. Але це самостійна бібліотека, а не специфікація мови.
-</p>
-
-<p>
 	Звичайний JSON настільки суворий не тому, що його розробники ліниві, а тому, що дозволяє легко, надійно і дуже швидко реалізовувати алгоритм кодування і читання.
 </p>
 
-<h2 id="-reviver">Використання reviver</h2>
+<h2 id="reviver">Використання reviver</h2>
 <p>
 	Уявіть, що ми отримали об'єкт <code>meetup</code> з сервера у вигляді рядка даних.
 </p>
@@ -604,8 +619,8 @@ alert (JSON.stringify (meetup));
 </p>
 
 <pre>
-	// <span class="hljs-built_in">title</span>: (meetup <span class="hljs-built_in">title</span>), date: (meetup date)
-	<span class="hljs-built_in">let</span> str = '{ <span class="hljs-string">"title"</span>: <span class="hljs-string">"Conference"</span>, <span class="hljs-string">"date"</span>: <span class="hljs-string">"2017-11-30T12: 00: 00.000Z"</span>}';
+	// title: (meetup title), date: (meetup date)
+	let str = '{ "title": "Conference", "date": "2017-11-30T12: 00: 00.000Z"}';
 </pre>
 <p>
 	... А тепер нам потрібно <em> десеріалізовать </em> її, тобто знову перетворити в об'єкт JavaScript.
@@ -616,13 +631,13 @@ alert (JSON.stringify (meetup));
 </p>
 
 <pre>
-	<span class="hljs-keyword">let</span> str = '{ <span class="hljs-string">"title"</span>: <span class="hljs-string">"Conference"</span>, <span class="hljs-string">"date"</span>: <span class="hljs-string">"2017-11-30T12: 00: 00.000Z"</span>}';
+	let str = '{ "title": "Conference", "date": "2017-11-30T12: 00: 00.000Z"}';
 
-	<span class="hljs-keyword">let</span> meetup = JSON.<span class="hljs-built_in">parse</span> (str);
+	let meetup = JSON.parse (str);
 
-	 
-	alert (meetup.<span class="hljs-built_in">date</span>.getDate ()); <span class="hljs-comment">// Error!</span>
-	 
+
+	alert (meetup.date.getDate ()); // Error!
+
 </pre>
 <p>
 	Ой, помилка!
@@ -637,37 +652,37 @@ alert (JSON.stringify (meetup));
 </p>
 
 <pre>
-	<span class="hljs-keyword">let</span> str = '{ <span class="hljs-string">"title"</span>: <span class="hljs-string">"Conference"</span>, <span class="hljs-string">"date"</span>: <span class="hljs-string">"2017-11-30T12: 00: 00.000Z"</span>}';
+	let str = '{ "title": "Conference", "date": "2017-11-30T12: 00: 00.000Z"}';
 
-	 
-	<span class="hljs-keyword">let</span> meetup = JSON.<span class="hljs-built_in">parse</span> (str, function (<span class="hljs-built_in">key</span>, value) {
-	<span class="hljs-keyword">if</span> (<span class="hljs-built_in">key</span> == '<span class="hljs-built_in">date</span>') <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span> (value);
-	<span class="hljs-keyword">return</span> value;
+
+	let meetup = JSON.parse (str, function (key, value) {
+	if (key == 'date') return new Date (value);
+	return value;
 });
- 
 
-alert (meetup.<span class="hljs-built_in">date</span>.getDate ()); <span class="hljs-comment">// 30 - тепер працює!</span>
+
+alert (meetup.date.getDate ()); // 30 - тепер працює!
 </pre>
 <p>
 	До речі, це працює і для вкладених об'єктів:
 </p>
 
 <pre>
-	<span class="hljs-keyword">let</span> schedule = `{
-	<span class="hljs-string">"Meetups"</span>: [
-	{ <span class="hljs-string">"Title"</span>: <span class="hljs-string">"Conference"</span>, <span class="hljs-string">"date"</span>: <span class="hljs-string">"2017-11-30T12: 00: 00.000Z"</span>},
-	{ <span class="hljs-string">"Title"</span>: <span class="hljs-string">"Birthday"</span>, <span class="hljs-string">"date"</span>: <span class="hljs-string">"2017-04-18T12: 00: 00.000Z"</span>}
+	let schedule = {
+	"Meetups": [
+	{ "Title": "Conference", "date": "2017-11-30T12: 00: 00.000Z"},
+	{ "Title": "Birthday", "date": "2017-04-18T12: 00: 00.000Z"}
 	]
-} `;
+};
 
-schedule = JSON.<span class="hljs-built_in">parse</span> (schedule, function (<span class="hljs-built_in">key</span>, value) {
-<span class="hljs-keyword">if</span> (<span class="hljs-built_in">key</span> == '<span class="hljs-built_in">date</span>') <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span> (value);
-<span class="hljs-keyword">return</span> value;
+schedule = JSON.parse (schedule, function (key, value) {
+if (key == 'date') return new Date (value);
+return value;
 });
 
- 
-alert (schedule.meetups [<span class="hljs-number">1</span>] .<span class="hljs-built_in">date</span>.getDate ()); <span class="hljs-comment">// 18 - відмінно!</span>
- 
+
+alert (schedule.meetups[1].date.getDate ()); // 18 - відмінно!
+
 </pre>
 <h2 id="h01">Підсумок</h2>
 <ul>
