@@ -14,8 +14,8 @@
 			font-size: 14pt;
 		}
 		body{
-			padding-left: 0;
-			padding-right: 0;
+			padding: 0;
+			margin: 0;
 		}
 		.paper{
 			background-color: #ebe2bc;
@@ -24,6 +24,7 @@
 			min-width: 300px;
 			margin-left: auto;
 			margin-right: auto;
+
 		}
 		.paper p, ol, ul{
 			text-align: justify;
@@ -139,3 +140,15 @@
 			text-indent: 0 !important;
 			text-align: left !important;
 		}
+
+		#head{
+			height: 60px;
+			position: fixed;
+			z-index: 1000;
+			top: 0;
+			width: 100%;
+		}
+		#content{
+			margin-top: 80px;
+		}
+
