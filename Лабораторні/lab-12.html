@@ -7,39 +7,86 @@
 
 </head>
 <body>
-	<div class="paper">
-		<div id="colontitle">МЗКІТ Лабораторна робота № 12</div>
-		<ul class="lec-menu"> 
-			<li><a href="index.html">Зміст</a></li> 
-			<li><a href="lab-01.html">01</a></li> 
-			<li><a href="lab-02.html">02</a></li> 
-			<li><a href="lab-03.html">03</a></li> 
-			<li><a href="lab-04.html">04</a></li> 
-			<li><a href="lab-05.html">05</a></li> 
-			<li><a href="lab-06.html">06</a></li> 
-			<li><a href="lab-07.html">07</a></li> 
-			<li><a href="lab-08.html">08</a></li> 
-			<li><a href="lab-09.html">09</a></li> 
-			<li><a href="lab-10.html">10</a></li>  
-			<li><a href="lab-11.html">11</a></li> 
-			<li><a href="lab-12.html">12</a></li> 
-			<li><a href="lab-13.html">13</a></li> 
-			<li><a href="lab-14.html">14</a></li> 
-			<li><a href="lab-15.html">15</a></li> 
-			<li><a href="lab-16.html">16</a></li> 
-			<li><a href="lab-17.html">17</a></li> 
-			<li><a href="lab-18.html">18</a></li> 
-			<li><a href="lab-19.html">19</a></li> 
-			<li><a href="lab-20.html">20</a></li>  
-		</ul>  
+	<div id="head">
+		<div  class="paper">
+			<div id="colontitle">МЗКІТ Лабораторна робота № 12</div>
+			<ul class="lec-menu"> 
+				<li><a href="index.html">Зміст</a></li> 
+				<li><a href="lab-01.html">01</a></li> 
+				<li><a href="lab-02.html">02</a></li> 
+				<li><a href="lab-03.html">03</a></li> 
+				<li><a href="lab-04.html">04</a></li> 
+				<li><a href="lab-05.html">05</a></li> 
+				<li><a href="lab-06.html">06</a></li> 
+				<li><a href="lab-07.html">07</a></li> 
+				<li><a href="lab-08.html">08</a></li> 
+				<li><a href="lab-09.html">09</a></li> 
+				<li><a href="lab-10.html">10</a></li>  
+				<li><a href="lab-11.html">11</a></li> 
+				<li><a href="lab-12.html">12</a></li> 
+				<li><a href="lab-13.html">13</a></li> 
+				<li><a href="lab-14.html">14</a></li> 
+				<li><a href="lab-15.html">15</a></li> 
+				<li><a href="lab-16.html">16</a></li> 
+				<li><a href="lab-17.html">17</a></li> 
+				<li><a href="lab-18.html">18</a></li> 
+				<li><a href="lab-19.html">19</a></li> 
+				<li><a href="lab-20.html">20</a></li>  
+			</ul>  
+		</div>
+	</div>
+
+	<div id="content" class="paper">
 		<h1>Обробка масивів та колекцій JavaScript</h1>
 		<h2>Мета роботи</h2>
-		<p>Розглянути приклади використання коду JavaScript в HTML-документі. Навчитись опрацьовувати  масиви та колекції. Навчитись отримувати доступ до об'єктів DOM.</p>
+		<p>Розглянути приклади роботи з масивами та колекціями JavaScript. Навчитись опрацьовувати колекції елемементиів HTML, колекції DOM. Навчитися застосовувати масиви для вирішення практичних задач</p>
 		<h2>Обладнання</h2>
 		<p>Персональний комп'ютер. Текстовий редактор Sublime Text 3 або Notepad++. Пакет програм XAMPP. Web-браузер Chrome, Firefox, Opera, Internet Explorer*</p>
 		<h2>Теоретичні відомості</h2>
-
-				<h2>Хід роботи</h2>
+		<h3>Масиви</h3>
+		<p>
+			Масив представляється собою упорядкований набір значень, до якого ви посилаєтеся на ім'я і індексу. Припустимо, у вас є масив з ім'ям emp, що містить імена співробітників і упорядкований за номером співробітників. Отже, <code>emp[1]</code> буде являти собою ім'я співробітника номер один, <code>emp[2]</code> - ім'я співробітника номер два, і т.д.
+		</p>
+		<p>
+			Мова JavaScript не містить явного типу даних "масив". Проте, можливо використовувати зумовлений об'єкт <code>Array</code> і його методи для роботи з масивами в створюваних додатках. Об'єкт <code>Array</code> містить методи для роботи з масивами самими різними способами, наприклад, є методи для об'єднання, перевертання і сортування. Об'єкт містить властивість для визначення довжини масиву, а також властивості для роботи з регулярними виразами.
+		</p>
+		<h3>Створення масивів</h3>
+		<p>
+			Наступні вирази створюють однакові масиви:
+		</p>
+		<pre>
+			var arr = new Array(element0, element1, ..., elementN);
+			var arr = Array(element0, element1, ..., elementN);
+			var arr = [element0, element1, ..., elementN];
+		</pre>
+		<p>
+			element0, element1, ..., elementN - список значень елементів масиву. Якщо значення задані, то ці значення будуть елементами масиву після його ініціалізації. Властивість length у масиву дорівнюватиме кількості аргументів.
+		</p>
+		<p>
+			Синтаксис з використанням квадратних дужок називається "літерал масиву" (array literal) або "ініціалізатор масиву". Такий запис коротше, ніж інші способи створення масиву, і, як правило, більш краща.
+		</p>
+		<p>
+			Для создания массива без элементов, но ненулевой длины, возможно использовать одно из следующих выражений:
+		</p>
+		<pre>
+			var arr = new Array(arrayLength);
+			var arr = Array(arrayLength);
+			// Точно такой же эффект
+			var arr = [];
+			arr.length = arrayLength;
+		</pre>
+		<p>
+			Якщо ви хочете форматувати масив одним елементом і цим елементом є число типу Number, то ви повинні використовувати квадратні дужки. Якщо ви створюєте масив за допомогою Array (конструктора або функції), а єдиним елементом цього масиву буде число типу Number, то число це інтерпретується як довжина масиву (arrayLength), а не як елемент типу Number.
+		</p>
+		<pre>
+var arr = [42]; // Создаёт массив  с одним элементом
+var arr = Array(42); // Создаёт массив без элементов,
+                     // но устанавлявает длину массива arr.length в 42
+// Это эквивалентно следующему
+var arr = [];
+arr.length = 42;
+		</pre>
+		<h2>Хід роботи</h2>
 		<ol>
 			<li>Перевірити чи встановлено пакет програм web-розробника XAMPP</li>
 			<li>Викликати панель керування xampp-control.exe</li>
@@ -76,6 +123,6 @@
 			<li id="link03"><a href="http://htmlbook.ru/">Справочник по HTML</a></li>
 
 		</ol>	
-</div>
+	</div>
 </body>
 </html>
