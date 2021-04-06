@@ -9,12 +9,13 @@
 			font-size: 14pt;
 			font-weight: bold;
 		}
-		p, li{
+
+		p, li, figcaption{
 			font-size: 14pt;
 		}
 		body{
-			padding-left: 0;
-			padding-right: 0;
+			padding: 0;
+			margin: 0;
 		}
 		.paper{
 			background-color: #ebe2bc;
@@ -23,6 +24,7 @@
 			min-width: 300px;
 			margin-left: auto;
 			margin-right: auto;
+
 		}
 		.paper p, ol, ul{
 			text-align: justify;
@@ -84,6 +86,10 @@
 			border-top: 1px solid black;
 			border-bottom: 1px solid black;
 		}
+		code{
+			font-weight: 600;
+			font-size: 18px;			
+		}
 		figure{
 			margin: 30px 0 30px 0;
 			padding: 0;
@@ -110,10 +116,42 @@
 		* html .clearfix { height: 1%; }
 		.clearfix { display: block; }
 
-ul{
-		list-style: '-';
-}
+		ul{
+			list-style: '-';
+		}
 		ul.lec-menu{
 			display: flex;
 			list-style: none; 
+		}
+		i.formula{
+			font-weight: 400;
+			font-size: 120%; 
+		}
+		i.formula sub, i.formula sup{
+			font-style: normal;
+		}
+
+		figcaption:before{
+			content: 'Рис. ';
+		}
+		td{
+			border: 1px solid black;
+			padding: 5px;
+			
+		}
+		td p{
+			margin: 0;
+			text-indent: 0 !important;
+			text-align: left !important;
+		}
+
+		#head{
+			height: 60px;
+			position: fixed;
+			z-index: 1000;
+			top: 0;
+			width: 100%;
+		}
+		#content{
+			margin-top: 80px;
 		}
