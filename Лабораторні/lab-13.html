@@ -9,37 +9,64 @@
 <body>
 	<div id="head">
 		<div  class="paper">
-		<div id="colontitle">МЗКІТ Лабораторна робота № 13</div>
-		<ul class="lec-menu"> 
-			<li><a href="index.html">Зміст</a></li> 
-			<li><a href="lab-01.html">01</a></li> 
-			<li><a href="lab-02.html">02</a></li> 
-			<li><a href="lab-03.html">03</a></li> 
-			<li><a href="lab-04.html">04</a></li> 
-			<li><a href="lab-05.html">05</a></li> 
-			<li><a href="lab-06.html">06</a></li> 
-			<li><a href="lab-07.html">07</a></li> 
-			<li><a href="lab-08.html">08</a></li> 
-			<li><a href="lab-09.html">09</a></li> 
-			<li><a href="lab-10.html">10</a></li>  
-			<li><a href="lab-11.html">11</a></li> 
-			<li><a href="lab-12.html">12</a></li> 
-			<li><a href="lab-13.html">13</a></li> 
-			<li><a href="lab-14.html">14</a></li> 
-			<li><a href="lab-15.html">15</a></li> 
-			<li><a href="lab-16.html">16</a></li> 
-			<li><a href="lab-17.html">17</a></li> 
-			<li><a href="lab-18.html">18</a></li> 
-			<li><a href="lab-19.html">19</a></li> 
-			<li><a href="lab-20.html">20</a></li>  
-		</ul>  
-	</div>
+			<div id="colontitle">МЗКІТ Лабораторна робота № 13</div>
+			<ul class="lec-menu"> 
+				<li><a href="index.html">Зміст</a></li> 
+				<li><a href="lab-01.html">01</a></li> 
+				<li><a href="lab-02.html">02</a></li> 
+				<li><a href="lab-03.html">03</a></li> 
+				<li><a href="lab-04.html">04</a></li> 
+				<li><a href="lab-05.html">05</a></li> 
+				<li><a href="lab-06.html">06</a></li> 
+				<li><a href="lab-07.html">07</a></li> 
+				<li><a href="lab-08.html">08</a></li> 
+				<li><a href="lab-09.html">09</a></li> 
+				<li><a href="lab-10.html">10</a></li>  
+				<li><a href="lab-11.html">11</a></li> 
+				<li><a href="lab-12.html">12</a></li> 
+				<li><a href="lab-13.html">13</a></li> 
+				<li><a href="lab-14.html">14</a></li> 
+				<li><a href="lab-15.html">15</a></li> 
+				<li><a href="lab-16.html">16</a></li> 
+				<li><a href="lab-17.html">17</a></li> 
+				<li><a href="lab-18.html">18</a></li> 
+				<li><a href="lab-19.html">19</a></li> 
+				<li><a href="lab-20.html">20</a></li>  
+			</ul>  
+		</div>
 	</div>
 
 	<div id="content" class="paper">
 
 		<h1>Оптимізація коду. Використання функцій</h1>
-		
+		<h2>Мета роботи</h2>
+		<p>Розглянути приклади роботи з функціями JavaScript. Навчитись створювати власні функції. Навчитися оптимізувати код за допомогою функцій</p>
+		<h2>Обладнання</h2>
+		<p>Персональний комп'ютер. Текстовий редактор Sublime Text 3 або Notepad++. Пакет програм XAMPP. Web-браузер Chrome, Firefox, Opera, Internet Explorer</p>
+		<h2>Теоретичні відомості</h2>	
+
+
+<p>
+Функция - это именованная последовательность операторов (инструкций). Любая функция имеет следующий синтаксис:
+<p>
+ 
+<pre>
+function имя (){
+
+оператор;
+
+.......
+
+оператор;
+
+}
+</pre>
+ 
+<p>
+Сначала идет ключевое слово <code>function</code>, затем имя функции, затем в круглых скобках перечисляются параметры (если они есть), затем в фигурных скобках перечисляются операторы, т.е. последовательность выполняемых действий. Каждый оператор заканчивается точкой с запятой.
+</p>
+ 
+
 		<ol>
 			<li>Перевірити чи встановлено пакет програм web-розробника XAMPP</li>
 			<li>Викликати панель керування xampp-control.exe</li>
@@ -48,14 +75,24 @@
 			<li>Очистити зміст каталогу <code>C:\xampp\htdocs\</code></li>
 			<li>Створити файл <code>index.html</code> в середині каталогу <code>C:\xampp\htdocs\</code></li>
 			<li>Перейти за адресою <code>http://127.0.0.1/</code> або <code>http://localhost/</code> та впевнитись, що сторінка, яку ви створили, завантажилася корректно</li>
+			
 			<li>Створити файл з назвою <code>script.js</code> та помістити його поряд з файлом <code>index.html</code></li>
 			<li>Підключити файл <code>script.js</code> в секції <code>&lt;head&gt;</code></li>
+			
 
 
-<!-- Даня, тут будет все самое интересное и важное -->
-
+			<li>Відповідно до завдань нижче створити необхідні HTML-форми, призначити обробники подій для елементів форми</li>
 
 			<li>У файл <code>script.js</code> помістити код  та перевірити його роботу</li>
+
+			<li>Створити програму для обчислення коренів квадратного рівняння, за введенними коефіцієнтами. Якщо рівняння не має коренів, повідомити про це користувача.</li>
+			<li>Створити програму складання двох матриць 5х5. Створити функцію яка заповнить матриці довільними цілими числами від 0 до 99. Результат складання вивести в третю матрицю.</li>
+			<li>Створити функцію, яка буде переміщувати кнопку в довільне місце сторінки після її натиснення</li>
+
+
+
+
+
 			<li>У "підвал" сторінки та файл <code>script.js</code> помістити інформацію про виконавця роботи: група, ПІБ, дата виконання.</li>
 			<li>Для кожного етапу роботи зробити знімки екрану або скопіювати текст консолі та додати їх у звіт з описом кожного скіншота</li>
 			<li>Зберегти звіт у форматі PDF</li>
