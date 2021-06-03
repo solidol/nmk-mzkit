@@ -9,53 +9,205 @@
 <body>
 	<div id="head">
 		<div  class="paper">
-		<div id="colontitle">МЗКІТ Лабораторна робота № 17</div>
-		<ul class="lec-menu"> 
-			<li><a href="index.html">Зміст</a></li> 
-			<li><a href="lab-01.html">01</a></li> 
-			<li><a href="lab-02.html">02</a></li> 
-			<li><a href="lab-03.html">03</a></li> 
-			<li><a href="lab-04.html">04</a></li> 
-			<li><a href="lab-05.html">05</a></li> 
-			<li><a href="lab-06.html">06</a></li> 
-			<li><a href="lab-07.html">07</a></li> 
-			<li><a href="lab-08.html">08</a></li> 
-			<li><a href="lab-09.html">09</a></li> 
-			<li><a href="lab-10.html">10</a></li>  
-			<li><a href="lab-11.html">11</a></li> 
-			<li><a href="lab-12.html">12</a></li> 
-			<li><a href="lab-13.html">13</a></li> 
-			<li><a href="lab-14.html">14</a></li> 
-			<li><a href="lab-15.html">15</a></li> 
-			<li><a href="lab-16.html">16</a></li> 
-			<li><a href="lab-17.html">17</a></li> 
-			<li><a href="lab-18.html">18</a></li> 
-			<li><a href="lab-19.html">19</a></li> 
-			<li><a href="lab-20.html">20</a></li>  
-		</ul>  
+			<div id="colontitle">МЗКІТ Лабораторна робота № 17</div>
+			<ul class="lec-menu"> 
+				<li><a href="index.html">Зміст</a></li> 
+				<li><a href="lab-01.html">01</a></li> 
+				<li><a href="lab-02.html">02</a></li> 
+				<li><a href="lab-03.html">03</a></li> 
+				<li><a href="lab-04.html">04</a></li> 
+				<li><a href="lab-05.html">05</a></li> 
+				<li><a href="lab-06.html">06</a></li> 
+				<li><a href="lab-07.html">07</a></li> 
+				<li><a href="lab-08.html">08</a></li> 
+				<li><a href="lab-09.html">09</a></li> 
+				<li><a href="lab-10.html">10</a></li>  
+				<li><a href="lab-11.html">11</a></li> 
+				<li><a href="lab-12.html">12</a></li> 
+				<li><a href="lab-13.html">13</a></li> 
+				<li><a href="lab-14.html">14</a></li> 
+				<li><a href="lab-15.html">15</a></li> 
+				<li><a href="lab-16.html">16</a></li> 
+				<li><a href="lab-17.html">17</a></li> 
+				<li><a href="lab-18.html">18</a></li> 
+				<li><a href="lab-19.html">19</a></li> 
+				<li><a href="lab-20.html">20</a></li>  
+			</ul>  
+		</div>
 	</div>
-	</div>
-
-
-
+	
 	<div id="content" class="paper">
 
-		<h1>Створення інтерактивної галереї з використання технології AJAX</h1>
-		
-			<ol>
+		<h1>Кодування та декодування нотації JSON ч.2</h1>
+		<h2>Теоретичні відомості</h2>
+
+		<p>
+			JSON (англ. JavaScript Object Notation) – текстовый формат обмена данными, основанный на JavaScript.
+		</p>
+
+		<p>
+			Формат считается независимым от языка и может использоваться практически с любым языком программирования. Для многих языков существует готовый код для создания и обработки данных в формате JSON.
+		</p>
+
+		<p>
+			За счёт своей лаконичности по сравнению с XML формат JSON может быть более подходящим для сериализации сложных структур. Применяется в веб-приложениях как для обмена данными между браузером и сервером (AJAX), так и между серверами (программные HTTP-сопряжения).
+		</p>
+
+		<p>
+			Поскольку формат JSON является подмножеством синтаксиса языка JavaScript, то он может быть быстро десериализован встроенной функцией eval().
+		</p>
+
+		<p>
+			JSON-текст представляет собой (в закодированном виде) одну из двух структур:
+		</p>
+
+		<p>
+			1) Набор пар ключ: значение. В различных языках это реализовано как запись, структура, словарь, хеш-таблица, список с ключом или ассоциативный массив. Ключом может быть только строка (регистрозависимость не регулируется стандартом, это остаётся на усмотрение программного обеспечения. Как правило, регистр учитывается программами – имена с буквами в разных регистрах считаются разными, например, значением – любая форма. Повторяющиеся имена ключей допустимы, но не рекомендуются стандартом; обработка таких ситуаций происходит на усмотрение программного обеспечения, возможные варианты – учитывать только первый такой ключ, учитывать только последний такой ключ, генерировать ошибку.
+		</p>
+
+		<p>
+			2) Упорядоченный набор значений. Во многих языках это реализовано как массив, вектор, список или последовательность.
+		</p>
+
+		<p>
+			Структуры данных, используемые JSON, поддерживаются любым современным языком программирования, что и позволяет применять JSON для обмена данными между различными языками программирования и программными системами.
+		</p>
+
+		<p>
+			В качестве значений в JSON могут быть использованы:
+		</p>
+
+		<p>
+			– запись – это неупорядоченное множество пар ключ:значение, заключённое в фигурные скобки «{ }». Ключ описывается строкой, между ним и значением стоит символ «:». Пары ключ-значение отделяются друг от друга запятыми.
+		</p>
+
+		<p>
+			– массив (одномерный) – это упорядоченное множество значений. Массив заключается в квадратные скобки «[ ]». Значения разделяются запятыми. Массив может быть пустым, т.е. не содержать ни одного значения. Значения в пределах одного массива могут иметь разный тип.
+		</p>
+
+		<p>
+			– число (целое или вещественное).
+		</p>
+
+		<p>
+			– литералы true (логическое значение «истина»), false (логическое значение «ложь») и null.
+		</p>
+
+		<p>
+			– строка – это упорядоченное множество из нуля или более символов юникода, заключённое в двойные кавычки. Символы могут быть указаны с использованием escape-последовательностей, начинающихся с обратной косой черты «\» (поддерживаются варианты \', \", \\, \/, \t, \n, \r, \f и \b), или записаны шестнадцатеричным кодом в кодировке Unicode в виде \uFFFF.
+		</p>
+
+<pre>
+<code>{
+   "firstName": "Иван",
+   "lastName": "Иванов",
+   "address": {
+       "streetAddress": "Московское ш., 101, кв.101",
+       "city": "Ленинград",
+       "postalCode": 101101
+   },
+   "phoneNumbers": [
+       "812 123-1234",
+       "916 123-4567"
+   ]
+}
+</code>
+</pre>
+
+<p>
+На языке XML подобная структура выглядела бы примерно так:
+</p>
+<pre><code>
+&lt;person&gt;
+  &lt;firstName&gt;&Icy;&vcy;&acy;&ncy;&lt;/firstName&gt;
+  &lt;lastName&gt;&Icy;&vcy;&acy;&ncy;&ocy;&vcy;&lt;/lastName&gt;
+  &lt;address&gt;
+    &lt;streetAddress&gt;&Mcy;&ocy;&scy;&kcy;&ocy;&vcy;&scy;&kcy;&ocy;&iecy; &shcy;., 101, &kcy;&vcy;.101&lt;/streetAddress&gt;
+    &lt;city&gt;&Lcy;&iecy;&ncy;&icy;&ncy;&gcy;&rcy;&acy;&dcy;&lt;/city&gt;
+    &lt;postalCode&gt;101101&lt;/postalCode&gt;
+  &lt;/address&gt;
+  &lt;phoneNumbers&gt;
+    &lt;phoneNumber&gt;812 123-1234&lt;/phoneNumber&gt;
+    &lt;phoneNumber&gt;916 123-4567&lt;/phoneNumber&gt;
+  &lt;/phoneNumbers&gt;
+&lt;/person&gt;
+</code>
+</pre>
+<p>
+или так:
+</p>
+<pre><code>
+&lt;person firstName=&quot;&Icy;&vcy;&acy;&ncy;&quot; lastName=&quot;&Icy;&vcy;&acy;&ncy;&ocy;&vcy;&quot;&gt;
+  &lt;address streetAddress=&quot;&Mcy;&ocy;&scy;&kcy;&ocy;&vcy;&scy;&kcy;&ocy;&iecy; &shcy;., 101, &kcy;&vcy;.101&quot; city=&quot;&Lcy;&iecy;&ncy;&icy;&ncy;&gcy;&rcy;&acy;&dcy;&quot; postalCode=&quot;101101&quot; /&gt;
+  &lt;phoneNumbers&gt;
+    &lt;phoneNumber&gt;812 123-1234&lt;/phoneNumber&gt;
+    &lt;phoneNumber&gt;916 123-4567&lt;/phoneNumber&gt;
+  &lt;/phoneNumbers&gt;
+&lt;/person&gt;
+</code></pre>
+<p>
+Следующий пример JavaScript-кода показывает, как браузер может использовать XMLHttpRequest, чтобы запрашивать с сервера объект в формате JSON (серверная часть программы опущена; в ней должен быть размещён код, отправляющий данные в формате JSON-строки в ответ на запросы по url).
+</p>
+<pre><code>
+var http_request = new XMLHttpRequest();
+http_request.onreadystatechange = function () {
+  if (http_request.readyState !== 4)
+    return;
+  if (http_request.status !== 200)
+    throw new Error('request was defeated');
+  do_something_with_object(JSON.parse(http_request.responseText));
+  http_request = null;
+};
+http_request.open("GET", url, true);
+http_request.send(null);
+</code>
+</pre>
+
+<p>
+AJAX не является технологией в полном смысле этого слова, а объединяет в себе целый ряд  методологий: 
+</p>
+<ul>
+<li>стандартизированное представление Web-страниц с помощью языков HTML и CSS;</li>
+<li>динамическое отображение и взаимодействие с пользователем с помощью DOM API и DHTML</li>
+<li>обмен и обработка данных в виде XML и XSLT или JSON;</li>
+<li>асинхронные запросы с помощью объекта XMLHttpRequest</li>
+</ul>
+<p>
+Основу функциональности технологии AJAX обеспечивает объект
+XMLHttpRequest. Его назначение – передавать серверу HTTP- или HTTPS-запросы и обеспечивать прием и обработку ответов сервера.
+Функциональность этого объекта доступна благодаря набору свойств и методов. Свойства объекта XMLHttpRequest: </p>
+<ul>
+<li>onreadystatechange Событие изменения состояния готовности сервера. </li>
+<li>readyState Позволяет узнать состояние готовности сервера. </li>
+<li>responseText Хранит ответ сервера как строку символов. </li>
+<li>responseXML Хранит ответ сервера как XML файл.</li> 
+<li>status Хранит код ответа сервера.</li>
+</ul>
+		<h2>Хід роботи</h2>
+		<ol>
 			<li>Перевірити чи встановлено пакет програм web-розробника XAMPP</li>
 			<li>Викликати панель керування xampp-control.exe</li>
 			<li>Впевнитись, що web-сервер Apache запущений</li>
 			<li>Перейти за адресою <code>http://127.0.0.1/</code> або <code>http://localhost/</code> та впевнитись, що сторінка вітання XAMPP завантажилась</li>
 			<li>Очистити зміст каталогу <code>C:\xampp\htdocs\</code></li>
 			<li>Створити файл <code>index.html</code> в середині каталогу <code>C:\xampp\htdocs\</code></li>
+			<li>Створити файл <code>data.json</code> в середині каталогу <code>C:\xampp\htdocs\</code></li>
 			<li>Перейти за адресою <code>http://127.0.0.1/</code> або <code>http://localhost/</code> та впевнитись, що сторінка, яку ви створили, завантажилася корректно</li>
 			<li>Створити файл з назвою <code>script.js</code> та помістити його поряд з файлом <code>index.html</code></li>
 			<li>Підключити файл <code>script.js</code> в секції <code>&lt;head&gt;</code></li>
 
-
-<!-- Даня, тут будет все самое интересное и важное -->
-
+<li>
+	У файл <code>data.json</code> помістити просте повідомлення
+</li>
+<li>
+	З використанням об'єкту <code>XMLHttpRequest</code> звернутися до файлу <code>data.json</code> та вивести на екран повідомлення з файлу.
+</li>
+<li>
+	У файл <code>data.json</code> помістити будь-які структуровані дані.
+</li>
+<li>
+	З використанням об'єкту <code>XMLHttpRequest</code> звернутися до файлу <code>data.json</code> та розмістити на сторінці інформацію з файлу.
+</li>
 
 			<li>У файл <code>script.js</code> помістити код  та перевірити його роботу</li>
 			<li>У "підвал" сторінки та файл <code>script.js</code> помістити інформацію про виконавця роботи: група, ПІБ, дата виконання.</li>
@@ -79,6 +231,6 @@
 			<li id="link03"><a href="http://htmlbook.ru/">Справочник по HTML</a></li>
 		</ol>		
 		
-</div>
+	</div>
 </body>
 </html>
