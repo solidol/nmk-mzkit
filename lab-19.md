@@ -88,4 +88,4 @@ Query - набір функцій JavaScript, що фокусується на �
 5. [jQuery W3School](https://www.w3schools.com/jquery/)
 6. [jQuery для начинающих](https://habr.com/ru/post/38208/)
 
-
+<!-- почти пустая теория -->

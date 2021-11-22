@@ -65,3 +65,5 @@
 1. [Валідатор W3C](https://validator.w3.org)
 2. [Современный учебник JavaScript](https://learn.javascript.ru)
 3. [Справочник по HTML](http://htmlbook.ru)
+
+<!-- нет мети, теории, вопросов -->
