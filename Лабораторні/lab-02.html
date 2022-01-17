@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ Лабораторна робота № 2</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ Лабораторна робота № 2</div>
+		<h1>Лабораторна робота № 2. <br>Оформлення сторінки з використанням графічних та медіа елементів</h1>
+		<h2>Мета роботи</h2>
+		<p>Ствирити HTML-сторінки, які містять у собі графічні елементи та мультимедіа. Зв'язати сторінки між собою гіперпосиланнями. Для логічного розділення документів використати теги HTML5, що відповідають за логічне оформлення секції <code>&lt;body&gt;&lt;/body&gt;</code>. Оволодіти семантичною розміткою сторінки з використанням спеціалізованих тегів HTML5.</p>
+		<h2>Обладнання</h2>
+		<p>Персональний комп'ютер. Текстовий редактор Sublime Text 3 або Notepad++. Web-браузер Chrome, Firefox, Opera, Internet Explorer*</p>
+				<h2>Теоретичні відомості</h2>
+		<h3>1. Семантичні елементи</h3>
+		<p>
+			Семантичні елементи HTML5 описують своє призначення як для браузерів, так і для веб-розробників. До появи стандарту HTML5 вся розмітка сторінок здійснювалася переважно за допомогою елементів &lt;div&gt;, яким привласнювали класи class або ідентифікатори id для наочності розмітки (наприклад, &lt;div id = "header"&gt;).
+		</p>
+		<p>
+			Стандарт HTML5 надав нові елементи для структурування, угруповання контенту і розмітки текстового вмісту. Нові семантичні елементи дозволили поліпшити структуру веб-сторінки, додавши смислове значення укладеним в них вмісту (було &lt;div id = "header"&gt;, стало &lt;header&gt;). Для відображення зовнішнього вигляду елементів не задано жодних правил, тому елементи можна стилізувати на свій розсуд. Для всіх елементів доступні глобальні атрибути.
+		</p>
+		<p>
+			Згідно зі специфікацією HTML5 кожен елемент належить до певної (нуль або більше) категорії. Кожна з них групує елементи зі схожими характеристиками. Виділяють такі загальні категорії:
+		</p>
+		<ul>
+			<li>мета-вміст;</li>
+			<li>потокові посилання;</li>
+			<li>секційний вміст;</li>
+			<li>заголовковий вміст;</li>
+			<li>текстовий вміст;</li>
+			<li>вбудований вміст;</li>
+			<li>інтерактивний вміст;</li>
+		</ul>
+		<h2>Хід роботи</h2>
+		<ol>
+			<li>Відкрити редактор коду та створити новий файл, якщо у вікні редактора вже завантажено будь-який інший
+			</li>
+			<li>
+				Створити каталог для розміщення файлів лабораторної роботи.
+			</li>
+			<li>
+				<p>Створити чотири сторінки у каталозі відповідно до макетів. Назвати їх <code>gallery1.html</code>, <code>gallery2.html</code>, <code>gallery3.html</code> та <code>audio.html</code> відповідно до їх змісту</p>
+				<figure>
+					<img class="figc" src="img/02001.png">
+					<figcaption>Макет сторінки фотогалереї</figcaption>
+				</figure>
+				<figure>
+					<img class="figc" src="img/02002.png">
+					<figcaption>Макет сторінки з аудіозаписами</figcaption>
+				</figure>
+			</li>
+			<li>Використовуючи довідкову інформацію у посиланнях <a href="#link10">10</a> - <a href="#link13">13</a>, розмістити на сторінках графічні файти та аудіо або відео файли</li>
+			<li>
+				Використовуючи гіперпосилання (тег <code>&lt;a&gt;&lt;/a&gt;</code><a href="#link14">14</a>) звязати усі сторінки між собою. Перевірити коректність переходів між сторінками.
+			</li>
+			<li>
+				Перемістити каталог в інше місце, відкрити будь-який файл та впевнитись, що всі посилання функціонують корректно. У разі проблем, скорегувати гіперпосилання.
+			</li>
+			<li>
+				Використовуючи теги логічного секціювання документу (посилання <a href="#link05">05</a> - <a href="#link09">09</a>) розділити документ на окремі секції: шапка, меню, контент, підвал.
+			</li>
+			<li>Перевірити файли у валідаторі розмітки W3C за посиланням <code>https://validator.w3.org/</code></li>
+			<li>
+				
+					Виявити наявність помилок та попереджень. Скорегувати документ, використовуючи стилі CSS.
+				
+			</li>
+			<li>HTML-код файлів зберегти у звіт</li>
+			<li>Роздрукувати звіт та письмово відповісти на контрольні запитання</li>
+		</ol>
+		<h2>Контрольні питання</h2>
+		<ol>
+			<li>Які атрибути має тег <code>&lt;img&gt;</code> та для чого вони використовуються?</li>
+			<li>Які атрибути має тег <code>&lt;audio&gt;</code> та для чого вони використовуються?</li>
+			<li>Які атрибути має тег <code>&lt;video&gt;</code> та для чого вони використовуються?</li>
+			<li>В чому різниця між тегами <code>&lt;head&gt;</code> та <code>&lt;header&gt;</code>?</li>			
+		</ol>
+		<h2>Довідники та додаткові матеріали</h2>
+		<ol>
+			<li id="link01"><a href="https://www.w3schools.com/">Комплексний довідник web-розробника</a></li>
+			<li id="link02"><a href="https://css.in.ua/">Довідник HTML та CSS</a></li>
+			<li id="link03"><a href="http://htmlbook.ru/">Справочник по HTML</a></li>
+			<li id="link04"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/section">Елемент section</a></li>
+			<li id="link05"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/header">Елемент header</a></li>
+			<li id="link06"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/footer">Елемент footer</a></li>
+			<li id="link07"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/article">Елемент article</a></li>
+			<li id="link08"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/nav">Елемент nav</a></li>
+			<li id="link09"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/aside">Елемент aside</a></li>
+			<li id="link10"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/img">Елемент img</a></li>
+			<li id="link11"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/figure">Елемент figure</a></li>
+			<li id="link12"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/audio">Елемент audio</a></li>
+			<li id="link13"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/video">Елемент video</a></li>
+			<li id="link14"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/a">Елемент a</a></li>
+		</ol>
+		<hr width="90%">
+		* &mdash; на випадок, якщо ви прибулець з 90-х років.
+	</div>
+</body>
+</html>

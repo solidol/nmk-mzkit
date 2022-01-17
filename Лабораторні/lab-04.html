@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ Лабораторна робота № 4</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ Лабораторна робота № 4</div>
+		<h1>Лабораторна робота № 4. <br>Робота з формами та елементами керування</h1>
+		<h2>Мета роботи</h2>
+		<p>Розглянути приклади створення елементів керування на сторінці та відслідкувати передачу даних з форми.</p>
+		<h2>Обладнання</h2>
+		<p>Персональний комп'ютер. Текстовий редактор Sublime Text 3 або Notepad++. Пакет програм XAMPP. Web-браузер Chrome, Firefox, Opera, Internet Explorer*</p>
+		<h2>Хід роботи</h2>
+		<ol>
+			<li>Завантажити та встановити пакет програм web-розробника XAMPP</li>
+			<li>Викликати панель керування xampp-control.exe</li>
+			<li>Впевнитись, що web-сервер Apache запущений</li>
+			<li>Перейти за адресою <code>http://127.0.0.1/</code> або <code>http://localhost/</code> та впевнитись, що сторінка вітання XAMPP завантажилась</li>
+			<li>Очистити зміст каталогу <code>C:\xampp\htdocs\</code></li>
+			<li>Створити файл <code>index.html</code> в середині каталогу <code>C:\xampp\htdocs\</code></li>
+			<li>
+				<p>У файл <code>index.html</code> помістити наступні рядки:</p>
+				<p>
+					<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&#x9;&lt;title&gt;Test page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&#x9;&lt;h1&gt;It works!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+					</pre>
+				</p>
+			</li>
+			<li>Перейти за адресою <code>http://127.0.0.1/</code> або <code>http://localhost/</code> та впевнитись, що сторінка, яку ви створили, завантажилася корректно</li>
+			<li>Profit! Вітаю! Ви створили налаштували свій перший web-сервер</li>
+			<li>
+				<p>Створити просту форму, що складається з двох текстових полів та копки відправки форми(<a href="#link06">6</a>, <a href="#link07">7</a>, <a href="#link08">8</a>)</p>
+				<figure>
+					<img class="figc" src="img/0401.png">
+					<figcaption>Форма з двома текстовими полями</figcaption>
+				</figure>
+				<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&#x9;&lt;title&gt;Test page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&#x9;&lt;h1&gt;It works!&lt;/h1&gt;
+&#x9;&lt;form&gt;
+&#x9;&#x9;&lt;input type=&quot;text&quot; name=&quot;textfield1&quot;&gt;
+&#x9;&#x9;&lt;input type=&quot;text&quot; name=&quot;textfield2&quot; value=&quot;12345&quot;&gt;
+&#x9;&#x9;&lt;button type=&quot;submit&quot; name=&quot;btsubmit&quot; value=&quot;send&quot;&gt;&Vcy;&iukcy;&dcy;&pcy;&rcy;&acy;&vcy;&icy;&tcy;&icy;&lt;/button&gt;
+&#x9;&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+				</pre>
+			</li>
+			<li>
+				<p>Самостійно створити форму, що відповідає нижченаданому зразку(<a href="#link06">6</a> - <a href="#link09">9</a>)</p>
+				<figure>
+					<img class="figc" src="img/0402.png">
+					<figcaption>Форма з випадаючим переліком</figcaption>
+				</figure>
+			</li>
+			<li>
+				<p>Самостійно створити форму що містить наступні елементи керування (<a href="#link06">6</a> - <a href="#link10">10</a>)</p>
+				<ul>
+					<li>Поле вибору дати</li>
+					<li>Поле вибору кольору</li>
+					<li>Перелік із множинним вибором</li>
+					<li>Багаторядкове текстове поле</li>
+					<li>Поле вводу телефону з перевіркою коректності даних**</li>
+				</ul>
+			</li>
+			<li>Перевірити створені файли у валідаторі розмітки W3C за посиланням <code>https://validator.w3.org/</code></li>
+			<li>
+				Виявити наявність помилок та попереджень та корегувати документ.
+			</li>
+			<li>HTML-код файлу та скріншот перевірки валідатором останнього завдання зберегти у звіт</li>
+			<li>
+				<p>Натисканням клавіші F12 у активному вікні браузеру викликати консоль розробника</p>
+				<figure>
+					<img class="figc" src="img/0403.png">
+					<figcaption>Консоль розробника у браузері Mozilla Firefox</figcaption>
+				</figure>				
+				<figure>
+					<img class="figc" src="img/0404.png">
+					<figcaption>Консоль розробника у браузері Google Chrome</figcaption>
+				</figure>				
+			</li>
+			<li>
+				Дослідіть усі вкладки консолі дізнайтеся яка інформація в них міститься
+			</li>
+			<li>
+				<p>Перейдіть у вкладку "Сеть" (Network). </p>
+				<p>Оновіть сторінку і переконайтеся, що зміст вкладки "Сеть" відповідає одному з наданих нижче</p>
+				<figure>
+					<img class="figc" src="img/0405.png">
+					<figcaption>Вкладка "Сеть" у браузері Mozilla Firefox</figcaption>
+				</figure>				
+				<figure>
+					<img class="figc" src="img/0406.png">
+					<figcaption>Вкладка "Network" у браузері Google Chrome</figcaption>
+				</figure>				
+			</li>
+			
+			<li>
+				<p>Заповніть форму, натисніть кнопку відправити.</p>
+				<p>Зміст консолі має оновитися відповідно до налаштувань форми. За замовчуванням дані форми будуть передані методом <code>GET</code> (дані розміщені в адресному рядку  <a href="#link11">11</a>) на адресу нашої сторінки <code>http://127.0.0.1/</code> або <code>http://localhost/</code>.</p>
+				<p>Натисніть на рядок, що починається з <code>200 GET</code>. Зправа з'явиться детальна інформація цього запиту, де можна дізнатись заголовки запиту, відповіді, а також, передані та отримані дані</p>
+				<p>Заповніть форму, натисніть кнопку відправити.</p>
+				<figure>
+					<img class="figc" src="img/0407.png">
+					<figcaption>Інформація про GET-запит у браузері Mozilla Firefox</figcaption>
+				</figure>				
+				<figure>
+					<img class="figc" src="img/0408.png">
+					<figcaption>Передані дані у GET-запиті у браузері Mozilla Firefox</figcaption>
+				</figure>
+			</li>
+			<li>Змініть форму наступним чином: додайте атрибут <code>method="post"</code> в тег форми та повторіть усі етапи попереднього пункту</li>
+			<li>Знайдіть відмінности у принципах роботи методів POST i GET (<a href="#link12">12</a>)</li>
+			<li>Додайте до звіту скріншоти консолі розробника з етапами дослідження методу POST</li>
+			<li>Роздрукувати звіт та письмово відповісти на контрольні запитання</li>
+		</ol>
+		<h2>Контрольні питання</h2>
+		<ol>
+			<li>Яким чином відбувається передача даних у методі GET?</li>
+			<li>Які недоліки та обмеження методу GET ви знаєте?</li>
+			<li>Яким чином відбувається передача даних у методі POST?</li>
+			<li>Яким чином перетворити випадаючий список на список із множинним вибором?</li>
+			<li>Як змінити адресу, за якої будуть відправлено дані форми?</li>			
+		</ol>
+		<h2>Довідники та додаткові матеріали</h2>
+		<ol>
+			<li id="link01"><a href="https://validator.w3.org/">Валідатор W3C</a></li>
+			<li id="link02"><a href="https://css.in.ua/">Довідник HTML та CSS</a></li>
+			<li id="link03"><a href="http://htmlbook.ru/">Справочник по HTML</a></li>
+			<li id="link04"><a href="https://www.w3schools.com/">Комплексний довідник web-розробника</a></li>
+			<li id="link05"><a href="https://developer.mozilla.org/ru/docs/Learn/HTML/Forms">Руководство по HTML формам</a></li>
+			<li id="link06"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/form">Елемент form</a></li>
+			<li id="link07"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/input">Елемент input</a></li>
+			<li id="link08"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/button">Елемент button</a></li>
+			<li id="link09"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/select">Елемент select</a></li>
+			<li id="link10"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/textarea">Елемент textarea</a></li>
+			<li id="link11"><a href="https://developer.mozilla.org/ru/docs/Web/HTTP/Methods/GET">Метод GET</a></li>
+			<li id="link12"><a href="https://developer.mozilla.org/ru/docs/Web/HTTP/Methods/POST">Метод POST</a></li>
+
+
+			
+		</ol>
+		<hr width="90%">
+		<p>* &mdash; на випадок, якщо ви прибулець з 90-х років.</p>
+		<p>** &mdash; завдання підвищеної складності для самостійного вивчення.</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ Лабораторна робота № 7</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ Лабораторна робота № 7</div>
+		<h1>Лабораторна робота № 7. <br>Створення меню до адаптивного макету</h1>
+		<h2>Мета роботи</h2>
+		<p>Розглянути приклади створення адаптивного меню сторінки. Навчитись створювати адаптивні меню, використовувати шрифтові векторні іконки. </p>
+		<h2>Обладнання</h2>
+		<p>Персональний комп'ютер. Текстовий редактор Sublime Text 3 або Notepad++. Пакет програм XAMPP. Web-браузер Chrome, Firefox, Opera, Internet Explorer*</p>
+		<h2>Теоретичні відомості</h2>
+		<h3>1. Адаптивне меню</h3>
+		
+		<p>
+			Адаптивне меню - меню сайта, яке здатне адаптувати свій зовнішній вигляд для пристроїв з різною роздільною здатністю екрана. Можливі різні варіанти реалізації адаптивного меню, особливо коли меню багаторівневе.
+		</p>
+		<figure>
+			<img class="figc" src="img/0701.jpg">
+			<figcaption>Зовнішній вигляд горизонтального та варіанти адаптації</figcaption>
+		</figure>
+		<p>
+			Для реалізації таких меню можуть бути використані базові підходи HTML та CSS. Також можливі варіанти реалізації таких меню за допомогою зв'язки HTML, CSS, JS. Окрім того, можуть бути готові вирішення для створення меню за топомогою фреймворків HTML-CSS, що дозволяють значно прискорити створення таких меню.
+		</p>
+		<p>
+			HTML та CSS для такого макету може виглядати наступним чином:
+		</p>
+
+				<pre>
+&lt;!doctype html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;style&gt;
+        body{
+            margin:0;
+            overflow-x:hidden
+        }
+        header{
+            width:100%;
+            display:table;
+            background-color:#002e5b;
+            margin-bottom:50px
+        }
+        .container{
+            width:100%;
+            padding-right:15px;
+            padding-left:15px;
+            margin-right:auto;
+            margin-left:auto
+        }
+        @media (min-width: 1200px) {
+            .container{max-width:1140px}
+        }
+        #logo{
+            float:left;
+            font-size:25px;
+            text-transform:uppercase;
+            color:#fffab2;
+            font-weight:600;
+            text-decoration:none;
+            padding:11px 0
+        }
+        nav{
+            width:auto;
+            float:right;
+            margin-top:7px
+        }
+        nav ul{
+            display:table;
+            float:right;
+            margin:0;padding:0
+        }
+        nav ul li{
+            float:left;
+            list-style-type:none
+        }
+        nav ul li:last-child{
+            padding-right:0
+        }
+        nav ul li a{
+            color:#e4f2ff;
+            font-size:19px;
+            padding:7px 19px;
+            display:inline-block;
+            text-decoration:none
+        }
+        nav ul li a:hover{
+            background-color:#143a06;
+            color:#fff9c8;
+            text-decoration:underline
+        }
+        .toggle-menu ul{
+            display:table;
+            width:31px;
+            margin-left:0;
+            padding-left:0;
+            margin:5px
+        }
+        .toggle-menu ul li{
+            width:100%;
+            height:3px;
+            background-color:#e9f0f7;
+            margin-bottom:4px;
+            list-style:none
+        }
+        .toggle-menu ul li:last-child{
+            margin-bottom:0
+        }
+        input[type=checkbox],label{
+            display:none
+        }
+        @media only screen and (max-width: 980px) {
+            header{padding:20px 0}
+            #logo{padding:0}
+            input[type=checkbox]{
+                position:absolute;
+                top:-9999px;
+                left:-9999px;
+                background:none
+            }
+            input[type=checkbox]:fous{
+                background:none
+            }
+            label{
+                float:right;
+                display:inline-block;
+                cursor:pointer;
+                margin-right:25px
+            }
+            input[type=checkbox]:checked ~ nav{
+                display:block
+            }
+            nav{
+                display:none;
+                position:absolute;
+                right:0;
+                top:50px;
+                background-color:#002e5b;
+                padding:0;
+                z-index:99
+            }
+            nav ul{width:auto}
+            nav ul li{
+                float:none;
+                padding:0;
+                width:100%;
+                display:table
+            }
+            nav ul li a{
+                color:#FFF;
+                font-size:15px;
+                padding:10px 20px;
+                display:block;
+                border-bottom:1px solid rgba(225,225,225,0.1)
+            }
+        }
+        @media only screen and (max-width: 360px) {
+            label{padding:5px 0}
+            #logo{font-size:20px}
+            nav{top:47px}
+        }
+    &lt;/style&gt;
+    &lt;title&gt;Hello, world!&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;div class=&quot;container&quot;&gt;  
+            &lt;a href=&quot;#&quot; id=&quot;logo&quot; target=&quot;_blank&quot;&gt;&Lcy;&acy;&bcy;&ocy;&rcy;&acy;&tcy;&ocy;&rcy;&ncy;&acy; &rcy;&ocy;&bcy;&ocy;&tcy;&acy; &numero;7&lt;/a&gt;
+            &lt;label for=&quot;toggle-1&quot; class=&quot;toggle-menu&quot;&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;/li&gt; 
+                    &lt;li&gt;&lt;/li&gt; 
+                    &lt;li&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/label&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;toggle-1&quot;&gt;
+            &lt;nav&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href=&quot;#logo&quot;&gt;&Gcy;&ocy;&lcy;&ocy;&vcy;&ncy;&acy;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#about&quot;&gt;&Pcy;&rcy;&ocy; &lcy;&acy;&bcy;&ocy;&rcy;&acy;&tcy;&ocy;&rcy;&ncy;&iukcy;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#portfolio&quot;&gt;&Scy;&acy;&jcy;&tcy; &KHcy;&Pcy;&Tcy;&Kcy;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#services&quot;&gt;&Mcy;&ucy;&zcy;&iecy;&jcy; &KHcy;&Pcy;&Tcy;&Kcy;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#gallery&quot;&gt;&Gcy;&acy;&lcy;&iecy;&rcy;&iecy;&yacy;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#contact&quot;&gt;&Kcy;&ocy;&ncy;&tcy;&acy;&kcy;&tcy;&icy;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/nav&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;div class=&quot;container&quot;&gt;
+     &lt;h1&gt;Hello, world!&lt;/h1&gt;  
+ &lt;/div&gt;  
+&lt;/body&gt;
+&lt;/html&gt;
+		</pre>
+		<p>
+			Альтернативний приклад поетапного створення адаптивного меню без використання JavaScript знаходиться за посиланням(<a href="#link08">8</a>).
+		</p>
+		<h3>2 Шрифтові графічні елементи</h4>
+		<p>
+			Головне достоїнство і перевага шрифтових іконок полягає в тому, що ці значки виглядають як графічні елементи, але по суті є шрифтом. А це означає, що ці іконки миттєво завантажуються і масштабуються на екранах з будь-якою роздільною здатністю, адже вони векторні.
+		</p>
+		<p>
+			Для використання шрифтових графічних елементів необхідно підключити такі шрифтові набори до вашої сторінки, оскільки їх нема в системі за замовчуванням. Варто звернути увагу на те, що підключення великої кількості разних шрифтових пакетів збільшить час завантаження вашої сторінки.
+		</p>
+		<p>
+			Одним з найбільших пакетів векторних іконок є FontAwesome. Він включає сотні шрифтових іконок на різну тематику. Пакет може бути використаним двома способами: розміщення на сайті пакету та використання посилання на дистрибутив CDN. Приклад використання таких іконок знаходиться за посиланням(<a href="#link06">5</a> - <a href="#link08">7</a>).
+		</p>
+
+		<h2>Хід роботи</h2>
+		<ol>
+			<li>Перевірити чи встановлено пакет програм web-розробника XAMPP</li>
+			<li>Викликати панель керування xampp-control.exe</li>
+			<li>Впевнитись, що web-сервер Apache запущений</li>
+			<li>Перейти за адресою <code>http://127.0.0.1/</code> або <code>http://localhost/</code> та впевнитись, що сторінка вітання XAMPP завантажилась</li>
+			<li>
+				<p>Виконати пункти лабораторної роботи №6 відповідно до оновлених прототипів сторінок:</p>
+				<figure>
+					<img class="figc" src="img/0705a.png">
+					<figcaption>Прототип сторінки на великий екран</figcaption>
+				</figure>
+				<figure>
+					<img class="figc" src="img/0705b.png">
+					<figcaption>Прототип сторінки на середній екран</figcaption>
+				</figure>
+				<figure>
+					<img class="figc" src="img/0705c.png">
+					<figcaption>Прототип сторінки на мобільний пристрій</figcaption>
+				</figure>
+			</li>
+			<li>Модифікувати головне меню сторінок лабораторної роботи №6 таким чином, щоб воно адаптувалося до різних пристроїв. За основу взяти один з наведених прикладів</li>
+			<li>Підключити одним з вказаних способів пакет FontAwesome до ваших сторінок</li>
+			<li>Додати до кожного пункту меню шрифтову іконку. Змінити іконку "бургер" в адаптивному меню на іншу з пакету FontAwesome</li>
+			<li>Зберегти файли з новим меню та перевірити їх на валідність</li>
+			<li>HTML-код файлу галереї з новим меню та скріншоти на різних екранах зберегти у звіт</li>
+			<li>Роздрукувати звіт та письмово відповісти на контрольні запитання</li>
+		</ol>
+		<h2>Контрольні питання</h2>
+		<ol>
+			<li>Чим відрізняється звичайне меню від адаптивного?</li>
+			<li>Які способи підключення пакету FontAwesome існують?</li>
+			<li>Як додати в меню іконку FontAwesome?</li>
+			<li>Які альтернативні пакети шрифтових іконок ви знаєте?</li>
+			<li>Які загальні рекомендації ви можете дати для підключення пакетів шрифтових іконок?</li>
+		</ol>
+		<h2>Довідники та додаткові матеріали</h2>
+		<ol>
+			<li id="link01"><a href="https://validator.w3.org/">Валідатор W3C</a></li>
+			<li id="link02"><a href="https://css.in.ua/">Довідник HTML та CSS</a></li>
+			<li id="link03"><a href="http://htmlbook.ru/">Справочник по HTML</a></li>
+			<li id="link04"><a href="https://www.w3schools.com/">Комплексний довідник web-розробника</a></li>
+			<li id="link05"><a href="https://fontawesome.com/">FontAwesome</a></li>
+			<li id="link06"><a href="https://fontawesome.ru/">FontAwesome на русском</a></li>
+			<li id="link07"><a href="https://fontawesome.ru/examples/">Пример использования FontAwesome</a></li>
+			<li id="link08"><a href="https://habr.com/ru/post/317528/">Адаптивное меню без Javascript</a></li>
+			<li id="link09"><a href="https://fontawesome.ru/">FontAwesome на русском</a></li>
+		</ol>
+		<hr width="90%">
+		<p>* &mdash; на випадок, якщо ви прибулець з 90-х років.</p>
+	</div>
+</body>
+</html>

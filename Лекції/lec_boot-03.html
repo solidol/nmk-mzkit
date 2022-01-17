@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ. Лекція №3 </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ. Лекція №3 </div>
+		<h1>Уроки з Bootstrap. Урок №3: таблиці</h1>
+<p>У бутстрапа є можливість додавати оформлення до будь-яких таблиць. Для того, щоб створена вами таблиця була оформлена в стилі Bootstrap, їй потрібно призначити клас table:</p>
+<pre>&lt;table class="table"&gt;</pre>
+<p>За замовчуванням Bootstrap додає таблицям такий стиль:</p>
+<ul>
+<li>невеликі внутрішні відступи всередині блоків</li>
+<li>горизонтальні сірі розділові кордону між рядками</li>
+</ul>
+<p>Таблиця в стандартному оформленні буде виглядати так:</p>
+<center>
+<table  border=1 cellpadding=5 style="border-collapse:collapse;;background-color: #fff ">
+<thead>
+<tr>
+<th>Ім&#8217;я</th>
+<th>Прізвище</th>
+<th>Пошта</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Іван</td>
+<td>Миколайчук</td>
+<td>Ivan@gmail.com</td>
+</tr>
+<tr>
+<td>Марія</td>
+<td>Остапчук</td>
+<td>Mary@gmail.com</td>
+</tr>
+<tr>
+<td>Юлія</td>
+<td>Петренко</td>,
+<td>Petro@gmail.com</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>В результаті код таблиці буде таким:</p>
+<pre> &lt;table class="table"&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Ім'я&lt;/th&gt;
+ &lt;th&gt;Прізвище&lt;/th&gt;
+ &lt;th&gt;Пошта&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Іван&lt;/td&gt;
+ &lt;td&gt;Миколайчук&lt;/td&gt;
+ &lt;td&gt;Ivan@gmail.com&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Марія&lt;/td&gt;
+ &lt;td&gt;Остапчук&lt;/td&gt;
+ &lt;td&gt;Mary@gmail.com&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Юлія&lt;/td&gt;
+ &lt;td&gt;Петренко&lt;/td&gt;
+ &lt;td&gt;Petro@gmail.com&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+ &lt;/table&gt;</pre>
+<p>Як бачите, ніяких додаткових маніпуляцій від вас не потрібно. Якщо клас таблиці не призначати, стилі Bootstrap їй призначені не будуть.</p>
+<h2>Чергування фону в рядках</h2>
+<p>Клас <code>.table-striped</code>, призначений таблиці, додасть сірий фон її непарним рядкам:</p>
+<pre>&lt;table class="table table-striped"&gt;</pre>
+<p>Результат:</p>
+<center>
+<table  border=1 cellpadding=5 style="border-collapse:collapse;;background-color: #fff ">
+<thead>
+<tr>
+<th>Ім&#8217;я</th>
+<th>Прізвище</th>
+<th>Пошта</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Іван</td>
+<td>Миколайчук</td>
+<td>Ivan@gmail.com</td>
+</tr>
+<tr>
+<td>Марія</td>
+<td>Остапчук</td>
+<td>Mary@gmail.com</td>
+</tr>
+<tr>
+<td>Юлія</td>
+<td>Петренко</td>,
+<td>Petro@gmail.com</td>
+</tr>
+</tbody>
+</table>
+</center>
+<h2>Вертикальні і горизонтальні межі в блоках</h2>
+<p>Клас <code>.table-bordered</code> додає горизонтальні і вертикальні кордону до всіх блоків вашої таблиці:</p>
+<pre>&lt;table class="table table-bordered"&gt;</pre>
+<center>
+<table  border=1 cellpadding=5 style="border-collapse:collapse;;background-color: #fff ">
+<thead>
+<tr>
+<th>Ім&#8217;я</th>
+<th>Прізвище</th>
+<th>Пошта</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Іван</td>
+<td>Миколайчук</td>
+<td>Ivan@gmail.com</td>
+</tr>
+<tr>
+<td>Марія</td>
+<td>Остапчук</td>
+<td>Mary@gmail.com</td>
+</tr>
+<tr>
+<td>Юлія</td>
+<td>Петренко</td>,
+<td>Petro@gmail.com</td>
+</tr>
+</tbody>
+</table>
+</center>
+<h2>Підсвічування блоків при наведенні</h2>
+<p>Клас <code>.table-hover</code>, призначений таблиці, додасть сірий фон рядках таблиці при наведенні курсору миші.</p>
+<pre>&lt;table class="table table-hover"&gt;</pre>
+<center>
+<table  border=1 cellpadding=5 style="border-collapse:collapse;;background-color: #fff ">
+<thead>
+<tr>
+<th>Ім&#8217;я</th>
+<th>Прізвище</th>
+<th>Пошта</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Іван</td>
+<td>Миколайчук</td>
+<td>Ivan@gmail.com</td>
+</tr>
+<tr>
+<td>Марія</td>
+<td>Остапчук</td>
+<td>Mary@gmail.com</td>
+</tr>
+<tr>
+<td>Юлія</td>
+<td>Петренко</td>,
+<td>Petro@gmail.com</td>
+</tr>
+</tbody>
+</table>
+</center>
+<h2>Компактні відступи</h2>
+<p>За допомоги класу <code>.table-condensed</code> ви можете зменшити внутрішні відступи для елементів таблиці, щоб вона виглядала більш компактно. Це зручно для великих таблиць.</p>
+<pre>&lt;table class="table table-condensed"&gt;</pre>
+<center>
+<table  border=1 cellpadding=5 style="border-collapse:collapse;;background-color: #fff ">
+<thead>
+<tr>
+<th>Ім&#8217;я</th>
+<th>Прізвище</th>
+<th>Пошта</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Іван</td>
+<td>Миколайчук</td>
+<td>Ivan@gmail.com</td>
+</tr>
+<tr>
+<td>Марія</td>
+<td>Остапчук</td>
+<td>Mary@gmail.com</td>
+</tr>
+<tr>
+<td>Юлія</td>
+<td>Петренко</td>,
+<td>Petro@gmail.com</td>
+</tr>
+</tbody>
+</table>
+</center>
+<h2>Контекстні фони блоків</h2>
+<p>Классы контекста можно применять, чтобы добавить разный цвет фона строкам (<code>&lt;tr&gt;</code>) або блокам (<code>&lt;td&gt;</code>) вашої таблиці:</p>
+<center>
+<table  border=1 cellpadding=5 style="border-collapse:collapse;;background-color: #fff ">
+<thead>
+<tr>
+<th>Ім&#8217;я</th>
+<th>Прізвище</th>
+<th>Пошта</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Іван</td>
+<td>Миколайчук</td>
+<td>Ivan@gmail.com</td>
+</tr>
+<tr>
+<td>Марія</td>
+<td>Остапчук</td>
+<td>Mary@gmail.com</td>
+</tr>
+<tr>
+<td>Юлія</td>
+<td>Петренко</td>,
+<td>Petro@gmail.com</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Ви можете використовувати п&#8217;ять стандартних класів для оформлення фону:</p>
+<center>
+<table  border=1 cellpadding=5 style="border-collapse:collapse;;background-color: #fff ">
+<thead>
+<tr>
+<th>Клас</th>
+<th>Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.active</code></td>
+<td>Додає клас з сірим фоном, який використовується при наведенні на клітинку або рядок</td>
+</tr>
+<tr>
+<td><code>.success</code></td>
+<td>Використовується для повідомлення про успіх</td>
+</tr>
+<tr>
+<td><code>.info</code></td>
+<td>Нейтральне інформаційне повідомлення</td>
+</tr>
+<tr>
+<td><code>.warning</code></td>
+<td>Попередження, яке потребує уваги</td>
+</tr>
+<tr>
+<td><code>.danger</code></td>
+<td>Використовується для повідомлень про помилку, небезпеку або яксь негативну дію</td>
+</tr>
+</tbody>
+</table>
+</center>
+<h2>Responsive (чуйні) таблиці</h2>
+<p>Клас .table-responsive робить таблицю сприйнятливою до розмірів екрану, на якому відображається сторінка. На невеликих пристроях (до 769 пікселів по ширині) таблиця буде відображатися з горизонтальним скролл, якщо не влазить в екран повністю. При відображенні на будь-якому екрані ширше 768 пікселів таблиця буде відображатися як зазвичай.</p>
+<pre>&lt;div class="table-responsive"&gt;
+ &lt;table class="table"&gt;
+   ... 
+ &lt;/table&gt; 
+&lt;/div&gt;</pre>
+<p><strong>Зверніть увагу</strong>: клас потрібно призначити не самій таблиці, а батьківському елементу, в якому вона буде перебувати.</p>
+
+		</div>
+	</body>
+	</html>
