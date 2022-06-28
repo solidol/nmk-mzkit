@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>МЗКІТ. Лекція №15 </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+
+</head>
+<body>
+	<div class="paper">
+		<div id="colontitle">МЗКІТ. Лекція №15 </div>
+		<h1>Уроки по Bootstrap: спливні підказки (tooltip.js)</h1>
+    <p><strong>Tooltip</strong> — елемент з текстом, що називається спливною підказкою. Плагін <code>tooltip.js</code> дозволяє показувати невелике спливаюче вікно, яке з&#8217;являється, коли користувач наводить курсор миші на елемент:</p>
+    <p><img src="img/lec-15/1.png" alt=""></p>
+    <p>Цей модуль можна використовувати як окремо (підключити окремо файл <code>tooltip.js</code>), так і разом з іншими компонентами Bootstrap (за допомогою файлу <code>bootstrap.js</code> або <code>bootstrap.min.js</code>). Для роботи плагін вимагає встановленого jQuery.</p>
+<h2>Як створити підказку</h2>
+<p>Щоб вказати, на якому елементі показувати підказку, додай йому атрибут <code>data-toggle="tooltip"</code>.</p>
+<p>В атрибуті <code>title</code> треба вказати текст, який з&#8217;явиться при наведенні курсору:</p>
+<pre>&lt;a href="#" data-toggle="tooltip" title="Що ти тут очікував побачити?"&gt;Наведи курсор&lt;/a&gt;</pre>
+<p>Тільки цього коду недостатньо, підказки також повинні бути підключені за допомогою jQuery. Щоб вибрати, які елементи повинні мають створювати такі підказки, використовується метод <code>tooltip()</code>. Окрім того, наступним кодом можна підключити підказки на всьому документі одразу, зазвичай так і робиться:</p>
+<pre>&lt;script&gt;
+$(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+&lt;/script&gt;</pre>
+<h2>Позиції підказок</h2>
+<p>За замовчуванням підказки відображаються над елементом.</p>
+<p>Щоб змінити позицію підказки, використовуй атрибут <code>data-placement</code>:</p>
+<pre>&lt;a href="#" data-toggle="tooltip" data-placement="top" title="підказка!"&gt;підказка&lt;/a&gt;
+&lt;a href="#" data-toggle="tooltip" data-placement="bottom" title="підказка!"&gt;підказка&lt;/a&gt;
+&lt;a href="#" data-toggle="tooltip" data-placement="left" title="підказка!"&gt;підказка&lt;/a&gt;
+&lt;a href="#" data-toggle="tooltip" data-placement="right" title="підказка!"&gt;підказка&lt;/a&gt;</pre>
+<p>Окрім того, можна використовувати атрибут <code>data-placement</code> із значенням <code>auto</code>: в такому випадку браузер сам вирішить, яку позицію краще вибрати. Наприклад, при значенні <code>auto left</code> підказка буде відображатися зліва, коли це можливо, в іншому випадку — праворуч.</p>
+</p> 
+		
+    </div>
+	</body>
+	</html>
