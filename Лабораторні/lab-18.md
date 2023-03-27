@@ -129,16 +129,27 @@ AJAX не является технологией в полном смысле �
 
 ## Контрольні питання
 
-1. ?
-2. ?
-3. ?
-4. ?
-5. ?
+1. Що таке AJAX і як він пов'язаний з JavaScript і HTTP?
+2. Які основні методи об'єкту XMLHttpRequest?
+3. Як відправити AJAX запит з допомогою чистого JavaScript?
+4. Які існують типи відповідей AJAX-запитів?
+5. Як відслідковувати прогрес AJAX-запиту?
+6. Як здійснювати паралельні AJAX запити?
+7. Які підходи використовуються для тестування AJAX-запитів?
+8. Які проблеми можуть виникати при виконанні AJAX-запитів і як їх вирішувати?
+9. Як обробити помилки, що виникають при відправці AJAX запиту?
+10. Як використовувати AJAX для оновлення частин сторінки без перезавантаження сторінки? 
+
 
 ## Довідники та додаткові матеріали
 
-1. [Валідатор W3C](https://validator.w3.org)
-2. [Современный учебник JavaScript](https://learn.javascript.ru)
-3. [Справочник по HTML](http://htmlbook.ru)
-
-<!-- скопированая lab-16 -->
+1. [MDN web docs: AJAX — Asynchronous JavaScript and XML](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX)
+2. [jQuery AJAX Documentation](https://api.jquery.com/category/ajax/)
+3. [W3Schools AJAX Tutorial](https://www.w3schools.com/xml/ajax_intro.asp)
+4. [SitePoint: AJAX and JSON: A Tandem Tutorial](https://www.sitepoint.com/ajax-json-tutorial/)
+5. [A Beginner’s Guide to AJAX Development with PHP](https://www.codexworld.com/ajax-development-with-php/)
+6. [Introduction to AJAX for PHP Web Applications](https://code.tutsplus.com/tutorials/introduction-to-ajax-for-php-web-applications--cms-32404)
+7. [AJAX CRUD with PHP & MySQL: Tutorial for Beginners](https://www.tutorialrepublic.com/php-tutorial/php-mysql-ajax-crud.php)
+8. [Using Fetch | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+9. [AJAX and APIs for Beginners](https://skillcrush.com/blog/ajax-apis-for-beginners/)
+10. [How to use AJAX to improve your web applications](https://blog.logrocket.com/how-to-use-ajax-to-improve-your-web-applications/) 

@@ -113,25 +113,31 @@ $(this).hide();
 
 ## Контрольні питання
 
-1. Що таке jQuery?
-2. Які бібліотеки аналогічні jQuery ви знаєте?
-3. Що таке обробний подій?
-4. Які види селекторів jQuery ви знаєте?
-5. Яким чином можна встановити або видалити клас деякому елементу або г
-6. Яким чином можна встановити значення елементу форми?
-
+1. Що таке jQuery і як він пов'язаний з JavaScript?
+2. Як підключити jQuery до свого проекту?
+3. Які події можна обробити з допомогою jQuery?
+4. Які методи для роботи з DOM-елементами є в jQuery?
+5. Як виконати анімацію з допомогою jQuery?
+6. Як використовувати селектори для вибору елементів з DOM-дерева в jQuery?
+7. Як виконати AJAX-запит з допомогою jQuery?
+8. Як додавати та видаляти класи з елементів за допомогою jQuery?
+9. Як виконати ефект "плавне появлення" елемента з допомогою jQuery?
+10. Які існують методи для обробки форм з допомогою jQuery?
+    
 ## Довідники та додаткові матеріали
 
-1. [Валідатор W3C](https://validator.w3.org)
-2. [Современный учебник JavaScript](https://learn.javascript.ru)
-3. [Офіційний сайт jQuery](https://jquery.com)
-4. [jQuery API documentation](https://api.jquery.com)
-5. [Плагіни jQuery UI](https://jqueryui.com)
-6. [jQuery W3School](https://www.w3schools.com/jquery/)
-7. [jQuery для начинающих](https://habr.com/ru/post/38208/)
-
----
-
-Особиста подяка:
-
- - Бойчук О.
+1. [jQuery documentation](https://api.jquery.com/)
+2. [Learn jQuery](https://learn.jquery.com/)
+3. [jQuery Tutorial for Beginners](https://www.w3schools.com/jquery/)
+4. [10 Reasons Why You Should Use jQuery](https://www.sitepoint.com/10-reasons-why-you-should-use-jquery/)
+5. [jQuery in 2021 - Is It Still Relevant?](https://www.educba.com/jquery-in-2021/)
+6. [Introduction to jQuery by Mozilla](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction)
+7. [jQuery Examples](https://www.w3schools.com/jquery/jquery_examples.asp)
+8. [jQuery Cheat Sheet](https://websitesetup.org/jquery-cheat-sheet/)
+9. [jQuery UI](https://jqueryui.com/)
+10. [jQuery Validation Plugin](https://jqueryvalidation.org/)
+11. [Современный учебник JavaScript](https://learn.javascript.ru)
+12. [Офіційний сайт jQuery](https://jquery.com)
+13. [jQuery API documentation](https://api.jquery.com)
+14. [Плагіни jQuery UI](https://jqueryui.com)
+15. [jQuery W3School](https://www.w3schools.com/jquery/)

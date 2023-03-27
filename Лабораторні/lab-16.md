@@ -12,6 +12,8 @@
 
 ## Теоретичні відомості
 
+Помилка в JavaScript - це несподівана ситуація, яка виникає під час виконання програми і викликає зупинку її роботи. У JavaScript існує декілька типів помилок, таких як синтаксичні помилки, помилки виконання, помилки логіки та помилки введення/виведення.
+
 ### Обробка помилок, "try..catch"
 
 Неважливо, наскільки ми хороші в програмуванні, іноді наші скрипти містять помилки. Вони можуть виникати через наших промахів, несподіваного введення користувача, неправильної відповіді сервера і по тисячі інших причин.
@@ -103,16 +105,26 @@ catch(err)
 
 ## Контрольні питання
 
-1. Для чого потрібні оператори "try..catch"?
-2. Яка послідовність роботи операторів в середині секцій "try", "catch" та "finaly"?
-3. Які види помилок можна обробити за допомогою "try..catch"?
-4. Яким чином штучно імітувати помилку?
+1. Що таке помилка в JavaScript?
+2. Які типи помилок існують в JavaScript?
+3. Як можна визначити тип помилки в JavaScript?
+4. Які основні методи обробки помилок в JavaScript?
+5. Які інструкції в JavaScript використовуються для обробки помилок?
+6. Що таке блок try-catch?
+7. Як працює блок finally у спробі-виловлювачі?
+8. Що таке стек викликів?
+9. Як можна вивести інформацію про помилку в JavaScript?
+10. Як можна запобігти виникненню помилок в JavaScript?
 
 ## Довідники та додаткові матеріали
 
-1. [Валідатор W3C](https://validator.w3.org)
-2. [Современный учебник JavaScript](https://learn.javascript.ru)
-3. [Справочник по HTML](http://htmlbook.ru)
-4. [Обработка ошибок, "try..catch"](https://learn.javascript.ru/try-catch)
-5. [Порядок выполнения и обработка ошибок](https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
-6. [Инструкция throw](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/throw)
+1. [MDN Web Docs: Error handling](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Error_handling)
+2. [W3Schools: JavaScript Errors](https://www.w3schools.com/js/js_errors.asp)
+3. [JavaScript.info: Error handling](https://javascript.info/error-handling)
+4. [FreeCodeCamp: Debugging and Error Handling in JavaScript](https://www.freecodecamp.org/news/debugging-and-error-handling-in-javascript/)
+5. [Codecademy: Error Handling in JavaScript](https://www.codecademy.com/learn/introduction-to-javascript/modules/learn-javascript-error-handling)
+6. [Udacity: JavaScript Error Handling](https://www.udacity.com/course/intro-to-javascript--ud803)
+7. [SitePoint: How to Handle Errors in JavaScript](https://www.sitepoint.com/error-handling-javascript/)
+8. [Обработка ошибок, "try..catch"](https://learn.javascript.ru/try-catch)
+9. [Порядок выполнения и обработка ошибок](https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
+10. [Инструкция throw](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/throw)

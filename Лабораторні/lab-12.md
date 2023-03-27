@@ -79,7 +79,17 @@ arr.length = 42;
 
 ## Довідники та додаткові матеріали
 
-1. [Валідатор W3C](https://validator.w3.org)
-2. [Современный учебник JavaScript](https://learn.javascript.ru)
-3. [Справочник по HTML](http://htmlbook.ru)
-4. [Современный учебник JavaScript. Массивы](https://learn.javascript.ru/array)
+1. [MDN Web Docs: JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+2. [W3Schools: JavaScript Tutorial](https://www.w3schools.com/js/)
+3. [JavaScript.info: The Modern JavaScript Tutorial](https://javascript.info/)
+4. [FreeCodeCamp: JavaScript Tutorial](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/)
+5. [Codecademy: Learn JavaScript](https://www.codecademy.com/learn/introduction-to-javascript)
+6. [Udacity: JavaScript Basics](https://www.udacity.com/course/javascript-basics--ud804)
+7. [TutorialsPoint: JavaScript - Operators](https://www.tutorialspoint.com/javascript/javascript_operators.htm)
+8. [GeeksforGeeks: JavaScript Basics](https://www.geeksforgeeks.org/javascript-basics/)
+9. [Mozilla Hacks: What is the DOM?](https://hacks.mozilla.org/2019/01/what-is-the-dom/)
+10. [W3Schools: JavaScript HTML DOM](https://www.w3schools.com/js/js_htmldom.asp)
+11. [MDN Web Docs: Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+12. [Google Developers: Introduction to the DOM](https://developers.google.com/web/fundamentals/accessibility/how-to-review)
+13. [SitePoint: Working with the Document Object Model (DOM)](https://www.sitepoint.com/dom-manipulation-vanilla-javascript-no-jquery/) 
+14. [Современный учебник JavaScript. Массивы](https://learn.javascript.ru/array)

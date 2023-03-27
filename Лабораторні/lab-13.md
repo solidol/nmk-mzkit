@@ -49,13 +49,24 @@ function имя (){
 
 ## Контрольні питання
 
-1. Що таке функція? Яке її призначення?
-2. Що таке анонімна функція? Для чого можна її використовувати?
-3. Які види аргументів може повертати функція?
-4. Яким чином опрацьовуються у функції глобальні змінні?
+1. Що таке функція в JavaScript та як вона відрізняється від змінних?
+2. Які є основні способи оголошення функцій в JavaScript?
+3. Що таке аргументи функції та як їх передавати?
+4. Як можна повернути значення з функції в JavaScript?
+5. Які є типи функцій в JavaScript і як вони відрізняються?
+6. Як можна використовувати функції як аргументи в інших функціях в JavaScript?
+7. Як можна створити анонімну функцію в JavaScript і для чого це потрібно?
+8. Як можна використовувати рекурсію в JavaScript функціях та які є її переваги та недоліки?
 
 ## Довідники та додаткові матеріали
 
-1. [Валідатор W3C](https://validator.w3.org)
-2. [Современный учебник JavaScript](https://learn.javascript.ru)
-3. [Справочник по HTML](http://htmlbook.ru)
+1. [MDN Web Docs: Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)
+2. [W3Schools: JavaScript Functions](https://www.w3schools.com/js/js_functions.asp)
+3. [JavaScript.info: Functions](https://javascript.info/function-basics)
+4. [FreeCodeCamp: Learn JavaScript - Functions](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/write-reusable-javascript-with-functions)
+5. [Codecademy: Functions](https://www.codecademy.com/learn/introduction-to-javascript/modules/learn-javascript-functions)
+6. [Udacity: JavaScript Functions](https://www.udacity.com/course/intro-to-javascript--ud803)
+7. [TutorialsPoint: JavaScript - Functions](https://www.tutorialspoint.com/javascript/javascript_functions.htm)
+8. [GeeksforGeeks: JavaScript Functions](https://www.geeksforgeeks.org/functions-in-javascript/)
+9. [SitePoint: JavaScript Functions: Understanding the Basics](https://www.sitepoint.com/understanding-essence-javascript-functions/)
+10. [Smashing Magazine: A Beginner’s Guide To JavaScript Functions And Scope](https://www.smashingmagazine.com/2020/04/beginners-guide-javascript-functions-scope/)

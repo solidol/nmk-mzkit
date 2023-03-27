@@ -33,16 +33,26 @@
 
 ## Контрольні питання
 
-1. ?
-2. ?
-3. ?
-4. ?
-5. ?
-
+1. Що таке прототип об'єкта в JavaScript та як він використовується?
+2. Як можна перевірити наявність властивості у об'єкта в JavaScript?
+3. Як можна отримати список всіх властивостей об'єкта в JavaScript?
+4. Як можна об'єднати два об'єкти в JavaScript?
+5. Як можна визначити тип об'єкта в JavaScript та що таке операція instanceof?
+6. Як можна створити змінну, що містить копію об'єкта в JavaScript?
+7. Що таке дескриптори властивостей об'єктів в JavaScript та як вони використовуються?
+8. Як можна заборонити редагувати властивості об'єкта в JavaScript?
+9. Як можна видаляти властивості об'єкта в JavaScript та що таке метод delete?
+10. Як можна використовувати класи в JavaScript та яка їх роль у створенні об'єктів?
+    
 ## Довідники та додаткові матеріали
 
-1. [Валідатор W3C](https://validator.w3.org)
-2. [Современный учебник JavaScript](https://learn.javascript.ru)
-3. [Справочник по HTML](http://htmlbook.ru)
-
-<!-- Нет мети, теории, вопросов -->
+1. [MDN Web Docs: Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+2. [W3Schools: JavaScript Objects](https://www.w3schools.com/js/js_objects.asp)
+3. [JavaScript.info: Objects](https://javascript.info/object)
+4. [FreeCodeCamp: Learn JavaScript - Objects](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/build-javascript-objects)
+5. [Codecademy: Objects](https://www.codecademy.com/learn/introduction-to-javascript/modules/learn-javascript-objects)
+6. [Udacity: JavaScript Objects](https://www.udacity.com/course/intro-to-javascript--ud803)
+7. [TutorialsPoint: JavaScript - Objects](https://www.tutorialspoint.com/javascript/javascript_objects.htm)
+8. [GeeksforGeeks: JavaScript Objects](https://www.geeksforgeeks.org/javascript-objects/)
+9. [SitePoint: Understanding Objects in JavaScript](https://www.sitepoint.com/understanding-objects-in-javascript/)
+10. [Smashing Magazine: A Beginner’s Guide to JavaScript Objects](https://www.smashingmagazine.com/2019/10/beginners-guide-javascript-objects/)

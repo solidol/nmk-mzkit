@@ -139,8 +139,13 @@ HTML-документ, в тілі якого міститься код JavaScri
 
 ## Довідники та додаткові матеріали
 
-1. [Валідатор W3C](https://validator.w3.org)
-2. [Довідник HTML та CSS](https://css.in.ua)
-3. [Справочник по HTML](http://htmlbook.ru)
-4. [Справочник по роботі з JavaScript в консолі розробника](https://learn.javascript.ru/devtools/)
-5. [Справочник по JavaScript](https://learn.javascript.ru/hello-world/)
+1. [MDN Web Docs: JavaScript](https://developer.mozilla.org/uk/docs/Web/JavaScript)
+2. [W3Schools: JavaScript](https://www.w3schools.com/js/)
+3. [JavaScript.info: JavaScript](https://javascript.info/)
+4. [FreeCodeCamp: JavaScript](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/)
+5. [Codecademy: JavaScript](https://www.codecademy.com/learn/introduction-to-javascript)
+6. [Udacity: JavaScript](https://www.udacity.com/course/javascript-basics--ud804)
+7. [TutorialsPoint: JavaScript](https://www.tutorialspoint.com/javascript/index.htm)
+8. [GeeksforGeeks: JavaScript](https://www.geeksforgeeks.org/javascript-tutorial/)
+9. [SoloLearn: JavaScript](https://www.sololearn.com/learning/1024)
+10. [CSS-Tricks: JavaScript](https://css-tricks.com/javascript/)

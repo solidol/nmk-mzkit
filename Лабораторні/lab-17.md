@@ -129,16 +129,31 @@ AJAX не является технологией в полном смысле �
 
 ## Контрольні питання
 
-1. ?
-2. ?
-3. ?
-4. ?
-5. ?
+1. Що таке JSON і як його можна описати?
+2. Як створити JSON-об'єкт у JavaScript?
+3. Які типи даних підтримуються в JSON?
+4. Які методи можуть бути використані для перетворення JSON-рядка на JavaScript-об'єкт?
+5. Як перетворити JavaScript-об'єкт на JSON-рядок?
+6. Які основні властивості має об'єкт JSON?
+7. Як використовувати JSON для передачі даних між сервером та клієнтом?
+8. Які основні методи можуть бути використані для роботи з JSON-даними?
+9. Які переваги має використання JSON для обміну даними в порівнянні з іншими форматами даних?
+10. Які інструменти можна використовувати для перегляду та редагування JSON-даних?
 
 ## Довідники та додаткові матеріали
 
-1. [Валідатор W3C](https://validator.w3.org)
-2. [Современный учебник JavaScript](https://learn.javascript.ru)
-3. [Справочник по HTML](http://htmlbook.ru)
-
-<!-- Нет мети, вопросов -->
+1. [Офіційний сайт JSON](https://www.json.org/)
+2. ["Introduction to JSON" на MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)
+3. ["JSON Tutorial" на W3Schools](https://www.w3schools.com/js/js_json_intro.asp)
+4. ["JSON - Quick Guide" на Tutorialspoint](https://www.tutorialspoint.com/json/index.htm)
+5. ["JSON - JavaScript Object Notation" на GeeksforGeeks](https://www.geeksforgeeks.org/json-javascript-object-notation/)
+6. ["Understanding JSON" на Sitepoint](https://www.sitepoint.com/understanding-json/)
+7. ["JSON for Beginners" на Programiz](https://www.programiz.com/javascript/json)
+8. ["JSON Data" на Javatpoint](https://www.javatpoint.com/json-data)
+9. ["JSON Syntax and Structure" на Codecademy](https://www.codecademy.com/learn/learn-json)
+10. ["Parsing JSON" на Codeburst](https://codeburst.io/javascript-object-iteration-parsing-with-json-8d1ede1cedec)
+11. [W3Schools XML Tutorial](https://www.w3schools.com/xml/default.asp)
+12. [Mozilla XML Documentation](https://developer.mozilla.org/en-US/docs/XML_introduction)
+13. [XML.com](https://www.xml.com/)
+14. [XML Tutorial by Tutorialspoint](https://www.tutorialspoint.com/xml/index.htm)
+15. [XML - Introduction by GeeksforGeeks](https://www.geeksforgeeks.org/xml-introduction/)

@@ -142,7 +142,13 @@ document.getElementByld('test123').onclick = function(){alert(this.id);}
 
 ## Довідники та додаткові матеріали
 
-1. [Валідатор W3C](https://validator.w3.org)
-2. [Современный учебник JavaScript](https://learn.javascript.ru)
-3. [Справочник по событиям](https://developer.mozilla.org/ru/docs/Web/Events)
-4. [Подія](http://яваскрипт.укр/подія)
+1. [MDN Web Docs: Events](https://developer.mozilla.org/en-US/docs/Web/Events)
+2. [W3Schools: JavaScript Events](https://www.w3schools.com/js/js_events.asp)
+3. [JavaScript.info: Events](https://javascript.info/events)
+4. [FreeCodeCamp: Learn How to Handle Events in JavaScript](https://www.freecodecamp.org/news/learn-how-to-handle-events-in-javascript/)
+5. [Codecademy: Events](https://www.codecademy.com/learn/learn-javascript/modules/learn-javascript-events)
+6. [Udacity: Introduction to JavaScript](https://www.udacity.com/course/intro-to-javascript--ud803)
+7. [TutorialsPoint: JavaScript - Events](https://www.tutorialspoint.com/javascript/javascript_events.htm)
+8. [GeeksforGeeks: JavaScript Event Handling](https://www.geeksforgeeks.org/javascript-event-handling/)
+9. [Smashing Magazine: An Introduction to DOM Events](https://www.smashingmagazine.com/2013/11/an-introduction-to-dom-events/)
+10. [CSS-Tricks: The Event Object](https://css-tricks.com/snippets/javascript/the-event-object/)
