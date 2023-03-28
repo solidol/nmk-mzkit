@@ -40,6 +40,50 @@ Schema.org визначає більше 800 типів об'єктів, які 
 
 Schema.org використовує різні формати мікророзмітки, такі як Microdata, RDFa та JSON-LD, і може бути використана на будь-якій веб-сторінці, незалежно від її типу чи призначення.
 
+### Приклад
+
+У цьому прикладі мікророзмітка застосовується для статті. Властивість itemscope вказує на те, що елемент має властивості, які можна розмітити, а itemtype вказує на тип вмісту, який описується в елементі.
+
+За допомогою атрибута itemprop ми вказуємо, яку саме властивість мікророзмітки має елемент. Наприклад, headline описує заголовок статті, datePublished вказує на дату публікації, а author вказує на автора.
+
+```html
+<article itemscope itemtype="http://schema.org/Article">
+  <header>
+    <h1 itemprop="headline">Заголовок статті</h1>
+    <p><time itemprop="datePublished" datetime="2022-03-28">28 березня 2022</time></p>
+    <p>Автор: <span itemprop="author">Ім'я автора</span></p>
+  </header>
+  <section itemprop="articleBody">
+    <p>Текст статті...</p>
+  </section>
+  <footer>
+    <p>Ключові слова: <span itemprop="keywords">ключове слово 1, ключове слово 2</span></p>
+    <p>Джерело: <a href="https://www.example.com" itemprop="publisher">Example.com</a></p>
+  </footer>
+</article>
+```
+
+У цьому прикладі мікророзмітка використовується для опису продукту, включаючи його назву, зображення, опис, бренд і код продукту. Використовуючи itemprop, ми можемо вказати, яку саме властивість має кожен елемент.
+
+Для розмітки ціни та доступності продукту ми використовуємо вкладений елемент Offer з itemscope і itemtype. Це дозволяє нам вказати додаткову інформацію про ціну, валюту і доступність продукту.
+
+```html
+<div itemscope itemtype="http://schema.org/Product">
+  <h1 itemprop="name">Назва продукту</h1>
+  <img itemprop="image" src="image.jpg" alt="Зображення продукту">
+  <p itemprop="description">Опис продукту...</p>
+  <span itemprop="brand">Бренд продукту</span>
+  <span itemprop="productID">Код продукту</span>
+  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    <span itemprop="price">Ціна продукту</span>
+    <span itemprop="priceCurrency" content="UAH">грн</span>
+    <a itemprop="availability" href="http://schema.org/InStock">В наявності</a>
+  </div>
+</div>
+```
+
+Використання мікророзмітки може бути корисним для пошукових систем, які можуть краще індексувати вміст сторінки і використовувати цю інформацію для відображення більш інформативних результатів пошуку для користувачів.
+
 ### Сервіси для перевірки корректності мікророзмітки
 
 1. [Google Rich Results Test](https://search.google.com/test/rich-results)
