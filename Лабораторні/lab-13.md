@@ -1,30 +1,52 @@
-# Оптимізація коду. Використання функцій
+# Основні кострукції мови JavaScript
 
 [Перелік усіх робіт](README.md)
 
 ## Мета роботи
 
-Розглянути приклади роботи з функціями JavaScript. Навчитись створювати власні функції. Навчитися оптимізувати код за допомогою функцій
+Розглянути приклади роботи з масивами та колекціями JavaScript. Навчитись опрацьовувати колекції елемементиів HTML, колекції DOM. Навчитися застосовувати масиви для вирішення практичних задач
 
 ## Обладнання
 
-Персональний комп'ютер. Текстовий редактор Sublime Text 3 або Notepad++. Пакет програм XAMPP. Web-браузер Chrome, Firefox, Opera, Internet Explorer
+Персональний комп'ютер. Текстовий редактор Sublime Text 3 або Notepad++. Пакет програм XAMPP. Web-браузер Chrome, Firefox, Opera, Internet Explorer*
 
 ## Теоретичні відомості
 
-Функция - это именованная последовательность операторов (инструкций). Любая функция имеет следующий синтаксис:
+### Масиви
+
+Масив представляється собою упорядкований набір значень, до якого ви посилаєтеся на ім'я і індексу. Припустимо, у вас є масив з ім'ям emp, що містить імена співробітників і упорядкований за номером співробітників. Отже, emp[1] буде являти собою ім'я співробітника номер один, emp[2] - ім'я співробітника номер два, і т.д.
+
+Мова JavaScript не містить явного типу даних "масив". Проте, можливо використовувати зумовлений об'єкт Array і його методи для роботи з масивами в створюваних додатках. Об'єкт Array містить методи для роботи з масивами самими різними способами, наприклад, є методи для об'єднання, перевертання і сортування. Об'єкт містить властивість для визначення довжини масиву, а також властивості для роботи з регулярними виразами.
+
+### Створення масивів
+
+Наступні вирази створюють однакові масиви:
 ```js
-function имя (){
-
-оператор;
-
-.......
-
-оператор;
-
-}
+let arr = new Array(element0, element1, ..., elementN);
+let arr = Array(element0, element1, ..., elementN);
+let arr = [element0, element1, ..., elementN];
 ```
-Сначала идет ключевое слово function, затем имя функции, затем в круглых скобках перечисляются параметры (если они есть), затем в фигурных скобках перечисляются операторы, т.е. последовательность выполняемых действий. Каждый оператор заканчивается точкой с запятой.
+element0, element1, ..., elementN - список значень елементів масиву. Якщо значення задані, то ці значення будуть елементами масиву після його ініціалізації. Властивість length у масиву дорівнюватиме кількості аргументів.
+
+Синтаксис з використанням квадратних дужок називається "літерал масиву" (array literal) або "ініціалізатор масиву". Такий запис коротше, ніж інші способи створення масиву, і, як правило, більш краща.
+
+Для создания массива без элементов, но ненулевой длины, возможно использовать одно из следующих выражений:
+```js
+let arr = new Array(arrayLength);
+let arr = Array(arrayLength);
+// Точно такой же эффект
+let arr = [];
+arr.length = arrayLength;
+```
+Якщо ви хочете форматувати масив одним елементом і цим елементом є число типу Number, то ви повинні використовувати квадратні дужки. Якщо ви створюєте масив за допомогою Array (конструктора або функції), а єдиним елементом цього масиву буде число типу Number, то число це інтерпретується як довжина масиву (arrayLength), а не як елемент типу Number.
+```js
+let arr = [42]; // Создаёт массив  с одним элементом
+let arr = Array(42); // Создаёт массив без элементов,
+// но устанавлявает длину массива arr.length в 42
+// Это эквивалентно следующему
+let arr = [];
+arr.length = 42;
+```
 
 ## Хід роботи
 
@@ -34,39 +56,40 @@ function имя (){
 4. Перейти за адресою http://127.0.0.1/ або http://localhost/ та впевнитись, що сторінка вітання XAMPP завантажилась
 5. Очистити зміст каталогу C:\xampp\htdocs\
 6. Створити файл index.html в середині каталогу C:\xampp\htdocs\
-7. Перейти за адресою http://127.0.0.1/ або http://localhost/ та впевнитись, що сторінка, яку ви створили, завантажилася корректно
-8. Створити файл з назвою script.js та помістити його поряд з файлом index.html
-9. Підключити файл script.js в секції `<head>`
-10. Відповідно до завдань нижче створити необхідні HTML-форми, призначити обробники подій для елементів форми. Обробники подій оформити у вигляді анонімною функції.
-11. У файл script.js помістити код та перевірити його роботу.
-12. Створити програму для обчислення коренів квадратного рівняння, за введенними коефіцієнтами. Якщо рівняння не має коренів, повідомити про це користувача. Дискримінант рівняння має обчислювати спеціальна функція.
-13. Створити програму складання двох матриць 5х5. Створити функцію яка заповнить матриці довільними цілими числами від 0 до 99. Результат складання вивести в третю матрицю. Складання має виконувати окрема функція, аргументи функції мають бути двовимірними масивами.
-14. Створити функцію, яка буде переміщувати кнопку в довільне місце сторінки після її натиснення
-15. У "підвал" сторінки та файл script.js помістити інформацію про виконавця роботи: група, ПІБ, дата виконання.
-16. Для кожного етапу роботи зробити знімки екрану або скопіювати текст консолі та додати їх у звіт з описом кожного скіншота
-17. Зберегти звіт у форматі PDF
-18. Роздрукувати звіт та письмово відповісти на контрольні запитання
+7. Файл index.html зробити з порожнім вмістом секції `<body>`
+8. Створити файл script.js в середині каталогу C:\xampp\htdocs\. Під'єднати script.js в index.html за допомогою тегу `<link>`
+9. Використовуючи метод Math.random() згенерувати 100 випадкових цілих чисел та занести їх в масив.
+10. Вивести масив, отриманий в попередньому завданні через крапку з комою. Знайти максимальні та мінімальні значення масиву та надрукувати їх на сторінці.
+11. Створити двовимірний масив 10х10, заповнити його випадковими числами.
+12. Розрахувати сумму кожного рядка масиву. Вивести в одну таблицю масив та сумму кожного рядка.
+13. Створити нумерований список з 10 елементів. Звернутися до нього за допомогою JS, за допомогою циклу обробити всі дочірні елементи та записати туди довільний текст.
+14. У "підвал" сторінки помістити інформацію про виконавця роботи: група, ПІБ, дата виконання.
+15. Для кожного етапу роботи зробити знімки екрану або скопіювати текст консолі та додати їх у звіт з описом кожного скіншота
+16. Зберегти звіт у форматі PDF
+17. Роздрукувати звіт та письмово відповісти на контрольні запитання
 
 ## Контрольні питання
 
-1. Що таке функція в JavaScript та як вона відрізняється від змінних?
-2. Які є основні способи оголошення функцій в JavaScript?
-3. Що таке аргументи функції та як їх передавати?
-4. Як можна повернути значення з функції в JavaScript?
-5. Які є типи функцій в JavaScript і як вони відрізняються?
-6. Як можна використовувати функції як аргументи в інших функціях в JavaScript?
-7. Як можна створити анонімну функцію в JavaScript і для чого це потрібно?
-8. Як можна використовувати рекурсію в JavaScript функціях та які є її переваги та недоліки?
+1. Що таке масив?
+2. Яким чином додати елемент в масив?
+3. Перелічте способи циклічної обробки масиву?
+4. Яку дію виконує метод **.push()**?
+5. Яку дію виконує метод **.pop()**?
+6. В чому різниця методів **.pop()** та **.shift()**?
 
 ## Довідники та додаткові матеріали
 
-1. [MDN Web Docs: Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)
-2. [W3Schools: JavaScript Functions](https://www.w3schools.com/js/js_functions.asp)
-3. [JavaScript.info: Functions](https://javascript.info/function-basics)
-4. [FreeCodeCamp: Learn JavaScript - Functions](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/write-reusable-javascript-with-functions)
-5. [Codecademy: Functions](https://www.codecademy.com/learn/introduction-to-javascript/modules/learn-javascript-functions)
-6. [Udacity: JavaScript Functions](https://www.udacity.com/course/intro-to-javascript--ud803)
-7. [TutorialsPoint: JavaScript - Functions](https://www.tutorialspoint.com/javascript/javascript_functions.htm)
-8. [GeeksforGeeks: JavaScript Functions](https://www.geeksforgeeks.org/functions-in-javascript/)
-9. [SitePoint: JavaScript Functions: Understanding the Basics](https://www.sitepoint.com/understanding-essence-javascript-functions/)
-10. [Smashing Magazine: A Beginner’s Guide To JavaScript Functions And Scope](https://www.smashingmagazine.com/2020/04/beginners-guide-javascript-functions-scope/)
+1. [MDN Web Docs: JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+2. [W3Schools: JavaScript Tutorial](https://www.w3schools.com/js/)
+3. [JavaScript.info: The Modern JavaScript Tutorial](https://javascript.info/)
+4. [FreeCodeCamp: JavaScript Tutorial](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/)
+5. [Codecademy: Learn JavaScript](https://www.codecademy.com/learn/introduction-to-javascript)
+6. [Udacity: JavaScript Basics](https://www.udacity.com/course/javascript-basics--ud804)
+7. [TutorialsPoint: JavaScript - Operators](https://www.tutorialspoint.com/javascript/javascript_operators.htm)
+8. [GeeksforGeeks: JavaScript Basics](https://www.geeksforgeeks.org/javascript-basics/)
+9. [Mozilla Hacks: What is the DOM?](https://hacks.mozilla.org/2019/01/what-is-the-dom/)
+10. [W3Schools: JavaScript HTML DOM](https://www.w3schools.com/js/js_htmldom.asp)
+11. [MDN Web Docs: Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+12. [Google Developers: Introduction to the DOM](https://developers.google.com/web/fundamentals/accessibility/how-to-review)
+13. [SitePoint: Working with the Document Object Model (DOM)](https://www.sitepoint.com/dom-manipulation-vanilla-javascript-no-jquery/) 
+14. [Современный учебник JavaScript. Массивы](https://learn.javascript.ru/array)

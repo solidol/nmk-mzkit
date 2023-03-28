@@ -1,10 +1,10 @@
-# Створення об'єктів. Ч. 2
+# Оптимізація коду. Використання функцій
 
 [Перелік усіх робіт](README.md)
 
 ## Мета роботи
 
-
+Розглянути приклади роботи з функціями JavaScript. Навчитись створювати власні функції. Навчитися оптимізувати код за допомогою функцій
 
 ## Обладнання
 
@@ -12,7 +12,19 @@
 
 ## Теоретичні відомості
 
+Функция - это именованная последовательность операторов (инструкций). Любая функция имеет следующий синтаксис:
+```js
+function имя (){
 
+оператор;
+
+.......
+
+оператор;
+
+}
+```
+Сначала идет ключевое слово function, затем имя функции, затем в круглых скобках перечисляются параметры (если они есть), затем в фигурных скобках перечисляются операторы, т.е. последовательность выполняемых действий. Каждый оператор заканчивается точкой с запятой.
 
 ## Хід роботи
 
@@ -25,34 +37,36 @@
 7. Перейти за адресою http://127.0.0.1/ або http://localhost/ та впевнитись, що сторінка, яку ви створили, завантажилася корректно
 8. Створити файл з назвою script.js та помістити його поряд з файлом index.html
 9. Підключити файл script.js в секції `<head>`
-10. У файл script.js помістити код та перевірити його роботу
-11. У "підвал" сторінки та файл script.js помістити інформацію про виконавця роботи: група, ПІБ, дата виконання.
-12. Для кожного етапу роботи зробити знімки екрану або скопіювати ткест консолі та додати їх у звіт з описом кожного скіншота
-13. Зберегти звіт у форматі PDF
-14. Роздрукувати звіт та письмово відповісти на контрольні запитання
+10. Відповідно до завдань нижче створити необхідні HTML-форми, призначити обробники подій для елементів форми. Обробники подій оформити у вигляді анонімною функції.
+11. У файл script.js помістити код та перевірити його роботу.
+12. Створити програму для обчислення коренів квадратного рівняння, за введенними коефіцієнтами. Якщо рівняння не має коренів, повідомити про це користувача. Дискримінант рівняння має обчислювати спеціальна функція.
+13. Створити програму складання двох матриць 5х5. Створити функцію яка заповнить матриці довільними цілими числами від 0 до 99. Результат складання вивести в третю матрицю. Складання має виконувати окрема функція, аргументи функції мають бути двовимірними масивами.
+14. Створити функцію, яка буде переміщувати кнопку в довільне місце сторінки після її натиснення
+15. У "підвал" сторінки та файл script.js помістити інформацію про виконавця роботи: група, ПІБ, дата виконання.
+16. Для кожного етапу роботи зробити знімки екрану або скопіювати текст консолі та додати їх у звіт з описом кожного скіншота
+17. Зберегти звіт у форматі PDF
+18. Роздрукувати звіт та письмово відповісти на контрольні запитання
 
 ## Контрольні питання
 
-1. Що таке прототип об'єкта в JavaScript та як він використовується?
-2. Як можна перевірити наявність властивості у об'єкта в JavaScript?
-3. Як можна отримати список всіх властивостей об'єкта в JavaScript?
-4. Як можна об'єднати два об'єкти в JavaScript?
-5. Як можна визначити тип об'єкта в JavaScript та що таке операція instanceof?
-6. Як можна створити змінну, що містить копію об'єкта в JavaScript?
-7. Що таке дескриптори властивостей об'єктів в JavaScript та як вони використовуються?
-8. Як можна заборонити редагувати властивості об'єкта в JavaScript?
-9. Як можна видаляти властивості об'єкта в JavaScript та що таке метод delete?
-10. Як можна використовувати класи в JavaScript та яка їх роль у створенні об'єктів?
-    
+1. Що таке функція в JavaScript та як вона відрізняється від змінних?
+2. Які є основні способи оголошення функцій в JavaScript?
+3. Що таке аргументи функції та як їх передавати?
+4. Як можна повернути значення з функції в JavaScript?
+5. Які є типи функцій в JavaScript і як вони відрізняються?
+6. Як можна використовувати функції як аргументи в інших функціях в JavaScript?
+7. Як можна створити анонімну функцію в JavaScript і для чого це потрібно?
+8. Як можна використовувати рекурсію в JavaScript функціях та які є її переваги та недоліки?
+
 ## Довідники та додаткові матеріали
 
-1. [MDN Web Docs: Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-2. [W3Schools: JavaScript Objects](https://www.w3schools.com/js/js_objects.asp)
-3. [JavaScript.info: Objects](https://javascript.info/object)
-4. [FreeCodeCamp: Learn JavaScript - Objects](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/build-javascript-objects)
-5. [Codecademy: Objects](https://www.codecademy.com/learn/introduction-to-javascript/modules/learn-javascript-objects)
-6. [Udacity: JavaScript Objects](https://www.udacity.com/course/intro-to-javascript--ud803)
-7. [TutorialsPoint: JavaScript - Objects](https://www.tutorialspoint.com/javascript/javascript_objects.htm)
-8. [GeeksforGeeks: JavaScript Objects](https://www.geeksforgeeks.org/javascript-objects/)
-9. [SitePoint: Understanding Objects in JavaScript](https://www.sitepoint.com/understanding-objects-in-javascript/)
-10. [Smashing Magazine: A Beginner’s Guide to JavaScript Objects](https://www.smashingmagazine.com/2019/10/beginners-guide-javascript-objects/)
+1. [MDN Web Docs: Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)
+2. [W3Schools: JavaScript Functions](https://www.w3schools.com/js/js_functions.asp)
+3. [JavaScript.info: Functions](https://javascript.info/function-basics)
+4. [FreeCodeCamp: Learn JavaScript - Functions](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/write-reusable-javascript-with-functions)
+5. [Codecademy: Functions](https://www.codecademy.com/learn/introduction-to-javascript/modules/learn-javascript-functions)
+6. [Udacity: JavaScript Functions](https://www.udacity.com/course/intro-to-javascript--ud803)
+7. [TutorialsPoint: JavaScript - Functions](https://www.tutorialspoint.com/javascript/javascript_functions.htm)
+8. [GeeksforGeeks: JavaScript Functions](https://www.geeksforgeeks.org/functions-in-javascript/)
+9. [SitePoint: JavaScript Functions: Understanding the Basics](https://www.sitepoint.com/understanding-essence-javascript-functions/)
+10. [Smashing Magazine: A Beginner’s Guide To JavaScript Functions And Scope](https://www.smashingmagazine.com/2020/04/beginners-guide-javascript-functions-scope/)
