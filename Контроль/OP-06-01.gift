@@ -1,0 +1,44 @@
+// question: 0  name: Switch category to $course$/top/OP-06-01
+$CATEGORY: $course$/top/OP-06-01
+
+
+// question: 11199  name: Q-06-01-01
+::Q-06-01-01::[html]<p>jQuery це мова програмування<br></p><p><br></p>{FALSE}
+
+
+// question: 11200  name: Q-06-01-02
+::Q-06-01-02::[html]<p>jQuery це бібліотека, що написана мовою JavaScript<br></p><p><br></p>{TRUE}
+
+
+// question: 11201  name: Q-06-01-03
+::Q-06-01-03::[html]<p>Виклик функції $('selector') можна записати як jQuery('selector')<br></p><p><br></p>{TRUE}
+
+
+// question: 11202  name: Q-06-01-04
+::Q-06-01-04::[html]<p>Виклик функції $('selector') можна записати як jScript('selector')<br></p><p><br></p>{FALSE}
+
+
+// question: 11203  name: Q-06-01-05
+::Q-06-01-05::[html]<p>У виклику $('.selector') використовується селектор класу<br></p><p><br></p>{TRUE}
+
+
+// question: 11204  name: Q-06-01-06
+::Q-06-01-06::[html]<p>У виклику $('.selector') використовується селектор ідентифікатору<br></p><p><br></p>{FALSE}
+
+
+// question: 11205  name: Q-06-01-07
+::Q-06-01-07::[html]<p>HTML-код <br></p><p>&lt;script src\="https\://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"&gt;&lt;/script&gt;</p><p>це допустимий варіант підключення бібліотеки jquery<br></p><p><br></p>{TRUE}
+
+
+// question: 11206  name: Q-06-01-08
+::Q-06-01-08::[html]<p>HTML-код <br></p><p>&lt;script src\="https\://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.js"&gt;&lt;/script&gt;</p><p>це допустимий варіант підключення бібліотеки jquery<br></p><p><br></p>{TRUE}
+
+
+// question: 11207  name: Q-06-01-09
+::Q-06-01-09::[html]Підключення бібліотеки jQuery можливо тільки із зовнішнього репозиторію CDN<br>{FALSE}
+
+
+// question: 11208  name: Q-06-01-10
+::Q-06-01-10::[html]Підключення бібліотеки jQuery можливо тільки із локального каталогу<br>{FALSE}
+
+

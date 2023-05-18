@@ -1,0 +1,85 @@
+// question: 0  name: Switch category to $course$/top/OP-06-02
+$CATEGORY: $course$/top/OP-06-02
+
+
+// question: 11209  name: Q-06-02-01
+::Q-06-02-01::[html]<p>Визначте помилковий виклик jQuery<br></p>{
+	=$(.selector)
+	~$('.selector')
+	~<p>$('\#selector')<br></p>
+	~<p>jQuery('.selector')<br></p>
+}
+
+
+// question: 11210  name: Q-06-02-02
+::Q-06-02-02::[html]<p>Визначте помилковий виклик jQuery<br></p>{
+	=$(_selector)
+	~jQuery('.selector')
+	~<p>$('\#selector')<br></p>
+	~<p>jQuery('.selector')<br></p>
+}
+
+
+// question: 11211  name: Q-06-02-03
+::Q-06-02-03::[html]<p>Визначте помилковий обробник події jQuery<br></p>{
+	=$('.selector')\=function ()\{alert('ololo');\};<br>
+	~$('.selector').click(function ()\{alert('ololo');\});
+	~<p>$('.selector').change(function ()\{alert('ololo');\});<br></p>
+	~<p>$('.selector').on('click',function ()\{alert('ololo');\});<br></p>
+}
+
+
+// question: 11212  name: Q-06-02-04
+::Q-06-02-04::[html]<p>Визначте помилковий обробник події jQuery<br></p>{
+	=$('.selector').on(function ()\{alert('ololo');\});<br>
+	~$('.selector').click(function ()\{alert('ololo');\});
+	~<p>$('.selector').change(function ()\{alert('ololo');\});<br></p>
+	~<p>$('.selector').on('click',function ()\{alert('ololo');\});<br></p>
+}
+
+
+// question: 11213  name: Q-06-02-05
+::Q-06-02-05::[html]<p>Визначте корректний виклик jQuery<br></p>{
+	=$('.selector').val();<br>
+	~$('.selector').value();
+	~<p>$('.selector').innerHTML();<br></p>
+	~<p>$(.selector).val();<br></p>
+}
+
+
+// question: 11214  name: Q-06-02-06
+::Q-06-02-06::[html]<p>Визначте корректний виклик jQuery<br></p>{
+	=$('.selector').html();<br>
+	~$('.selector').HTML();
+	~<p>$('.selector').innerHTML();<br></p>
+	~<p>$(.selector).html();<br></p>
+}
+
+
+// question: 11215  name: Q-06-02-07
+::Q-06-02-07::[html]<p>Визначте корректний виклик jQuery<br></p>{
+	=$('div.selector').css('width','10px');<br>
+	~$('.selector').css(color,red);
+	~<p>$('div').style('width','10px');<br></p>
+	~<p>$(\#selector).css('width','10px');<br></p>
+}
+
+
+// question: 11216  name: Q-06-02-08
+::Q-06-02-08::[html]<p>Визначте корректний виклик jQuery, що ховає елемент<br></p>{
+	=$('\#selector').fadeOut(500);<br>
+	~$('\#selector').fadeIn(500);
+	~<p>$(\#selector).fadeOut(500);<br></p>
+	~<p>$('.selector').fadeIn(500);<br></p>
+}
+
+
+// question: 11217  name: Q-06-02-09
+::Q-06-02-09::[html]<p>Визначте корректний виклик jQuery, що показує прихований елемент<br></p>{
+	~$('\#selector').fadeOut(500);<br>
+	=$('\#selector').fadeIn(500);
+	~<p>$(\#selector).fadeOut(500);<br></p>
+	~<p>$(.selector).fadeIn(500);<br></p>
+}
+
+

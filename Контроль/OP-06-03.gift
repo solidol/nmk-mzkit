@@ -1,0 +1,94 @@
+// question: 0  name: Switch category to $course$/top/OP-06-03
+$CATEGORY: $course$/top/OP-06-03
+
+
+// question: 11218  name: Q-06-03-01
+::Q-06-03-01::[html]<p>Оберіть виклики jQuery, які змінюють вміст HTML-елементу<br></p>{
+	~%50%$('\#selector').html('abc');<br>
+	~%50%<p>$('\#selector').text('abc');<br></p>
+	~%-40%<p>$('\#selector').HTML('abc');<br></p>
+	~%-40%<p>$('\#selector').innerHTML('abc');<br></p>
+}
+
+
+// question: 11219  name: Q-06-03-02
+::Q-06-03-02::[html]<p>Оберіть виклики jQuery, які змінюють вміст HTML-елементу<br></p>{
+	~%100%$('\#selector').html('abc');<br>
+	~%-30%<p>var st \= $('\#selector').text();<br></p>
+	~%-30%<p>var st \= $('\#selector').HTML('abc');<br></p>
+	~%-30%<p>$('\#selector').innerHTML('abc');<br></p>
+}
+
+
+// question: 11220  name: Q-06-03-03
+::Q-06-03-03::[html]<p>Оберіть виклики jQuery, які змінюють вміст HTML-елементу<br></p>{
+	~%100%$('\#selector').text('abc');<br>
+	~%-30%<p>var st \= $('\#selector').html();<br></p>
+	~%-30%<p>var st \= $('\#selector').HTML('abc');<br></p>
+	~%-30%<p>var st \= $('\#selector').text();<br></p>
+}
+
+
+// question: 11221  name: Q-06-03-04
+::Q-06-03-04::[html]<p>Оберіть виклики jQuery, які встановлюють обробник події<br></p>{
+	~%50%$('\#selector').click(function()\{alert('ololo')\});<br>
+	~%50%<p>$('\#selector').change(function()\{alert('ololo')\});<br></p>
+	~%-40%<p>$('\#selector').val(function()\{alert('ololo')\});<br></p>
+	~%-40%<p>$('\#selector').html(function()\{alert('ololo')\});<br></p>
+}
+
+
+// question: 11222  name: Q-06-03-05
+::Q-06-03-05::[html]<p>Оберіть виклики jQuery, які встановлюють обробник події<br></p>{
+	~%50%$('\#selector').click(function()\{alert('ololo')\});<br>
+	~%50%<p>$('\#selector').on('change',function()\{alert('ololo')\});<br></p>
+	~%-40%<p>$('\#selector').click();<br></p>
+	~%-40%<p>$('\#selector').on(function()\{alert('ololo')\});<br></p>
+}
+
+
+// question: 11223  name: Q-06-03-06
+::Q-06-03-06::[html]<p>Оберіть виклики jQuery, які програмно викликають деяку подію<br></p>{
+	~%33.33333%$('\#selector').click();<br>
+	~%33.33333%<p>$('\#selector').submit();<br></p>
+	~%33.33333%<p>$('\#selector').change();<br></p>
+	~%-80%<p>$('\#selector').click(function()\{alert('ololo')\});<br></p>
+}
+
+
+// question: 11224  name: Q-06-03-07
+::Q-06-03-07::[html]<p>Оберіть виклики jQuery, які програмно викликають деяку подію<br></p>{
+	~%33.33333%$('\#selector').click();<br>
+	~%33.33333%<p>$('\#selector').submit();<br></p>
+	~%33.33333%<p>$('\#selector').change();<br></p>
+	~%-80%<p>$('\#selector').on();<br></p>
+}
+
+
+// question: 11225  name: Q-06-03-08
+::Q-06-03-08::[html]<p>Оберіть виклики jQuery, які програмно викликають деяку подію<br></p>{
+	~%50%$('\#selector').click();<br>
+	~%50%<p>$('\#selector').submit();<br></p>
+	~%-40%<p>$('\#selector').val();<br></p>
+	~%-40%<p>$('\#selector').on();<br></p>
+}
+
+
+// question: 11226  name: Q-06-03-09
+::Q-06-03-09::[html]<p>Оберіть виклики jQuery, якими можливо запрограмувати усі цифрові кнопки калькулятора<br></p>{
+	~%50%<p>$('.numbut').click(function(</p><p>$('\#inpfield').val($('\#inpfield').val()+$(this).val());<br></p><p>));</p>
+	~%50%<p>$('.numbut').on('click',function(</p><p>$('\#inpfield').val($('\#inpfield').val()+$(this).val());<br></p><p>));</p>
+	~%-40%<p><p>$('.numbut').click(function(</p><p>$('\#inpfield').val($('\#inpfield').val()+$('.numbut').val());<br></p><p>));</p><br></p>
+	~%-40%<p>$('\#numbut1').click(function(</p><p>$('\#inpfield').val($('\#inpfield').val()+$('\#numbut1').val());<br></p><p>));</p>
+}
+
+
+// question: 11227  name: Q-06-03-10
+::Q-06-03-10::[html]<p>Оберіть виклики jQuery, якими можливо запрограмувати усі цифрові кнопки калькулятора<br></p>{
+	~%100%<p>$('.numbut').click(function(</p><p>$('\#inpfield').val($('\#inpfield').val()+$(this).val());<br></p><p>));</p>
+	~%-30%<p>$('.numbut').on(function(</p><p>$('\#inpfield').val($('\#inpfield').val()+$(this).val());<br></p><p>));</p>
+	~%-30%<p><p>$('.numbut').click(function(</p><p>$('\#inpfield').val($('\#inpfield').val()+$('.numbut').val());<br></p><p>));</p><br></p>
+	~%-30%<p>$('\#numbut1').click(function(</p><p>$('\#inpfield').val($('\#inpfield').val()+$('\#numbut1').val());<br></p><p>));</p>
+}
+
+
