@@ -1,4 +1,4 @@
-![prototype_mobile№1](https://github.com/solidol/nmk-mzkit/assets/161715378/69a28f2d-df1f-4a52-900b-a67632e2f61f)# Створення каркасу адаптивної сторінки за допомогою фреймворку Bootstrap
+# Створення каркасу адаптивної сторінки за допомогою фреймворку Bootstrap
 
 [Перелік усіх робіт](../README.md)
 
