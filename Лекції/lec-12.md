@@ -51,11 +51,11 @@ alert (typeof on); // ми отримали рядок!
 alert (on);
 /* Виведе об'єкт в форматі JSON:
 {
-  "Name": "John",
-  "Age": 30,
-  "IsAdmin": false,
-  "Courses": [ "html", "css", ""],
-  "Wife": null
+  "name": "John",
+  "age": 30,
+  "isAdmin": false,
+  "courses": [ "html", "css", ""],
+  "wife": null
 }
 */
 ```
@@ -133,8 +133,8 @@ let meetup = {
 alert (JSON.stringify (meetup));
 /* Вся структура перетворена в рядок:
 {
-  "Title": "Conference",
-  "Room": { "number": 23, "participants": [ "john", "ann"]},
+  "title": "Conference",
+  "room": { "number": 23, "participants": [ "john", "ann"]},
 }
 */
 ```
@@ -225,7 +225,7 @@ room.occupiedBy = meetup; // room посилається на meetup
 alert (JSON.stringify (meetup, [ 'title', 'participants', 'place', 'name', 'number'] ));
 /*
 {
-  "Title": "Conference",
+  "title": "Conference",
   "Participants": [{ "name": "John"}, { "name": "Alice"}],
   "Place": { "number": 23}
 }
@@ -299,22 +299,22 @@ let user = {
 alert (JSON.stringify (user, null, 2));
 /* Відступ в 2 пробілу:
 {
-  "Name": "John",
-  "Age": 25,
-  "Roles": {
-    "IsAdmin": false,
-    "IsEditor": true
+  "name": "John",
+  "age": 25,
+  "roles": {
+    "isAdmin": false,
+    "isEditor": true
   }
 }
 */
 
 /* Для JSON.stringify (user, null, 4) результат містить більше відступів:
 {
-    "Name": "John",
-    "Age": 25,
-    "Roles": {
-        "IsAdmin": false,
-        "IsEditor": true
+    "name": "John",
+    "age": 25,
+    "roles": {
+        "isAdmin": false,
+        "isEditor": true
     }
 }
 */
@@ -342,9 +342,9 @@ let meetup = {
 alert (JSON.stringify (meetup));
 /*
   {
-    "Title": "Conference",
-    "Date": "2017-01-01T00: 00: 00.000Z", // (1)
-    "Room": { "number": 23} // (2)
+    "title": "Conference",
+    "date": "2017-01-01T00: 00: 00.000Z", // (1)
+    "room": { "number": 23} // (2)
   }
 */
 ```
@@ -372,8 +372,8 @@ alert (JSON.stringify (room)); // 23
 alert (JSON.stringify (meetup));
 /*
   {
-    "Title": "Conference",
-    "Room": 23
+    "title": "Conference",
+    "room": 23
   }
 */
 ```
@@ -425,10 +425,10 @@ JSON може бути настільки складним, наскільки �
 ```js
 let on = {
   Name : "John", // Помилка: ім'я властивості без лапок
-  "Surname": 'Smith' , // Помилка: одинарні лапки в значенні (повинні бути подвійними)
-  'IsAdmin' : False // Помилка: одинарні лапки в ключі (повинні бути подвійними)
-  "Birthday": New Date (2000, 2, 3) , // Помилка: не допускається конструктор "new", тільки значення.
-  "Friends": [0,1,2,3] // Тут все в порядку
+  "surname": 'Smith' , // Помилка: одинарні лапки в значенні (повинні бути подвійними)
+  'isAdmin' : False // Помилка: одинарні лапки в ключі (повинні бути подвійними)
+  "birthday": New Date (2000, 2, 3) , // Помилка: не допускається конструктор "new", тільки значення.
+  "friends": [0,1,2,3] // Тут все в порядку
 };
 ```
 
@@ -481,9 +481,9 @@ alert (meetup.date.getDate ()); // 30 - тепер працює!
 
 ```js
 let schedule = `{
-  "Meetups": [
-    { "Title": "Conference", "date": "2017-11-30T12: 00: 00.000Z"},
-    { "Title": "Birthday", "date": "2017-04-18T12: 00: 00.000Z"}
+  "meetups": [
+    { "title": "Conference", "date": "2017-11-30T12: 00: 00.000Z"},
+    { "title": "Birthday", "date": "2017-04-18T12: 00: 00.000Z"}
   ]
 } `;
 
