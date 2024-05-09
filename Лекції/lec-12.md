@@ -159,10 +159,7 @@ room.occupiedBy = meetup; // room посилається на meetup
 JSON.stringify (meetup); // Помилка: Перетворення циклової структури в JSON
 ```
 
-Тут перетворення завершується невдало через циклічну посилання: `room.occupiedBy` посилається на `meetup`, і `meetup.place` посилається на `room`:
-
-! [] (on-meetup.svg)
-
+Тут перетворення завершується невдало через циклічну посилання: `room.occupiedBy` посилається на `meetup`, і `meetup.place` посилається на `room`.
 
 
 ## Виключаємо і перетворимо: replacer
@@ -343,7 +340,7 @@ alert (JSON.stringify (meetup));
 /*
   {
     "title": "Conference",
-    "date": "2017-01-01T00: 00: 00.000Z", // (1)
+    "date": "2017-01-01T00:00:00.000Z", // (1)
     "room": { "number": 23} // (2)
   }
 */
@@ -446,7 +443,7 @@ let on = {
 
 ```js
 // title: (meetup title), date: (meetup date)
-let str = '{ "title": "Conference", "date": "2017-11-30T12: 00: 00.000Z"}';
+let str = '{ "title": "Conference", "date": "2017-11-30T12:00:00.000Z"}';
 ```
 
 ... А тепер нам потрібно десеріалізувати її, тобто знову перетворити в об'єкт JavaScript.
@@ -454,7 +451,7 @@ let str = '{ "title": "Conference", "date": "2017-11-30T12: 00: 00.000Z"}';
 Давайте зробимо це, викликавши `JSON.parse`:
 
 ```js
-let str = '{ "title": "Conference", "date": "2017-11-30T12: 00: 00.000Z"}';
+let str = '{ "title": "Conference", "date": "2017-11-30T12:00:00.000Z"}';
 let meetup = JSON.parse (str);
 alert (meetup.date.getDate ()); // Error!
 
@@ -467,7 +464,7 @@ alert (meetup.date.getDate ()); // Error!
 Давайте передамо `JSON.parse` функцію відновлення другим аргументом, яка повертає всі значення" як є ", але` date` стане `Date`:
 
 ```js
-let str = '{ "title": "Conference", "date": "2017-11-30T12: 00: 00.000Z"}';
+let str = '{ "title": "Conference", "date": "2017-11-30T12:00:00.000Z"}';
 let meetup = JSON.parse (str, function (key, value) {
   if (key == 'date') return new Date (value);
   return value;
@@ -482,8 +479,8 @@ alert (meetup.date.getDate ()); // 30 - тепер працює!
 ```js
 let schedule = `{
   "meetups": [
-    { "title": "Conference", "date": "2017-11-30T12: 00: 00.000Z"},
-    { "title": "Birthday", "date": "2017-04-18T12: 00: 00.000Z"}
+    { "title": "Conference", "date": "2017-11-30T12:00:00.000Z"},
+    { "title": "Birthday", "date": "2017-04-18T12:00:00.000Z"}
   ]
 } `;
 
