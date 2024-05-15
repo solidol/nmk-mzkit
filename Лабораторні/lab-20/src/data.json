@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Image 1",
+        "description": "Description 1",
+        "filename": "img/file01.jpg"
+    },
+    {
+        "title": "Image 2",
+        "description": "Description 2",
+        "filename": "img/file02.jpg"
+    },
+    {
+        "title": "Image 3",
+        "description": "Description 3",
+        "filename": "img/file03.jpg"
+    },
+    {
+        "title": "Image 4",
+        "description": "Description 4",
+        "filename": "img/file04.jpg"
+    },
+    {
+        "title": "Image 5",
+        "description": "Description 5",
+        "filename": "img/file05.jpg"
+    }
+]
