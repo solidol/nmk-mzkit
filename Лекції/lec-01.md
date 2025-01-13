@@ -152,17 +152,38 @@ HTML слідує правилам, які містяться у файлі ог
 DOCTYPE відповідає за коректне відображення веб-сторінки браузером. DOCTYPE визначає не тільки версію HTML (наприклад, html), але і відповідний DTD-файл в Інтернеті.
 
 ```html
-<!DOCTYPE html> <! - Оголошення формату документа ->
-<html>
-<head>  <!- Технічна інформація про документ ->
-<meta charset = "UTF-8"> <! - Визначаємо кодування символів документа ->
-<title> ... </title> <! - Задаємо заголовок документа ->
-<link rel = "stylesheet" type = "text / css" href = "style.css"> 
-<! - Підключаємо зовнішню таблицю стилів ->
-<script src = "script.js"> </script> <! - Підключаємо сценарії ->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body> <! - Основна частина документа ->
+
+<body>
+    <div class="container">
+        <!-- comment -->
+        <header>
+            <h1>Home</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h2>Welcome to my website</h2>
+            <p>This is a simple website created using HTML and CSS.</p>
+        </main>
+        <footer>
+            <p>&copy; 2021 My Website</p>
+        </footer>
+    </div>
 </body>
+
 </html>
 ```	
 
