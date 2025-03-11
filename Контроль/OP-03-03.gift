@@ -1,0 +1,276 @@
+// question: 0  name: Switch category to $course$/top/Модуль 1
+$CATEGORY: $course$/top/Модуль 1
+
+
+// question: 0  name: Switch category to $course$/top/Модуль 1/Рівень 3
+$CATEGORY: $course$/top/Модуль 1/Рівень 3
+
+
+// question: 0  name: Switch category to $course$/top/Модуль 1/Рівень 3/OP-03-03
+$CATEGORY: $course$/top/Модуль 1/Рівень 3/OP-03-03
+
+
+
+::Q-03-03-01::[html]<p>Оберіть корректні значення атрибуту float</p>{
+	~%25%<p>left</p>
+	~%25%<p>right</p>
+	~%25%<p>none</p>
+	~%25%<p>inherit</p>
+}
+
+
+
+::Q-03-03-02::[html]<p>Оберіть корректні значення атрибуту float</p>{
+	~%33.33333%<p>left</p>
+	~%33.33333%<p>right</p>
+	~%33.33333%<p>none</p>
+	~%-60%<p>justify</p>
+}
+
+
+
+::Q-03-03-03::[html]<p>Оберіть корректні значення атрибуту position</p>{
+	~%25%<p>absolute</p>
+	~%25%<p>fixed</p>
+	~%25%<p>relative</p>
+	~%25%<p>static</p>
+}
+
+
+
+::Q-03-03-04::[html]<p>Оберіть корректні значення атрибуту position</p>{
+	~%33.33333%<p>absolute</p>
+	~%33.33333%<p>relative</p>
+	~%33.33333%<p>fixed</p>
+	~%-60%<p>left</p>
+}
+
+
+
+::Q-03-03-05::[html]<p>Оберіть корректні значення атрибуту position</p>{
+	~%33.33333%<p>absolute</p>
+	~%33.33333%<p>relative</p>
+	~%33.33333%<p>fixed</p>
+	~%-60%<p>mixed</p>
+}
+
+
+
+::Q-03-03-06::[html]<p>Оберіть корректні значення атрибуту float</p>{
+	~%33.33333%<p>left</p>
+	~%33.33333%<p>right</p>
+	~%33.33333%<p>none</p>
+	~%-60%<p>bottom</p>
+}
+
+
+
+::Q-03-03-07::[html]<p>Оберіть корректні значення атрибуту text-align</p>{
+	~%33.33333%<p>left</p>
+	~%33.33333%<p>right</p>
+	~%33.33333%<p>justify</p>
+	~%-60%<p>top</p>
+}
+
+
+
+::Q-03-03-08::[html]<p>Оберіть корректні значення атрибуту text-align</p>{
+	~%50%<p>left</p>
+	~%50%<p>justify</p>
+	~%-40%<p>bottom</p>
+	~%-40%<p>top</p>
+}
+
+
+
+::Q-03-03-09::[html]<p>Оберіть корректні значення атрибуту text-align</p>{
+	~%50%<p>center</p>
+	~%50%<p>justify</p>
+	~%-40%<p>bottom</p>
+	~%-40%<p>static</p>
+}
+
+
+
+::Q-03-03-10::[html]<p>Оберіть корректні значення атрибуту text-align</p>{
+	~%50%<p>left</p>
+	~%50%<p>right</p>
+	~%-40%<p>bottom</p>
+	~%-40%<p>top</p>
+}
+
+
+
+::Q-03-03-11::[html]<p>Оберіть корректні класи для колонок Bootstrap</p>{
+	~%25%<p>col-6</p>
+	~%25%<p>col-sm-2</p>
+	~%25%<p>col-md-3</p>
+	~%25%<p>col-xs-12</p>
+}
+
+
+
+::Q-03-03-12::[html]<p>Оберіть корректні класи для колонок Bootstrap</p>{
+	~%33.33333%<p>col-6</p>
+	~%33.33333%<p>col-sm-2</p>
+	~%33.33333%<p>col-xs-12</p>
+	~%-60%<p>col-xs-15</p>
+}
+
+
+
+::Q-03-03-13::[html]<p>Оберіть корректні класи для рядків та колонок Bootstrap</p>{
+	~%25%<p>col-sm-12</p>
+	~%25%<p>col-lg-3</p>
+	~%25%<p>row</p>
+	~%25%<p>justify-content-md-center</p>
+}
+
+
+
+::Q-03-03-14::[html]<p>Оберіть корректні класи для рядків та колонок Bootstrap</p>{
+	~%33.33333%<p>justify-content-md-center</p>
+	~%33.33333%<p>row</p>
+	~%33.33333%<p>col-lg-3</p>
+	~%-60%<p>container-fluid</p>
+}
+
+
+
+::Q-03-03-15::[html]<p>Оберіть корректні класи для навігаційних елементів Bootstrap</p>{
+	~%33.33333%<p>navbar</p>
+	~%33.33333%<p>navbar-expand-xl</p>
+	~%33.33333%<p>nav-item</p>
+	~%-60%<p>navbar-item</p>
+}
+
+
+
+::Q-03-03-16::[html]<p>Оберіть корректні класи для навігаційних елементів Bootstrap</p>{
+	~%33.33333%<p>dropdown-item</p>
+	~%33.33333%<p>navbar-expand-xl</p>
+	~%33.33333%<p>navbar-brand</p>
+	~%-60%<p>navbar-item</p>
+}
+
+
+
+::Q-03-03-17::[html]<p>Оберіть корректні класи для навігаційних елементів Bootstrap</p>{
+	~%33.33333%<p>dropdown-item</p>
+	~%33.33333%<p>navbar-expand-sm</p>
+	~%33.33333%<p>navbar-nav</p>
+	~%-60%<p>navbar-dropdown</p>
+}
+
+
+
+::Q-03-03-18::[html]<p>Оберіть корректні класи для кнопок Bootstrap</p>{
+	~%50%<p>btn</p>
+	~%50%<p>btn-success</p>
+	~%-40%<p>btn-escape</p>
+	~%-40%<p>btn-grey</p>
+}
+
+
+
+::Q-03-03-19::[html]<p>Оберіть корректні класи для кнопок Bootstrap</p>{
+	~%33.33333%<p>btn-success</p>
+	~%33.33333%<p>btn-info</p>
+	~%33.33333%<p>btn-secondary</p>
+	~%-60%<p>btn-escape</p>
+}
+
+
+
+::Q-03-03-20::[html]<p>Оберіть корректні класи для контейнерів Bootstrap</p>{
+	~%50%<p>container</p>
+	~%50%<p>container-fluid</p>
+	~%-40%<p>container-fixed</p>
+	~%-40%<p>container-static</p>
+}
+
+
+
+::Q-03-03-21::[html]<p>Оберіть корректні класи для контейнерів Bootstrap</p>{
+	~%50%<p>container</p>
+	~%50%<p>container-lg</p>
+	~%-40%<p>container-md</p>
+	~%-40%<p>container-xs</p>
+}
+
+
+
+::Q-03-03-22::[html]<p>Оберіть корректні класи для контейнерів Bootstrap</p>{
+	~%50%<p>container</p>
+	~%50%<p>container-xl</p>
+	~%-40%<p>container-xxl</p>
+	~%-40%<p>container-sm</p>
+}
+
+
+
+::Q-03-03-23::[html]<p>Оберіть корректні класи для контейнерів Bootstrap</p>{
+	~%50%<p>container</p>
+	~%50%<p>container-md</p>
+	~%-40%<p>container-xxs</p>
+	~%-40%<p>container-xxl</p>
+}
+
+
+
+::Q-03-03-24::[html]<p>Оберіть корректні класи для контейнерів Bootstrap</p>{
+	~%50%<p>container</p>
+	~%50%<p>container-sm</p>
+	~%-40%<p>container-xxs</p>
+	~%-40%<p>container-xxl</p>
+}
+
+
+
+::Q-03-03-25::[html]<p>Що таке Fancybox?</p>{
+	~%50%<p>JavaScript бібліотека для створення модальних вікон</p>
+	~%50%<p>JavaScript бібліотека для створення галерей зображень</p>
+	~%-50%<p>CSS фреймворк для стилізації сторінок</p>
+	~%-50%<p>PHP бібліотека для роботи з базами даних</p>
+}
+
+::Q-03-03-26::[html]<p>Які типи контенту підтримує Fancybox?</p>{
+	~%50%<p>Зображення</p>
+	~%50%<p>Відео</p>
+	~%-50%<p>Тільки текст</p>
+	~%-50%<p>Тільки аудіо</p>
+}
+
+
+::Q-03-03-27::[html]<p>Який параметр використовується для налаштування швидкості анімації у Fancybox?</p>{
+	~%50%<p>animationDuration</p>
+	~%50%<p>speed</p>
+	~%-50%<p>animationSpeed</p>
+	~%-50%<p>duration</p>
+}
+
+::Q-03-03-28::[html]<p>Які методи підтримує Fancybox для роботи з модальними вікнами?</p>{
+	~%33.33333%<p>open</p>
+	~%33.33333%<p>close</p>
+	~%33.33333%<p>destroy</p>
+	~%-50%<p>hide</p>
+}
+
+::Q-03-03-29::[html]<p>Які параметри можна налаштувати у Fancybox?</p>{
+	~%33.33333%<p>animationEffect</p>
+	~%33.33333%<p>transitionEffect</p>
+	~%33.33333%<p>buttons</p>
+	~%-50%<p>backgroundColor</p>
+}
+
+::Q-03-03-30::[html]<p>Які події можна відслідковувати у Fancybox?</p>{
+	~%33.33333%<p>beforeShow</p>
+	~%33.33333%<p>afterClose</p>
+	~%33.33333%<p>onInit</p>
+	~%-50%<p>onLoad</p>
+}
+
+
+
+
+

@@ -1,0 +1,230 @@
+// question: 0  name: Switch category to $course$/top/Модуль 1
+$CATEGORY: $course$/top/Модуль 1
+
+
+// question: 0  name: Switch category to $course$/top/Модуль 1/Рівень 2
+$CATEGORY: $course$/top/Модуль 1/Рівень 2
+
+
+// question: 0  name: Switch category to $course$/top/Модуль 1/Рівень 2/OP-03-02
+$CATEGORY: $course$/top/Модуль 1/Рівень 2/OP-03-02
+
+
+// question: 14338  name: Q-03-02-01
+::Q-03-02-01::[html]<p>Оберіть значення position, що існує</p>{
+	=<p>absolute</p>
+	~<p>left</p>
+	~<p>right</p>
+	~<p>medium</p>
+}
+
+
+// question: 14339  name: Q-03-02-02
+::Q-03-02-02::[html]<p>Оберіть значення position, що існує</p>{
+	=<p>relative</p>
+	~<p>left</p>
+	~<p>right</p>
+	~<p>medium</p>
+}
+
+
+// question: 14340  name: Q-03-02-03
+::Q-03-02-03::[html]<p>Оберіть значення position, що існує</p>{
+	=<p>relative</p>
+	~<p>left</p>
+	~<p>float</p>
+	~<p>medium</p>
+}
+
+
+// question: 14341  name: Q-03-02-04
+::Q-03-02-04::[html]<p>Оберіть значення position, що існує</p>{
+	=<p>fixed</p>
+	~<p>left</p>
+	~<p>float</p>
+	~<p>medium</p>
+}
+
+
+// question: 14342  name: Q-03-02-05
+::Q-03-02-05::[html]<p>Для позиціювання fixed відлік координат ведеться</p>{
+	=<p>відносно вікна браузера</p>
+	~<p>відносно початку документу</p>
+	~<p>відносно кінця документу</p>
+	~<p>відносно батьківського блоку</p>
+}
+
+
+// question: 14343  name: Q-03-02-06
+::Q-03-02-06::[html]<p>Для позиціювання fixed відлік координат ведеться</p>{
+	=<p>відносно вікна браузера</p>
+	~<p>відносно початку документу</p>
+	~<p>відносно кінця документу</p>
+	~<p>відносно батьківського блоку</p>
+}
+
+
+// question: 14344  name: Q-03-02-07
+::Q-03-02-07::[html]<p>Для позиціювання relative відлік координат ведеться</p>{
+	=<p>відносно початкового розташування елементу</p>
+	~<p>відносно початку документу</p>
+	~<p>відносно кінця документу</p>
+	~<p>відносно батьківського блоку</p>
+}
+
+
+// question: 14345  name: Q-03-02-08
+::Q-03-02-08::[html]<p>Параметр вирівнювання тексту text-align не може приймати наступного значення</p>{
+	=<p>top</p>
+	~<p>left</p>
+	~<p>right</p>
+	~<p>justify</p>
+}
+
+
+// question: 14346  name: Q-03-02-09
+::Q-03-02-09::[html]<p>Параметр вирівнювання тексту text-align не може приймати наступного значення</p>{
+	=<p>medium</p>
+	~<p>left</p>
+	~<p>right</p>
+	~<p>justify</p>
+}
+
+
+// question: 14347  name: Q-03-02-10
+::Q-03-02-10::[html]<p>Параметр вирівнювання тексту text-align не може приймати наступного значення</p>{
+	=<p>auto</p>
+	~<p>left</p>
+	~<p>right</p>
+	~<p>justify</p>
+}
+
+
+// question: 14348  name: Q-03-02-11
+::Q-03-02-11::[html]<p>Для розміщення блоків один за одним до одного з країв батьківського елементу використовується параметр</p>{
+	=<p>float</p>
+	~<p>text-align</p>
+	~<p>border-left</p>
+	~<p>border-float</p>
+}
+
+
+// question: 14349  name: Q-03-02-12
+::Q-03-02-12::[html]<p>Для обтікання блоку іншими зправа параметр float повинен приймати наступне значення</p>{
+	=<p>left</p>
+	~<p>right</p>
+	~<p>justify</p>
+	~<p>none</p>
+}
+
+
+// question: 14350  name: Q-03-02-13
+::Q-03-02-13::[html]<p>Для обтікання блоку іншими зліва параметр float повинен приймати наступне значення</p>{
+	~<p>left</p>
+	=<p>right</p>
+	~<p>justify</p>
+	~<p>none</p>
+}
+
+
+// question: 14351  name: Q-03-02-14
+::Q-03-02-14::[html]<p>Оберіть клас Bootstrap, якого не існує </p>{
+	=<p>col-bg-6</p>
+	~<p>col-6</p>
+	~<p>col-md-5</p>
+	~<p>row</p>
+}
+
+
+// question: 14352  name: Q-03-02-15
+::Q-03-02-15::[html]<p>Оберіть клас Bootstrap, якого не існує </p>{
+	=<p>row-xs-6</p>
+	~<p>col-6</p>
+	~<p>col-lg-5</p>
+	~<p>container</p>
+}
+
+
+// question: 14353  name: Q-03-02-16
+::Q-03-02-16::[html]<p>Оберіть клас колонки Bootstrap, який дасть змогу розбити рядок на 3 рівні колонки</p>{
+	=<p>col-md-4</p>
+	~<p>col-md-3</p>
+	~<p>col-lg-3</p>
+	~<p>row-md-4</p>
+}
+
+
+// question: 14354  name: Q-03-02-17
+::Q-03-02-17::[html]<p>Оберіть клас колонки Bootstrap, який дасть змогу розбити рядок на 3 рівні колонки</p>{
+	=<p>col-4</p>
+	~<p>col-md-3</p>
+	~<p>row-xl-4</p>
+	~<p>row-md-3</p>
+}
+
+
+// question: 14355  name: Q-03-02-18
+::Q-03-02-18::[html]<p>Оберіть клас Bootstrap, який створює робоче поле для розміщення сітки на 100% доступної ширини</p>{
+	=<p>container-fluid</p>
+	~<p>container-float</p>
+	~<p>container</p>
+	~<p>row</p>
+}
+
+
+// question: 14356  name: Q-03-02-19
+::Q-03-02-19::[html]<p>Оберіть клас Bootstrap, який створює робоче поле для розміщення сітки на 100% доступної ширини</p>{
+	=<p>container-fluid</p>
+	~<p>col-xl-100</p>
+	~<p>container</p>
+	~<p>row</p>
+}
+
+
+// question: 14357  name: Q-03-02-20
+::Q-03-02-20::[html]<p>Параметр вирівнювання тексту text-align не може приймати наступного значення</p>{
+	=<p>auto</p>
+	~<p>left</p>
+	~<p>right</p>
+	~<p>justify</p>
+}
+
+
+// question: 14358  name: Q-03-02-21
+::Q-03-02-21::[html]<p>Оберіть клас Bootstrap, що відповідає за створення контейнеру обмеженого розміру</p>{
+	=<p>container</p>
+	~<p>container-fluid</p>
+	~<p>row</p>
+	~<p>col-lg-12</p>
+}
+
+
+// question: 14359  name: Q-03-02-22
+::Q-03-02-22::[html]<p>Оберіть клас Bootstrap, що відповідає за створення контейнеру обмеженого розміру</p>{
+	=<p>container</p>
+	~<p>container-fixed</p>
+	~<p>row</p>
+	~<p>col-md-12</p>
+}
+
+
+// question: 14360  name: Q-03-02-23
+::Q-03-02-23::[html]<p>Оберіть технологію, яка необов'язкова для використання Fancybox</p>{
+	=<p>PHP</p>
+	~<p>JavaScript</p>
+	~<p>HTML</p>
+	~<p>CSS</p>
+}
+
+
+// question: 14361  name: Q-03-02-24
+::Q-03-02-24::[html]<p>Оберіть технологію, яка необов'язкова для використання Fancybox</p>{
+	=<p>Bootstrap</p>
+	~<p>JavaScript</p>
+	~<p>HTML</p>
+	~<p>CSS</p>
+}
+
+
+
+
