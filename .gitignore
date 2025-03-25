@@ -1,0 +1,10 @@
+# Temporary files created by Microsoft Office
+~$*.docx
+~$*.xlsx
+~$*.pptx
+~$*.doc
+~$*.xls
+~$*.ppt
+*.tmp
+*.bak
+*.~lock.*
