@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "title": "Image 1",
+        "url": "https://via.placeholder.com/150/0000FF/FFFFFF?text=Image+1",
+        "owner": {
+            "name": "John Doe",
+            "email": "john.doe@example.com"
+        },
+        "comments": [
+            {
+                "id": 1,
+                "text": "Great image!",
+                "author": {
+                    "name": "Jane Smith",
+                    "email": "john.doe@example.com"
+                }
+            },
+            {
+                "id": 4,
+                "text": "I love the colors!",
+                "author": {
+                    "name": "Alice Johnson",
+                    "email": "john.doe@example.com"
+                }
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Image 2",
+        "url": "https://via.placeholder.com/150/FF0000/FFFFFF?text=Image+2",
+        "owner": {
+            "name": "Jane Smith",
+            "email": "john.doe@example.com"
+        },
+        "comments": [
+            {
+                "id": 2,
+                "text": "Nice colors!",
+                "author": {
+                    "name": "Alice Johnson",
+                    "email": "john.doe@example.com"
+                }
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Image 3",
+        "url": "https://via.placeholder.com/150/00FF00/FFFFFF?text=Image+3",
+        "owner": {
+            "name": "Alice Johnson",
+            "email": "john.doe@example.com"
+        },
+        "comments": [
+            {
+                "id": 3,
+                "text": "Beautiful!",
+                "author": {
+                    "name": "Bob Brown",
+                    "email": "john.doe@example.com"
+                }
+            }
+        ]
+    }
+]
